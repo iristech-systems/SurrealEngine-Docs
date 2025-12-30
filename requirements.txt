@@ -1,0 +1,9 @@
+# Documentation requirements for SurrealEngine
+sphinx>=7.0.0
+ansys-sphinx-theme>=0.15.0
+sphinx-copybutton>=0.5.0
+myst-parser>=2.0.0
+sphinx-autobuild>=2024.2.4
+
+# Dependencies needed for autodoc to work
+surrealdb>=0.3.0

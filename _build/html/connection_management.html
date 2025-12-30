@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="./">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Connection Management &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="genindex.html" />
+            <link rel="search" title="Search" href="search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="next" title="Connections, Pooling, and Observability" href="connections_observability.html" />
+            <link rel="prev" title="Tutorial: Building a Blog Application" href="tutorial.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Connection Management</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengineconnection_management.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="_sources/connection_management.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="connection-management">
+<h1>Connection Management<a class="headerlink" href="#connection-management" title="Link to this heading"><span>¶</span></a></h1>
+<p>SurrealEngine provides flexible connection management supporting various connection
+schemes, connection pooling, retry logic, and both synchronous and asynchronous operations.</p>
+<section id="creating-connections">
+<h2>Creating Connections<a class="headerlink" href="#creating-connections" title="Link to this heading"><span>¶</span></a></h2>
+<section id="basic-connection">
+<h3>Basic Connection<a class="headerlink" href="#basic-connection" title="Link to this heading"><span>¶</span></a></h3>
+<p>Create a connection to a remote SurrealDB instance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_connection</span>
+
+<span class="c1"># Async connection</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8000/rpc&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;production&quot;</span><span class="p">,</span>
+    <span class="n">username</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+    <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="synchronous-connection">
+<h3>Synchronous Connection<a class="headerlink" href="#synchronous-connection" title="Link to this heading"><span>¶</span></a></h3>
+<p>For synchronous applications:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sync connection</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8000/rpc&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;production&quot;</span><span class="p">,</span>
+    <span class="n">username</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+    <span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">connection</span><span class="o">.</span><span class="n">connect_sync</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="connection-schemes">
+<h2>Connection Schemes<a class="headerlink" href="#connection-schemes" title="Link to this heading"><span>¶</span></a></h2>
+<p>SurrealEngine supports multiple connection schemes for different deployment scenarios.</p>
+<section id="websocket-connections">
+<h3>WebSocket Connections<a class="headerlink" href="#websocket-connections" title="Link to this heading"><span>¶</span></a></h3>
+<p>Standard WebSocket connections for remote servers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># WebSocket (ws://)</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8000/rpc&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Secure WebSocket (wss://)</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;wss://db.example.com/rpc&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="http-connections">
+<h3>HTTP Connections<a class="headerlink" href="#http-connections" title="Link to this heading"><span>¶</span></a></h3>
+<p>HTTP/HTTPS connections:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># HTTP connection</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://localhost:8000&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># HTTPS connection</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://db.example.com&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="embedded-databases-v0-4-1">
+<h3>Embedded Databases (v0.4.1+)<a class="headerlink" href="#embedded-databases-v0-4-1" title="Link to this heading"><span>¶</span></a></h3>
+<p>SurrealEngine now supports embedded database schemes for local, in-memory, and file-based
+databases using the SurrealDB SDK’s native embedded capabilities.</p>
+<section id="memory-database">
+<h4>Memory Database<a class="headerlink" href="#memory-database" title="Link to this heading"><span>¶</span></a></h4>
+<p>In-memory database - perfect for testing or temporary data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_connection</span>
+
+<span class="c1"># In-memory database</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;mem://&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;temp&quot;</span><span class="p">,</span>
+    <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="c1"># Data is lost when connection closes</span>
+<span class="c1"># Perfect for unit tests!</span>
+</pre></div>
+</div>
+<p>Use cases:
+- Unit testing
+- Temporary data processing
+- Development without persistent storage
+- Fast prototyping</p>
+</section>
+<section id="file-based-database">
+<h4>File-Based Database<a class="headerlink" href="#file-based-database" title="Link to this heading"><span>¶</span></a></h4>
+<p>Persistent file-based database:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># File-based database</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;file:///path/to/database/directory&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span>
+    <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="c1"># Data persists to the file system</span>
+<span class="c1"># No separate database server needed!</span>
+</pre></div>
+</div>
+<p>Use cases:
+- Desktop applications
+- Edge computing
+- Offline-first applications
+- Single-user applications
+- Development and testing</p>
+</section>
+<section id="surrealkv-database">
+<h4>SurrealKV Database<a class="headerlink" href="#surrealkv-database" title="Link to this heading"><span>¶</span></a></h4>
+<p>High-performance key-value store:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># SurrealKV database</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;surrealkv:///path/to/database&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span>
+    <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Use cases:
+- High-performance applications
+- Low-latency requirements
+- Embedded systems
+- IoT devices</p>
+</section>
+<section id="embedded-database-examples">
+<h4>Embedded Database Examples<a class="headerlink" href="#embedded-database-examples" title="Link to this heading"><span>¶</span></a></h4>
+<p>Complete examples for embedded databases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Document</span><span class="p">,</span> <span class="n">StringField</span><span class="p">,</span> <span class="n">IntField</span><span class="p">,</span> <span class="n">create_connection</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">IntField</span><span class="p">()</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">test_with_memory_db</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test with in-memory database&quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&quot;mem://&quot;</span><span class="p">,</span>
+        <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">,</span>
+        <span class="n">database</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">,</span>
+        <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="k">await</span> <span class="n">conn</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+    <span class="c1"># Create and query data</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">users</span><span class="p">)</span><span class="si">}</span><span class="s2"> users&quot;</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">app_with_file_db</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Application with file-based database&quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&quot;file:///var/lib/myapp/db&quot;</span><span class="p">,</span>
+        <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+        <span class="n">database</span><span class="o">=</span><span class="s2">&quot;production&quot;</span><span class="p">,</span>
+        <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="k">await</span> <span class="n">conn</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+    <span class="c1"># Your application logic here</span>
+    <span class="c1"># Data persists between runs</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sync_app_with_embedded_db</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Synchronous app with embedded database&quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&quot;file://./local_db&quot;</span><span class="p">,</span>
+        <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+        <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span>
+        <span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">connect_sync</span><span class="p">()</span>
+
+    <span class="c1"># Synchronous operations</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+    <span class="n">user</span><span class="o">.</span><span class="n">save_sync</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="connection-pooling">
+<h2>Connection Pooling<a class="headerlink" href="#connection-pooling" title="Link to this heading"><span>¶</span></a></h2>
+<p>Enable connection pooling for better performance with concurrent requests:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># With connection pooling</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8000/rpc&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span>
+    <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">use_pool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">pool_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Connection pooling is not supported with LIVE queries. For LIVE subscriptions,
+use <code class="docutils literal notranslate"><span class="pre">use_pool=False</span></code> to get a direct websocket connection.</p>
+</div>
+<section id="pool-options">
+<h3>Pool Options<a class="headerlink" href="#pool-options" title="Link to this heading"><span>¶</span></a></h3>
+<p>Configure connection pool behavior:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8000/rpc&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span>
+    <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">use_pool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">pool_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>              <span class="c1"># Maximum connections in pool</span>
+    <span class="n">pool_max_idle</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>         <span class="c1"># Seconds before idle connection is closed</span>
+    <span class="n">pool_validation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>      <span class="c1"># Validate connections before use</span>
+    <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="retry-and-timeout">
+<h2>Retry and Timeout<a class="headerlink" href="#retry-and-timeout" title="Link to this heading"><span>¶</span></a></h2>
+<p>Configure retry logic and timeouts:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8000/rpc&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span>
+    <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">retry_limit</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>             <span class="c1"># Number of retry attempts</span>
+    <span class="n">initial_delay</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>         <span class="c1"># Initial retry delay in seconds</span>
+    <span class="n">backoff</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>               <span class="c1"># Backoff multiplier</span>
+    <span class="n">timeout</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span>              <span class="c1"># Connection timeout in seconds</span>
+    <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="default-connections">
+<h2>Default Connections<a class="headerlink" href="#default-connections" title="Link to this heading"><span>¶</span></a></h2>
+<p>Set a default connection for all operations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create and set as default</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8000/rpc&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span>
+    <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>  <span class="c1"># Sets as default</span>
+<span class="p">)</span>
+
+<span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="c1"># Now all operations use this connection by default</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>  <span class="c1"># Uses default connection</span>
+
+<span class="c1"># Query without explicit connection</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="multiple-connections">
+<h2>Multiple Connections<a class="headerlink" href="#multiple-connections" title="Link to this heading"><span>¶</span></a></h2>
+<p>Manage multiple database connections:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Primary database</span>
+<span class="n">primary</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://primary.example.com/rpc&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;production&quot;</span><span class="p">,</span>
+    <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="k">await</span> <span class="n">primary</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="c1"># Analytics database</span>
+<span class="n">analytics</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://analytics.example.com/rpc&quot;</span><span class="p">,</span>
+    <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;analytics&quot;</span><span class="p">,</span>
+    <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">make_default</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+<span class="k">await</span> <span class="n">analytics</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="c1"># Use default connection</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>  <span class="c1"># Saves to primary</span>
+
+<span class="c1"># Use specific connection</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">connection</span><span class="o">=</span><span class="n">analytics</span><span class="p">)</span>  <span class="c1"># Saves to analytics</span>
+</pre></div>
+</div>
+</section>
+<section id="connection-registry">
+<h2>Connection Registry<a class="headerlink" href="#connection-registry" title="Link to this heading"><span>¶</span></a></h2>
+<p>Retrieve connections from the registry:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConnectionRegistry</span>
+
+<span class="c1"># Get default async connection</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Get default sync connection</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="connection-context-managers">
+<h2>Connection Context Managers<a class="headerlink" href="#connection-context-managers" title="Link to this heading"><span>¶</span></a></h2>
+<p>Use connections with context managers for automatic cleanup:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process_data</span><span class="p">():</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8000/rpc&quot;</span><span class="p">,</span>
+        <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+        <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span>
+        <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">with</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="c1"># Connection automatically connects and closes</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"><span>¶</span></a></h2>
+<ol class="arabic">
+<li><p><strong>Use embedded databases for local applications (v0.4.1+)</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Desktop app - use file://</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;file://./app_data/db&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Testing - use mem://</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;mem://&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Set make_default=True for primary connection</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">primary</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Use connection pooling for web applications</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">use_pool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pool_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Disable pooling for LIVE queries</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">use_pool</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Required for LIVE</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Configure appropriate timeouts and retries</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+    <span class="o">...</span><span class="p">,</span>
+    <span class="n">timeout</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span>
+    <span class="n">retry_limit</span><span class="o">=</span><span class="mi">3</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Use HTTPS/WSS in production</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;wss://db.example.com/rpc&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Choose the right scheme for your use case</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ws://</span></code> / <code class="docutils literal notranslate"><span class="pre">wss://</span></code> - Remote database server</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">http://</span></code> / <code class="docutils literal notranslate"><span class="pre">https://</span></code> - HTTP-based connections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mem://</span></code> - Testing and temporary data (v0.4.1+)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file://</span></code> - Desktop/offline apps (v0.4.1+)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">surrealkv://</span></code> - High-performance embedded (v0.4.1+)</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="connection-lifecycle">
+<h2>Connection Lifecycle<a class="headerlink" href="#connection-lifecycle" title="Link to this heading"><span>¶</span></a></h2>
+<p>Typical connection lifecycle:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Create connection</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># 2. Connect</span>
+<span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<span class="c1"># 3. Use connection</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="c1"># 4. Close connection (optional, but recommended)</span>
+<span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="health-checks">
+<h2>Health Checks<a class="headerlink" href="#health-checks" title="Link to this heading"><span>¶</span></a></h2>
+<p>Monitor connection health:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if connected</span>
+<span class="k">if</span> <span class="n">connection</span><span class="o">.</span><span class="n">is_connected</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connected to database&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ping the database</span>
+<span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">ping</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"><span>¶</span></a></h2>
+<section id="common-connection-issues">
+<h3>Common Connection Issues<a class="headerlink" href="#common-connection-issues" title="Link to this heading"><span>¶</span></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Connection refused</strong>:</p>
+<ul class="simple">
+<li><p>Check that SurrealDB is running</p></li>
+<li><p>Verify the URL and port</p></li>
+<li><p>Check firewall settings</p></li>
+</ul>
+</li>
+<li><p><strong>Authentication failed</strong>:</p>
+<ul class="simple">
+<li><p>Verify username and password</p></li>
+<li><p>Check namespace and database names</p></li>
+<li><p>Ensure user has proper permissions</p></li>
+</ul>
+</li>
+<li><p><strong>Timeout errors</strong>:</p>
+<ul class="simple">
+<li><p>Increase timeout setting</p></li>
+<li><p>Check network connectivity</p></li>
+<li><p>Verify database server is responsive</p></li>
+</ul>
+</li>
+<li><p><strong>Pool exhausted</strong>:</p>
+<ul class="simple">
+<li><p>Increase pool_size</p></li>
+<li><p>Check for connection leaks</p></li>
+<li><p>Ensure connections are being released</p></li>
+</ul>
+</li>
+<li><p><strong>LIVE queries not working</strong>:</p>
+<ul class="simple">
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">use_pool=False</span></code></p></li>
+<li><p>Use async websocket connection</p></li>
+<li><p>Check SurrealDB version supports LIVE</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="migration-guide">
+<h2>Migration Guide<a class="headerlink" href="#migration-guide" title="Link to this heading"><span>¶</span></a></h2>
+<section id="embedded-database-support-v0-4-1">
+<h3>Embedded Database Support (v0.4.1+)<a class="headerlink" href="#embedded-database-support-v0-4-1" title="Link to this heading"><span>¶</span></a></h3>
+<p>New embedded database schemes are now available:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># NEW (v0.4.1+) - Embedded databases</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;mem://&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;file:///path/to/db&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;surrealkv:///path/to/db&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Still supported - Remote databases</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8000/rpc&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="tutorial.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Tutorial: Building a Blog Application
+    </a>
+    <a class="float-right" href="connections_observability.html" title="Next">
+        Connections, Pooling, and Observability <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Connection Management</a><ul>
+<li><a class="reference internal" href="#creating-connections">Creating Connections</a><ul>
+<li><a class="reference internal" href="#basic-connection">Basic Connection</a></li>
+<li><a class="reference internal" href="#synchronous-connection">Synchronous Connection</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#connection-schemes">Connection Schemes</a><ul>
+<li><a class="reference internal" href="#websocket-connections">WebSocket Connections</a></li>
+<li><a class="reference internal" href="#http-connections">HTTP Connections</a></li>
+<li><a class="reference internal" href="#embedded-databases-v0-4-1">Embedded Databases (v0.4.1+)</a><ul>
+<li><a class="reference internal" href="#memory-database">Memory Database</a></li>
+<li><a class="reference internal" href="#file-based-database">File-Based Database</a></li>
+<li><a class="reference internal" href="#surrealkv-database">SurrealKV Database</a></li>
+<li><a class="reference internal" href="#embedded-database-examples">Embedded Database Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#connection-pooling">Connection Pooling</a><ul>
+<li><a class="reference internal" href="#pool-options">Pool Options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#retry-and-timeout">Retry and Timeout</a></li>
+<li><a class="reference internal" href="#default-connections">Default Connections</a></li>
+<li><a class="reference internal" href="#multiple-connections">Multiple Connections</a></li>
+<li><a class="reference internal" href="#connection-registry">Connection Registry</a></li>
+<li><a class="reference internal" href="#connection-context-managers">Connection Context Managers</a></li>
+<li><a class="reference internal" href="#best-practices">Best Practices</a></li>
+<li><a class="reference internal" href="#connection-lifecycle">Connection Lifecycle</a></li>
+<li><a class="reference internal" href="#health-checks">Health Checks</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#common-connection-issues">Common Connection Issues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migration-guide">Migration Guide</a><ul>
+<li><a class="reference internal" href="#embedded-database-support-v0-4-1">Embedded Database Support (v0.4.1+)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="_static/dist/theme.js"></script>
+        <script type="text/javascript" src="_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="_static/searchtools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

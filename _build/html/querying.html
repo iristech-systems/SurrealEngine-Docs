@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="./">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Querying &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="genindex.html" />
+            <link rel="search" title="Search" href="search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="next" title="Relationships" href="relationships.html" />
+            <link rel="prev" title="Field Types" href="field_types.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_types.html">Field Types</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Querying</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealenginequerying.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="_sources/querying.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="querying">
+<h1>Querying<a class="headerlink" href="#querying" title="Link to this heading"><span>¶</span></a></h1>
+<p>SurrealEngine provides a powerful QuerySet API for building and executing database queries
+with a Django-style interface. This guide covers the query building features and operators
+available in SurrealEngine.</p>
+<section id="basic-querying">
+<h2>Basic Querying<a class="headerlink" href="#basic-querying" title="Link to this heading"><span>¶</span></a></h2>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">objects</span></code> manager to build queries on your document models:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Document</span><span class="p">,</span> <span class="n">StringField</span><span class="p">,</span> <span class="n">IntField</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">IntField</span><span class="p">()</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">()</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span>
+
+<span class="c1"># Get all users</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># Filter users</span>
+<span class="n">active_users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span>
+
+<span class="c1"># Chain filters</span>
+<span class="n">young_active</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">age__lt</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="field-selection">
+<h2>Field Selection<a class="headerlink" href="#field-selection" title="Link to this heading"><span>¶</span></a></h2>
+<section id="omit-fields-v0-5-0">
+<h3>Omit Fields (v0.5.0+)<a class="headerlink" href="#omit-fields-v0-5-0" title="Link to this heading"><span>¶</span></a></h3>
+<p>Exclude specific fields from query results to reduce data transfer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Omit sensitive fields</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">omit</span><span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># Combine with filters</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">omit</span><span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="select-specific-fields">
+<h3>Select Specific Fields<a class="headerlink" href="#select-specific-fields" title="Link to this heading"><span>¶</span></a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">only()</span></code> to select only specific fields:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Only get name and age</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">only</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="query-performance">
+<h2>Query Performance<a class="headerlink" href="#query-performance" title="Link to this heading"><span>¶</span></a></h2>
+<section id="timeout-v0-5-0">
+<h3>Timeout (v0.5.0+)<a class="headerlink" href="#timeout-v0-5-0" title="Link to this heading"><span>¶</span></a></h3>
+<p>Set a timeout for query execution to prevent long-running queries:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5 second timeout</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="s2">&quot;5s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># 1 minute timeout</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="s2">&quot;1m&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="tempfiles-v0-5-0">
+<h3>Tempfiles (v0.5.0+)<a class="headerlink" href="#tempfiles-v0-5-0" title="Link to this heading"><span>¶</span></a></h3>
+<p>Enable or disable temporary files for large query results:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable tempfiles for large result sets</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">tempfiles</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># Disable tempfiles (default)</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">tempfiles</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="index-control-v0-5-0">
+<h3>Index Control (v0.5.0+)<a class="headerlink" href="#index-control-v0-5-0" title="Link to this heading"><span>¶</span></a></h3>
+<p>Bypass indexes for specific queries:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Don&#39;t use any indexes</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">no_index</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;John&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="query-explanation-v0-5-0">
+<h3>Query Explanation (v0.5.0+)<a class="headerlink" href="#query-explanation-v0-5-0" title="Link to this heading"><span>¶</span></a></h3>
+<p>Analyze query execution plans:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get basic execution plan</span>
+<span class="n">plan</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">explain</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plan</span><span class="p">)</span>
+
+<span class="c1"># Get full execution plan with trace</span>
+<span class="n">full_plan</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="n">full</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">full_plan</span><span class="p">)</span>
+
+<span class="c1"># Using the builder pattern</span>
+<span class="n">plan</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_explain</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># Synchronous version</span>
+<span class="n">plan</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">explain_sync</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="advanced-filter-operators">
+<h2>Advanced Filter Operators<a class="headerlink" href="#advanced-filter-operators" title="Link to this heading"><span>¶</span></a></h2>
+<section id="set-operators-v0-5-0">
+<h3>Set Operators (v0.5.0+)<a class="headerlink" href="#set-operators-v0-5-0" title="Link to this heading"><span>¶</span></a></h3>
+<p>SurrealEngine supports advanced set operators for filtering:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Contains any - check if field contains any of the values</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tags__contains_any</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;javascript&quot;</span><span class="p">])</span>
+
+<span class="c1"># Contains all - check if field contains all of the values</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tags__contains_all</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;javascript&quot;</span><span class="p">,</span> <span class="s2">&quot;rust&quot;</span><span class="p">])</span>
+
+<span class="c1"># Contains none - check if field contains none of the values</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tags__contains_none</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;php&quot;</span><span class="p">,</span> <span class="s2">&quot;perl&quot;</span><span class="p">])</span>
+
+<span class="c1"># Inside - check if value is in the list</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status__inside</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="s2">&quot;pending&quot;</span><span class="p">])</span>
+
+<span class="c1"># Not inside - check if value is not in the list</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status__not_inside</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;banned&quot;</span><span class="p">,</span> <span class="s2">&quot;deleted&quot;</span><span class="p">])</span>
+
+<span class="c1"># All inside - check if all field values are in the list</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tags__all_inside</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;javascript&quot;</span><span class="p">,</span> <span class="s2">&quot;rust&quot;</span><span class="p">,</span> <span class="s2">&quot;go&quot;</span><span class="p">])</span>
+
+<span class="c1"># Any inside - check if any field value is in the list</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tags__any_inside</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;javascript&quot;</span><span class="p">])</span>
+
+<span class="c1"># None inside - check if no field values are in the list</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">tags__none_inside</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;php&quot;</span><span class="p">,</span> <span class="s2">&quot;perl&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="standard-operators">
+<h3>Standard Operators<a class="headerlink" href="#standard-operators" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Equality</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;John&quot;</span><span class="p">)</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__eq</span><span class="o">=</span><span class="s2">&quot;John&quot;</span><span class="p">)</span>
+
+<span class="c1"># Inequality</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status__ne</span><span class="o">=</span><span class="s2">&quot;banned&quot;</span><span class="p">)</span>
+
+<span class="c1"># Greater than / Less than</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">age__gt</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">age__gte</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">age__lt</span><span class="o">=</span><span class="mi">65</span><span class="p">)</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">age__lte</span><span class="o">=</span><span class="mi">65</span><span class="p">)</span>
+
+<span class="c1"># String operations</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__contains</span><span class="o">=</span><span class="s2">&quot;John&quot;</span><span class="p">)</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__startswith</span><span class="o">=</span><span class="s2">&quot;J&quot;</span><span class="p">)</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__endswith</span><span class="o">=</span><span class="s2">&quot;son&quot;</span><span class="p">)</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">email__regex</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;.*@example\.com&quot;</span><span class="p">)</span>
+
+<span class="c1"># In operator</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status__in</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="s2">&quot;pending&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="grouping-and-aggregation">
+<h2>Grouping and Aggregation<a class="headerlink" href="#grouping-and-aggregation" title="Link to this heading"><span>¶</span></a></h2>
+<section id="group-by-v0-5-0">
+<h3>Group By (v0.5.0+)<a class="headerlink" href="#group-by-v0-5-0" title="Link to this heading"><span>¶</span></a></h3>
+<p>Group query results by one or more fields:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group by single field</span>
+<span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># Group by multiple fields</span>
+<span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># Group all results (v0.5.0+)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="complex-queries-with-q-objects">
+<h2>Complex Queries with Q Objects<a class="headerlink" href="#complex-queries-with-q-objects" title="Link to this heading"><span>¶</span></a></h2>
+<p>Use Q objects for complex boolean logic:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Q</span>
+
+<span class="c1"># OR condition</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="n">Q</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;pending&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># AND condition</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="n">Q</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Q</span><span class="p">(</span><span class="n">age__gt</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># NOT condition</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">~</span><span class="n">Q</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;banned&quot;</span><span class="p">))</span>
+
+<span class="c1"># Complex nested conditions</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="n">Q</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">age__lt</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">age__gt</span><span class="o">=</span><span class="mi">65</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="ordering-and-pagination">
+<h2>Ordering and Pagination<a class="headerlink" href="#ordering-and-pagination" title="Link to this heading"><span>¶</span></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Order by field</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+
+<span class="c1"># Descending order</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;-age&quot;</span><span class="p">)</span>
+
+<span class="c1"># Multiple fields</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;-age&quot;</span><span class="p">)</span>
+
+<span class="c1"># Limit results</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Skip results</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Pagination</span>
+<span class="n">page</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>  <span class="c1"># page 1, 20 items per page</span>
+</pre></div>
+</div>
+</section>
+<section id="fetching-related-documents">
+<h2>Fetching Related Documents<a class="headerlink" href="#fetching-related-documents" title="Link to this heading"><span>¶</span></a></h2>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">fetch()</span></code> method to load related documents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch referenced documents</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;company&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># Fetch multiple relations</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;company&quot;</span><span class="p">,</span> <span class="s2">&quot;manager&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="synchronous-queries">
+<h2>Synchronous Queries<a class="headerlink" href="#synchronous-queries" title="Link to this heading"><span>¶</span></a></h2>
+<p>All query methods have synchronous equivalents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Synchronous query</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all_sync</span><span class="p">()</span>
+
+<span class="c1"># Synchronous explain</span>
+<span class="n">plan</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">explain_sync</span><span class="p">()</span>
+
+<span class="c1"># Get single object</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_sync</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;user:123&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="query-chaining">
+<h2>Query Chaining<a class="headerlink" href="#query-chaining" title="Link to this heading"><span>¶</span></a></h2>
+<p>All QuerySet methods return a new QuerySet, allowing for flexible query building:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build query progressively</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">age__gte</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">omit</span><span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="s2">&quot;5s&quot;</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;-created_at&quot;</span><span class="p">)</span>
+
+<span class="c1"># Execute</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># Or chain in one statement</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">objects</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">age__gte</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">omit</span><span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="s2">&quot;5s&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;-created_at&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">all</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="field_types.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Field Types
+    </a>
+    <a class="float-right" href="relationships.html" title="Next">
+        Relationships <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Querying</a><ul>
+<li><a class="reference internal" href="#basic-querying">Basic Querying</a></li>
+<li><a class="reference internal" href="#field-selection">Field Selection</a><ul>
+<li><a class="reference internal" href="#omit-fields-v0-5-0">Omit Fields (v0.5.0+)</a></li>
+<li><a class="reference internal" href="#select-specific-fields">Select Specific Fields</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#query-performance">Query Performance</a><ul>
+<li><a class="reference internal" href="#timeout-v0-5-0">Timeout (v0.5.0+)</a></li>
+<li><a class="reference internal" href="#tempfiles-v0-5-0">Tempfiles (v0.5.0+)</a></li>
+<li><a class="reference internal" href="#index-control-v0-5-0">Index Control (v0.5.0+)</a></li>
+<li><a class="reference internal" href="#query-explanation-v0-5-0">Query Explanation (v0.5.0+)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-filter-operators">Advanced Filter Operators</a><ul>
+<li><a class="reference internal" href="#set-operators-v0-5-0">Set Operators (v0.5.0+)</a></li>
+<li><a class="reference internal" href="#standard-operators">Standard Operators</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#grouping-and-aggregation">Grouping and Aggregation</a><ul>
+<li><a class="reference internal" href="#group-by-v0-5-0">Group By (v0.5.0+)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#complex-queries-with-q-objects">Complex Queries with Q Objects</a></li>
+<li><a class="reference internal" href="#ordering-and-pagination">Ordering and Pagination</a></li>
+<li><a class="reference internal" href="#fetching-related-documents">Fetching Related Documents</a></li>
+<li><a class="reference internal" href="#synchronous-queries">Synchronous Queries</a></li>
+<li><a class="reference internal" href="#query-chaining">Query Chaining</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="_static/dist/theme.js"></script>
+        <script type="text/javascript" src="_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="_static/searchtools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

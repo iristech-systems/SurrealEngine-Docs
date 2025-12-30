@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>surrealengine.aggregation &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="up" title="Module code" href="../index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+        <li class="breadcrumb-item active" aria-current="page">surrealengine.aggregation</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengine_modules/surrealengine/aggregation" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <h1>Source code for surrealengine.aggregation</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Aggregation pipeline for SurrealEngine.</span>
+
+<span class="sd">This module provides support for building and executing aggregation pipelines</span>
+<span class="sd">in SurrealEngine. Aggregation pipelines allow for complex data transformations</span>
+<span class="sd">and analysis through a series of stages.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.surrealql</span><span class="w"> </span><span class="kn">import</span> <span class="n">escape_literal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConnectionRegistry</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.query</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuerySet</span>
+
+
+<div class="viewcode-block" id="AggregationPipeline">
+<a class="viewcode-back" href="../../api/aggregation.html#surrealengine.aggregation.AggregationPipeline">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AggregationPipeline</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Pipeline for building and executing aggregation queries.</span>
+<span class="sd">    </span>
+<span class="sd">    This class provides a fluent interface for building complex aggregation</span>
+<span class="sd">    pipelines with multiple stages, similar to MongoDB&#39;s aggregation framework.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+<div class="viewcode-block" id="AggregationPipeline.__init__">
+<a class="viewcode-back" href="../../api/aggregation.html#surrealengine.aggregation.AggregationPipeline.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query_set</span><span class="p">:</span> <span class="s1">&#39;QuerySet&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new AggregationPipeline.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            query_set: The QuerySet to build the pipeline from</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">query_set</span> <span class="o">=</span> <span class="n">query_set</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stages</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="n">query_set</span><span class="o">.</span><span class="n">connection</span></div>
+
+        
+<div class="viewcode-block" id="AggregationPipeline.group">
+<a class="viewcode-back" href="../../api/aggregation.html#surrealengine.aggregation.AggregationPipeline.group">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">by_fields</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">aggregations</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Group by fields and apply aggregations.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            by_fields: Field or list of fields to group by</span>
+<span class="sd">            **aggregations: Named aggregation functions to apply</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The pipeline instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;group&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;by_fields&#39;</span><span class="p">:</span> <span class="n">by_fields</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">by_fields</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">([</span><span class="n">by_fields</span><span class="p">]</span> <span class="k">if</span> <span class="n">by_fields</span> <span class="k">else</span> <span class="p">[]),</span>
+            <span class="s1">&#39;aggregations&#39;</span><span class="p">:</span> <span class="n">aggregations</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+        
+<div class="viewcode-block" id="AggregationPipeline.project">
+<a class="viewcode-back" href="../../api/aggregation.html#surrealengine.aggregation.AggregationPipeline.project">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">project</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">fields</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Select or compute fields to include in output.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            **fields: Field mappings for projection</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The pipeline instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;project&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="n">fields</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+        
+<div class="viewcode-block" id="AggregationPipeline.sort">
+<a class="viewcode-back" href="../../api/aggregation.html#surrealengine.aggregation.AggregationPipeline.sort">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">fields</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sort results by fields.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            **fields: Field names and sort directions (&#39;ASC&#39; or &#39;DESC&#39;)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The pipeline instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;sort&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="n">fields</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+        
+<div class="viewcode-block" id="AggregationPipeline.limit">
+<a class="viewcode-back" href="../../api/aggregation.html#surrealengine.aggregation.AggregationPipeline.limit">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">limit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Limit number of results.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            count: Maximum number of results to return</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The pipeline instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;limit&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="n">count</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+        
+<div class="viewcode-block" id="AggregationPipeline.skip">
+<a class="viewcode-back" href="../../api/aggregation.html#surrealengine.aggregation.AggregationPipeline.skip">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">skip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Skip number of results.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            count: Number of results to skip</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The pipeline instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;skip&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="n">count</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+        
+<div class="viewcode-block" id="AggregationPipeline.with_index">
+<a class="viewcode-back" href="../../api/aggregation.html#surrealengine.aggregation.AggregationPipeline.with_index">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">with_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use the specified index for the query.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            index: Name of the index to use</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The pipeline instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;with_index&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="n">index</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+        
+<div class="viewcode-block" id="AggregationPipeline.match">
+<a class="viewcode-back" href="../../api/aggregation.html#surrealengine.aggregation.AggregationPipeline.match">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">conditions</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Filter documents before aggregation (similar to WHERE clause).</span>
+<span class="sd">        </span>
+<span class="sd">        This method adds filtering conditions that are applied before</span>
+<span class="sd">        any aggregation operations. Multiple conditions are combined with AND.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            **conditions: Field-value pairs for filtering (e.g., status=&#39;active&#39;)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The pipeline instance for method chaining</span>
+<span class="sd">            </span>
+<span class="sd">        Example:</span>
+<span class="sd">            pipeline.match(status=&#39;completed&#39;, price__gt=100)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;match&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;conditions&#39;</span><span class="p">:</span> <span class="n">conditions</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+        
+<div class="viewcode-block" id="AggregationPipeline.having">
+<a class="viewcode-back" href="../../api/aggregation.html#surrealengine.aggregation.AggregationPipeline.having">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">having</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">conditions</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Filter aggregated results (similar to HAVING clause).</span>
+<span class="sd">        </span>
+<span class="sd">        This method adds filtering conditions that are applied after</span>
+<span class="sd">        aggregation operations. Use this to filter based on aggregated values.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            **conditions: Field-value pairs for filtering aggregated results</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The pipeline instance for method chaining</span>
+<span class="sd">            </span>
+<span class="sd">        Example:</span>
+<span class="sd">            pipeline.group(by_fields=&#39;category&#39;, total=Sum(&#39;price&#39;)).having(total__gt=1000)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stages</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;having&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;conditions&#39;</span><span class="p">:</span> <span class="n">conditions</span>
+        <span class="p">})</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+        
+<div class="viewcode-block" id="AggregationPipeline.build_query">
+<a class="viewcode-back" href="../../api/aggregation.html#surrealengine.aggregation.AggregationPipeline.build_query">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">build_query</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build the SurrealQL query from the pipeline stages.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The SurrealQL query string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Start with the base query from the query set</span>
+        <span class="n">base_query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_set</span><span class="o">.</span><span class="n">get_raw_query</span><span class="p">()</span>
+        
+        <span class="c1"># Extract the FROM clause and any clauses that come after it</span>
+        <span class="n">from_index</span> <span class="o">=</span> <span class="n">base_query</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;FROM&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">from_index</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">base_query</span>
+            
+        <span class="c1"># Split the query into the SELECT part and the rest</span>
+        <span class="n">select_part</span> <span class="o">=</span> <span class="n">base_query</span><span class="p">[:</span><span class="n">from_index</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">rest_part</span> <span class="o">=</span> <span class="n">base_query</span><span class="p">[</span><span class="n">from_index</span><span class="p">:]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        
+        <span class="c1"># Process the stages to modify the query</span>
+        <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stages</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;match&#39;</span><span class="p">:</span>
+                <span class="c1"># Handle MATCH stage (pre-aggregation filtering)</span>
+                <span class="n">conditions</span> <span class="o">=</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;conditions&#39;</span><span class="p">]</span>
+                
+                <span class="k">if</span> <span class="n">conditions</span><span class="p">:</span>
+                    <span class="c1"># Build WHERE conditions</span>
+                    <span class="n">where_conditions</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">conditions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="c1"># Handle Django-style operators</span>
+                        <span class="k">if</span> <span class="s1">&#39;__&#39;</span> <span class="ow">in</span> <span class="n">field</span><span class="p">:</span>
+                            <span class="n">field_name</span><span class="p">,</span> <span class="n">op</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;gt&#39;</span><span class="p">:</span>
+                                <span class="n">where_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> &gt; </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;lt&#39;</span><span class="p">:</span>
+                                <span class="n">where_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> &lt; </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;gte&#39;</span><span class="p">:</span>
+                                <span class="n">where_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> &gt;= </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;lte&#39;</span><span class="p">:</span>
+                                <span class="n">where_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> &lt;= </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;ne&#39;</span><span class="p">:</span>
+                                <span class="n">where_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span>
+                                <span class="n">where_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> IN </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;nin&#39;</span><span class="p">:</span>
+                                <span class="n">where_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> NOT IN </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;contains&#39;</span><span class="p">:</span>
+                                <span class="n">where_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> CONTAINS </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;startswith&#39;</span><span class="p">:</span>
+                                <span class="n">where_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;string::starts_with(</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;endswith&#39;</span><span class="p">:</span>
+                                <span class="n">where_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;string::ends_with(</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="c1"># Default to equality</span>
+                                <span class="n">where_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="c1"># Simple equality</span>
+                            <span class="n">where_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    
+                    <span class="n">where_clause</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;WHERE </span><span class="si">{</span><span class="s1">&#39; AND &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">where_conditions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                    
+                    <span class="c1"># Check if there&#39;s already a WHERE clause</span>
+                    <span class="k">if</span> <span class="s2">&quot;WHERE&quot;</span> <span class="ow">in</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span>
+                        <span class="c1"># Append to existing WHERE clause</span>
+                        <span class="n">where_index</span> <span class="o">=</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;WHERE&quot;</span><span class="p">)</span>
+                        <span class="c1"># Find the end of WHERE clause</span>
+                        <span class="k">for</span> <span class="n">clause</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;GROUP BY&quot;</span><span class="p">,</span> <span class="s2">&quot;SPLIT&quot;</span><span class="p">,</span> <span class="s2">&quot;FETCH&quot;</span><span class="p">,</span> <span class="s2">&quot;ORDER BY&quot;</span><span class="p">,</span> <span class="s2">&quot;LIMIT&quot;</span><span class="p">,</span> <span class="s2">&quot;START&quot;</span><span class="p">]:</span>
+                            <span class="n">clause_index</span> <span class="o">=</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">clause</span><span class="p">,</span> <span class="n">where_index</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">clause_index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                                <span class="c1"># Insert before the next clause</span>
+                                <span class="n">existing_where</span> <span class="o">=</span> <span class="n">rest_part</span><span class="p">[</span><span class="n">where_index</span><span class="p">:</span><span class="n">clause_index</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                                <span class="n">new_where</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">existing_where</span><span class="si">}</span><span class="s2"> AND </span><span class="si">{</span><span class="s1">&#39; AND &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">where_conditions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                                <span class="n">rest_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest_part</span><span class="p">[:</span><span class="n">where_index</span><span class="p">]</span><span class="si">}{</span><span class="n">new_where</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">rest_part</span><span class="p">[</span><span class="n">clause_index</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span>
+                                <span class="k">break</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="c1"># No other clause after WHERE</span>
+                            <span class="n">rest_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest_part</span><span class="si">}</span><span class="s2"> AND </span><span class="si">{</span><span class="s1">&#39; AND &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">where_conditions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># Add WHERE clause before GROUP BY or other clauses</span>
+                        <span class="k">for</span> <span class="n">clause</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;GROUP BY&quot;</span><span class="p">,</span> <span class="s2">&quot;SPLIT&quot;</span><span class="p">,</span> <span class="s2">&quot;FETCH&quot;</span><span class="p">,</span> <span class="s2">&quot;ORDER BY&quot;</span><span class="p">,</span> <span class="s2">&quot;LIMIT&quot;</span><span class="p">,</span> <span class="s2">&quot;START&quot;</span><span class="p">]:</span>
+                            <span class="n">clause_index</span> <span class="o">=</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">clause</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">clause_index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                                <span class="n">rest_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest_part</span><span class="p">[:</span><span class="n">clause_index</span><span class="p">]</span><span class="si">}{</span><span class="n">where_clause</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">rest_part</span><span class="p">[</span><span class="n">clause_index</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span>
+                                <span class="k">break</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="c1"># No other clauses, add to the end</span>
+                            <span class="n">rest_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest_part</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">where_clause</span><span class="si">}</span><span class="s2">&quot;</span>
+            
+            <span class="k">elif</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;group&#39;</span><span class="p">:</span>
+                <span class="c1"># Handle GROUP BY stage</span>
+                <span class="n">by_fields</span> <span class="o">=</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;by_fields&#39;</span><span class="p">]</span>
+                <span class="n">aggregations</span> <span class="o">=</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;aggregations&#39;</span><span class="p">]</span>
+                
+                <span class="c1"># Build the GROUP BY clause or GROUP ALL</span>
+                <span class="k">if</span> <span class="n">by_fields</span><span class="p">:</span>
+                    <span class="n">group_clause</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;GROUP BY </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">by_fields</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># If no explicit group fields but aggregations exist with array functions,</span>
+                    <span class="c1"># we can use GROUP ALL to enable row-collection semantics.</span>
+                    <span class="n">group_clause</span> <span class="o">=</span> <span class="s2">&quot;GROUP ALL&quot;</span>
+                
+                <span class="k">if</span> <span class="n">by_fields</span> <span class="ow">or</span> <span class="n">aggregations</span><span class="p">:</span>
+                    <span class="c1"># Inject group clause if not already present</span>
+                    <span class="n">upper</span> <span class="o">=</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="s2">&quot;GROUP BY&quot;</span> <span class="ow">in</span> <span class="n">upper</span> <span class="ow">or</span> <span class="s2">&quot;GROUP ALL&quot;</span> <span class="ow">in</span> <span class="n">upper</span><span class="p">:</span>
+                        <span class="c1"># Replace existing group clause</span>
+                        <span class="n">rest_part</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;GROUP (?:BY|ALL).*?(?=(ORDER BY|LIMIT|START|$))&#39;</span><span class="p">,</span> <span class="n">group_clause</span><span class="p">,</span> <span class="n">rest_part</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># Add the group clause before ORDER BY, LIMIT, or START</span>
+                        <span class="n">inserted</span> <span class="o">=</span> <span class="kc">False</span>
+                        <span class="k">for</span> <span class="n">clause</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;ORDER BY&quot;</span><span class="p">,</span> <span class="s2">&quot;LIMIT&quot;</span><span class="p">,</span> <span class="s2">&quot;START&quot;</span><span class="p">]:</span>
+                            <span class="n">clause_index</span> <span class="o">=</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">clause</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">clause_index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                                <span class="n">rest_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest_part</span><span class="p">[:</span><span class="n">clause_index</span><span class="p">]</span><span class="si">}{</span><span class="n">group_clause</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">rest_part</span><span class="p">[</span><span class="n">clause_index</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span>
+                                <span class="n">inserted</span> <span class="o">=</span> <span class="kc">True</span>
+                                <span class="k">break</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="n">inserted</span><span class="p">:</span>
+                            <span class="n">rest_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest_part</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">group_clause</span><span class="si">}</span><span class="s2">&quot;</span>
+                
+                <span class="c1"># Build the SELECT part with aggregations</span>
+                <span class="k">if</span> <span class="n">aggregations</span><span class="p">:</span>
+                    <span class="c1"># Start with the group by fields</span>
+                    <span class="n">select_fields</span> <span class="o">=</span> <span class="n">by_fields</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">if</span> <span class="n">by_fields</span> <span class="k">else</span> <span class="p">[]</span>
+                    
+                    <span class="c1"># Add the aggregations</span>
+                    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">agg</span> <span class="ow">in</span> <span class="n">aggregations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="n">select_fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">agg</span><span class="si">}</span><span class="s2"> AS </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    
+                    <span class="c1"># Replace the SELECT part</span>
+                    <span class="n">select_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">select_fields</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            
+            <span class="k">elif</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;project&#39;</span><span class="p">:</span>
+                <span class="c1"># Handle PROJECT stage</span>
+                <span class="n">fields</span> <span class="o">=</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">]</span>
+                
+                <span class="c1"># Build the SELECT part with projections</span>
+                <span class="k">if</span> <span class="n">fields</span><span class="p">:</span>
+                    <span class="n">select_fields</span> <span class="o">=</span> <span class="p">[]</span>
+                    
+                    <span class="c1"># Add the projections</span>
+                    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">expr</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="k">if</span> <span class="n">expr</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                            <span class="c1"># Include the field as is</span>
+                            <span class="n">select_fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="c1"># Include the field with an expression</span>
+                            <span class="n">select_fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">expr</span><span class="si">}</span><span class="s2"> AS </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    
+                    <span class="c1"># Replace the SELECT part</span>
+                    <span class="n">select_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">select_fields</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            
+            <span class="k">elif</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;having&#39;</span><span class="p">:</span>
+                <span class="c1"># Handle HAVING stage (post-aggregation filtering)</span>
+                <span class="n">conditions</span> <span class="o">=</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;conditions&#39;</span><span class="p">]</span>
+                
+                <span class="k">if</span> <span class="n">conditions</span><span class="p">:</span>
+                    <span class="c1"># Build HAVING conditions</span>
+                    <span class="n">having_conditions</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">conditions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="c1"># Handle Django-style operators</span>
+                        <span class="k">if</span> <span class="s1">&#39;__&#39;</span> <span class="ow">in</span> <span class="n">field</span><span class="p">:</span>
+                            <span class="n">field_name</span><span class="p">,</span> <span class="n">op</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;gt&#39;</span><span class="p">:</span>
+                                <span class="n">having_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> &gt; </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;lt&#39;</span><span class="p">:</span>
+                                <span class="n">having_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> &lt; </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;gte&#39;</span><span class="p">:</span>
+                                <span class="n">having_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> &gt;= </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;lte&#39;</span><span class="p">:</span>
+                                <span class="n">having_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> &lt;= </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;ne&#39;</span><span class="p">:</span>
+                                <span class="n">having_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span>
+                                <span class="n">having_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> IN </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;nin&#39;</span><span class="p">:</span>
+                                <span class="n">having_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> NOT IN </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="c1"># Default to equality</span>
+                                <span class="n">having_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="c1"># Simple equality</span>
+                            <span class="n">having_conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    
+                    <span class="c1"># For SurrealDB, HAVING is implemented as a WHERE clause on the aggregated results</span>
+                    <span class="c1"># We need to wrap the entire query in a subquery and apply WHERE on it</span>
+                    <span class="c1"># This will be handled at the end of query building</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">having_conditions</span> <span class="o">=</span> <span class="n">having_conditions</span>
+            
+            <span class="k">elif</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;sort&#39;</span><span class="p">:</span>
+                <span class="c1"># Handle SORT stage</span>
+                <span class="n">fields</span> <span class="o">=</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">]</span>
+                
+                <span class="c1"># Build the ORDER BY clause</span>
+                <span class="k">if</span> <span class="n">fields</span><span class="p">:</span>
+                    <span class="n">order_by_parts</span> <span class="o">=</span> <span class="p">[]</span>
+                    
+                    <span class="c1"># Add the sort fields</span>
+                    <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">direction</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="n">order_by_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">direction</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    
+                    <span class="n">order_by_clause</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;ORDER BY </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">order_by_parts</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                    
+                    <span class="c1"># Check if there&#39;s already an ORDER BY clause</span>
+                    <span class="k">if</span> <span class="s2">&quot;ORDER BY&quot;</span> <span class="ow">in</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span>
+                        <span class="c1"># Replace the existing ORDER BY clause</span>
+                        <span class="n">rest_part</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;ORDER BY.*?(?=(LIMIT|START|$))&#39;</span><span class="p">,</span> <span class="n">order_by_clause</span><span class="p">,</span> <span class="n">rest_part</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># Add the ORDER BY clause before LIMIT or START</span>
+                        <span class="k">for</span> <span class="n">clause</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;LIMIT&quot;</span><span class="p">,</span> <span class="s2">&quot;START&quot;</span><span class="p">]:</span>
+                            <span class="n">clause_index</span> <span class="o">=</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">clause</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">clause_index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                                <span class="n">rest_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest_part</span><span class="p">[:</span><span class="n">clause_index</span><span class="p">]</span><span class="si">}{</span><span class="n">order_by_clause</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">rest_part</span><span class="p">[</span><span class="n">clause_index</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span>
+                                <span class="k">break</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="c1"># No LIMIT or START, so add to the end</span>
+                            <span class="n">rest_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest_part</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">order_by_clause</span><span class="si">}</span><span class="s2">&quot;</span>
+            
+            <span class="k">elif</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;limit&#39;</span><span class="p">:</span>
+                <span class="c1"># Handle LIMIT stage</span>
+                <span class="n">count</span> <span class="o">=</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span>
+                
+                <span class="c1"># Build the LIMIT clause</span>
+                <span class="n">limit_clause</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;LIMIT </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span>
+                
+                <span class="c1"># Check if there&#39;s already a LIMIT clause</span>
+                <span class="k">if</span> <span class="s2">&quot;LIMIT&quot;</span> <span class="ow">in</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span>
+                    <span class="c1"># Replace the existing LIMIT clause</span>
+                    <span class="n">rest_part</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;LIMIT.*?(?=(START|$))&#39;</span><span class="p">,</span> <span class="n">limit_clause</span><span class="p">,</span> <span class="n">rest_part</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Add the LIMIT clause before START</span>
+                    <span class="n">start_index</span> <span class="o">=</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;START&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">start_index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                        <span class="n">rest_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest_part</span><span class="p">[:</span><span class="n">start_index</span><span class="p">]</span><span class="si">}{</span><span class="n">limit_clause</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">rest_part</span><span class="p">[</span><span class="n">start_index</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># No START, so add to the end</span>
+                        <span class="n">rest_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest_part</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">limit_clause</span><span class="si">}</span><span class="s2">&quot;</span>
+            
+            <span class="k">elif</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;skip&#39;</span><span class="p">:</span>
+                <span class="c1"># Handle SKIP stage</span>
+                <span class="n">count</span> <span class="o">=</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span>
+                
+                <span class="c1"># Build the START clause</span>
+                <span class="n">start_clause</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;START </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span>
+                
+                <span class="c1"># Check if there&#39;s already a START clause</span>
+                <span class="k">if</span> <span class="s2">&quot;START&quot;</span> <span class="ow">in</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span>
+                    <span class="c1"># Replace the existing START clause</span>
+                    <span class="n">rest_part</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;START.*?(?=$)&#39;</span><span class="p">,</span> <span class="n">start_clause</span><span class="p">,</span> <span class="n">rest_part</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Add the START clause to the end</span>
+                    <span class="n">rest_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest_part</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">start_clause</span><span class="si">}</span><span class="s2">&quot;</span>
+            
+            <span class="k">elif</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;with_index&#39;</span><span class="p">:</span>
+                <span class="c1"># Handle WITH_INDEX stage</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">stage</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span>
+                
+                <span class="c1"># Build the WITH clause</span>
+                <span class="n">with_clause</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;WITH INDEX </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">&quot;</span>
+                
+                <span class="c1"># Check if there&#39;s already a WITH clause</span>
+                <span class="k">if</span> <span class="s2">&quot;WITH&quot;</span> <span class="ow">in</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span>
+                    <span class="c1"># Replace the existing WITH clause</span>
+                    <span class="n">rest_part</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;WITH.*?(?=(WHERE|GROUP BY|SPLIT|FETCH|ORDER BY|LIMIT|START|$))&#39;</span><span class="p">,</span> <span class="n">with_clause</span><span class="p">,</span> <span class="n">rest_part</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Add the WITH clause before WHERE, GROUP BY, SPLIT, FETCH, ORDER BY, LIMIT, or START</span>
+                    <span class="k">for</span> <span class="n">clause</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;WHERE&quot;</span><span class="p">,</span> <span class="s2">&quot;GROUP BY&quot;</span><span class="p">,</span> <span class="s2">&quot;SPLIT&quot;</span><span class="p">,</span> <span class="s2">&quot;FETCH&quot;</span><span class="p">,</span> <span class="s2">&quot;ORDER BY&quot;</span><span class="p">,</span> <span class="s2">&quot;LIMIT&quot;</span><span class="p">,</span> <span class="s2">&quot;START&quot;</span><span class="p">]:</span>
+                        <span class="n">clause_index</span> <span class="o">=</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">clause</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">clause_index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                            <span class="n">rest_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest_part</span><span class="p">[:</span><span class="n">clause_index</span><span class="p">]</span><span class="si">}{</span><span class="n">with_clause</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">rest_part</span><span class="p">[</span><span class="n">clause_index</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span>
+                            <span class="k">break</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># No WHERE, GROUP BY, SPLIT, FETCH, ORDER BY, LIMIT, or START, so add to the end</span>
+                        <span class="n">rest_part</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rest_part</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">with_clause</span><span class="si">}</span><span class="s2">&quot;</span>
+        
+        <span class="c1"># Combine the SELECT part with the rest of the query</span>
+        <span class="n">final_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">select_part</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">rest_part</span><span class="si">}</span><span class="s2">&quot;</span>
+        
+        <span class="c1"># Handle HAVING conditions by wrapping in a subquery</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;having_conditions&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">having_conditions</span><span class="p">:</span>
+            <span class="c1"># Wrap the entire query in a subquery and apply WHERE conditions</span>
+            <span class="n">having_where</span> <span class="o">=</span> <span class="s2">&quot; AND &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">having_conditions</span><span class="p">)</span>
+            <span class="n">final_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM (</span><span class="si">{</span><span class="n">final_query</span><span class="si">}</span><span class="s2">) WHERE </span><span class="si">{</span><span class="n">having_where</span><span class="si">}</span><span class="s2">&quot;</span>
+        
+        <span class="k">return</span> <span class="n">final_query</span></div>
+
+        
+<div class="viewcode-block" id="AggregationPipeline.execute">
+<a class="viewcode-back" href="../../api/aggregation.html#surrealengine.aggregation.AggregationPipeline.execute">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute the pipeline and return results.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            connection: Optional connection to use</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            A list of result rows (dicts) from the final SELECT statement</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_query</span><span class="p">()</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="ow">or</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">()</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+        <span class="c1"># Normalize RPC response to a list of row dicts, similar to QuerySet.all()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">results</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="n">rows</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">results</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">rows</span> <span class="o">=</span> <span class="n">results</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">part</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                        <span class="n">rows</span> <span class="o">=</span> <span class="n">part</span>
+                        <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rows</span> <span class="o">=</span> <span class="n">results</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">rows</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">rows</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">rows</span></div>
+
+        
+<div class="viewcode-block" id="AggregationPipeline.execute_sync">
+<a class="viewcode-back" href="../../api/aggregation.html#surrealengine.aggregation.AggregationPipeline.execute_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute the pipeline synchronously.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            connection: Optional connection to use</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            A list of result rows (dicts) from the final SELECT statement</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_query</span><span class="p">()</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="ow">or</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">()</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+        <span class="c1"># Normalize RPC response to a list of row dicts, similar to QuerySet.all_sync()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">results</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="n">rows</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">results</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">rows</span> <span class="o">=</span> <span class="n">results</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">part</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                        <span class="n">rows</span> <span class="o">=</span> <span class="n">part</span>
+                        <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rows</span> <span class="o">=</span> <span class="n">results</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">rows</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">rows</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">rows</span></div>
+</div>
+
+</pre></div>
+</main>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

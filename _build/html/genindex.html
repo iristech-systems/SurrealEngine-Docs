@@ -1,0 +1,2396 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="./">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Index &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="#" />
+            <link rel="search" title="Search" href="search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+    </head>
+<body>
+    <script type="text/javascript" src="_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Index</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealenginegenindex" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <h1 id="index">Index</h1>
+    <div class="genindex-jumpbox">
+        <a href="#_"><strong>_</strong></a>
+            | <a href="#A"><strong>A</strong></a>
+            | <a href="#B"><strong>B</strong></a>
+            | <a href="#C"><strong>C</strong></a>
+            | <a href="#D"><strong>D</strong></a>
+            | <a href="#E"><strong>E</strong></a>
+            | <a href="#F"><strong>F</strong></a>
+            | <a href="#G"><strong>G</strong></a>
+            | <a href="#H"><strong>H</strong></a>
+            | <a href="#I"><strong>I</strong></a>
+            | <a href="#J"><strong>J</strong></a>
+            | <a href="#L"><strong>L</strong></a>
+            | <a href="#M"><strong>M</strong></a>
+            | <a href="#N"><strong>N</strong></a>
+            | <a href="#O"><strong>O</strong></a>
+            | <a href="#P"><strong>P</strong></a>
+            | <a href="#Q"><strong>Q</strong></a>
+            | <a href="#R"><strong>R</strong></a>
+            | <a href="#S"><strong>S</strong></a>
+            | <a href="#T"><strong>T</strong></a>
+            | <a href="#U"><strong>U</strong></a>
+            | <a href="#V"><strong>V</strong></a>
+            | <a href="#W"><strong>W</strong></a>
+            
+    </div>
+        <h2 id="_">_</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.__aenter__">__aenter__() (surrealengine.connection.SurrealEngineAsyncConnection method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.__aexit__">__aexit__() (surrealengine.connection.SurrealEngineAsyncConnection method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query_expressions.Q.__and__">__and__() (surrealengine.query_expressions.Q method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.__call__">__call__() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.__call__">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection.__enter__">__enter__() (surrealengine.connection.SurrealEngineSyncConnection method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection.__exit__">__exit__() (surrealengine.connection.SurrealEngineSyncConnection method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.__get__">__get__() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.__getattr__">__getattr__() (surrealengine.document.Document method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SurrealEngine.__getattr__">(surrealengine.schemaless.SurrealEngine method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.pagination.PaginationResult.__getitem__">__getitem__() (surrealengine.pagination.PaginationResult method)</a>
+</li>
+                                <li>
+                                    <a href="api/aggregation.html#surrealengine.aggregation.AggregationPipeline.__init__">__init__() (surrealengine.aggregation.AggregationPipeline method)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.AsyncConnectionPool.__init__">(surrealengine.connection.AsyncConnectionPool method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.BaseSurrealEngineConnection.__init__">(surrealengine.connection.BaseSurrealEngineConnection method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionEventEmitter.__init__">(surrealengine.connection.ConnectionEventEmitter method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.__init__">(surrealengine.connection.ConnectionPoolBase method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.OperationQueue.__init__">(surrealengine.connection.OperationQueue method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.ReconnectionStrategy.__init__">(surrealengine.connection.ReconnectionStrategy method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.RetryStrategy.__init__">(surrealengine.connection.RetryStrategy method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.__init__">(surrealengine.connection.SurrealEngineAsyncConnection method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection.__init__">(surrealengine.connection.SurrealEngineSyncConnection method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SyncConnectionPool.__init__">(surrealengine.connection.SyncConnectionPool method)</a>
+</li>
+                                                <li><a href="api/utilities.html#surrealengine.datagrid_api.DataGridQueryBuilder.__init__">(surrealengine.datagrid_api.DataGridQueryBuilder method)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.document.Document.__init__">(surrealengine.document.Document method)</a>
+</li>
+                                                <li><a href="api/exceptions.html#surrealengine.exceptions.ValidationError.__init__">(surrealengine.exceptions.ValidationError method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.additional.FutureField.__init__">(surrealengine.fields.additional.FutureField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.additional.OptionField.__init__">(surrealengine.fields.additional.OptionField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.additional.RangeField.__init__">(surrealengine.fields.additional.RangeField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.base.Field.__init__">(surrealengine.fields.base.Field method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.collection.DictField.__init__">(surrealengine.fields.collection.DictField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.collection.ListField.__init__">(surrealengine.fields.collection.ListField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.datetime.DateTimeField.__init__">(surrealengine.fields.datetime.DateTimeField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.datetime.DurationField.__init__">(surrealengine.fields.datetime.DurationField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.datetime.TimeSeriesField.__init__">(surrealengine.fields.datetime.TimeSeriesField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.geometry.GeometryField.__init__">(surrealengine.fields.geometry.GeometryField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.id.RecordIDField.__init__">(surrealengine.fields.id.RecordIDField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.reference.ReferenceField.__init__">(surrealengine.fields.reference.ReferenceField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.reference.RelationField.__init__">(surrealengine.fields.reference.RelationField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.scalar.BooleanField.__init__">(surrealengine.fields.scalar.BooleanField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.scalar.FloatField.__init__">(surrealengine.fields.scalar.FloatField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.scalar.IntField.__init__">(surrealengine.fields.scalar.IntField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.scalar.NumberField.__init__">(surrealengine.fields.scalar.NumberField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.scalar.StringField.__init__">(surrealengine.fields.scalar.StringField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.ChoiceField.__init__">(surrealengine.fields.specialized.ChoiceField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.DecimalField.__init__">(surrealengine.fields.specialized.DecimalField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.EmailField.__init__">(surrealengine.fields.specialized.EmailField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.IPAddressField.__init__">(surrealengine.fields.specialized.IPAddressField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.LiteralField.__init__">(surrealengine.fields.specialized.LiteralField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.SlugField.__init__">(surrealengine.fields.specialized.SlugField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.URLField.__init__">(surrealengine.fields.specialized.URLField method)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.graph.GraphQuery.__init__">(surrealengine.graph.GraphQuery method)</a>
+</li>
+                                                <li><a href="api/utilities.html#surrealengine.logging.SurrealEngineLogger.__init__">(surrealengine.logging.SurrealEngineLogger method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.Aggregation.__init__">(surrealengine.materialized_view.Aggregation method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.GroupConcat.__init__">(surrealengine.materialized_view.GroupConcat method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.__init__">(surrealengine.materialized_view.MaterializedView method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.Percentile.__init__">(surrealengine.materialized_view.Percentile method)</a>
+</li>
+                                                <li><a href="api/query.html#surrealengine.pagination.PaginationResult.__init__">(surrealengine.pagination.PaginationResult method)</a>
+</li>
+                                                <li><a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.__init__">(surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                                <li><a href="api/query.html#surrealengine.query.relation.RelationQuerySet.__init__">(surrealengine.query.relation.RelationQuerySet method)</a>
+</li>
+                                                <li><a href="api/query.html#surrealengine.query_expressions.Q.__init__">(surrealengine.query_expressions.Q method)</a>
+</li>
+                                                <li><a href="api/query.html#surrealengine.query_expressions.QueryExpression.__init__">(surrealengine.query_expressions.QueryExpression method)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessQuerySet.__init__">(surrealengine.schemaless.SchemalessQuerySet method)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.__init__">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SurrealEngine.__init__">(surrealengine.schemaless.SurrealEngine method)</a>
+</li>
+                                        </ul></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query_expressions.Q.__invert__">__invert__() (surrealengine.query_expressions.Q method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.pagination.PaginationResult.__iter__">__iter__() (surrealengine.pagination.PaginationResult method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.pagination.PaginationResult.__len__">__len__() (surrealengine.pagination.PaginationResult method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.DocumentMetaclass.__new__">__new__() (surrealengine.document.DocumentMetaclass static method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query_expressions.Q.__or__">__or__() (surrealengine.query_expressions.Q method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.__repr__">__repr__() (surrealengine.fields.specialized.URLField method)</a>
+
+                                        <ul>
+                                                <li><a href="api/query.html#surrealengine.pagination.PaginationResult.__repr__">(surrealengine.pagination.PaginationResult method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.__setattr__">__setattr__() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.__str__">__str__() (surrealengine.fields.specialized.URLField method)</a>
+
+                                        <ul>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.Aggregation.__str__">(surrealengine.materialized_view.Aggregation method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.Count.__str__">(surrealengine.materialized_view.Count method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.Distinct.__str__">(surrealengine.materialized_view.Distinct method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.GroupConcat.__str__">(surrealengine.materialized_view.GroupConcat method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.Max.__str__">(surrealengine.materialized_view.Max method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.Mean.__str__">(surrealengine.materialized_view.Mean method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.Median.__str__">(surrealengine.materialized_view.Median method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.Min.__str__">(surrealengine.materialized_view.Min method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.Percentile.__str__">(surrealengine.materialized_view.Percentile method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.StdDev.__str__">(surrealengine.materialized_view.StdDev method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.Sum.__str__">(surrealengine.materialized_view.Sum method)</a>
+</li>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.Variance.__str__">(surrealengine.materialized_view.Variance method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry._async_connections">_async_connections (surrealengine.connection.ConnectionRegistry attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document._changed_fields">_changed_fields (surrealengine.document.Document attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document._data">_data (surrealengine.document.Document attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry._default_async_connection">_default_async_connection (surrealengine.connection.ConnectionRegistry attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry._default_sync_connection">_default_sync_connection (surrealengine.connection.ConnectionRegistry attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document._fields">_fields (surrealengine.document.Document attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.document.DocumentMetaclass._fields">(surrealengine.document.DocumentMetaclass attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document._fields_ordered">_fields_ordered (surrealengine.document.Document attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.document.DocumentMetaclass._fields_ordered">(surrealengine.document.DocumentMetaclass attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document._meta">_meta (surrealengine.document.Document attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.document.DocumentMetaclass._meta">(surrealengine.document.DocumentMetaclass attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry._sync_connections">_sync_connections (surrealengine.connection.ConnectionRegistry attribute)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="A">A</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.RelationDocument.Meta.abstract">abstract (surrealengine.document.RelationDocument.Meta attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry.add_async_connection">add_async_connection() (surrealengine.connection.ConnectionRegistry class method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry.add_connection">add_connection() (surrealengine.connection.ConnectionRegistry class method)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.logging.SurrealEngineLogger.add_file_handler">add_file_handler() (surrealengine.logging.SurrealEngineLogger method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEventEmitter.add_listener">add_listener() (surrealengine.connection.ConnectionEventEmitter method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry.add_sync_connection">add_sync_connection() (surrealengine.connection.ConnectionRegistry class method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.aggregate">aggregate() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.aggregate_sync">aggregate_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.Aggregation">Aggregation (class in surrealengine.materialized_view)</a>
+</li>
+                                <li>
+                                    <a href="api/aggregation.html#surrealengine.aggregation.AggregationPipeline">AggregationPipeline (class in surrealengine.aggregation)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.aggregations">aggregations (surrealengine.materialized_view.MaterializedView attribute)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.all">all() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessQuerySet.all">(surrealengine.schemaless.SchemalessQuerySet method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.all_sync">all_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessQuerySet.all_sync">(surrealengine.schemaless.SchemalessQuerySet method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.datagrid_api.DataGridQueryBuilder.apply_filters">apply_filters() (surrealengine.datagrid_api.DataGridQueryBuilder method)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.datagrid_api.DataGridQueryBuilder.apply_search">apply_search() (surrealengine.datagrid_api.DataGridQueryBuilder method)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.datagrid_api.DataGridQueryBuilder.apply_sorting">apply_sorting() (surrealengine.datagrid_api.DataGridQueryBuilder method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query_expressions.QueryExpression.apply_to_queryset">apply_to_queryset() (surrealengine.query_expressions.QueryExpression method)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.ArrayCollect">ArrayCollect (class in surrealengine.materialized_view)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue.async_operations">async_operations (surrealengine.connection.OperationQueue attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue.async_reconnection_event">async_reconnection_event (surrealengine.connection.OperationQueue attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.AsyncConnectionPool">AsyncConnectionPool (class in surrealengine.connection)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="B">B</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ReconnectionStrategy.backoff_factor">backoff_factor (surrealengine.connection.ReconnectionStrategy attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.BaseSurrealEngineConnection">BaseSurrealEngineConnection (class in surrealengine.connection)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.scalar.BooleanField">BooleanField (class in surrealengine.fields.scalar)</a>
+</li>
+                                <li>
+                                    <a href="api/aggregation.html#surrealengine.aggregation.AggregationPipeline.build_query">build_query() (surrealengine.aggregation.AggregationPipeline method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.bulk_create">bulk_create() (surrealengine.document.Document class method)</a>
+
+                                        <ul>
+                                                <li><a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.bulk_create">(surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessQuerySet.bulk_create">(surrealengine.schemaless.SchemalessQuerySet method)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.bulk_create">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.bulk_create_sync">bulk_create_sync() (surrealengine.document.Document class method)</a>
+
+                                        <ul>
+                                                <li><a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.bulk_create_sync">(surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessQuerySet.bulk_create_sync">(surrealengine.schemaless.SchemalessQuerySet method)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.bulk_create_sync">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="C">C</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.call_sync">call_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.call_sync">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.base.Field.cast_to_surreal_type">cast_to_surreal_type() (surrealengine.fields.base.Field method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.ChoiceField">ChoiceField (class in surrealengine.fields.specialized)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.BaseSurrealEngineConnection.client">client (surrealengine.connection.BaseSurrealEngineConnection attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.client">(surrealengine.connection.SurrealEngineAsyncConnection attribute)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection.client">(surrealengine.connection.SurrealEngineSyncConnection attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.AsyncConnectionPool.close">close() (surrealengine.connection.AsyncConnectionPool method)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.close">(surrealengine.connection.ConnectionPoolBase method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SyncConnectionPool.close">(surrealengine.connection.SyncConnectionPool method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.AsyncConnectionPool.close_connection">close_connection() (surrealengine.connection.AsyncConnectionPool method)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.close_connection">(surrealengine.connection.ConnectionPoolBase method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SyncConnectionPool.close_connection">(surrealengine.connection.SyncConnectionPool method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.AsyncConnectionPool.closed">closed (surrealengine.connection.AsyncConnectionPool attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.SyncConnectionPool.closed">(surrealengine.connection.SyncConnectionPool attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.additional.FutureField.computation_expression">computation_expression (surrealengine.fields.additional.FutureField attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.connect">connect() (surrealengine.connection.SurrealEngineAsyncConnection method)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection.connect">(surrealengine.connection.SurrealEngineSyncConnection method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.connect_timeout">connect_timeout (surrealengine.connection.ConnectionPoolBase attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEvent.CONNECTED">CONNECTED (surrealengine.connection.ConnectionEvent attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.connection">connection (in module surrealengine.document)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.graph.GraphQuery.connection">(surrealengine.graph.GraphQuery attribute)</a>
+</li>
+                                                <li><a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.connection">(surrealengine.query.descriptor.QuerySetDescriptor attribute)</a>
+</li>
+                                                <li><a href="api/query.html#surrealengine.query.relation.RelationQuerySet.connection">(surrealengine.query.relation.RelationQuerySet attribute)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessQuerySet.connection">(surrealengine.schemaless.SchemalessQuerySet attribute)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.connection">(surrealengine.schemaless.SchemalessTable attribute)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SurrealEngine.connection">(surrealengine.schemaless.SurrealEngine attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEvent.CONNECTION_CLOSED">CONNECTION_CLOSED (surrealengine.connection.ConnectionEvent attribute)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEvent.CONNECTION_FAILED">CONNECTION_FAILED (surrealengine.connection.ConnectionEvent attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEvent">ConnectionEvent (class in surrealengine.connection)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEventEmitter">ConnectionEventEmitter (class in surrealengine.connection)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEventListener">ConnectionEventListener (class in surrealengine.connection)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionPoolBase">ConnectionPoolBase (class in surrealengine.connection)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry">ConnectionRegistry (class in surrealengine.connection)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.Count">Count (class in surrealengine.materialized_view)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.count">count() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.count_sync">count_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.create">create() (surrealengine.materialized_view.MaterializedView method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.create_connection">create_connection() (in module surrealengine.connection)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.AsyncConnectionPool.create_connection">(surrealengine.connection.AsyncConnectionPool method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.create_connection">(surrealengine.connection.ConnectionPoolBase method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SyncConnectionPool.create_connection">(surrealengine.connection.SyncConnectionPool method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.create_index">create_index() (surrealengine.document.Document class method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.create_index">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.create_index_sync">create_index_sync() (surrealengine.document.Document class method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.create_index_sync">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.create_indexes">create_indexes() (surrealengine.document.Document class method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.create_indexes_sync">create_indexes_sync() (surrealengine.document.Document class method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.create_materialized_view">create_materialized_view() (surrealengine.document.Document class method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.RelationDocument.create_relation">create_relation() (surrealengine.document.RelationDocument class method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.RelationDocument.create_relation_sync">create_relation_sync() (surrealengine.document.RelationDocument class method)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.create_sync">create_sync() (surrealengine.materialized_view.MaterializedView method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.create_table">create_table() (surrealengine.document.Document class method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.create_table_sync">create_table_sync() (surrealengine.document.Document class method)</a>
+</li>
+                                <li>
+                                    <a href="api/schema.html#surrealengine.schema.create_tables_from_module">create_tables_from_module() (in module surrealengine.schema)</a>
+</li>
+                                <li>
+                                    <a href="api/schema.html#surrealengine.schema.create_tables_from_module_sync">create_tables_from_module_sync() (in module surrealengine.schema)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.logging.SurrealEngineLogger.critical">critical() (surrealengine.logging.SurrealEngineLogger method)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="D">D</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.BaseSurrealEngineConnection.database">database (surrealengine.connection.BaseSurrealEngineConnection attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.database">(surrealengine.connection.ConnectionPoolBase attribute)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.database">(surrealengine.connection.SurrealEngineAsyncConnection attribute)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection.database">(surrealengine.connection.SurrealEngineSyncConnection attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.datagrid_api.DataGridQueryBuilder">DataGridQueryBuilder (class in surrealengine.datagrid_api)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.datetime.DateTimeField">DateTimeField (class in surrealengine.fields.datetime)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.BaseSurrealEngineConnection.db">db (surrealengine.connection.BaseSurrealEngineConnection property)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.db">(surrealengine.connection.SurrealEngineAsyncConnection property)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection.db">(surrealengine.connection.SurrealEngineSyncConnection property)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.base.Field.db_field">db_field (surrealengine.fields.base.Field attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.logging.SurrealEngineLogger.debug">debug() (surrealengine.logging.SurrealEngineLogger method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.DecimalField">DecimalField (class in surrealengine.fields.specialized)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.base.Field.default">default (surrealengine.fields.base.Field attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.base.Field.define_schema">define_schema (surrealengine.fields.base.Field attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.delete">delete() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.relation.RelationQuerySet.delete_relation">delete_relation() (surrealengine.query.relation.RelationQuerySet method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.delete_relation">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.relation.RelationQuerySet.delete_relation_sync">delete_relation_sync() (surrealengine.query.relation.RelationQuerySet method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.delete_relation_sync">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.delete_relation_to">delete_relation_to() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.delete_relation_to_sync">delete_relation_to_sync() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.delete_sync">delete_sync() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.collection.DictField">DictField (class in surrealengine.fields.collection)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.dirty_fields">dirty_fields (surrealengine.document.Document property)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.disconnect">disconnect() (surrealengine.connection.SurrealEngineAsyncConnection method)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection.disconnect">(surrealengine.connection.SurrealEngineSyncConnection method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEvent.DISCONNECTED">DISCONNECTED (surrealengine.connection.ConnectionEvent attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.Distinct">Distinct (class in surrealengine.materialized_view)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document">Document (class in surrealengine.document)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.document_class">document_class (surrealengine.materialized_view.MaterializedView attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.reference.ReferenceField.document_type">document_type (surrealengine.fields.reference.ReferenceField attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.DocumentMetaclass">DocumentMetaclass (class in surrealengine.document)</a>
+</li>
+                                <li>
+                                    <a href="api/exceptions.html#surrealengine.exceptions.DoesNotExist">DoesNotExist (class in surrealengine.exceptions)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.drop">drop() (surrealengine.materialized_view.MaterializedView method)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.drop_sync">drop_sync() (surrealengine.materialized_view.MaterializedView method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.datetime.DurationField">DurationField (class in surrealengine.fields.datetime)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="E">E</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.EmailField">EmailField (class in surrealengine.fields.specialized)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEventEmitter.emit_event">emit_event() (surrealengine.connection.ConnectionEventEmitter method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.graph.GraphQuery.end_at">end_at() (surrealengine.graph.GraphQuery method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.graph.GraphQuery.end_class">end_class (surrealengine.graph.GraphQuery attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.graph.GraphQuery.end_filters">end_filters (surrealengine.graph.GraphQuery attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue.end_reconnection">end_reconnection() (surrealengine.connection.OperationQueue method)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.logging.SurrealEngineLogger.error">error() (surrealengine.logging.SurrealEngineLogger method)</a>
+</li>
+                                <li>
+                                    <a href="api/exceptions.html#surrealengine.exceptions.ValidationError.errors">errors (surrealengine.exceptions.ValidationError attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.logging.SurrealEngineLogger.exception">exception() (surrealengine.logging.SurrealEngineLogger method)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/aggregation.html#surrealengine.aggregation.AggregationPipeline.execute">execute() (surrealengine.aggregation.AggregationPipeline method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.graph.GraphQuery.execute">(surrealengine.graph.GraphQuery method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue.execute_queued_async_operations">execute_queued_async_operations() (surrealengine.connection.OperationQueue method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue.execute_queued_operations">execute_queued_operations() (surrealengine.connection.OperationQueue method)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.execute_raw_query">execute_raw_query() (surrealengine.materialized_view.MaterializedView method)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.execute_raw_query_sync">execute_raw_query_sync() (surrealengine.materialized_view.MaterializedView method)</a>
+</li>
+                                <li>
+                                    <a href="api/aggregation.html#surrealengine.aggregation.AggregationPipeline.execute_sync">execute_sync() (surrealengine.aggregation.AggregationPipeline method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.RetryStrategy.execute_with_retry">execute_with_retry() (surrealengine.connection.RetryStrategy method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.RetryStrategy.execute_with_retry_async">execute_with_retry_async() (surrealengine.connection.RetryStrategy method)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="F">F</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.fetch">fetch() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+
+                                        <ul>
+                                                <li><a href="api/query.html#surrealengine.query_expressions.QueryExpression.fetch">(surrealengine.query_expressions.QueryExpression method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.fetch_relation">fetch_relation() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.fetch_relation_sync">fetch_relation_sync() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.fetch_sync">fetch_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.base.Field">Field (class in surrealengine.fields.base)</a>
+</li>
+                                <li>
+                                    <a href="api/exceptions.html#surrealengine.exceptions.ValidationError.field_name">field_name (surrealengine.exceptions.ValidationError attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.additional.OptionField.field_type">field_type (surrealengine.fields.additional.OptionField attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/fields.html#surrealengine.fields.collection.DictField.field_type">(surrealengine.fields.collection.DictField attribute)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.collection.ListField.field_type">(surrealengine.fields.collection.ListField attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.filter">filter() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.graph.GraphQuery.filter_results">filter_results() (surrealengine.graph.GraphQuery method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.filter_sync">filter_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.RelationDocument.find_by_in_document">find_by_in_document() (surrealengine.document.RelationDocument class method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.RelationDocument.find_by_in_document_sync">find_by_in_document_sync() (surrealengine.document.RelationDocument class method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.RelationDocument.find_by_in_documents">find_by_in_documents() (surrealengine.document.RelationDocument class method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.RelationDocument.find_by_in_documents_sync">find_by_in_documents_sync() (surrealengine.document.RelationDocument class method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.first">first() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.first_sync">first_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.scalar.FloatField">FloatField (class in surrealengine.fields.scalar)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.datagrid_api.format_datatables_response">format_datatables_response() (in module surrealengine.datagrid_api)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.fragment">fragment (surrealengine.fields.specialized.URLField property)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.from_db">from_db() (surrealengine.document.Document class method)</a>
+
+                                        <ul>
+                                                <li><a href="api/fields.html#surrealengine.fields.additional.OptionField.from_db">(surrealengine.fields.additional.OptionField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.additional.RangeField.from_db">(surrealengine.fields.additional.RangeField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.base.Field.from_db">(surrealengine.fields.base.Field method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.collection.DictField.from_db">(surrealengine.fields.collection.DictField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.collection.ListField.from_db">(surrealengine.fields.collection.ListField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.datetime.DateTimeField.from_db">(surrealengine.fields.datetime.DateTimeField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.datetime.DurationField.from_db">(surrealengine.fields.datetime.DurationField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.id.RecordIDField.from_db">(surrealengine.fields.id.RecordIDField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.reference.ReferenceField.from_db">(surrealengine.fields.reference.ReferenceField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.reference.RelationField.from_db">(surrealengine.fields.reference.RelationField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.DecimalField.from_db">(surrealengine.fields.specialized.DecimalField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.LiteralField.from_db">(surrealengine.fields.specialized.LiteralField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.URLField.from_db">(surrealengine.fields.specialized.URLField method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.relation.RelationQuerySet.from_document">from_document (surrealengine.query.relation.RelationQuerySet attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.additional.FutureField">FutureField (class in surrealengine.fields.additional)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="G">G</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/schema.html#surrealengine.schema.generate_schema_statements">generate_schema_statements() (in module surrealengine.schema)</a>
+</li>
+                                <li>
+                                    <a href="api/schema.html#surrealengine.schema.generate_schema_statements_from_module">generate_schema_statements_from_module() (in module surrealengine.schema)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.geometry.GeometryField">GeometryField (class in surrealengine.fields.geometry)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.get">get() (surrealengine.document.Document class method)</a>
+
+                                        <ul>
+                                                <li><a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.get">(surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessQuerySet.get">(surrealengine.schemaless.SchemalessQuerySet method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry.get_async_connection">get_async_connection() (surrealengine.connection.ConnectionRegistry class method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.get_base_url">get_base_url() (surrealengine.fields.specialized.URLField method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.get_changed_data_for_update">get_changed_data_for_update() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.get_changes">get_changes() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.AsyncConnectionPool.get_connection">get_connection() (surrealengine.connection.AsyncConnectionPool method)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.get_connection">(surrealengine.connection.ConnectionPoolBase method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionRegistry.get_connection">(surrealengine.connection.ConnectionRegistry class method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SyncConnectionPool.get_connection">(surrealengine.connection.SyncConnectionPool method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry.get_default_async_connection">get_default_async_connection() (surrealengine.connection.ConnectionRegistry class method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry.get_default_connection">get_default_connection() (surrealengine.connection.ConnectionRegistry class method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry.get_default_sync_connection">get_default_sync_connection() (surrealengine.connection.ConnectionRegistry class method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ReconnectionStrategy.get_delay">get_delay() (surrealengine.connection.ReconnectionStrategy method)</a>
+</li>
+                                <li>
+                                    <a href="api/schema.html#surrealengine.schema.get_document_classes">get_document_classes() (in module surrealengine.schema)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.datagrid_api.get_grid_data">get_grid_data() (in module surrealengine.datagrid_api)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.datagrid_api.get_grid_data_sync">get_grid_data_sync() (in module surrealengine.datagrid_api)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.get_many">get_many() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.get_many_sync">get_many_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.get_original_value">get_original_value() (surrealengine.document.Document method)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.datagrid_api.DataGridQueryBuilder.get_paginated_data">get_paginated_data() (surrealengine.datagrid_api.DataGridQueryBuilder method)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.datagrid_api.DataGridQueryBuilder.get_paginated_data_sync">get_paginated_data_sync() (surrealengine.datagrid_api.DataGridQueryBuilder method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.get_query_param">get_query_param() (surrealengine.fields.specialized.URLField method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.get_query_params">get_query_params() (surrealengine.fields.specialized.URLField method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.get_range">get_range() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.get_range_sync">get_range_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.relation.RelationQuerySet.get_related">get_related() (surrealengine.query.relation.RelationQuerySet method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.get_related">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.reference.RelationField.get_related_documents">get_related_documents() (surrealengine.fields.reference.RelationField method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.reference.RelationField.get_related_documents_sync">get_related_documents_sync() (surrealengine.fields.reference.RelationField method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.relation.RelationQuerySet.get_related_sync">get_related_sync() (surrealengine.query.relation.RelationQuerySet method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.get_related_sync">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.RelationDocument.get_relation_name">get_relation_name() (surrealengine.document.RelationDocument class method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.RetryStrategy.get_retry_delay">get_retry_delay() (surrealengine.connection.RetryStrategy method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.base.Field.get_surreal_type">get_surreal_type() (surrealengine.fields.base.Field method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.get_sync">get_sync() (surrealengine.document.Document class method)</a>
+
+                                        <ul>
+                                                <li><a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.get_sync">(surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessQuerySet.get_sync">(surrealengine.schemaless.SchemalessQuerySet method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry.get_sync_connection">get_sync_connection() (surrealengine.connection.ConnectionRegistry class method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.graph.GraphQuery">GraphQuery (class in surrealengine.graph)</a>
+</li>
+                                <li>
+                                    <a href="api/aggregation.html#surrealengine.aggregation.AggregationPipeline.group">group() (surrealengine.aggregation.AggregationPipeline method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.group_by">group_by() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+
+                                        <ul>
+                                                <li><a href="api/query.html#surrealengine.query_expressions.QueryExpression.group_by">(surrealengine.query_expressions.QueryExpression method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.group_by_sync">group_by_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.GroupConcat">GroupConcat (class in surrealengine.materialized_view)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="H">H</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.has_changed">has_changed() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.pagination.PaginationResult.has_next">has_next (surrealengine.pagination.PaginationResult attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.pagination.PaginationResult.has_prev">has_prev (surrealengine.pagination.PaginationResult attribute)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/aggregation.html#surrealengine.aggregation.AggregationPipeline.having">having() (surrealengine.aggregation.AggregationPipeline method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.host">host (surrealengine.fields.specialized.URLField property)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.hostname">hostname (surrealengine.fields.specialized.URLField property)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="I">I</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.id">id (surrealengine.document.Document property)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.AsyncConnectionPool.in_use">in_use (surrealengine.connection.AsyncConnectionPool attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.SyncConnectionPool.in_use">(surrealengine.connection.SyncConnectionPool attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.logging.SurrealEngineLogger.info">info() (surrealengine.logging.SurrealEngineLogger method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ReconnectionStrategy.initial_delay">initial_delay (surrealengine.connection.ReconnectionStrategy attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.scalar.IntField">IntField (class in surrealengine.fields.scalar)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.IPAddressField">IPAddressField (class in surrealengine.fields.specialized)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.schemaless.SurrealEngine.is_async">is_async (surrealengine.schemaless.SurrealEngine attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.is_clean">is_clean (surrealengine.document.Document property)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.is_dirty">is_dirty (surrealengine.document.Document property)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue.is_reconnecting">is_reconnecting (surrealengine.connection.OperationQueue attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.is_secure">is_secure() (surrealengine.fields.specialized.URLField method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.pagination.PaginationResult.items">items (surrealengine.pagination.PaginationResult attribute)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="J">J</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.join">join() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.join_sync">join_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="L">L</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/aggregation.html#surrealengine.aggregation.AggregationPipeline.limit">limit() (surrealengine.aggregation.AggregationPipeline method)</a>
+
+                                        <ul>
+                                                <li><a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.limit">(surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                                <li><a href="api/query.html#surrealengine.query_expressions.QueryExpression.limit">(surrealengine.query_expressions.QueryExpression method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.limit_sync">limit_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEventEmitter.listeners">listeners (surrealengine.connection.ConnectionEventEmitter attribute)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.collection.ListField">ListField (class in surrealengine.fields.collection)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.LiteralField">LiteralField (class in surrealengine.fields.specialized)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.AsyncConnectionPool.lock">lock (surrealengine.connection.AsyncConnectionPool attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.SyncConnectionPool.lock">(surrealengine.connection.SyncConnectionPool attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.logging.SurrealEngineLogger.log">log() (surrealengine.logging.SurrealEngineLogger method)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.logging.SurrealEngineLogger.logger">logger (surrealengine.logging.SurrealEngineLogger attribute)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="M">M</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.mark_clean">mark_clean() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/aggregation.html#surrealengine.aggregation.AggregationPipeline.match">match() (surrealengine.aggregation.AggregationPipeline method)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView">MaterializedView (class in surrealengine.materialized_view)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.Max">Max (class in surrealengine.materialized_view)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ReconnectionStrategy.max_attempts">max_attempts (surrealengine.connection.ReconnectionStrategy attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ReconnectionStrategy.max_delay">max_delay (surrealengine.connection.ReconnectionStrategy attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.max_idle_time">max_idle_time (surrealengine.connection.ConnectionPoolBase attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.max_idle_time">(surrealengine.connection.SurrealEngineAsyncConnection attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.scalar.StringField.max_length">max_length (surrealengine.fields.scalar.StringField attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.scalar.NumberField.max_value">max_value (surrealengine.fields.scalar.NumberField attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.Mean">Mean (class in surrealengine.materialized_view)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.Median">Median (class in surrealengine.materialized_view)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.Min">Min (class in surrealengine.materialized_view)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.scalar.StringField.min_length">min_length (surrealengine.fields.scalar.StringField attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.scalar.NumberField.min_value">min_value (surrealengine.fields.scalar.NumberField attribute)</a>
+</li>
+                                <li>
+                                    
+        module
+
+                                        <ul>
+                                                <li><a href="api/utilities.html#module-surrealengine.datagrid_api">surrealengine.datagrid_api</a>
+</li>
+                                                <li><a href="api/document.html#module-surrealengine.graph">surrealengine.graph</a>
+</li>
+                                                <li><a href="api/utilities.html#module-surrealengine.logging">surrealengine.logging</a>
+</li>
+                                                <li><a href="api/query.html#module-surrealengine.pagination">surrealengine.pagination</a>
+</li>
+                                                <li><a href="api/query.html#module-surrealengine.query_expressions">surrealengine.query_expressions</a>
+</li>
+                                                <li><a href="api/document.html#module-surrealengine.schemaless">surrealengine.schemaless</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/exceptions.html#surrealengine.exceptions.MultipleObjectsReturned">MultipleObjectsReturned (class in surrealengine.exceptions)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="N">N</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.base.Field.name">name (surrealengine.fields.base.Field attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.name">(surrealengine.materialized_view.MaterializedView attribute)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.name">(surrealengine.schemaless.SchemalessTable attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.BaseSurrealEngineConnection.namespace">namespace (surrealengine.connection.BaseSurrealEngineConnection attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.namespace">(surrealengine.connection.ConnectionPoolBase attribute)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.namespace">(surrealengine.connection.SurrealEngineAsyncConnection attribute)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection.namespace">(surrealengine.connection.SurrealEngineSyncConnection attribute)</a>
+</li>
+                                        </ul></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.netloc">netloc (surrealengine.fields.specialized.URLField property)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.scalar.NumberField">NumberField (class in surrealengine.fields.scalar)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="O">O</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.objects">objects (surrealengine.document.Document attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.objects">(surrealengine.materialized_view.MaterializedView property)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.objects">(surrealengine.schemaless.SchemalessTable property)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEventListener.on_event">on_event() (surrealengine.connection.ConnectionEventListener method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.operation_timeout">operation_timeout (surrealengine.connection.ConnectionPoolBase attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue">OperationQueue (class in surrealengine.connection)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.additional.OptionField">OptionField (class in surrealengine.fields.additional)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.order_by">order_by() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+
+                                        <ul>
+                                                <li><a href="api/query.html#surrealengine.query_expressions.QueryExpression.order_by">(surrealengine.query_expressions.QueryExpression method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.order_by_sync">order_by_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.owner">owner (surrealengine.document.Document attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.owner">(surrealengine.query.descriptor.QuerySetDescriptor attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.base.Field.owner_document">owner_document (surrealengine.fields.base.Field attribute)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="P">P</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/query.html#surrealengine.pagination.PaginationResult.page">page (surrealengine.pagination.PaginationResult attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.page">page() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.page_sync">page_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.pagination.PaginationResult.pages">pages (surrealengine.pagination.PaginationResult attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.paginate">paginate() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.paginate_sync">paginate_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.pagination.PaginationResult">PaginationResult (class in surrealengine.pagination)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.params">params (surrealengine.fields.specialized.URLField property)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.parse_connection_string">parse_connection_string() (in module surrealengine.connection)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.datagrid_api.parse_datatables_params">parse_datatables_params() (in module surrealengine.datagrid_api)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.BaseSurrealEngineConnection.password">password (surrealengine.connection.BaseSurrealEngineConnection attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.password">(surrealengine.connection.ConnectionPoolBase attribute)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.password">(surrealengine.connection.SurrealEngineAsyncConnection attribute)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection.password">(surrealengine.connection.SurrealEngineSyncConnection attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.path">path (surrealengine.fields.specialized.URLField property)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.graph.GraphQuery.path_spec">path_spec (surrealengine.graph.GraphQuery attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.pagination.PaginationResult.per_page">per_page (surrealengine.pagination.PaginationResult attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.Percentile">Percentile (class in surrealengine.materialized_view)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.AsyncConnectionPool.pool">pool (surrealengine.connection.AsyncConnectionPool attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.pool">(surrealengine.connection.SurrealEngineAsyncConnection attribute)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SyncConnectionPool.pool">(surrealengine.connection.SyncConnectionPool attribute)</a>
+</li>
+                                        </ul></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.pool_size">pool_size (surrealengine.connection.ConnectionPoolBase attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.pool_size">(surrealengine.connection.SurrealEngineAsyncConnection attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.port">port (surrealengine.fields.specialized.URLField property)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.post_bulk_insert">post_bulk_insert (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.post_delete">post_delete (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.post_from_db">post_from_db (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.post_init">post_init (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.post_save">post_save (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.post_to_db">post_to_db (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.post_validate">post_validate (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.pre_bulk_insert">pre_bulk_insert (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.pre_delete">pre_delete (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.pre_from_db">pre_from_db (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.pre_init">pre_init (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.pre_save">pre_save (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.pre_save_post_validation">pre_save_post_validation (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.pre_to_db">pre_to_db (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.pre_validate">pre_validate (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/aggregation.html#surrealengine.aggregation.AggregationPipeline.project">project() (surrealengine.aggregation.AggregationPipeline method)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="Q">Q</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query_expressions.Q">Q (class in surrealengine.query_expressions)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.query">query (surrealengine.fields.specialized.URLField property)</a>
+
+                                        <ul>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.query">(surrealengine.materialized_view.MaterializedView attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.graph.GraphQuery.query_parts">query_parts (surrealengine.graph.GraphQuery attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/query.html#surrealengine.query.relation.RelationQuerySet.query_parts">(surrealengine.query.relation.RelationQuerySet attribute)</a>
+</li>
+                                        </ul></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query_expressions.QueryExpression">QueryExpression (class in surrealengine.query_expressions)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor">QuerySetDescriptor (class in surrealengine.query.descriptor)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue.queue_async_operation">queue_async_operation() (surrealengine.connection.OperationQueue method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue.queue_operation">queue_operation() (surrealengine.connection.OperationQueue method)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="R">R</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.additional.RangeField">RangeField (class in surrealengine.fields.additional)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query_expressions.Q.raw">raw() (surrealengine.query_expressions.Q class method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEvent.RECONNECTED">RECONNECTED (surrealengine.connection.ConnectionEvent attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEvent.RECONNECTING">RECONNECTING (surrealengine.connection.ConnectionEvent attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue.reconnection_event">reconnection_event (surrealengine.connection.OperationQueue attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEvent.RECONNECTION_FAILED">RECONNECTION_FAILED (surrealengine.connection.ConnectionEvent attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ReconnectionStrategy">ReconnectionStrategy (class in surrealengine.connection)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.id.RecordIDField">RecordIDField (class in surrealengine.fields.id)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.reference.ReferenceField">ReferenceField (class in surrealengine.fields.reference)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.refresh">refresh() (surrealengine.document.Document method)</a>
+
+                                        <ul>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.refresh">(surrealengine.materialized_view.MaterializedView method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.refresh_interval">refresh_interval (surrealengine.materialized_view.MaterializedView attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.refresh_sync">refresh_sync() (surrealengine.document.Document method)</a>
+
+                                        <ul>
+                                                <li><a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.refresh_sync">(surrealengine.materialized_view.MaterializedView method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.scalar.StringField.regex">regex (surrealengine.fields.scalar.StringField attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.relation.RelationQuerySet.relate">relate() (surrealengine.query.relation.RelationQuerySet method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.relate">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.relation.RelationQuerySet.relate_sync">relate_sync() (surrealengine.query.relation.RelationQuerySet method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.relate_sync">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.relate_to">relate_to() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.relate_to_sync">relate_to_sync() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.relates">relates() (surrealengine.document.Document class method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.document.RelationDocument.relates">(surrealengine.document.RelationDocument class method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.relation.RelationQuerySet.relation">relation (surrealengine.query.relation.RelationQuerySet attribute)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.RelationDocument">RelationDocument (class in surrealengine.document)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.RelationDocument.Meta">RelationDocument.Meta (class in surrealengine.document)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.reference.RelationField">RelationField (class in surrealengine.fields.reference)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.relation.RelationQuerySet">RelationQuerySet (class in surrealengine.query.relation)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionEventEmitter.remove_listener">remove_listener() (surrealengine.connection.ConnectionEventEmitter method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.base.Field.required">required (surrealengine.fields.base.Field attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/fields.html#surrealengine.fields.geometry.GeometryField.required">(surrealengine.fields.geometry.GeometryField attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.RelationDocument.resolve_out">resolve_out() (surrealengine.document.RelationDocument method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.RelationDocument.resolve_out_sync">resolve_out_sync() (surrealengine.document.RelationDocument method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.resolve_references">resolve_references() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.resolve_references_sync">resolve_references_sync() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.resolve_relation">resolve_relation() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.resolve_relation_sync">resolve_relation_sync() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.retry_backoff">retry_backoff (surrealengine.connection.ConnectionPoolBase attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.RetryStrategy.retry_backoff">(surrealengine.connection.RetryStrategy attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.retry_delay">retry_delay (surrealengine.connection.ConnectionPoolBase attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.RetryStrategy.retry_delay">(surrealengine.connection.RetryStrategy attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.retry_limit">retry_limit (surrealengine.connection.ConnectionPoolBase attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.RetryStrategy.retry_limit">(surrealengine.connection.RetryStrategy attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.RetryStrategy">RetryStrategy (class in surrealengine.connection)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.AsyncConnectionPool.return_connection">return_connection() (surrealengine.connection.AsyncConnectionPool method)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.return_connection">(surrealengine.connection.ConnectionPoolBase method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SyncConnectionPool.return_connection">(surrealengine.connection.SyncConnectionPool method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.revert_changes">revert_changes() (surrealengine.document.Document method)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="S">S</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.save">save() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.save_sync">save_sync() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.schemaless.SchemalessQuerySet">SchemalessQuerySet (class in surrealengine.schemaless)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.schemaless.SchemalessTable">SchemalessTable (class in surrealengine.schemaless)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField.scheme">scheme (surrealengine.fields.specialized.URLField property)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.MaterializedView.select_fields">select_fields (surrealengine.materialized_view.MaterializedView attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry.set_default_async_connection">set_default_async_connection() (surrealengine.connection.ConnectionRegistry class method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry.set_default_connection">set_default_connection() (surrealengine.connection.ConnectionRegistry class method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionRegistry.set_default_sync_connection">set_default_sync_connection() (surrealengine.connection.ConnectionRegistry class method)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.logging.SurrealEngineLogger.set_level">set_level() (surrealengine.logging.SurrealEngineLogger method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.collection.SetField">SetField (class in surrealengine.fields.collection)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.RetryStrategy.should_retry">should_retry() (surrealengine.connection.RetryStrategy method)</a>
+</li>
+                                <li>
+                                    <a href="api/signals.html#surrealengine.signals.SIGNAL_SUPPORT">SIGNAL_SUPPORT (in module surrealengine.signals)</a>
+</li>
+                                <li>
+                                    <a href="api/aggregation.html#surrealengine.aggregation.AggregationPipeline.skip">skip() (surrealengine.aggregation.AggregationPipeline method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.SlugField">SlugField (class in surrealengine.fields.specialized)</a>
+</li>
+                                <li>
+                                    <a href="api/aggregation.html#surrealengine.aggregation.AggregationPipeline.sort">sort() (surrealengine.aggregation.AggregationPipeline method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.split">split() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.split_sync">split_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.start">start() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+
+                                        <ul>
+                                                <li><a href="api/query.html#surrealengine.query_expressions.QueryExpression.start">(surrealengine.query_expressions.QueryExpression method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.graph.GraphQuery.start_class">start_class (surrealengine.graph.GraphQuery attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.graph.GraphQuery.start_filters">start_filters (surrealengine.graph.GraphQuery attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.graph.GraphQuery.start_from">start_from() (surrealengine.graph.GraphQuery method)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue.start_reconnection">start_reconnection() (surrealengine.connection.OperationQueue method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.start_sync">start_sync() (surrealengine.query.descriptor.QuerySetDescriptor method)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.StdDev">StdDev (class in surrealengine.materialized_view)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.scalar.StringField">StringField (class in surrealengine.fields.scalar)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.Sum">Sum (class in surrealengine.materialized_view)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.schemaless.SurrealEngine">SurrealEngine (class in surrealengine.schemaless)</a>
+</li>
+                                <li>
+                                    
+        surrealengine.datagrid_api
+
+                                        <ul>
+                                                <li><a href="api/utilities.html#module-surrealengine.datagrid_api">module</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    
+        surrealengine.graph
+
+                                        <ul>
+                                                <li><a href="api/document.html#module-surrealengine.graph">module</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    
+        surrealengine.logging
+
+                                        <ul>
+                                                <li><a href="api/utilities.html#module-surrealengine.logging">module</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    
+        surrealengine.pagination
+
+                                        <ul>
+                                                <li><a href="api/query.html#module-surrealengine.pagination">module</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    
+        surrealengine.query_expressions
+
+                                        <ul>
+                                                <li><a href="api/query.html#module-surrealengine.query_expressions">module</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    
+        surrealengine.schemaless
+
+                                        <ul>
+                                                <li><a href="api/document.html#module-surrealengine.schemaless">module</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection">SurrealEngineAsyncConnection (class in surrealengine.connection)</a>
+</li>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.logging.SurrealEngineLogger">SurrealEngineLogger (class in surrealengine.logging)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection">SurrealEngineSyncConnection (class in surrealengine.connection)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue.sync_operations">sync_operations (surrealengine.connection.OperationQueue attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.SyncConnectionPool">SyncConnectionPool (class in surrealengine.connection)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="T">T</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/document.html#surrealengine.schemaless.SchemalessQuerySet.table_name">table_name (surrealengine.schemaless.SchemalessQuerySet attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.datetime.TimeSeriesField">TimeSeriesField (class in surrealengine.fields.datetime)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query_expressions.Q.to_conditions">to_conditions() (surrealengine.query_expressions.Q method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.to_dataclass">to_dataclass() (surrealengine.document.Document class method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.to_db">to_db() (surrealengine.document.Document method)</a>
+
+                                        <ul>
+                                                <li><a href="api/fields.html#surrealengine.fields.additional.FutureField.to_db">(surrealengine.fields.additional.FutureField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.additional.OptionField.to_db">(surrealengine.fields.additional.OptionField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.additional.RangeField.to_db">(surrealengine.fields.additional.RangeField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.base.Field.to_db">(surrealengine.fields.base.Field method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.collection.DictField.to_db">(surrealengine.fields.collection.DictField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.collection.ListField.to_db">(surrealengine.fields.collection.ListField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.collection.SetField.to_db">(surrealengine.fields.collection.SetField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.datetime.DateTimeField.to_db">(surrealengine.fields.datetime.DateTimeField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.datetime.DurationField.to_db">(surrealengine.fields.datetime.DurationField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.id.RecordIDField.to_db">(surrealengine.fields.id.RecordIDField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.reference.ReferenceField.to_db">(surrealengine.fields.reference.ReferenceField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.reference.RelationField.to_db">(surrealengine.fields.reference.RelationField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.scalar.IntField.to_db">(surrealengine.fields.scalar.IntField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.DecimalField.to_db">(surrealengine.fields.specialized.DecimalField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.LiteralField.to_db">(surrealengine.fields.specialized.LiteralField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.URLField.to_db">(surrealengine.fields.specialized.URLField method)</a>
+</li>
+                                        </ul></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.to_dict">to_dict() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.reference.RelationField.to_document">to_document (surrealengine.fields.reference.RelationField attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query_expressions.Q.to_where_clause">to_where_clause() (surrealengine.query_expressions.Q method)</a>
+</li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.pagination.PaginationResult.total">total (surrealengine.pagination.PaginationResult attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.transaction">transaction() (surrealengine.connection.SurrealEngineAsyncConnection method)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection.transaction">(surrealengine.connection.SurrealEngineSyncConnection method)</a>
+</li>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.transaction">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.schemaless.SchemalessTable.transaction_sync">transaction_sync() (surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.graph.GraphQuery.traverse">traverse() (surrealengine.graph.GraphQuery method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.traverse_path">traverse_path() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.traverse_path_sync">traverse_path_sync() (surrealengine.document.Document method)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="U">U</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.update">update() (surrealengine.document.Document method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.document.RelationDocument.update">(surrealengine.document.RelationDocument method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.relation.RelationQuerySet.update_relation">update_relation() (surrealengine.query.relation.RelationQuerySet method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.update_relation">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/query.html#surrealengine.query.relation.RelationQuerySet.update_relation_sync">update_relation_sync() (surrealengine.query.relation.RelationQuerySet method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.schemaless.SchemalessTable.update_relation_sync">(surrealengine.schemaless.SchemalessTable method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.update_relation_to">update_relation_to() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.update_relation_to_sync">update_relation_to_sync() (surrealengine.document.Document method)</a>
+</li>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.update_sync">update_sync() (surrealengine.document.Document method)</a>
+
+                                        <ul>
+                                                <li><a href="api/document.html#surrealengine.document.RelationDocument.update_sync">(surrealengine.document.RelationDocument method)</a>
+</li>
+                                        </ul></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.BaseSurrealEngineConnection.url">url (surrealengine.connection.BaseSurrealEngineConnection attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.url">(surrealengine.connection.ConnectionPoolBase attribute)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.url">(surrealengine.connection.SurrealEngineAsyncConnection attribute)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection.url">(surrealengine.connection.SurrealEngineSyncConnection attribute)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/fields.html#surrealengine.fields.specialized.URLField">URLField (class in surrealengine.fields.specialized)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.use_pool">use_pool (surrealengine.connection.SurrealEngineAsyncConnection attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.BaseSurrealEngineConnection.username">username (surrealengine.connection.BaseSurrealEngineConnection attribute)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.username">(surrealengine.connection.ConnectionPoolBase attribute)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineAsyncConnection.username">(surrealengine.connection.SurrealEngineAsyncConnection attribute)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SurrealEngineSyncConnection.username">(surrealengine.connection.SurrealEngineSyncConnection attribute)</a>
+</li>
+                                        </ul></li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="V">V</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/document.html#surrealengine.document.Document.validate">validate() (surrealengine.document.Document method)</a>
+
+                                        <ul>
+                                                <li><a href="api/fields.html#surrealengine.fields.additional.OptionField.validate">(surrealengine.fields.additional.OptionField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.additional.RangeField.validate">(surrealengine.fields.additional.RangeField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.base.Field.validate">(surrealengine.fields.base.Field method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.collection.DictField.validate">(surrealengine.fields.collection.DictField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.collection.ListField.validate">(surrealengine.fields.collection.ListField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.collection.SetField.validate">(surrealengine.fields.collection.SetField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.datetime.DateTimeField.validate">(surrealengine.fields.datetime.DateTimeField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.datetime.DurationField.validate">(surrealengine.fields.datetime.DurationField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.datetime.TimeSeriesField.validate">(surrealengine.fields.datetime.TimeSeriesField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.geometry.GeometryField.validate">(surrealengine.fields.geometry.GeometryField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.id.RecordIDField.validate">(surrealengine.fields.id.RecordIDField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.reference.ReferenceField.validate">(surrealengine.fields.reference.ReferenceField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.reference.RelationField.validate">(surrealengine.fields.reference.RelationField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.scalar.BooleanField.validate">(surrealengine.fields.scalar.BooleanField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.scalar.FloatField.validate">(surrealengine.fields.scalar.FloatField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.scalar.IntField.validate">(surrealengine.fields.scalar.IntField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.scalar.NumberField.validate">(surrealengine.fields.scalar.NumberField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.scalar.StringField.validate">(surrealengine.fields.scalar.StringField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.ChoiceField.validate">(surrealengine.fields.specialized.ChoiceField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.DecimalField.validate">(surrealengine.fields.specialized.DecimalField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.EmailField.validate">(surrealengine.fields.specialized.EmailField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.IPAddressField.validate">(surrealengine.fields.specialized.IPAddressField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.LiteralField.validate">(surrealengine.fields.specialized.LiteralField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.SlugField.validate">(surrealengine.fields.specialized.SlugField method)</a>
+</li>
+                                                <li><a href="api/fields.html#surrealengine.fields.specialized.URLField.validate">(surrealengine.fields.specialized.URLField method)</a>
+</li>
+                                        </ul></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.AsyncConnectionPool.validate_connection">validate_connection() (surrealengine.connection.AsyncConnectionPool method)</a>
+
+                                        <ul>
+                                                <li><a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.validate_connection">(surrealengine.connection.ConnectionPoolBase method)</a>
+</li>
+                                                <li><a href="api/connection.html#surrealengine.connection.SyncConnectionPool.validate_connection">(surrealengine.connection.SyncConnectionPool method)</a>
+</li>
+                                        </ul></li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.ConnectionPoolBase.validate_on_borrow">validate_on_borrow (surrealengine.connection.ConnectionPoolBase attribute)</a>
+</li>
+                                <li>
+                                    <a href="api/exceptions.html#surrealengine.exceptions.ValidationError">ValidationError (class in surrealengine.exceptions)</a>
+</li>
+                                <li>
+                                    <a href="api/materialized_view.html#surrealengine.materialized_view.Variance">Variance (class in surrealengine.materialized_view)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+        <h2 id="W">W</h2>
+        <table class="indextable genindextable">
+            <tr>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue.wait_for_async_reconnection">wait_for_async_reconnection() (surrealengine.connection.OperationQueue method)</a>
+</li>
+                                <li>
+                                    <a href="api/connection.html#surrealengine.connection.OperationQueue.wait_for_reconnection">wait_for_reconnection() (surrealengine.connection.OperationQueue method)</a>
+</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                                <li>
+                                    <a href="api/utilities.html#surrealengine.logging.SurrealEngineLogger.warning">warning() (surrealengine.logging.SurrealEngineLogger method)</a>
+</li>
+                                <li>
+                                    <a href="api/aggregation.html#surrealengine.aggregation.AggregationPipeline.with_index">with_index() (surrealengine.aggregation.AggregationPipeline method)</a>
+</li>
+                        </ul>
+                    </td>
+            </tr>
+        </table>
+    
+</main>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="_static/dist/theme.js"></script>
+        <script type="text/javascript" src="_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="_static/searchtools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

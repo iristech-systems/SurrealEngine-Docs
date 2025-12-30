@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../../">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>surrealengine.fields.datetime &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="../../../genindex.html" />
+            <link rel="search" title="Search" href="../../../search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="up" title="Module code" href="../../index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+        <li class="breadcrumb-item active" aria-current="page">surrealengine.fields.datetime</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengine_modules/surrealengine/fields/datetime" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <h1>Source code for surrealengine.fields.datetime</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
+
+
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Field</span>
+
+<div class="viewcode-block" id="DateTimeField">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.datetime.DateTimeField">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DateTimeField</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;DateTime field type.</span>
+
+<span class="sd">    This field type stores datetime values and provides validation and</span>
+<span class="sd">    conversion between Python datetime objects and SurrealDB datetime format.</span>
+
+<span class="sd">    SurrealDB v2.0.0+ requires datetime values to have a ``d`` prefix or be cast</span>
+<span class="sd">    as &lt;datetime&gt;. This field handles the conversion automatically, so you can</span>
+<span class="sd">    use standard Python datetime objects in your code.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        class Event(Document):</span>
+<span class="sd">            created_at = DateTimeField(default=datetime.datetime.now)</span>
+<span class="sd">            scheduled_for = DateTimeField()</span>
+
+<span class="sd">        # Python datetime objects are automatically converted to SurrealDB format</span>
+<span class="sd">        event = Event(scheduled_for=datetime.datetime.now() + datetime.timedelta(days=7))</span>
+<span class="sd">        await event.save()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DateTimeField.__init__">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.datetime.DateTimeField.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new DateTimeField.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Additional arguments to pass to the parent class</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">py_type</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span></div>
+
+
+<div class="viewcode-block" id="DateTimeField.validate">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.datetime.DateTimeField.validate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the datetime value.</span>
+
+<span class="sd">        Accepts datetime, Datetime, ISO strings (with optional Z or space separator),</span>
+<span class="sd">        Surreal d&#39;...&#39; literals, and epoch seconds/milliseconds (int/float).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="c1"># Already a datetime</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">value</span>
+
+        <span class="c1"># SDK wrapper instance provided directly</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Datetime</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Datetime</span><span class="p">):</span>
+                <span class="c1"># Assuming Datetime has a &#39;dt&#39; or &#39;datetime&#39; property or similar,</span>
+                <span class="c1"># or we can extract it. Based on SDK source, it wraps valid input.</span>
+                <span class="c1"># If it stores it as string internally or object, we need to extract.</span>
+                <span class="c1"># For now, let&#39;s assume we can trust it or it has a way to get back to datetime.</span>
+                <span class="c1"># If the SDK 1.0.7 Datetime object usage is opaque, we might return it as is</span>
+                <span class="c1"># if the expected return type was lenient, but type hint says Optional[datetime.datetime].</span>
+                <span class="c1"># We should try to extract the python datetime.</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;inner&#39;</span><span class="p">):</span> <span class="c1"># Check SDK source if possible, else generic</span>
+                    <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">inner</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;dt&#39;</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">dt</span>
+                <span class="c1"># Fallback: maybe it is a subclass of datetime? Unlikely.</span>
+                <span class="c1"># If we return it here, it breaks return type contract if it&#39;s not a datetime.</span>
+                <span class="c1"># Let&#39;s assume validation is satisfied if it&#39;s a Datetime, but we need to return datetime. </span>
+                <span class="c1"># Let&#39;s inspect it via str and parse if needed.</span>
+                <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;d&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;+00:00&#39;</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="c1"># Epoch seconds or milliseconds</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+            <span class="n">seconds</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mf">1000.0</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">1_000_000_000_000</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">seconds</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">OverflowError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Numeric value for &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is not a valid epoch timestamp&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Strings (ISO, Surreal literal, with spaces, with Z)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;d&#39;&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">s</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">):</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">s_norm</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;+00:00&#39;</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">s_norm</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">if</span> <span class="s1">&#39; &#39;</span> <span class="ow">in</span> <span class="n">s_norm</span> <span class="ow">and</span> <span class="s1">&#39;T&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">s_norm</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">s_norm</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="k">pass</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;String value for &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is not a valid datetime: </span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Unknown type</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected datetime for field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DateTimeField.to_db">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.datetime.DateTimeField.to_db">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert Python datetime to database representation.</span>
+
+<span class="sd">        This method converts a Python datetime object (or ISO-like string) to a SurrealDB datetime</span>
+<span class="sd">        type using the SDK&#39;s Datetime wrapper so that schemafull TYPE datetime is satisfied.</span>
+<span class="sd">        If a naive datetime is provided, assume UTC to avoid ambiguity.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Datetime</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="n">Datetime</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Coerce from string when possible</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># Normalize trailing Z to +00:00 for fromisoformat</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;+00:00&#39;</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="c1"># Let SDK try to handle unknown string as-is (unlikely)</span>
+                <span class="k">return</span> <span class="n">value</span>
+        
+        <span class="c1"># Direct wrapper passthrough</span>
+        <span class="k">if</span> <span class="n">Datetime</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Datetime</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">value</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+            <span class="c1"># treat as epoch seconds or milliseconds</span>
+            <span class="n">seconds</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mf">1000.0</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">1_000_000_000_000</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">seconds</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">value</span>
+        
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">):</span>
+            <span class="c1"># Ensure timezone-aware; default to UTC if naive</span>
+            <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">tzinfo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+            <span class="c1"># Prefer SDK wrapper when available</span>
+            <span class="k">if</span> <span class="n">Datetime</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">Datetime</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="c1"># Fallback to Surreal literal</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;d&#39;</span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;+00:00&#39;</span><span class="p">,</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="DateTimeField.from_db">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.datetime.DateTimeField.from_db">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert database value to Python datetime.</span>
+
+<span class="sd">        Accepts Datetime, Surreal d&#39;...&#39; literal strings, ISO strings (with optional Z),</span>
+<span class="sd">        or datetime instances. Returns a Python datetime (timezone-aware if source has offset).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Datetime</span>
+            <span class="c1"># SDK wrapper</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Datetime</span><span class="p">):</span>
+                <span class="c1"># Try to extract the datetime object</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;inner&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">inner</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">inner</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s1">&#39;dt&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">dt</span>
+                <span class="c1"># Fallback to string parsing if wrapper attributes unknown</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;d&#39;&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">s</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">):</span>
+                    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;+00:00&#39;</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="k">pass</span>
+            
+        <span class="c1"># Surreal datetime literal like d&#39;2025-08-31T12:34:56Z&#39;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;d&#39;&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">s</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">):</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;+00:00&#39;</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="TimeSeriesField">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.datetime.TimeSeriesField">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimeSeriesField</span><span class="p">(</span><span class="n">DateTimeField</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Field for time series data.</span>
+
+<span class="sd">    This field type extends DateTimeField and adds support for time series data.</span>
+<span class="sd">    It can be used to store timestamps for time series data and supports</span>
+<span class="sd">    additional metadata for time series operations.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        class SensorReading(Document):</span>
+<span class="sd">            timestamp = TimeSeriesField(index=True)</span>
+<span class="sd">            value = FloatField()</span>
+
+<span class="sd">            class Meta:</span>
+<span class="sd">                time_series = True</span>
+<span class="sd">                time_field = &quot;timestamp&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TimeSeriesField.__init__">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.datetime.TimeSeriesField.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new TimeSeriesField.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Additional arguments to pass to the parent class</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TimeSeriesField.validate">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.datetime.TimeSeriesField.validate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the timestamp value.</span>
+
+<span class="sd">        This method checks if the value is a valid timestamp for time series data.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The value to validate</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The validated timestamp value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="DurationField">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.datetime.DurationField">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DurationField</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Duration field type.</span>
+
+<span class="sd">    This field type stores durations of time and provides validation and</span>
+<span class="sd">    conversion between Python timedelta objects and SurrealDB duration strings.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DurationField.__init__">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.datetime.DurationField.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new DurationField.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Additional arguments to pass to the parent class</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Duration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">py_type</span> <span class="o">=</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">,</span> <span class="n">Duration</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DurationField.validate">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.datetime.DurationField.validate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the duration value.</span>
+
+<span class="sd">        This method checks if the value is a valid timedelta or can be</span>
+<span class="sd">        converted to a timedelta from a string.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The value to validate</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The validated timedelta value</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: If the value cannot be converted to a timedelta</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">value</span>
+            
+            <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Duration</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Duration</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">value</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">Duration</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                     <span class="c1"># Fallback to manual parsing if SDK fails or for complex python-side logic? </span>
+                     <span class="c1"># Actually, SDK Duration should handle it.</span>
+                     <span class="k">pass</span>
+
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected duration for field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="DurationField.to_db">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.datetime.DurationField.to_db">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert Python timedelta to database representation.</span>
+
+<span class="sd">        This method converts a Python timedelta object to a SurrealDB Duration object</span>
+<span class="sd">        for storage in the database.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The Python timedelta to convert</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The SurrealDB Duration object for the database</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="c1"># Import SurrealDB Duration class</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Duration</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="c1"># If it&#39;s already a string, convert to a supported format</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># Validate first</span>
+            <span class="c1"># Convert years to days (approximate: 1 year = 365 days)</span>
+            <span class="k">if</span> <span class="s1">&#39;y&#39;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+                <span class="c1"># Simple conversion for basic year formats like &quot;2y&quot;</span>
+                <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+                <span class="n">year_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+)y&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">year_match</span><span class="p">:</span>
+                    <span class="n">years</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">year_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+                    <span class="n">days</span> <span class="o">=</span> <span class="n">years</span> <span class="o">*</span> <span class="mi">365</span>
+                    <span class="c1"># Replace the year part with days</span>
+                    <span class="n">converted</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+y&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">days</span><span class="si">}</span><span class="s1">d&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">Duration</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">converted</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Duration</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">):</span>
+            <span class="c1"># Convert timedelta to Duration via string representation or let SDK handle if it supports timedelta</span>
+            <span class="c1"># SDK Duration(str) is standard</span>
+            <span class="c1"># Convert to ns for direct construction to be efficient</span>
+            <span class="n">total_seconds</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+            <span class="n">ns</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">total_seconds</span> <span class="o">*</span> <span class="mi">1_000_000_000</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Duration</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span>
+
+        <span class="c1"># If it&#39;s already a Duration object, return as is</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Duration</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">value</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+             <span class="k">return</span> <span class="n">Duration</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot convert </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2"> to duration&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DurationField.from_db">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.datetime.DurationField.from_db">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert database value to Python timedelta.</span>
+
+<span class="sd">        This method converts a SurrealDB duration string from the database to a</span>
+<span class="sd">        Python timedelta object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The database value to convert</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The Python timedelta object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+</div>
+
+</pre></div>
+</main>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../../_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="../../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

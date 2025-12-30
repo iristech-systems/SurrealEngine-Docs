@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="./">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Getting Started &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="genindex.html" />
+            <link rel="search" title="Search" href="search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="next" title="Tutorial: Building a Blog Application" href="tutorial.html" />
+            <link rel="prev" title="SurrealEngine Documentation" href="README.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Getting Started</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealenginegetting_started.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="_sources/getting_started.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"><span>¶</span></a></h1>
+<p>This guide will help you get up and running with SurrealEngine quickly.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"><span>¶</span></a></h2>
+<p>Install SurrealEngine using pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>surrealengine
+</pre></div>
+</div>
+<p>Or with all optional dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>surrealengine<span class="o">[</span>all<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"><span>¶</span></a></h2>
+<p>You’ll need a SurrealDB instance running. The easiest way is with Docker:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start SurrealDB</span>
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--pull<span class="w"> </span>always<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>surrealdb/surrealdb:latest<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>start<span class="w"> </span>--user<span class="w"> </span>root<span class="w"> </span>--pass<span class="w"> </span>root
+</pre></div>
+</div>
+<p>Or using the SurrealDB binary:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>surreal<span class="w"> </span>start<span class="w"> </span>--user<span class="w"> </span>root<span class="w"> </span>--pass<span class="w"> </span>root
+</pre></div>
+</div>
+</section>
+<section id="your-first-surrealengine-application">
+<h2>Your First SurrealEngine Application<a class="headerlink" href="#your-first-surrealengine-application" title="Link to this heading"><span>¶</span></a></h2>
+<section id="async-application">
+<h3>Async Application<a class="headerlink" href="#async-application" title="Link to this heading"><span>¶</span></a></h3>
+<p>Here’s a complete async example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Document</span><span class="p">,</span> <span class="n">StringField</span><span class="p">,</span> <span class="n">IntField</span><span class="p">,</span>
+    <span class="n">create_connection</span>
+<span class="p">)</span>
+
+<span class="c1"># Define your document model</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">IntField</span><span class="p">(</span><span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Create connection</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8000/rpc&quot;</span><span class="p">,</span>
+        <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+        <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span>
+        <span class="n">username</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+        <span class="n">password</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+        <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Connected to SurrealDB&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create table</span>
+    <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">create_table</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Created users table&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create a user</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+        <span class="n">email</span><span class="o">=</span><span class="s2">&quot;alice@example.com&quot;</span><span class="p">,</span>
+        <span class="n">age</span><span class="o">=</span><span class="mi">30</span>
+    <span class="p">)</span>
+    <span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Created user: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Query users</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">users</span><span class="p">)</span><span class="si">}</span><span class="s2"> users&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Filter users</span>
+    <span class="n">alice</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Found Alice: </span><span class="si">{</span><span class="n">alice</span><span class="o">.</span><span class="n">email</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Update user</span>
+    <span class="k">await</span> <span class="n">alice</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">31</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Updated Alice&#39;s age to </span><span class="si">{</span><span class="n">alice</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Delete user</span>
+    <span class="k">await</span> <span class="n">alice</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Deleted Alice&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="synchronous-application">
+<h3>Synchronous Application<a class="headerlink" href="#synchronous-application" title="Link to this heading"><span>¶</span></a></h3>
+<p>For synchronous applications, use the sync API:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Document</span><span class="p">,</span> <span class="n">StringField</span><span class="p">,</span> <span class="n">IntField</span><span class="p">,</span>
+    <span class="n">create_connection</span>
+<span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">IntField</span><span class="p">(</span><span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Create synchronous connection</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8000/rpc&quot;</span><span class="p">,</span>
+        <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+        <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span>
+        <span class="n">username</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+        <span class="n">password</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+        <span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># Key parameter for sync</span>
+        <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="n">connection</span><span class="o">.</span><span class="n">connect_sync</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Connected to SurrealDB&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create table</span>
+    <span class="n">User</span><span class="o">.</span><span class="n">create_table_sync</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Created users table&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create a user</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;bob@example.com&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+    <span class="n">user</span><span class="o">.</span><span class="n">save_sync</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Created user: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Query users</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all_sync</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">users</span><span class="p">)</span><span class="si">}</span><span class="s2"> users&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Filter users</span>
+    <span class="n">bob</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">first_sync</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Found Bob: </span><span class="si">{</span><span class="n">bob</span><span class="o">.</span><span class="n">email</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Update user</span>
+    <span class="n">bob</span><span class="o">.</span><span class="n">update_sync</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Updated Bob&#39;s age to </span><span class="si">{</span><span class="n">bob</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="embedded-database-no-server-required">
+<h3>Embedded Database (No Server Required)<a class="headerlink" href="#embedded-database-no-server-required" title="Link to this heading"><span>¶</span></a></h3>
+<p>Use an embedded database for local or offline applications:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Document</span><span class="p">,</span> <span class="n">StringField</span><span class="p">,</span> <span class="n">create_connection</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Task</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">completed</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;tasks&quot;</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Use file-based database (no server needed!)</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&quot;file://./my_app_data&quot;</span><span class="p">,</span>
+        <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
+        <span class="n">database</span><span class="o">=</span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span>
+        <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+    <span class="c1"># Create and query data</span>
+    <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Learn SurrealEngine&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">task</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="n">tasks</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Task</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tasks: </span><span class="si">{</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">title</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">tasks</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="connection-options">
+<h2>Connection Options<a class="headerlink" href="#connection-options" title="Link to this heading"><span>¶</span></a></h2>
+<p>SurrealEngine supports multiple connection schemes:</p>
+<section id="remote-server">
+<h3>Remote Server<a class="headerlink" href="#remote-server" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># WebSocket</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8000/rpc&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Secure WebSocket</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;wss://db.example.com/rpc&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># HTTP</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://localhost:8000&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># HTTPS</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://db.example.com&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="embedded-database">
+<h3>Embedded Database<a class="headerlink" href="#embedded-database" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In-memory (perfect for testing)</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;mem://&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># File-based (persistent storage)</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;file:///path/to/db&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># SurrealKV (high-performance)</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;surrealkv:///path/to/db&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="core-concepts">
+<h2>Core Concepts<a class="headerlink" href="#core-concepts" title="Link to this heading"><span>¶</span></a></h2>
+<section id="documents">
+<h3>Documents<a class="headerlink" href="#documents" title="Link to this heading"><span>¶</span></a></h3>
+<p>Documents are the main data models in SurrealEngine:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Document</span><span class="p">,</span> <span class="n">StringField</span><span class="p">,</span> <span class="n">IntField</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Product</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">IntField</span><span class="p">(</span><span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">sku</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span>
+        <span class="n">schemafull</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</section>
+<section id="fields">
+<h3>Fields<a class="headerlink" href="#fields" title="Link to this heading"><span>¶</span></a></h3>
+<p>SurrealEngine provides rich field types:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">StringField</span><span class="p">,</span> <span class="n">IntField</span><span class="p">,</span> <span class="n">FloatField</span><span class="p">,</span> <span class="n">BoolField</span><span class="p">,</span>
+    <span class="n">DateTimeField</span><span class="p">,</span> <span class="n">ListField</span><span class="p">,</span> <span class="n">DictField</span><span class="p">,</span>
+    <span class="n">ReferenceField</span><span class="p">,</span> <span class="n">EmailField</span><span class="p">,</span> <span class="n">URLField</span>
+<span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Article</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">()</span>
+    <span class="n">views</span> <span class="o">=</span> <span class="n">IntField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">rating</span> <span class="o">=</span> <span class="n">FloatField</span><span class="p">(</span><span class="n">min_value</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+    <span class="n">published</span> <span class="o">=</span> <span class="n">BoolField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">tags</span> <span class="o">=</span> <span class="n">ListField</span><span class="p">(</span><span class="n">StringField</span><span class="p">())</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">DictField</span><span class="p">()</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="n">ReferenceField</span><span class="p">(</span><span class="s2">&quot;User&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="querying">
+<h3>Querying<a class="headerlink" href="#querying" title="Link to this heading"><span>¶</span></a></h3>
+<p>Django-style query API:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all</span>
+<span class="n">products</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># Filter</span>
+<span class="n">expensive</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">price__gte</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Chain filters</span>
+<span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="n">category</span><span class="o">=</span><span class="s2">&quot;electronics&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="n">price__lt</span><span class="o">=</span><span class="mi">500</span>
+<span class="p">)</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;-price&quot;</span><span class="p">)</span>
+
+<span class="c1"># Limit and pagination</span>
+<span class="n">page1</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">page2</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Get single object</span>
+<span class="n">product</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;product:123&quot;</span><span class="p">)</span>
+<span class="n">first</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Phone&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="common-patterns">
+<h2>Common Patterns<a class="headerlink" href="#common-patterns" title="Link to this heading"><span>¶</span></a></h2>
+<section id="crud-operations">
+<h3>CRUD Operations<a class="headerlink" href="#crud-operations" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;alice@example.com&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="c1"># Read</span>
+<span class="n">user</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="n">users</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">age__gte</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+
+<span class="c1"># Update</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">31</span><span class="p">)</span>
+<span class="c1"># or</span>
+<span class="n">user</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">31</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="c1"># Delete</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="batch-operations">
+<h3>Batch Operations<a class="headerlink" href="#batch-operations" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bulk create</span>
+<span class="n">users</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;User</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;user</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">@example.com&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="c1"># Bulk update</span>
+<span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;pending&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;active&quot;</span><span class="p">)</span>
+
+<span class="c1"># Bulk delete</span>
+<span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">age__lt</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="relationships">
+<h3>Relationships<a class="headerlink" href="#relationships" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReferenceField</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Comment</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="n">ReferenceField</span><span class="p">(</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">post</span> <span class="o">=</span> <span class="n">ReferenceField</span><span class="p">(</span><span class="s2">&quot;Post&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;comments&quot;</span>
+
+<span class="c1"># Create with references</span>
+<span class="n">comment</span> <span class="o">=</span> <span class="n">Comment</span><span class="p">(</span>
+    <span class="n">content</span><span class="o">=</span><span class="s2">&quot;Great post!&quot;</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="s2">&quot;user:alice&quot;</span><span class="p">,</span>
+    <span class="n">post</span><span class="o">=</span><span class="s2">&quot;post:123&quot;</span>
+<span class="p">)</span>
+<span class="k">await</span> <span class="n">comment</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="c1"># Fetch with related documents</span>
+<span class="n">comments</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Comment</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;author&quot;</span><span class="p">,</span> <span class="s2">&quot;post&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">comments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  <span class="c1"># Access author&#39;s name</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="error-handling">
+<h2>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading"><span>¶</span></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ValidationError</span><span class="p">,</span>
+    <span class="n">DoesNotExist</span><span class="p">,</span>
+    <span class="n">MultipleObjectsReturned</span>
+<span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Validation error</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;invalid&quot;</span><span class="p">)</span>  <span class="c1"># Missing required &#39;name&#39;</span>
+    <span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Validation failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Does not exist</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;user:nonexistent&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">DoesNotExist</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User not found&quot;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Multiple objects returned</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;John&quot;</span><span class="p">)</span>  <span class="c1"># Multiple Johns</span>
+<span class="k">except</span> <span class="n">MultipleObjectsReturned</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Multiple users found&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"><span>¶</span></a></h2>
+<p>Now that you’re familiar with the basics, explore these topics:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="tutorial.html"><span class="doc">Tutorial: Building a Blog Application</span></a> - In-depth tutorial building a complete application</p></li>
+<li><p><a class="reference internal" href="document_models.html"><span class="doc">Document Models</span></a> - Learn about document models and sync API</p></li>
+<li><p><a class="reference internal" href="field_types.html"><span class="doc">Field Types</span></a> - Explore all available field types</p></li>
+<li><p><a class="reference internal" href="querying.html"><span class="doc">Querying</span></a> - Master advanced querying techniques</p></li>
+<li><p><a class="reference internal" href="relationships.html"><span class="doc">Relationships</span></a> - Work with graph relationships</p></li>
+<li><p><a class="reference internal" href="connection_management.html"><span class="doc">Connection Management</span></a> - Connection pooling and embedded databases</p></li>
+<li><p><a class="reference internal" href="materialized_views.html"><span class="doc">Materialized Views</span></a> - Create aggregated views</p></li>
+<li><p><a class="reference internal" href="live.html"><span class="doc">LIVE Queries (Subscriptions)</span></a> - Real-time subscriptions with LIVE queries</p></li>
+</ul>
+</section>
+<section id="tips-for-success">
+<h2>Tips for Success<a class="headerlink" href="#tips-for-success" title="Link to this heading"><span>¶</span></a></h2>
+<ol class="arabic">
+<li><p><strong>Start with embedded databases</strong> for development:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Development</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;mem://&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Use schemafull tables</strong> for production:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">schemafull</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Add indexes</strong> for frequently queried fields:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">indexed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Use validation</strong> at the field level:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="n">IntField</span><span class="p">(</span><span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Choose sync or async</strong> consistently throughout your app</p></li>
+<li><p><strong>Enable connection pooling</strong> for web applications:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">connection</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">use_pool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pool_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading"><span>¶</span></a></h2>
+<ul class="simple">
+<li><p><strong>Documentation</strong>: <a class="reference external" href="https://surrealengine.readthedocs.io">https://surrealengine.readthedocs.io</a></p></li>
+<li><p><strong>GitHub Issues</strong>: <a class="reference external" href="https://github.com/iristech-systems/surrealengine/issues">https://github.com/iristech-systems/surrealengine/issues</a></p></li>
+<li><p><strong>Examples</strong>: Check the <code class="docutils literal notranslate"><span class="pre">example_scripts/</span></code> directory in the repository</p></li>
+<li><p><strong>SurrealDB Docs</strong>: <a class="reference external" href="https://surrealdb.com/docs">https://surrealdb.com/docs</a></p></li>
+</ul>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"><span>¶</span></a></h2>
+<section id="connection-issues">
+<h3>Connection Issues<a class="headerlink" href="#connection-issues" title="Link to this heading"><span>¶</span></a></h3>
+<p>If you can’t connect to SurrealDB:</p>
+<ol class="arabic simple">
+<li><p>Check that SurrealDB is running: <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">http://localhost:8000/health</span></code></p></li>
+<li><p>Verify credentials are correct</p></li>
+<li><p>Check namespace and database names</p></li>
+<li><p>Look for firewall issues</p></li>
+</ol>
+</section>
+<section id="import-errors">
+<h3>Import Errors<a class="headerlink" href="#import-errors" title="Link to this heading"><span>¶</span></a></h3>
+<p>If imports fail:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reinstall with all dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>surrealengine<span class="o">[</span>all<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="performance-issues">
+<h3>Performance Issues<a class="headerlink" href="#performance-issues" title="Link to this heading"><span>¶</span></a></h3>
+<p>For slow queries:</p>
+<ol class="arabic simple">
+<li><p>Add indexes to frequently queried fields</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">select()</span></code> or <code class="docutils literal notranslate"><span class="pre">omit()</span></code> to limit returned fields</p></li>
+<li><p>Enable connection pooling</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">explain()</span></code> to analyze query plans</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="README.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>SurrealEngine Documentation
+    </a>
+    <a class="float-right" href="tutorial.html" title="Next">
+        Tutorial: Building a Blog Application <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#your-first-surrealengine-application">Your First SurrealEngine Application</a><ul>
+<li><a class="reference internal" href="#async-application">Async Application</a></li>
+<li><a class="reference internal" href="#synchronous-application">Synchronous Application</a></li>
+<li><a class="reference internal" href="#embedded-database-no-server-required">Embedded Database (No Server Required)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#connection-options">Connection Options</a><ul>
+<li><a class="reference internal" href="#remote-server">Remote Server</a></li>
+<li><a class="reference internal" href="#embedded-database">Embedded Database</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#core-concepts">Core Concepts</a><ul>
+<li><a class="reference internal" href="#documents">Documents</a></li>
+<li><a class="reference internal" href="#fields">Fields</a></li>
+<li><a class="reference internal" href="#querying">Querying</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#common-patterns">Common Patterns</a><ul>
+<li><a class="reference internal" href="#crud-operations">CRUD Operations</a></li>
+<li><a class="reference internal" href="#batch-operations">Batch Operations</a></li>
+<li><a class="reference internal" href="#relationships">Relationships</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li><a class="reference internal" href="#next-steps">Next Steps</a></li>
+<li><a class="reference internal" href="#tips-for-success">Tips for Success</a></li>
+<li><a class="reference internal" href="#getting-help">Getting Help</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#connection-issues">Connection Issues</a></li>
+<li><a class="reference internal" href="#import-errors">Import Errors</a></li>
+<li><a class="reference internal" href="#performance-issues">Performance Issues</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="_static/dist/theme.js"></script>
+        <script type="text/javascript" src="_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="_static/searchtools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="./">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Changelog &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="genindex.html" />
+            <link rel="search" title="Search" href="search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="next" title="License" href="license.html" />
+            <link rel="prev" title="Contributing" href="contributing.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Changelog</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealenginechangelog.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="_sources/changelog.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"><span>¶</span></a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="surrealengine-changelog">
+<h2>SurrealEngine Changelog<a class="headerlink" href="#surrealengine-changelog" title="Link to this heading"><span>¶</span></a></h2>
+<p>All notable changes to the SurrealEngine project will be documented in this file.</p>
+<p>The format is based on <a class="reference external" href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,
+and this project adheres to <a class="reference external" href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+<section id="unreleased">
+<h3>[Unreleased]<a class="headerlink" href="#unreleased" title="Link to this heading"><span>¶</span></a></h3>
+</section>
+<section id="id1">
+<h3>[0.5.1] - 2025-12-30<a class="headerlink" href="#id1" title="Link to this heading"><span>¶</span></a></h3>
+<section id="fixed">
+<h4>Fixed<a class="headerlink" href="#fixed" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p><strong>Documentation Consistency</strong>: Unified the documentation structure to ensure consistent navigation menus across User Guide and API Reference sections.</p></li>
+<li><p><strong>API Reference Consolidation</strong>: Cleaned up redundant auto-generated API pages and merged orphaned modules (<code class="docutils literal notranslate"><span class="pre">graph</span></code>, <code class="docutils literal notranslate"><span class="pre">schemaless</span></code>, <code class="docutils literal notranslate"><span class="pre">base_query</span></code>, <code class="docutils literal notranslate"><span class="pre">pagination</span></code>, etc.) into curated reference pages.</p></li>
+<li><p><strong>Docstring Formatting</strong>: Corrected numerous docstring errors and converted Markdown-style code blocks to ReStructuredText (RST) to fix Sphinx build warnings.</p></li>
+<li><p><strong>Core Import Fix</strong>: Fixed a missing <code class="docutils literal notranslate"><span class="pre">ValidationError</span></code> import in <code class="docutils literal notranslate"><span class="pre">document.py</span></code> that was causing documentation build failures.</p></li>
+<li><p><strong>Field Documentation</strong>: Fixed incorrect module paths in <code class="docutils literal notranslate"><span class="pre">api/fields.rst</span></code> ensuring all field classes are correctly documented via <code class="docutils literal notranslate"><span class="pre">autodoc</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h3>[0.5.0] - 2025-12-30<a class="headerlink" href="#id2" title="Link to this heading"><span>¶</span></a></h3>
+<section id="added">
+<h4>Added<a class="headerlink" href="#added" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p><strong>QuerySet Enhancements</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">omit(*fields)</span></code>: Exclude specific fields from the results.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeout(duration)</span></code>: Set a timeout for the query execution (e.g., “5s”).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tempfiles(value)</span></code>: Enable or disable using temporary files for large queries.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_explain(full=False)</span></code>: Builder method to explain the query execution plan. <code class="docutils literal notranslate"><span class="pre">explain()</span></code> and <code class="docutils literal notranslate"><span class="pre">explain_sync()</span></code> now also support <code class="docutils literal notranslate"><span class="pre">full=True</span></code> argument.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">no_index()</span></code>: Use <code class="docutils literal notranslate"><span class="pre">WITH</span> <span class="pre">NOINDEX</span></code> clause to bypass indexes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_by(all=True)</span></code>: Support for <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">ALL</span></code> clause.</p></li>
+</ul>
+</li>
+<li><p><strong>Advanced Filter Operators</strong>: Added support for SurrealDB set operators including:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">contains_any</span></code>, <code class="docutils literal notranslate"><span class="pre">contains_all</span></code>, <code class="docutils literal notranslate"><span class="pre">contains_none</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inside</span></code>, <code class="docutils literal notranslate"><span class="pre">not_inside</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all_inside</span></code>, <code class="docutils literal notranslate"><span class="pre">any_inside</span></code>, <code class="docutils literal notranslate"><span class="pre">none_inside</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Live Query Ergonomics</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">LiveEvent</span></code> class: Typed event objects yielding <code class="docutils literal notranslate"><span class="pre">action</span></code> (CREATE/UPDATE/DELETE), <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">ts</span></code>, and <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">action</span></code> filtering: <code class="docutils literal notranslate"><span class="pre">QuerySet.live(action=&quot;CREATE&quot;)</span></code> or <code class="docutils literal notranslate"><span class="pre">action=[&quot;CREATE&quot;,</span> <span class="pre">&quot;UPDATE&quot;]</span></code> to filter events client-side.</p></li>
+</ul>
+</li>
+<li><p><strong>Materialized Views</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">create(overwrite=True)</span></code> / <code class="docutils literal notranslate"><span class="pre">create(if_not_exists=True)</span></code>: Support for <code class="docutils literal notranslate"><span class="pre">OVERWRITE</span></code> and <code class="docutils literal notranslate"><span class="pre">IF</span> <span class="pre">NOT</span> <span class="pre">EXISTS</span></code> clauses in <code class="docutils literal notranslate"><span class="pre">DEFINE</span> <span class="pre">TABLE</span></code>.</p></li>
+<li><p>Improved <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> parsing to robustly handle <code class="docutils literal notranslate"><span class="pre">QuerySet</span></code> grouping configuration.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="changed">
+<h4>Changed<a class="headerlink" href="#changed" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p><strong>Deprecation</strong>: <code class="docutils literal notranslate"><span class="pre">MaterializedView.refresh()</span></code> and <code class="docutils literal notranslate"><span class="pre">refresh_sync()</span></code> are now deprecated as SurrealDB views are live and do not require manual refreshing.</p></li>
+<li><p><strong>Explain Method</strong>: <code class="docutils literal notranslate"><span class="pre">QuerySet.explain()</span></code> now supports <code class="docutils literal notranslate"><span class="pre">full=True</span></code> to retrieve the full execution plan including trace.</p></li>
+</ul>
+</section>
+</section>
+<section id="id3">
+<h3>[0.4.1] - 2025-12-19<a class="headerlink" href="#id3" title="Link to this heading"><span>¶</span></a></h3>
+<section id="id4">
+<h4>Added<a class="headerlink" href="#id4" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p><strong>Embedded Database Support</strong>: Full support for connection schemes <code class="docutils literal notranslate"><span class="pre">mem://</span></code>, <code class="docutils literal notranslate"><span class="pre">surrealkv://</span></code>, and <code class="docutils literal notranslate"><span class="pre">file://</span></code> utilizing the underlying SDK’s native embedded capabilities.</p></li>
+<li><p><strong>Sync API Parity</strong>: Added <code class="docutils literal notranslate"><span class="pre">Document.update_sync()</span></code>, <code class="docutils literal notranslate"><span class="pre">Document.save_sync()</span></code>, <code class="docutils literal notranslate"><span class="pre">Document.refresh_sync()</span></code>, and <code class="docutils literal notranslate"><span class="pre">RelationDocument.update_sync()</span></code> to match async capabilities.</p></li>
+<li><p><strong>Data Type Compliance</strong>: Core fields (<code class="docutils literal notranslate"><span class="pre">DurationField</span></code>, <code class="docutils literal notranslate"><span class="pre">RangeField</span></code>, <code class="docutils literal notranslate"><span class="pre">GeometryField</span></code>, <code class="docutils literal notranslate"><span class="pre">TableField</span></code>, <code class="docutils literal notranslate"><span class="pre">RecordIDField</span></code>) now natively support and preserve <code class="docutils literal notranslate"><span class="pre">surrealdb</span></code> SDK objects (<code class="docutils literal notranslate"><span class="pre">Duration</span></code>, <code class="docutils literal notranslate"><span class="pre">Range</span></code>, <code class="docutils literal notranslate"><span class="pre">Geometry</span></code>, <code class="docutils literal notranslate"><span class="pre">Table</span></code>, <code class="docutils literal notranslate"><span class="pre">RecordID</span></code>).</p></li>
+</ul>
+</section>
+<section id="id5">
+<h4>Changed<a class="headerlink" href="#id5" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p><strong>Strict Return Types</strong>: Fields like <code class="docutils literal notranslate"><span class="pre">RecordIDField</span></code> now return <code class="docutils literal notranslate"><span class="pre">surrealdb.RecordID</span></code> objects instead of strings, improving type safety.</p></li>
+<li><p><strong>Improved Serialization</strong>: Refactored <code class="docutils literal notranslate"><span class="pre">Document.save</span></code> and <code class="docutils literal notranslate"><span class="pre">Document.update</span></code> logic to share a unified serialization creation pipeline, fixing CBOR errors with <code class="docutils literal notranslate"><span class="pre">Datetime</span></code> objects.</p></li>
+<li><p><strong>Refactoring</strong>: Merged <code class="docutils literal notranslate"><span class="pre">document_update.py</span></code> into <code class="docutils literal notranslate"><span class="pre">document.py</span></code> for cleaner architecture.</p></li>
+<li><p><strong>BaseQuerySet</strong>: Updated to remove legacy dependencies and improve query building robustness.</p></li>
+</ul>
+</section>
+<section id="id6">
+<h4>Fixed<a class="headerlink" href="#id6" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p><strong>CBOR Serialization</strong>: Fixed <code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">CBOR</span> <span class="pre">text</span> <span class="pre">data</span> <span class="pre">type</span> <span class="pre">must</span> <span class="pre">be</span> <span class="pre">str</span></code> when saving <code class="docutils literal notranslate"><span class="pre">datetime</span></code> objects.</p></li>
+<li><p><strong>ReferenceField Bug</strong>: Fixed issue where <code class="docutils literal notranslate"><span class="pre">ReferenceField</span></code> was incorrectly converting <code class="docutils literal notranslate"><span class="pre">RecordID</span></code> objects to strings during serialization.</p></li>
+<li><p><strong>Geometry Validation</strong>: Enhanced <code class="docutils literal notranslate"><span class="pre">GeometryField</span></code> to strictly validate closed linear rings for Polygons.</p></li>
+<li><p><strong>Default Values</strong>: Fixed issue where default values were not persisted when creating documents with manually specified IDs.</p></li>
+</ul>
+</section>
+<section id="enhanced">
+<h4>Enhanced<a class="headerlink" href="#enhanced" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p><strong>Immutable Filtering</strong>: <code class="docutils literal notranslate"><span class="pre">BaseQuerySet.filter()</span></code> now returns a new queryset instance, preventing accidental mutation of the original queryset.</p></li>
+<li><p><strong>Advanced <code class="docutils literal notranslate"><span class="pre">Q</span></code> Object Handling</strong>: The <code class="docutils literal notranslate"><span class="pre">filter</span></code> method now correctly handles complex, nested <code class="docutils literal notranslate"><span class="pre">Q</span></code> objects for more powerful and intuitive query construction.</p></li>
+<li><p><strong>Combined Queries</strong>: <code class="docutils literal notranslate"><span class="pre">filter()</span></code> now supports passing both a <code class="docutils literal notranslate"><span class="pre">Q</span></code> object and keyword arguments simultaneously, allowing for more flexible query building.</p></li>
+<li><p><strong>Robust <code class="docutils literal notranslate"><span class="pre">to_where_clause</span></code></strong>: The <code class="docutils literal notranslate"><span class="pre">Q.to_where_clause()</span></code> method has been rewritten to correctly handle nested <code class="docutils literal notranslate"><span class="pre">Q</span></code> objects and generate valid <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clauses for complex queries.</p></li>
+</ul>
+</section>
+<section id="id7">
+<h4>Fixed<a class="headerlink" href="#id7" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p>Corrected the <code class="docutils literal notranslate"><span class="pre">VALUE</span></code> keyword to <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code> in the schema generation for document fields.</p></li>
+<li><p>Improved the <code class="docutils literal notranslate"><span class="pre">serialize_http_safe</span></code> function to correctly handle <code class="docutils literal notranslate"><span class="pre">IsoDateTimeWrapper</span></code> objects, preventing potential issues with datetime serialization.</p></li>
+</ul>
+</section>
+</section>
+<section id="id8">
+<h3>[0.3.0] - 2025-09-01<a class="headerlink" href="#id8" title="Link to this heading"><span>¶</span></a></h3>
+<section id="id9">
+<h4>Added<a class="headerlink" href="#id9" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p>Expression and query building</p>
+<ul>
+<li><p>Expr is now a single class with a working CASE builder: <code class="docutils literal notranslate"><span class="pre">Expr.case().when(...).else_(...).alias(...)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Expr.var(name)</span></code> for <code class="docutils literal notranslate"><span class="pre">$vars</span></code> and <code class="docutils literal notranslate"><span class="pre">Expr.raw(...)</span></code> for trusted fragments</p></li>
+<li><p>String functions aligned with SurrealDB v2: <code class="docutils literal notranslate"><span class="pre">string::starts_with</span></code>, <code class="docutils literal notranslate"><span class="pre">string::ends_with</span></code>, <code class="docutils literal notranslate"><span class="pre">string::contains</span></code>, <code class="docutils literal notranslate"><span class="pre">string::matches</span></code></p></li>
+</ul>
+</li>
+<li><p>Escaping utilities</p>
+<ul>
+<li><p>Public <code class="docutils literal notranslate"><span class="pre">escape_literal</span></code> and <code class="docutils literal notranslate"><span class="pre">escape_identifier</span></code>; builders use these consistently</p></li>
+</ul>
+</li>
+<li><p>Aggregation and materialized views</p>
+<ul>
+<li><p>AggregationPipeline: response normalization (returns list of row dicts), safe escaping in <code class="docutils literal notranslate"><span class="pre">match()</span></code>/<code class="docutils literal notranslate"><span class="pre">having()</span></code>, and injects <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code>/<code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">ALL</span></code> when needed</p></li>
+<li><p>Materialized functions updated for v2: replaced <code class="docutils literal notranslate"><span class="pre">array::collect</span></code> with <code class="docutils literal notranslate"><span class="pre">array::group</span></code>; hardened <code class="docutils literal notranslate"><span class="pre">Distinct</span></code>, <code class="docutils literal notranslate"><span class="pre">GroupConcat</span></code> for scalar inputs; <code class="docutils literal notranslate"><span class="pre">DistinctCountIf</span></code> now uses <code class="docutils literal notranslate"><span class="pre">array::len(array::group(IF</span> <span class="pre">cond</span> <span class="pre">THEN</span> <span class="pre">[field]</span> <span class="pre">ELSE</span> <span class="pre">[]</span> <span class="pre">END))</span></code></p></li>
+</ul>
+</li>
+<li><p>Connection and observability</p>
+<ul>
+<li><p>ContextVar‑backed per‑task default connection: <code class="docutils literal notranslate"><span class="pre">set_default_connection</span></code> / <code class="docutils literal notranslate"><span class="pre">get_default_connection</span></code></p></li>
+<li><p>Connection pooling with validation, idle pruning, retries/backoff</p></li>
+<li><p>OperationQueue with backpressure policies (block | drop_oldest | error) and metrics</p></li>
+<li><p>Optional OpenTelemetry spans around queries/transactions (enabled if OTEL is installed)</p></li>
+<li><p>Example script: <code class="docutils literal notranslate"><span class="pre">example_scripts/connection_and_observability_example.py</span></code></p></li>
+</ul>
+</li>
+<li><p>Graph and live updates</p>
+<ul>
+<li><p>QuerySet.traverse(path, max_depth=None, unique=True) to project graph traversals</p></li>
+<li><p>QuerySet.live(…): async generator for LIVE subscriptions (requires direct async ws connection)</p>
+<ul>
+<li><p>Example script: <code class="docutils literal notranslate"><span class="pre">example_scripts/graph_and_live_example.py</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>RelationDocument helpers</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">RelationDocument.find_by_in_documents(...)</span></code> and sync variant for batch inbound lookups</p></li>
+</ul>
+</li>
+<li><p>Document/Relation updates</p>
+<ul>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">update()</span></code> and <code class="docutils literal notranslate"><span class="pre">update_sync()</span></code> on Document and RelationDocument for partial updates without data loss</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id10">
+<h4>Changed<a class="headerlink" href="#id10" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p>Centralized escaping in BaseQuerySet, AggregationPipeline, and Expr; removed ad‑hoc json.dumps usage for literals</p></li>
+<li><p>SurrealQL builder ensures <code class="docutils literal notranslate"><span class="pre">FETCH</span></code> is emitted as the last clause to avoid parse errors</p></li>
+<li><p>LIVE subscription path: replaced debug print statements with logger.debug to avoid leaking to stdout and to integrate with standard logging</p></li>
+<li><p>Docstring improvements across key APIs (e.g., QuerySet.live()) for richer IDE hints</p></li>
+</ul>
+</section>
+<section id="id11">
+<h4>Fixed<a class="headerlink" href="#id11" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p>BaseQuerySet condition building now uses <code class="docutils literal notranslate"><span class="pre">escape_literal</span></code> consistently, including URL handling and arrays; preserves unquoted RecordIDs in INSIDE/NOT INSIDE arrays</p></li>
+<li><p>Materialized array functions migrated to v2 semantics; <code class="docutils literal notranslate"><span class="pre">DistinctCountIf</span></code> produces correct distinct counts without function argument errors</p></li>
+<li><p>Schema regex assertions now use <code class="docutils literal notranslate"><span class="pre">string::matches($value,</span> <span class="pre">pattern)</span></code> with proper literal escaping</p></li>
+<li><p>AggregationPipeline results are normalized (no more <code class="docutils literal notranslate"><span class="pre">'str'.get</span></code> errors in examples)</p></li>
+<li><p>Correct formatting for INSIDE/NOT INSIDE arrays containing RecordIDs (record ids unquoted)</p></li>
+<li><p>Document.save() automatically uses <code class="docutils literal notranslate"><span class="pre">update()</span></code> for RelationDocument to prevent unintended field removal</p></li>
+<li><p>Fixed TypeError in document update isinstance check</p></li>
+</ul>
+</section>
+<section id="notes">
+<h4>Notes<a class="headerlink" href="#notes" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p>LIVE queries currently require a direct async websocket client (pooling client does not support LIVE)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">returning=</span></code> is supported on <code class="docutils literal notranslate"><span class="pre">QuerySet.update(...)</span></code>; other mutations may follow in a future release</p></li>
+</ul>
+</section>
+</section>
+<section id="id12">
+<h3>[0.2.1] - 2025-07-02<a class="headerlink" href="#id12" title="Link to this heading"><span>¶</span></a></h3>
+<section id="id13">
+<h4>Added<a class="headerlink" href="#id13" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p><strong>Query Expression System</strong>: Advanced query building with Q objects and QueryExpression</p>
+<ul>
+<li><p><strong>Q objects</strong> for complex boolean logic supporting AND (&amp;), OR (|), and NOT (~) operations</p></li>
+<li><p><strong>QueryExpression class</strong> for comprehensive query building with FETCH, ORDER BY, GROUP BY, LIMIT, and START clauses</p></li>
+<li><p><strong>objects(query) syntax</strong> - Alternative to filter() allowing direct query object passing: <code class="docutils literal notranslate"><span class="pre">User.objects(Q(active=True))</span></code></p></li>
+<li><p><strong>filter(query) enhancement</strong> - Now accepts Q objects and QueryExpressions in addition to kwargs</p></li>
+<li><p><strong>Raw query support</strong> with <code class="docutils literal notranslate"><span class="pre">Q.raw()</span></code> for custom SurrealQL WHERE clauses</p></li>
+<li><p><strong>FETCH integration</strong> - QueryExpression with FETCH automatically dereferences related documents</p></li>
+<li><p><strong>Django-style operators</strong> - Support for field__operator syntax (gt, lt, gte, lte, ne, in, contains, startswith, endswith, regex)</p></li>
+<li><p><strong>Method chaining</strong> - Full compatibility with existing queryset methods (limit, order_by, fetch, etc.)</p></li>
+<li><p><strong>Synchronous support</strong> - All query expression features work with both async and sync operations</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id14">
+<h4>Fixed<a class="headerlink" href="#id14" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p><strong>String function compatibility</strong> - Updated to use correct SurrealDB v2.x string function names (<code class="docutils literal notranslate"><span class="pre">string::starts_with</span></code> instead of <code class="docutils literal notranslate"><span class="pre">string::startsWith</span></code>, <code class="docutils literal notranslate"><span class="pre">string::ends_with</span></code> instead of <code class="docutils literal notranslate"><span class="pre">string::endsWith</span></code>)</p></li>
+</ul>
+</section>
+<section id="added-continued">
+<h4>Added (Continued)<a class="headerlink" href="#added-continued" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p><strong>DataGrid API Support</strong>: Comprehensive frontend integration for data table libraries</p>
+<ul>
+<li><p>Efficient SurrealDB query optimization replacing Python-based filtering with database-native operations</p></li>
+<li><p>Support for BootstrapTable.js format (maintaining backward compatibility with existing APIs)</p></li>
+<li><p>DataTables.js parameter conversion and response formatting</p></li>
+<li><p>Pagination, sorting, filtering, and search functionality optimized at the database level</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_grid_data()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_grid_data_sync()</span></code> helper functions for easy route integration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataGridQueryBuilder</span></code> class for building complex filtered queries</p></li>
+<li><p>Parameter conversion utilities: <code class="docutils literal notranslate"><span class="pre">parse_datatables_params()</span></code> and <code class="docutils literal notranslate"><span class="pre">format_datatables_response()</span></code></p></li>
+<li><p>Performance benefits: Only fetch required data, leverage SurrealDB indexes, reduce memory usage</p></li>
+<li><p>Drop-in replacement for existing route logic - reduces 50+ lines of filtering code to a single function call</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="id15">
+<h3>[0.2.0] - 2024-06-28<a class="headerlink" href="#id15" title="Link to this heading"><span>¶</span></a></h3>
+<section id="id16">
+<h4>Added<a class="headerlink" href="#id16" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p>Implemented advanced connection management features:</p>
+<ul>
+<li><p>Connection pooling with configurable pool size, connection reuse, validation, and cleanup</p></li>
+<li><p>Integration of connection pools with Document models for seamless use in async applications</p></li>
+<li><p>Connection timeouts and retries with exponential backoff</p></li>
+<li><p>Automatic reconnection with event-based triggers and operation queuing</p></li>
+<li><p>Connection string parsing with support for connection options</p></li>
+</ul>
+</li>
+<li><p>Pagination support across all query methods with <code class="docutils literal notranslate"><span class="pre">page(number,</span> <span class="pre">size)</span></code> method</p></li>
+<li><p>Made dependencies optional: signals (blinker) and jupyter (notebook) can now be installed separately</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">PaginationResult</span></code> class for enhanced pagination with metadata</p></li>
+<li><p>Added new field types: EmailField, URLField, IPAddressField, SlugField, ChoiceField</p></li>
+<li><p>Added proper logging system with SurrealEngineLogger class</p></li>
+<li><p>Added native SurrealDB type support with LiteralField and RangeField</p></li>
+<li><p>Enhanced SetField to ensure uniqueness during validation</p></li>
+<li><p>Added TimeSeriesField for time series data with metadata support</p></li>
+<li><p>Added materialized views support with MaterializedView class and Document.create_materialized_view method</p></li>
+<li><p>Enhanced materialized views with support for aggregation functions (count, mean, sum, min, max, array_collect) and custom field selection</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">get_raw_query()</span></code> method to BaseQuerySet to get the raw query string without executing it, allowing for manual execution or modification of queries</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">execute_raw_query()</span></code> and <code class="docutils literal notranslate"><span class="pre">execute_raw_query_sync()</span></code> methods to MaterializedView to execute raw queries against materialized views</p></li>
+<li><p>Added field-level indexing with <code class="docutils literal notranslate"><span class="pre">indexed</span></code>, <code class="docutils literal notranslate"><span class="pre">unique</span></code>, <code class="docutils literal notranslate"><span class="pre">search</span></code>, and <code class="docutils literal notranslate"><span class="pre">analyzer</span></code> parameters</p></li>
+<li><p>Added support for multi-field indexes with the <code class="docutils literal notranslate"><span class="pre">index_with</span></code> parameter</p></li>
+<li><p>Added aggregation pipelines with the <code class="docutils literal notranslate"><span class="pre">AggregationPipeline</span></code> class for complex data transformations</p></li>
+<li><p>Added additional aggregation functions: Median, StdDev, Variance, Percentile, Distinct, GroupConcat</p></li>
+<li><p>Added automatic reference resolution with <code class="docutils literal notranslate"><span class="pre">Document.get(dereference=True)</span></code> and <code class="docutils literal notranslate"><span class="pre">Document.resolve_references()</span></code> methods</p></li>
+<li><p>Added JOIN-like operations with <code class="docutils literal notranslate"><span class="pre">QuerySet.join()</span></code> method for efficient retrieval of referenced documents</p></li>
+<li><p>Enhanced RelationField with <code class="docutils literal notranslate"><span class="pre">get_related_documents()</span></code> method for bidirectional relation navigation</p></li>
+<li><p><strong>PERFORMANCE IMPROVEMENT</strong>: Updated all reference/dereference code to use SurrealDB’s native FETCH clause instead of manual resolution:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ReferenceField.from_db()</span></code> now handles fetched documents automatically</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RelationField.from_db()</span></code> now handles fetched relations automatically</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Document.resolve_references()</span></code> uses FETCH queries for efficient bulk resolution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Document.get()</span></code> with <code class="docutils literal notranslate"><span class="pre">dereference=True</span></code> uses FETCH for single-query reference resolution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QuerySet.join()</span></code> methods use FETCH clauses internally for better performance</p></li>
+<li><p>Maintains full backward compatibility with fallback to manual resolution if FETCH fails</p></li>
+</ul>
+</li>
+<li><p><strong>MAJOR PERFORMANCE ENHANCEMENT</strong>: Implemented comprehensive query performance optimizations:</p>
+<ul>
+<li><p><strong>Auto-optimization for <code class="docutils literal notranslate"><span class="pre">id__in</span></code> filters</strong>: Automatically converts <code class="docutils literal notranslate"><span class="pre">filter(id__in=[...])</span></code> to direct record access syntax <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">user:id1,</span> <span class="pre">user:id2,</span> <span class="pre">user:id3</span></code> for up to 3.4x faster queries</p></li>
+<li><p><strong>New convenience methods</strong>: Added <code class="docutils literal notranslate"><span class="pre">get_many(ids)</span></code> and <code class="docutils literal notranslate"><span class="pre">get_range(start_id,</span> <span class="pre">end_id)</span></code> for optimized bulk record retrieval using direct record access and range syntax</p></li>
+<li><p><strong>Smart filter optimization</strong>: Automatic detection of ID range patterns (<code class="docutils literal notranslate"><span class="pre">id__gte</span></code> + <code class="docutils literal notranslate"><span class="pre">id__lte</span></code>) and conversion to optimized range queries <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">table:start..=end</span></code></p></li>
+<li><p><strong>Developer experience tools</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">explain()</span></code> and <code class="docutils literal notranslate"><span class="pre">explain_sync()</span></code> methods for query execution plan analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">suggest_indexes()</span></code> method for intelligent index recommendations based on query patterns</p></li>
+</ul>
+</li>
+<li><p><strong>Optimized bulk operations</strong>: Enhanced <code class="docutils literal notranslate"><span class="pre">update()</span></code> and <code class="docutils literal notranslate"><span class="pre">delete()</span></code> methods with direct record access for bulk ID operations, improving performance for large datasets</p></li>
+<li><p><strong>Universal ID support</strong>: All optimizations work seamlessly with both auto-generated IDs and custom IDs, maintaining backward compatibility</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id17">
+<h4>Changed<a class="headerlink" href="#id17" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p>Updated README.md with instructions for installing optional dependencies</p></li>
+<li><p>Improved pagination ergonomics with the <code class="docutils literal notranslate"><span class="pre">page(number,</span> <span class="pre">size)</span></code> method</p></li>
+<li><p>Marked “Implement schema registration with SurrealDB” as completed in tasks.md</p></li>
+<li><p>Removed JSONField and replaced it with DictField for better functionality and consistency</p></li>
+<li><p>Refactored fields.py into a directory structure with separate modules for better organization and maintainability</p></li>
+</ul>
+</section>
+<section id="id18">
+<h4>Fixed<a class="headerlink" href="#id18" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p>Fixed pagination support to work with all query methods, not just filter()</p></li>
+<li><p>Enhanced ReferenceField to properly handle RecordID objects</p></li>
+<li><p>Fixed DictField nested field access in queries using double underscore syntax (e.g., <code class="docutils literal notranslate"><span class="pre">settings__theme=&quot;dark&quot;</span></code>)</p></li>
+<li><p>Added support for nested fields in DictFields when using schemafull tables</p></li>
+<li><p>Fixed IPAddressField to properly handle the ‘version’ parameter for backward compatibility</p></li>
+<li><p>Fixed issue with docstring comments in create_table method causing parsing errors</p></li>
+<li><p>Removed debug print statements and commented-out code for cleaner codebase</p></li>
+<li><p><strong>CRITICAL FIX</strong>: Fixed ID formatting issue in upsert operations where numeric string IDs like “testdoc:123” were being stored incorrectly, causing retrieval failures</p></li>
+</ul>
+</section>
+</section>
+<section id="id19">
+<h3>[0.1.0] - 2023-05-12<a class="headerlink" href="#id19" title="Link to this heading"><span>¶</span></a></h3>
+<section id="id20">
+<h4>Added<a class="headerlink" href="#id20" title="Link to this heading"><span>¶</span></a></h4>
+<ul class="simple">
+<li><p>Initial release of SurrealEngine</p></li>
+<li><p>Basic document model with field validation</p></li>
+<li><p>Query functionality with filtering and pagination</p></li>
+<li><p>Schemaless API for flexible database access</p></li>
+<li><p>Support for both synchronous and asynchronous operations</p></li>
+<li><p>Connection management with connection registry</p></li>
+<li><p>Transaction support</p></li>
+<li><p>Relation management with graph traversal</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="contributing.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Contributing
+    </a>
+    <a class="float-right" href="license.html" title="Next">
+        License <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#surrealengine-changelog">SurrealEngine Changelog</a><ul>
+<li><a class="reference internal" href="#unreleased">[Unreleased]</a></li>
+<li><a class="reference internal" href="#id1">[0.5.1] - 2025-12-30</a><ul>
+<li><a class="reference internal" href="#fixed">Fixed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id2">[0.5.0] - 2025-12-30</a><ul>
+<li><a class="reference internal" href="#added">Added</a></li>
+<li><a class="reference internal" href="#changed">Changed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">[0.4.1] - 2025-12-19</a><ul>
+<li><a class="reference internal" href="#id4">Added</a></li>
+<li><a class="reference internal" href="#id5">Changed</a></li>
+<li><a class="reference internal" href="#id6">Fixed</a></li>
+<li><a class="reference internal" href="#enhanced">Enhanced</a></li>
+<li><a class="reference internal" href="#id7">Fixed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">[0.3.0] - 2025-09-01</a><ul>
+<li><a class="reference internal" href="#id9">Added</a></li>
+<li><a class="reference internal" href="#id10">Changed</a></li>
+<li><a class="reference internal" href="#id11">Fixed</a></li>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12">[0.2.1] - 2025-07-02</a><ul>
+<li><a class="reference internal" href="#id13">Added</a></li>
+<li><a class="reference internal" href="#id14">Fixed</a></li>
+<li><a class="reference internal" href="#added-continued">Added (Continued)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id15">[0.2.0] - 2024-06-28</a><ul>
+<li><a class="reference internal" href="#id16">Added</a></li>
+<li><a class="reference internal" href="#id17">Changed</a></li>
+<li><a class="reference internal" href="#id18">Fixed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id19">[0.1.0] - 2023-05-12</a><ul>
+<li><a class="reference internal" href="#id20">Added</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="_static/dist/theme.js"></script>
+        <script type="text/javascript" src="_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="_static/searchtools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

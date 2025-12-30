@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../../">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>surrealengine.query.descriptor &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="../../../genindex.html" />
+            <link rel="search" title="Search" href="../../../search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="up" title="Module code" href="../../index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+        <li class="breadcrumb-item active" aria-current="page">surrealengine.query.descriptor</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengine_modules/surrealengine/query/descriptor" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <h1>Source code for surrealengine.query.descriptor</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">cast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConnectionRegistry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuerySet</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..pagination</span><span class="w"> </span><span class="kn">import</span> <span class="n">PaginationResult</span>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">QuerySetDescriptor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Descriptor that provides QuerySet access through Document.objects.</span>
+
+<span class="sd">    This class is a descriptor that provides access to a QuerySet through</span>
+<span class="sd">    the Document.objects attribute. It allows querying documents of a specific</span>
+<span class="sd">    document class using the Document.objects attribute.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        owner: The document class that owns this descriptor</span>
+<span class="sd">        connection: The database connection to use for queries</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="QuerySetDescriptor.__init__">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new QuerySetDescriptor.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Type</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.__get__">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.__get__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">owner</span><span class="p">:</span> <span class="n">Type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;QuerySetDescriptor&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the descriptor for the given owner.</span>
+
+<span class="sd">        This method is called when the descriptor is accessed through</span>
+<span class="sd">        an attribute of a class or instance.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            obj: The instance the descriptor is accessed through, or None</span>
+<span class="sd">            owner: The class the descriptor is accessed through</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The descriptor instance</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
+        <span class="c1"># Don&#39;t set a default connection here, let each method get the appropriate connection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.__call__">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.__call__">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">page</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Allow direct filtering through call syntax asynchronously.</span>
+
+<span class="sd">        This method allows calling the descriptor directly with filters or query objects</span>
+<span class="sd">        to query the document class. It supports pagination through limit and start parameters</span>
+<span class="sd">        or the page parameter.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            query: Q object or QueryExpression for complex queries</span>
+<span class="sd">            limit: Maximum number of results to return (for pagination)</span>
+<span class="sd">            start: Number of results to skip (for pagination)</span>
+<span class="sd">            page: Tuple of (page_number, page_size) for pagination</span>
+<span class="sd">            **kwargs: Field names and values to filter by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of matching documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        
+        <span class="c1"># Apply query object if provided</span>
+        <span class="k">if</span> <span class="n">query</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        
+        <span class="c1"># Apply filters and pagination</span>
+        <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">page</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">page_number</span><span class="p">,</span> <span class="n">page_size</span> <span class="o">=</span> <span class="n">page</span>
+            <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">page_number</span><span class="p">,</span> <span class="n">page_size</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">limit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+
+        <span class="c1"># Return results</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">queryset</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.call_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.call_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="n">page</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Allow direct filtering through call syntax synchronously.</span>
+
+<span class="sd">        This method allows calling the descriptor directly with filters or query objects</span>
+<span class="sd">        to query the document class. It supports pagination through limit and start parameters</span>
+<span class="sd">        or the page parameter.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            query: Q object or QueryExpression for complex queries</span>
+<span class="sd">            limit: Maximum number of results to return (for pagination)</span>
+<span class="sd">            start: Number of results to skip (for pagination)</span>
+<span class="sd">            page: Tuple of (page_number, page_size) for pagination</span>
+<span class="sd">            **kwargs: Field names and values to filter by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of matching documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        
+        <span class="c1"># Apply query object if provided</span>
+        <span class="k">if</span> <span class="n">query</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        
+        <span class="c1"># Apply filters and pagination</span>
+        <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">page</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">page_number</span><span class="p">,</span> <span class="n">page_size</span> <span class="o">=</span> <span class="n">page</span>
+            <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">page_number</span><span class="p">,</span> <span class="n">page_size</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">limit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">queryset</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+
+        <span class="c1"># Return results</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">all_sync</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.get">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.get">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Allow direct get operation asynchronously.</span>
+
+<span class="sd">        This method allows getting a single document matching the given filters.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Field names and values to filter by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The matching document</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            DoesNotExist: If no matching document is found</span>
+<span class="sd">            MultipleObjectsReturned: If multiple matching documents are found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">queryset</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.get_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.get_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Allow direct get operation synchronously.</span>
+
+<span class="sd">        This method allows getting a single document matching the given filters.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Field names and values to filter by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The matching document</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            DoesNotExist: If no matching document is found</span>
+<span class="sd">            MultipleObjectsReturned: If multiple matching documents are found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">get_sync</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.filter">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.filter">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a QuerySet with filters using the default async connection.</span>
+
+<span class="sd">        This method creates a new QuerySet with the given filters using the default async connection.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            query: Q object or QueryExpression for complex queries</span>
+<span class="sd">            **kwargs: Field names and values to filter by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the given filters</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.filter_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.filter_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a QuerySet with filters using the default sync connection.</span>
+
+<span class="sd">        This method creates a new QuerySet with the given filters using the default sync connection.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            query: Q object or QueryExpression for complex queries</span>
+<span class="sd">            **kwargs: Field names and values to filter by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the given filters</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.limit">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.limit">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">limit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the maximum number of results to return.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Maximum number of results</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the limit applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.limit_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.limit_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">limit_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the maximum number of results to return using the default sync connection.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Maximum number of results</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the limit applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.start">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.start">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the number of results to skip (for pagination).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Number of results to skip</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the start applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.start_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.start_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the number of results to skip (for pagination) using the default sync connection.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Number of results to skip</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the start applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.order_by">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.order_by">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">order_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">direction</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;ASC&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the field and direction to order results by.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field: Field name to order by</span>
+<span class="sd">            direction: Direction to order by (&#39;ASC&#39; or &#39;DESC&#39;)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the order by applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">direction</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.order_by_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.order_by_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">order_by_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">direction</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;ASC&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the field and direction to order results by using the default sync connection.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field: Field name to order by</span>
+<span class="sd">            direction: Direction to order by (&#39;ASC&#39; or &#39;DESC&#39;)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the order by applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">direction</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.group_by">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.group_by">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">group_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Group the results by the specified fields.</span>
+
+<span class="sd">        This method sets the fields to group the results by using the GROUP BY clause.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *fields: Field names to group by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the group by applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="o">*</span><span class="n">fields</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.group_by_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.group_by_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">group_by_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Group the results by the specified fields using the default sync connection.</span>
+
+<span class="sd">        This method sets the fields to group the results by using the GROUP BY clause.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *fields: Field names to group by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the group by applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="o">*</span><span class="n">fields</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.split">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.split">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Split the results by the specified fields.</span>
+
+<span class="sd">        This method sets the fields to split the results by using the SPLIT clause.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *fields: Field names to split by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the split applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="o">*</span><span class="n">fields</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.split_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.split_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">split_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Split the results by the specified fields using the default sync connection.</span>
+
+<span class="sd">        This method sets the fields to split the results by using the SPLIT clause.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *fields: Field names to split by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the split applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="o">*</span><span class="n">fields</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.fetch">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.fetch">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fetch related records for the specified fields.</span>
+
+<span class="sd">        This method sets the fields to fetch related records for using the FETCH clause.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *fields: Field names to fetch related records for</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the fetch applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="o">*</span><span class="n">fields</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.fetch_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.fetch_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fetch_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fetch related records for the specified fields using the default sync connection.</span>
+
+<span class="sd">        This method sets the fields to fetch related records for using the FETCH clause.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *fields: Field names to fetch related records for</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with the fetch applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="o">*</span><span class="n">fields</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.first">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.first">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">first</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the first result from the query asynchronously.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The first matching document or None if no matches</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            DoesNotExist: If no matching document is found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">queryset</span><span class="o">.</span><span class="n">first</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.first_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.first_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">first_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the first result from the query synchronously.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The first matching document or None if no matches</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            DoesNotExist: If no matching document is found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">first_sync</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.page">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.page">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">page</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set pagination parameters using page number and size.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            number: Page number (1-based, first page is 1)</span>
+<span class="sd">            size: Number of items per page</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with pagination applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.page_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.page_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">page_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set pagination parameters using page number and size using the default sync connection.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            number: Page number (1-based, first page is 1)</span>
+<span class="sd">            size: Number of items per page</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet with pagination applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.paginate">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.paginate">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">paginate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">per_page</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;PaginationResult&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a page of results with pagination metadata asynchronously.</span>
+
+<span class="sd">        This method gets a page of results along with metadata about the</span>
+<span class="sd">        pagination, such as the total number of items, the number of pages,</span>
+<span class="sd">        and whether there are next or previous pages.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            page: The page number (1-based)</span>
+<span class="sd">            per_page: The number of items per page</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A PaginationResult containing the items and pagination metadata</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="c1"># Return the paginated results</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">queryset</span><span class="o">.</span><span class="n">paginate</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">per_page</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.paginate_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.paginate_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">paginate_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">per_page</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;PaginationResult&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a page of results with pagination metadata synchronously.</span>
+
+<span class="sd">        This method gets a page of results along with metadata about the</span>
+<span class="sd">        pagination, such as the total number of items, the number of pages,</span>
+<span class="sd">        and whether there are next or previous pages.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            page: The page number (1-based)</span>
+<span class="sd">            per_page: The number of items per page</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A PaginationResult containing the items and pagination metadata</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="c1"># Return the paginated results</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">paginate_sync</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">per_page</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.aggregate">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.aggregate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">aggregate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an aggregation pipeline from this query.</span>
+
+<span class="sd">        This method returns an AggregationPipeline instance that can be used</span>
+<span class="sd">        to build and execute complex aggregation queries with multiple stages.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            An AggregationPipeline instance for building and executing</span>
+<span class="sd">            aggregation queries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">aggregate</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.aggregate_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.aggregate_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">aggregate_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an aggregation pipeline from this query using the default sync connection.</span>
+
+<span class="sd">        This method returns an AggregationPipeline instance that can be used</span>
+<span class="sd">        to build and execute complex aggregation queries with multiple stages.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            An AggregationPipeline instance for building and executing</span>
+<span class="sd">            aggregation queries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">aggregate</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.join">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.join">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">join</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_fields</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">dereference</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">dereference_depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform a JOIN-like operation on a reference field.</span>
+
+<span class="sd">        This method performs a JOIN-like operation on a reference field by using</span>
+<span class="sd">        SurrealDB&#39;s graph traversal capabilities. It retrieves the referenced documents</span>
+<span class="sd">        and replaces the reference IDs with the actual documents.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field_name: The name of the reference field to join on</span>
+<span class="sd">            target_fields: Optional list of fields to select from the target document</span>
+<span class="sd">            dereference: Whether to dereference references in the joined documents (default: True)</span>
+<span class="sd">            dereference_depth: Maximum depth of reference resolution (default: 1)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of documents with joined data</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If the field is not a ReferenceField</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">queryset</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="n">target_fields</span><span class="p">,</span> <span class="n">dereference</span><span class="o">=</span><span class="n">dereference</span><span class="p">,</span> <span class="n">dereference_depth</span><span class="o">=</span><span class="n">dereference_depth</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.join_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.join_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">join_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_fields</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">dereference</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">dereference_depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform a JOIN-like operation on a reference field synchronously.</span>
+
+<span class="sd">        This method performs a JOIN-like operation on a reference field by using</span>
+<span class="sd">        SurrealDB&#39;s graph traversal capabilities. It retrieves the referenced documents</span>
+<span class="sd">        and replaces the reference IDs with the actual documents.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field_name: The name of the reference field to join on</span>
+<span class="sd">            target_fields: Optional list of fields to select from the target document</span>
+<span class="sd">            dereference: Whether to dereference references in the joined documents (default: True)</span>
+<span class="sd">            dereference_depth: Maximum depth of reference resolution (default: 1)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of documents with joined data</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If the field is not a ReferenceField</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">join_sync</span><span class="p">(</span><span class="n">field_name</span><span class="p">,</span> <span class="n">target_fields</span><span class="p">,</span> <span class="n">dereference</span><span class="o">=</span><span class="n">dereference</span><span class="p">,</span> <span class="n">dereference_depth</span><span class="o">=</span><span class="n">dereference_depth</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.get_many">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.get_many">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_many</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get multiple records by IDs using optimized direct record access.</span>
+<span class="sd">        </span>
+<span class="sd">        This method uses SurrealDB&#39;s direct record selection syntax for better</span>
+<span class="sd">        performance compared to WHERE clause filtering.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            ids: List of record IDs (can be strings or other ID types)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance configured for direct record access</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">get_many</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.get_many_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.get_many_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_many_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get multiple records by IDs using optimized direct record access synchronously.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            ids: List of record IDs (can be strings or other ID types)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance configured for direct record access</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">get_many</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.get_range">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.get_range">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_id</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">end_id</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> 
+                  <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a range of records by ID using optimized range syntax.</span>
+<span class="sd">        </span>
+<span class="sd">        This method uses SurrealDB&#39;s range selection syntax for better</span>
+<span class="sd">        performance compared to WHERE clause filtering.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            start_id: Starting ID of the range</span>
+<span class="sd">            end_id: Ending ID of the range  </span>
+<span class="sd">            inclusive: Whether the range is inclusive (default: True)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance configured for range access</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">get_range</span><span class="p">(</span><span class="n">start_id</span><span class="p">,</span> <span class="n">end_id</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.get_range_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.get_range_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_range_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_id</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">end_id</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> 
+                       <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a range of records by ID using optimized range syntax synchronously.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            start_id: Starting ID of the range</span>
+<span class="sd">            end_id: Ending ID of the range  </span>
+<span class="sd">            inclusive: Whether the range is inclusive (default: True)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance configured for range access</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">get_range</span><span class="p">(</span><span class="n">start_id</span><span class="p">,</span> <span class="n">end_id</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.bulk_create">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.bulk_create">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">bulk_create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">documents</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+                         <span class="n">validate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">return_documents</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create multiple documents in a single operation asynchronously.</span>
+
+<span class="sd">        This method creates multiple documents in a single operation, processing</span>
+<span class="sd">        them in batches for better performance.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            documents: List of Document instances to create</span>
+<span class="sd">            batch_size: Number of documents per batch (default: 1000)</span>
+<span class="sd">            validate: Whether to validate documents (default: True)</span>
+<span class="sd">            return_documents: Whether to return created documents (default: True)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of created documents with their IDs set if return_documents=True,</span>
+<span class="sd">            otherwise returns the count of created documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">queryset</span><span class="o">.</span><span class="n">bulk_create</span><span class="p">(</span><span class="n">documents</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">validate</span><span class="p">,</span> <span class="n">return_documents</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.bulk_create_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.bulk_create_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bulk_create_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">documents</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+                        <span class="n">validate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">return_documents</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create multiple documents in a single operation synchronously.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            documents: List of Document instances to create</span>
+<span class="sd">            batch_size: Number of documents per batch (default: 1000)</span>
+<span class="sd">            validate: Whether to validate documents (default: True)</span>
+<span class="sd">            return_documents: Whether to return created documents (default: True)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of created documents with their IDs set if return_documents=True,</span>
+<span class="sd">            otherwise returns the count of created documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">bulk_create_sync</span><span class="p">(</span><span class="n">documents</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">validate</span><span class="p">,</span> <span class="n">return_documents</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.all">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.all">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute the query and return all results asynchronously.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            List of all documents matching any implicit query</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">queryset</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.all_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.all_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">all_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute the query and return all results synchronously.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            List of all documents matching any implicit query</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">all_sync</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.count">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.count">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Count all documents asynchronously.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Number of documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default async connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">queryset</span><span class="o">.</span><span class="n">count</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="QuerySetDescriptor.count_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.descriptor.QuerySetDescriptor.count_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Count all documents synchronously.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Number of documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the default sync connection</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">(</span><span class="n">async_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="n">QuerySet</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">count_sync</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+</main>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../../_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="../../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

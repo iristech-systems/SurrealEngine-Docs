@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>surrealengine.materialized_view &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="up" title="Module code" href="../index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+        <li class="breadcrumb-item active" aria-current="page">surrealengine.materialized_view</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengine_modules/surrealengine/materialized_view" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <h1>Source code for surrealengine.materialized_view</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Materialized views for SurrealEngine.</span>
+
+<span class="sd">This module provides support for materialized views in SurrealEngine.</span>
+<span class="sd">Materialized views are precomputed views of data that can be used to</span>
+<span class="sd">improve query performance for frequently accessed aggregated data.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>  <span class="c1"># Enable string-based type annotations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Callable</span>
+
+<span class="c1"># Remove the direct import of Document</span>
+<span class="c1"># from .document import Document</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.query</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuerySet</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConnectionRegistry</span>
+
+
+<div class="viewcode-block" id="Aggregation">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Aggregation">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Aggregation</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for aggregation functions.</span>
+
+<span class="sd">    This class represents an aggregation function that can be used in a materialized view.</span>
+<span class="sd">    Subclasses should implement the __str__ method to return the SurrealQL representation</span>
+<span class="sd">    of the aggregation function.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Aggregation.__init__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Aggregation.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new Aggregation.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field: The field to aggregate (optional)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field</span> <span class="o">=</span> <span class="n">field</span></div>
+
+
+<div class="viewcode-block" id="Aggregation.__str__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Aggregation.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the aggregation function.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement __str__&quot;</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Count">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Count">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Count</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Count aggregation function.</span>
+
+<span class="sd">    This class represents the count() aggregation function in SurrealQL.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Count.__str__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Count.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the count function.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;count()&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Mean">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Mean">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Mean</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mean aggregation function.</span>
+
+<span class="sd">    This class represents the math::mean() aggregation function in SurrealQL.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Mean.__str__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Mean.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the mean function.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;math::mean(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;math::mean()&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Sum">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Sum">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Sum</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sum aggregation function.</span>
+
+<span class="sd">    This class represents the math::sum() aggregation function in SurrealQL.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Sum.__str__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Sum.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the sum function.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;math::sum(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;math::sum()&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Min">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Min">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Min</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Min aggregation function.</span>
+
+<span class="sd">    This class represents the math::min() aggregation function in SurrealQL.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Min.__str__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Min.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the min function.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;math::min(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;math::min()&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Max">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Max">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Max</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Max aggregation function.</span>
+
+<span class="sd">    This class represents the math::max() aggregation function in SurrealQL.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Max.__str__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Max.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the max function.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;math::max(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;math::max()&quot;</span></div>
+</div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ArrayGroup</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Array group aggregation function.</span>
+
+<span class="sd">    This class represents the array::group() aggregation function in SurrealQL v2.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the array group function.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;array::group(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;array::group()&quot;</span>
+
+<span class="c1"># Backwards-compat alias to preserve any imports using ArrayCollect</span>
+<div class="viewcode-block" id="ArrayCollect">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.ArrayCollect">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ArrayCollect</span><span class="p">(</span><span class="n">ArrayGroup</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="Median">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Median">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Median</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Median aggregation function.</span>
+
+<span class="sd">    This class represents the math::median() aggregation function in SurrealQL.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Median.__str__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Median.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the median function.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;math::median(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;math::median()&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="StdDev">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.StdDev">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">StdDev</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Standard deviation aggregation function.</span>
+
+<span class="sd">    This class represents the math::stddev() aggregation function in SurrealQL.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="StdDev.__str__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.StdDev.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the standard deviation function.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;math::stddev(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;math::stddev()&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Variance">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Variance">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Variance</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Variance aggregation function.</span>
+
+<span class="sd">    This class represents the math::variance() aggregation function in SurrealQL.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Variance.__str__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Variance.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the variance function.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;math::variance(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;math::variance()&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Percentile">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Percentile">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Percentile</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Percentile aggregation function.</span>
+
+<span class="sd">    This class represents the math::percentile() aggregation function in SurrealQL.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Percentile.__init__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Percentile.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">percentile</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">50</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new Percentile.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field: The field to aggregate (optional)</span>
+<span class="sd">            percentile: The percentile to calculate (default: 50)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">percentile</span> <span class="o">=</span> <span class="n">percentile</span></div>
+
+
+<div class="viewcode-block" id="Percentile.__str__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Percentile.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the percentile function.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;math::percentile(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">percentile</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;math::percentile(value, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">percentile</span><span class="si">}</span><span class="s2">)&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Distinct">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Distinct">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Distinct</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Distinct aggregation function.</span>
+
+<span class="sd">    This class represents a distinct-of-values across grouped rows.</span>
+<span class="sd">    Safe for scalar fields by wrapping each row&#39;s value in an array first.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Distinct.__str__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.Distinct.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the distinct function.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">:</span>
+            <span class="c1"># Wrap scalar values per-row to satisfy array functions in v2</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;array::group([</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2">])&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;array::group([])&quot;</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="GroupConcat">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.GroupConcat">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">GroupConcat</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Group concatenation aggregation function.</span>
+
+<span class="sd">    This class represents a custom aggregation function that concatenates values</span>
+<span class="sd">    with a separator.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="GroupConcat.__init__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.GroupConcat.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new GroupConcat.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field: The field to aggregate (optional)</span>
+<span class="sd">            separator: The separator to use (default: &quot;, &quot;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">separator</span> <span class="o">=</span> <span class="n">separator</span></div>
+
+
+<div class="viewcode-block" id="GroupConcat.__str__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.GroupConcat.__str__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the group concat function.&quot;&quot;&quot;</span>
+        <span class="c1"># Escape single quotes in separator for safe literal</span>
+        <span class="n">sep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">separator</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;&#39;&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;array::join(array::group([</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2">]), &#39;</span><span class="si">{</span><span class="n">sep</span><span class="si">}</span><span class="s2">&#39;)&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;array::join(array::group([]), &#39;</span><span class="si">{</span><span class="n">sep</span><span class="si">}</span><span class="s2">&#39;)&quot;</span></div>
+</div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CountIf</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Conditional count aggregation function.</span>
+
+<span class="sd">    This class represents a conditional count aggregation that counts</span>
+<span class="sd">    records matching a specific condition.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new CountIf.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            condition: The condition to evaluate (e.g., &quot;status = &#39;active&#39;&quot;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the conditional count function.&quot;&quot;&quot;</span>
+        <span class="c1"># Using IF THEN ELSE syntax for SurrealDB</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;count(IF </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">condition</span><span class="si">}</span><span class="s2"> THEN 1 ELSE NULL END)&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SumIf</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Conditional sum aggregation function.</span>
+
+<span class="sd">    This class represents a conditional sum aggregation that sums</span>
+<span class="sd">    field values where a condition is true.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">condition</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new SumIf.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field: The field to sum</span>
+<span class="sd">            condition: The condition to evaluate</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the conditional sum function.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;math::sum(IF </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">condition</span><span class="si">}</span><span class="s2"> THEN </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2"> ELSE 0 END)&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MeanIf</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Conditional mean aggregation function.</span>
+
+<span class="sd">    This class represents a conditional mean aggregation that averages</span>
+<span class="sd">    field values where a condition is true.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">condition</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new MeanIf.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field: The field to average</span>
+<span class="sd">            condition: The condition to evaluate</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the conditional mean function.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;math::mean(IF </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">condition</span><span class="si">}</span><span class="s2"> THEN </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2"> ELSE NULL END)&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MinIf</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Conditional min aggregation function.</span>
+
+<span class="sd">    This class represents a conditional min aggregation that finds the minimum</span>
+<span class="sd">    field value where a condition is true.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">condition</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new MinIf.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field: The field to find minimum of</span>
+<span class="sd">            condition: The condition to evaluate</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the conditional min function.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;math::min(IF </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">condition</span><span class="si">}</span><span class="s2"> THEN </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2"> ELSE NULL END)&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MaxIf</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Conditional max aggregation function.</span>
+
+<span class="sd">    This class represents a conditional max aggregation that finds the maximum</span>
+<span class="sd">    field value where a condition is true.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">condition</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new MaxIf.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field: The field to find maximum of</span>
+<span class="sd">            condition: The condition to evaluate</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the conditional max function.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;math::max(IF </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">condition</span><span class="si">}</span><span class="s2"> THEN </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2"> ELSE NULL END)&quot;</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DistinctCountIf</span><span class="p">(</span><span class="n">Aggregation</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Conditional distinct count aggregation function.</span>
+
+<span class="sd">    This class represents a conditional distinct count aggregation that counts</span>
+<span class="sd">    unique field values where a condition is true.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">condition</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new DistinctCountIf.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field: The field to count distinct values of</span>
+<span class="sd">            condition: The condition to evaluate</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the SurrealQL representation of the conditional distinct count function.&quot;&quot;&quot;</span>
+        <span class="c1"># Build row-wise array to satisfy array::group input requirements</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;IF </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">condition</span><span class="si">}</span><span class="s2"> THEN [</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">field</span><span class="si">}</span><span class="s2">] ELSE [] END&quot;</span>
+        <span class="n">grouped</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;array::group(</span><span class="si">{</span><span class="n">arr</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="c1"># array::group flattens and dedupes, so array::len(grouped) yields distinct count</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;array::len(</span><span class="si">{</span><span class="n">grouped</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+
+<div class="viewcode-block" id="MaterializedView">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.MaterializedView">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MaterializedView</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Materialized view for SurrealDB.</span>
+
+<span class="sd">    This class represents a materialized view in SurrealDB, which is a</span>
+<span class="sd">    precomputed view of data that can be used to improve query performance</span>
+<span class="sd">    for frequently accessed aggregated data.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name: The name of the materialized view</span>
+<span class="sd">        query: The query that defines the materialized view</span>
+<span class="sd">        refresh_interval: The interval at which the view is refreshed</span>
+<span class="sd">        document_class: The document class that the view is based on</span>
+<span class="sd">        aggregations: Dictionary of field names and aggregation functions</span>
+<span class="sd">        select_fields: List of fields to select (if None, selects all fields)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="MaterializedView.__init__">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.MaterializedView.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="n">QuerySet</span><span class="p">,</span> <span class="n">refresh_interval</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">document_class</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="s2">&quot;Document&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">aggregations</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Aggregation</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">select_fields</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new MaterializedView.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name: The name of the materialized view</span>
+<span class="sd">            query: The query that defines the materialized view</span>
+<span class="sd">            refresh_interval: The interval at which the view is refreshed (e.g., &quot;1h&quot;, &quot;30m&quot;)</span>
+<span class="sd">            document_class: The document class that the view is based on</span>
+<span class="sd">            aggregations: Dictionary of field names and aggregation functions</span>
+<span class="sd">            select_fields: List of fields to select (if None, selects all fields)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Import Document inside the method to avoid circular imports</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.document</span><span class="w"> </span><span class="kn">import</span> <span class="n">Document</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="n">query</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh_interval</span> <span class="o">=</span> <span class="n">refresh_interval</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span> <span class="o">=</span> <span class="n">document_class</span> <span class="ow">or</span> <span class="n">Document</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aggregations</span> <span class="o">=</span> <span class="n">aggregations</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">select_fields</span> <span class="o">=</span> <span class="n">select_fields</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_build_custom_query</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build a custom query string that includes aggregation functions and select fields.</span>
+
+<span class="sd">        This method builds a custom query string based on the query passed to the constructor,</span>
+<span class="sd">        but with the addition of aggregation functions and select fields.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The custom query string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the base query string</span>
+        <span class="n">base_query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">_build_query</span><span class="p">()</span>
+
+        <span class="c1"># If there are no aggregations or select fields, return the base query</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregations</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_fields</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">base_query</span>
+
+        <span class="c1"># Extract the FROM clause and any clauses that come after it</span>
+        <span class="n">from_index</span> <span class="o">=</span> <span class="n">base_query</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;FROM&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">from_index</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># If there&#39;s no FROM clause, we can&#39;t modify the query</span>
+            <span class="k">return</span> <span class="n">base_query</span>
+
+        <span class="c1"># Split the query into the SELECT part and the rest</span>
+        <span class="n">select_part</span> <span class="o">=</span> <span class="n">base_query</span><span class="p">[:</span><span class="n">from_index</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">rest_part</span> <span class="o">=</span> <span class="n">base_query</span><span class="p">[</span><span class="n">from_index</span><span class="p">:]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="c1"># If there are no aggregations or select fields, return the base query</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregations</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_fields</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">base_query</span>
+
+        <span class="c1"># Build the new SELECT part</span>
+        <span class="n">new_select_part</span> <span class="o">=</span> <span class="s2">&quot;SELECT&quot;</span>
+
+        <span class="c1"># Add the select fields</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_fields</span><span class="p">:</span>
+            <span class="n">fields</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">select_fields</span><span class="p">)</span>
+
+        <span class="c1"># Add the aggregation functions</span>
+        <span class="k">for</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">aggregation</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregations</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">aggregation</span><span class="si">}</span><span class="s2"> AS </span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Check if there are GROUP BY fields in the query and add them to the SELECT clause</span>
+        <span class="c1"># This is necessary because SurrealDB requires GROUP BY fields to be in the SELECT clause</span>
+        <span class="n">group_by_index</span> <span class="o">=</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;GROUP BY&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">group_by_index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># Extract the GROUP BY clause</span>
+            <span class="n">group_by_clause</span> <span class="o">=</span> <span class="n">rest_part</span><span class="p">[</span><span class="n">group_by_index</span><span class="p">:]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="c1"># Find the next clause after GROUP BY (if any)</span>
+            <span class="n">next_clause_index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">for</span> <span class="n">clause</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;SPLIT&quot;</span><span class="p">,</span> <span class="s2">&quot;FETCH&quot;</span><span class="p">,</span> <span class="s2">&quot;WITH&quot;</span><span class="p">,</span> <span class="s2">&quot;ORDER BY&quot;</span><span class="p">,</span> <span class="s2">&quot;LIMIT&quot;</span><span class="p">,</span> <span class="s2">&quot;START&quot;</span><span class="p">]:</span>
+                <span class="n">clause_index</span> <span class="o">=</span> <span class="n">group_by_clause</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">clause</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;GROUP BY&quot;</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">clause_index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="n">next_clause_index</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">or</span> <span class="n">clause_index</span> <span class="o">&lt;</span> <span class="n">next_clause_index</span><span class="p">):</span>
+                    <span class="n">next_clause_index</span> <span class="o">=</span> <span class="n">clause_index</span>
+
+            <span class="c1"># Extract the GROUP BY fields</span>
+            <span class="k">if</span> <span class="n">next_clause_index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">group_by_fields_str</span> <span class="o">=</span> <span class="n">group_by_clause</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;GROUP BY&quot;</span><span class="p">):</span><span class="n">next_clause_index</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">group_by_fields_str</span> <span class="o">=</span> <span class="n">group_by_clause</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;GROUP BY&quot;</span><span class="p">):]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+            <span class="c1"># Split the GROUP BY fields and add them to the SELECT fields if not already included</span>
+            <span class="n">group_by_fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">group_by_fields_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+            <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">group_by_fields</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">field</span> <span class="ow">and</span> <span class="n">field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">:</span>
+                    <span class="n">fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+        
+        <span class="c1"># Check for GROUP ALL</span>
+        <span class="k">if</span> <span class="s2">&quot;GROUP ALL&quot;</span> <span class="ow">in</span> <span class="n">rest_part</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span>
+             <span class="c1"># Nothing specific needed for SELECT fields with GROUP ALL</span>
+             <span class="k">pass</span>
+
+        <span class="c1"># If there are no fields, use * to select all fields</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">fields</span><span class="p">:</span>
+            <span class="n">fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Add the fields to the SELECT part</span>
+        <span class="n">new_select_part</span> <span class="o">+=</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
+
+        <span class="c1"># Combine the new SELECT part with the rest of the query</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">new_select_part</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">rest_part</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<div class="viewcode-block" id="MaterializedView.create">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.MaterializedView.create">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">if_not_exists</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create the materialized view in the database.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            connection: The database connection to use (optional)</span>
+<span class="sd">            overwrite: Whether to overwrite the table if it exists (default: False)</span>
+<span class="sd">            if_not_exists: Whether to create the table only if it does not exist (default: False)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="ow">or</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">()</span>
+        
+        <span class="n">modifier</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">overwrite</span><span class="p">:</span>
+            <span class="n">modifier</span> <span class="o">=</span> <span class="s2">&quot;OVERWRITE &quot;</span>
+        <span class="k">elif</span> <span class="n">if_not_exists</span><span class="p">:</span>
+            <span class="n">modifier</span> <span class="o">=</span> <span class="s2">&quot;IF NOT EXISTS &quot;</span>
+
+        <span class="c1"># Build the query for creating the materialized view</span>
+        <span class="n">query_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_custom_query</span><span class="p">()</span>
+        <span class="n">create_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;DEFINE TABLE </span><span class="si">{</span><span class="n">modifier</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> TYPE NORMAL AS </span><span class="si">{</span><span class="n">query_str</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Note: SurrealDB materialized views are automatically updated when underlying data changes</span>
+        <span class="c1"># The refresh_interval parameter is ignored as SurrealDB doesn&#39;t support the EVERY clause</span>
+
+        <span class="c1"># Execute the query</span>
+        <span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">create_query</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MaterializedView.create_sync">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.MaterializedView.create_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">if_not_exists</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create the materialized view in the database synchronously.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            connection: The database connection to use (optional)</span>
+<span class="sd">            overwrite: Whether to overwrite the table if it exists (default: False)</span>
+<span class="sd">            if_not_exists: Whether to create the table only if it does not exist (default: False)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="ow">or</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">()</span>
+
+        <span class="n">modifier</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">overwrite</span><span class="p">:</span>
+            <span class="n">modifier</span> <span class="o">=</span> <span class="s2">&quot;OVERWRITE &quot;</span>
+        <span class="k">elif</span> <span class="n">if_not_exists</span><span class="p">:</span>
+            <span class="n">modifier</span> <span class="o">=</span> <span class="s2">&quot;IF NOT EXISTS &quot;</span>
+
+        <span class="c1"># Build the query for creating the materialized view</span>
+        <span class="n">query_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_custom_query</span><span class="p">()</span>
+        <span class="n">create_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;DEFINE TABLE </span><span class="si">{</span><span class="n">modifier</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> TYPE NORMAL AS </span><span class="si">{</span><span class="n">query_str</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Execute the query</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">create_query</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MaterializedView.drop">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.MaterializedView.drop">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">drop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Drop the materialized view from the database.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            connection: The database connection to use (optional)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="ow">or</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">()</span>
+
+        <span class="c1"># Build the query for dropping the materialized view</span>
+        <span class="n">drop_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;REMOVE TABLE </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+
+        <span class="c1"># Execute the query</span>
+        <span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">drop_query</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MaterializedView.drop_sync">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.MaterializedView.drop_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">drop_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Drop the materialized view from the database synchronously.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            connection: The database connection to use (optional)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="ow">or</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">()</span>
+
+        <span class="c1"># Build the query for dropping the materialized view</span>
+        <span class="n">drop_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;REMOVE TABLE </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+
+        <span class="c1"># Execute the query</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">drop_query</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MaterializedView.refresh">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.MaterializedView.refresh">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Manually refresh the materialized view.</span>
+
+<span class="sd">        DEPRECATED: SurrealDB views derived from TABLES are live and do not need manual refresh.</span>
+<span class="sd">        This method will be removed in a future version.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            connection: The database connection to use (optional)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># No-op/log warning could go here. For now we just don&#39;t execute REFRESH VIEW as it is likely invalid.</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="MaterializedView.refresh_sync">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.MaterializedView.refresh_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">refresh_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Manually refresh the materialized view.</span>
+
+<span class="sd">        DEPRECATED: SurrealDB views derived from TABLES are live and do not need manual refresh.</span>
+<span class="sd">        This method will be removed in a future version.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            connection: The database connection to use (optional)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">objects</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuerySet</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a QuerySet for querying the materialized view.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A QuerySet for querying the materialized view</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Create a temporary document class for the materialized view</span>
+        <span class="n">view_class</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2">View&quot;</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="p">,),</span> <span class="p">{</span>
+            <span class="s2">&quot;Meta&quot;</span><span class="p">:</span> <span class="nb">type</span><span class="p">(</span><span class="s2">&quot;Meta&quot;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span><span class="s2">&quot;collection&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">})</span>
+        <span class="p">})</span>
+
+        <span class="c1"># Return a QuerySet for the view class</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">QuerySet</span><span class="p">(</span><span class="n">view_class</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MaterializedView.execute_raw_query">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.MaterializedView.execute_raw_query">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">execute_raw_query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute a raw query against the materialized view.</span>
+
+<span class="sd">        This is a workaround for the &quot;no decoder for tag&quot; error that can occur</span>
+<span class="sd">        when querying materialized views using the objects property.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            connection: The database connection to use (optional)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The query results</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="ow">or</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">()</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MaterializedView.execute_raw_query_sync">
+<a class="viewcode-back" href="../../api/materialized_view.html#surrealengine.materialized_view.MaterializedView.execute_raw_query_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">execute_raw_query_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute a raw query against the materialized view synchronously.</span>
+
+<span class="sd">        This is a workaround for the &quot;no decoder for tag&quot; error that can occur</span>
+<span class="sd">        when querying materialized views using the objects property.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            connection: The database connection to use (optional)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The query results</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="ow">or</span> <span class="n">ConnectionRegistry</span><span class="o">.</span><span class="n">get_default_connection</span><span class="p">()</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+</main>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

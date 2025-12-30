@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Signals API Reference &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="../genindex.html" />
+            <link rel="search" title="Search" href="../search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="next" title="Materialized Views API Reference" href="materialized_view.html" />
+            <link rel="prev" title="Schema API Reference" href="schema.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema.html">Schema API Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Signals API Reference</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengineapi/signals.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../_sources/api/signals.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="signals-api-reference">
+<h1>Signals API Reference<a class="headerlink" href="#signals-api-reference" title="Link to this heading"><span>¶</span></a></h1>
+<p>This module provides signal support for model lifecycle events, allowing you to
+hook into various stages of document operations.</p>
+<section id="available-signals">
+<h2>Available Signals<a class="headerlink" href="#available-signals" title="Link to this heading"><span>¶</span></a></h2>
+<section id="document-lifecycle-signals">
+<h3>Document Lifecycle Signals<a class="headerlink" href="#document-lifecycle-signals" title="Link to this heading"><span>¶</span></a></h3>
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.pre_init">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">pre_init</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">before</span> <span class="pre">document</span> <span class="pre">initialization</span></em><a class="headerlink" href="#surrealengine.signals.pre_init" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.post_init">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">post_init</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">after</span> <span class="pre">document</span> <span class="pre">initialization</span></em><a class="headerlink" href="#surrealengine.signals.post_init" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.pre_save">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">pre_save</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">before</span> <span class="pre">document</span> <span class="pre">save</span></em><a class="headerlink" href="#surrealengine.signals.pre_save" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.pre_save_post_validation">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">pre_save_post_validation</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">after</span> <span class="pre">validation</span> <span class="pre">but</span> <span class="pre">before</span> <span class="pre">save</span></em><a class="headerlink" href="#surrealengine.signals.pre_save_post_validation" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.post_save">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">post_save</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">after</span> <span class="pre">document</span> <span class="pre">save</span></em><a class="headerlink" href="#surrealengine.signals.post_save" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.pre_delete">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">pre_delete</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">before</span> <span class="pre">document</span> <span class="pre">deletion</span></em><a class="headerlink" href="#surrealengine.signals.pre_delete" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.post_delete">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">post_delete</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">after</span> <span class="pre">document</span> <span class="pre">deletion</span></em><a class="headerlink" href="#surrealengine.signals.post_delete" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="bulk-operation-signals">
+<h3>Bulk Operation Signals<a class="headerlink" href="#bulk-operation-signals" title="Link to this heading"><span>¶</span></a></h3>
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.pre_bulk_insert">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">pre_bulk_insert</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">before</span> <span class="pre">bulk</span> <span class="pre">insert</span> <span class="pre">operation</span></em><a class="headerlink" href="#surrealengine.signals.pre_bulk_insert" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.post_bulk_insert">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">post_bulk_insert</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">after</span> <span class="pre">bulk</span> <span class="pre">insert</span> <span class="pre">operation</span></em><a class="headerlink" href="#surrealengine.signals.post_bulk_insert" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="field-operation-signals">
+<h3>Field Operation Signals<a class="headerlink" href="#field-operation-signals" title="Link to this heading"><span>¶</span></a></h3>
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.pre_validate">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">pre_validate</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">before</span> <span class="pre">field</span> <span class="pre">validation</span></em><a class="headerlink" href="#surrealengine.signals.pre_validate" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.post_validate">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">post_validate</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">after</span> <span class="pre">field</span> <span class="pre">validation</span></em><a class="headerlink" href="#surrealengine.signals.post_validate" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.pre_to_db">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">pre_to_db</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">before</span> <span class="pre">converting</span> <span class="pre">value</span> <span class="pre">to</span> <span class="pre">database</span> <span class="pre">format</span></em><a class="headerlink" href="#surrealengine.signals.pre_to_db" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.post_to_db">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">post_to_db</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">after</span> <span class="pre">converting</span> <span class="pre">value</span> <span class="pre">to</span> <span class="pre">database</span> <span class="pre">format</span></em><a class="headerlink" href="#surrealengine.signals.post_to_db" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.pre_from_db">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">pre_from_db</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">before</span> <span class="pre">converting</span> <span class="pre">value</span> <span class="pre">from</span> <span class="pre">database</span> <span class="pre">format</span></em><a class="headerlink" href="#surrealengine.signals.pre_from_db" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.post_from_db">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">post_from_db</span></span><em class="property"><span class="w"> </span><span class="pre">Signal</span> <span class="pre">sent</span> <span class="pre">after</span> <span class="pre">converting</span> <span class="pre">value</span> <span class="pre">from</span> <span class="pre">database</span> <span class="pre">format</span></em><a class="headerlink" href="#surrealengine.signals.post_from_db" title="Link to this definition"><span>¶</span></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+<section id="signal-constants">
+<h2>Signal Constants<a class="headerlink" href="#signal-constants" title="Link to this heading"><span>¶</span></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="surrealengine.signals.SIGNAL_SUPPORT">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.signals.</span></span><span class="sig-name descname"><span class="pre">SIGNAL_SUPPORT</span></span><em class="property"><span class="w"> </span><span class="pre">Boolean</span> <span class="pre">indicating</span> <span class="pre">if</span> <span class="pre">signal</span> <span class="pre">support</span> <span class="pre">is</span> <span class="pre">available</span></em><a class="headerlink" href="#surrealengine.signals.SIGNAL_SUPPORT" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>bool(x) -&gt; bool</p>
+<p>Returns True when the argument x is true, False otherwise.
+The builtins True and False are the only two instances of the class bool.
+The class bool is a subclass of the class int, and cannot be subclassed.</p>
+</dd></dl>
+
+</section>
+<section id="usage-examples">
+<h2>Usage Examples<a class="headerlink" href="#usage-examples" title="Link to this heading"><span>¶</span></a></h2>
+<section id="connecting-to-document-signals">
+<h3>Connecting to Document Signals<a class="headerlink" href="#connecting-to-document-signals" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.signals</span><span class="w"> </span><span class="kn">import</span> <span class="n">pre_save</span><span class="p">,</span> <span class="n">post_save</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Document</span><span class="p">,</span> <span class="n">StringField</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">()</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">()</span>
+
+<span class="c1"># Signal handlers</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_timestamps</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">document</span><span class="o">.</span><span class="n">created_at</span><span class="p">:</span>
+        <span class="n">document</span><span class="o">.</span><span class="n">created_at</span> <span class="o">=</span> <span class="n">now</span>
+    <span class="n">document</span><span class="o">.</span><span class="n">updated_at</span> <span class="o">=</span> <span class="n">now</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_user_save</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="n">created</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;created&quot;</span> <span class="k">if</span> <span class="n">created</span> <span class="k">else</span> <span class="s2">&quot;updated&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User </span><span class="si">{</span><span class="n">document</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> was </span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Connect signals</span>
+<span class="n">pre_save</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">set_timestamps</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="n">User</span><span class="p">)</span>
+<span class="n">post_save</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">log_user_save</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="n">User</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="audit-trail-example">
+<h3>Audit Trail Example<a class="headerlink" href="#audit-trail-example" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.signals</span><span class="w"> </span><span class="kn">import</span> <span class="n">post_save</span><span class="p">,</span> <span class="n">post_delete</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">AuditLog</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">model_name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">object_id</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">()</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_audit_log</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="n">created</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;created&quot;</span> <span class="k">if</span> <span class="n">created</span> <span class="k">else</span> <span class="s2">&quot;updated&quot;</span>
+    <span class="n">AuditLog</span><span class="p">(</span>
+        <span class="n">action</span><span class="o">=</span><span class="n">action</span><span class="p">,</span>
+        <span class="n">model_name</span><span class="o">=</span><span class="n">sender</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+        <span class="n">object_id</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">id</span><span class="p">),</span>
+        <span class="n">user_id</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">delete_audit_log</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">AuditLog</span><span class="p">(</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;deleted&quot;</span><span class="p">,</span>
+        <span class="n">model_name</span><span class="o">=</span><span class="n">sender</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+        <span class="n">object_id</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="c1"># Connect to all document classes</span>
+<span class="n">post_save</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">create_audit_log</span><span class="p">)</span>
+<span class="n">post_delete</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">delete_audit_log</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="cache-invalidation">
+<h3>Cache Invalidation<a class="headerlink" href="#cache-invalidation" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.signals</span><span class="w"> </span><span class="kn">import</span> <span class="n">post_save</span><span class="p">,</span> <span class="n">post_delete</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">redis</span>
+
+<span class="n">cache</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">Redis</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">invalidate_cache</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># Invalidate specific object cache</span>
+    <span class="n">cache_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sender</span><span class="o">.</span><span class="vm">__name__</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">document</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">cache</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">cache_key</span><span class="p">)</span>
+
+    <span class="c1"># Invalidate list caches</span>
+    <span class="n">list_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sender</span><span class="o">.</span><span class="vm">__name__</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">:list:*&quot;</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">cache</span><span class="o">.</span><span class="n">scan_iter</span><span class="p">(</span><span class="n">match</span><span class="o">=</span><span class="n">list_key</span><span class="p">):</span>
+        <span class="n">cache</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="c1"># Connect to multiple models</span>
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="p">[</span><span class="n">User</span><span class="p">,</span> <span class="n">Post</span><span class="p">,</span> <span class="n">Comment</span><span class="p">]:</span>
+    <span class="n">post_save</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">invalidate_cache</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+    <span class="n">post_delete</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">invalidate_cache</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="custom-validation">
+<h3>Custom Validation<a class="headerlink" href="#custom-validation" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.signals</span><span class="w"> </span><span class="kn">import</span> <span class="n">pre_save</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_user_email_domain</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">document</span><span class="o">.</span><span class="n">email</span><span class="p">:</span>
+        <span class="n">allowed_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;company.com&#39;</span><span class="p">,</span> <span class="s1">&#39;partner.com&#39;</span><span class="p">]</span>
+        <span class="n">domain</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">email</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">domain</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allowed_domains</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Email domain </span><span class="si">{</span><span class="n">domain</span><span class="si">}</span><span class="s2"> not allowed&quot;</span><span class="p">)</span>
+
+<span class="n">pre_save</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">validate_user_email_domain</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="n">User</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="conditional-signal-connections">
+<h3>Conditional Signal Connections<a class="headerlink" href="#conditional-signal-connections" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.signals</span><span class="w"> </span><span class="kn">import</span> <span class="n">post_save</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">send_welcome_email</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">document</span><span class="p">,</span> <span class="n">created</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">created</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">document</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">):</span>
+        <span class="c1"># Send welcome email logic here</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sending welcome email to </span><span class="si">{</span><span class="n">document</span><span class="o">.</span><span class="n">email</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Only connect in production</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ENV&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;production&#39;</span><span class="p">:</span>
+    <span class="n">post_save</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">send_welcome_email</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="n">User</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="signal-disconnection">
+<h3>Signal Disconnection<a class="headerlink" href="#signal-disconnection" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.signals</span><span class="w"> </span><span class="kn">import</span> <span class="n">post_save</span>
+
+<span class="c1"># Disconnect specific handler</span>
+<span class="n">post_save</span><span class="o">.</span><span class="n">disconnect</span><span class="p">(</span><span class="n">log_user_save</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="n">User</span><span class="p">)</span>
+
+<span class="c1"># Disconnect all handlers for a sender</span>
+<span class="n">post_save</span><span class="o">.</span><span class="n">disconnect</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="n">User</span><span class="p">)</span>
+
+<span class="c1"># Disconnect handler from all senders</span>
+<span class="n">post_save</span><span class="o">.</span><span class="n">disconnect</span><span class="p">(</span><span class="n">log_user_save</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="schema.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Schema API Reference
+    </a>
+    <a class="float-right" href="materialized_view.html" title="Next">
+        Materialized Views API Reference <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Signals API Reference</a><ul>
+<li><a class="reference internal" href="#available-signals">Available Signals</a><ul>
+<li><a class="reference internal" href="#document-lifecycle-signals">Document Lifecycle Signals</a><ul>
+<li><a class="reference internal" href="#surrealengine.signals.pre_init"><code class="docutils literal notranslate"><span class="pre">pre_init</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.signals.post_init"><code class="docutils literal notranslate"><span class="pre">post_init</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.signals.pre_save"><code class="docutils literal notranslate"><span class="pre">pre_save</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.signals.pre_save_post_validation"><code class="docutils literal notranslate"><span class="pre">pre_save_post_validation</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.signals.post_save"><code class="docutils literal notranslate"><span class="pre">post_save</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.signals.pre_delete"><code class="docutils literal notranslate"><span class="pre">pre_delete</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.signals.post_delete"><code class="docutils literal notranslate"><span class="pre">post_delete</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bulk-operation-signals">Bulk Operation Signals</a><ul>
+<li><a class="reference internal" href="#surrealengine.signals.pre_bulk_insert"><code class="docutils literal notranslate"><span class="pre">pre_bulk_insert</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.signals.post_bulk_insert"><code class="docutils literal notranslate"><span class="pre">post_bulk_insert</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#field-operation-signals">Field Operation Signals</a><ul>
+<li><a class="reference internal" href="#surrealengine.signals.pre_validate"><code class="docutils literal notranslate"><span class="pre">pre_validate</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.signals.post_validate"><code class="docutils literal notranslate"><span class="pre">post_validate</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.signals.pre_to_db"><code class="docutils literal notranslate"><span class="pre">pre_to_db</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.signals.post_to_db"><code class="docutils literal notranslate"><span class="pre">post_to_db</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.signals.pre_from_db"><code class="docutils literal notranslate"><span class="pre">pre_from_db</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.signals.post_from_db"><code class="docutils literal notranslate"><span class="pre">post_from_db</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#signal-constants">Signal Constants</a><ul>
+<li><a class="reference internal" href="#surrealengine.signals.SIGNAL_SUPPORT"><code class="docutils literal notranslate"><span class="pre">SIGNAL_SUPPORT</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage-examples">Usage Examples</a><ul>
+<li><a class="reference internal" href="#connecting-to-document-signals">Connecting to Document Signals</a></li>
+<li><a class="reference internal" href="#audit-trail-example">Audit Trail Example</a></li>
+<li><a class="reference internal" href="#cache-invalidation">Cache Invalidation</a></li>
+<li><a class="reference internal" href="#custom-validation">Custom Validation</a></li>
+<li><a class="reference internal" href="#conditional-signal-connections">Conditional Signal Connections</a></li>
+<li><a class="reference internal" href="#signal-disconnection">Signal Disconnection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

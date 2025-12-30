@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="./">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>LIVE Queries (Subscriptions) &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="genindex.html" />
+            <link rel="search" title="Search" href="search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="next" title="Performance Optimization" href="performance.html" />
+            <link rel="prev" title="Materialized Views" href="materialized_views.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">LIVE Queries (Subscriptions)</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealenginelive.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="_sources/live.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="live-queries-subscriptions">
+<h1>LIVE Queries (Subscriptions)<a class="headerlink" href="#live-queries-subscriptions" title="Link to this heading"><span>¶</span></a></h1>
+<p>SurrealEngine supports SurrealDB LIVE queries via an ergonomic async generator API:</p>
+<ul class="simple">
+<li><p>QuerySet.live(where: Optional[Q|dict] = None, action: Optional[str|List[str]] = None, retry_limit=3, initial_delay=0.5, backoff=2.0)</p></li>
+<li><p>Yields typed <code class="docutils literal notranslate"><span class="pre">LiveEvent</span></code> objects with <code class="docutils literal notranslate"><span class="pre">.action</span></code>, <code class="docutils literal notranslate"><span class="pre">.data</span></code>, <code class="docutils literal notranslate"><span class="pre">.ts</span></code>, and <code class="docutils literal notranslate"><span class="pre">.id</span></code> attributes</p></li>
+</ul>
+<section id="liveevent-class-v0-5-0">
+<h2>LiveEvent Class (v0.5.0+)<a class="headerlink" href="#liveevent-class-v0-5-0" title="Link to this heading"><span>¶</span></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">LiveEvent</span></code> dataclass provides typed access to LIVE query events:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LiveEvent</span><span class="p">:</span>
+    <span class="n">action</span><span class="p">:</span> <span class="nb">str</span>              <span class="c1"># &#39;CREATE&#39;, &#39;UPDATE&#39;, or &#39;DELETE&#39;</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>     <span class="c1"># Document fields</span>
+    <span class="n">ts</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span>   <span class="c1"># Event timestamp</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">RecordID</span><span class="p">]</span>   <span class="c1"># Document ID</span>
+
+    <span class="c1"># Convenience properties</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_create</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span> <span class="o">...</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span> <span class="o">...</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span> <span class="o">...</span>
+</pre></div>
+</div>
+</section>
+<section id="important-direct-async-websocket-required">
+<h2>Important: direct async websocket required<a class="headerlink" href="#important-direct-async-websocket-required" title="Link to this heading"><span>¶</span></a></h2>
+<p>LIVE subscriptions are long-lived, stateful, and bound to a single websocket. The connection
+pool is intended for short, stateless request/response operations and may rotate/prune sockets.
+Therefore QuerySet.live() requires a direct async websocket client (use_pool=False).</p>
+<p>If you attempt to use a pooled client for LIVE, a NotImplementedError is raised.</p>
+</section>
+<section id="quick-start">
+<h2>Quick start<a class="headerlink" href="#quick-start" title="Link to this heading"><span>¶</span></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_connection</span><span class="p">,</span> <span class="n">Document</span><span class="p">,</span> <span class="n">StringField</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Direct async connection (no pool) for LIVE</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">create_connection</span><span class="p">(</span>
+        <span class="n">url</span><span class="o">=</span><span class="s2">&quot;ws://localhost:8000/rpc&quot;</span><span class="p">,</span>
+        <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;test_ns&quot;</span><span class="p">,</span>
+        <span class="n">database</span><span class="o">=</span><span class="s2">&quot;test_db&quot;</span><span class="p">,</span>
+        <span class="n">username</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+        <span class="n">password</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+        <span class="n">async_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">use_pool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>          <span class="c1"># IMPORTANT for LIVE</span>
+        <span class="n">make_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">await</span> <span class="n">conn</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+    <span class="c1"># Subscribe to changes on the users table</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">evt</span> <span class="ow">in</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">live</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Event: </span><span class="si">{</span><span class="n">evt</span><span class="o">.</span><span class="n">action</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data: </span><span class="si">{</span><span class="n">evt</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">evt</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Timestamp: </span><span class="si">{</span><span class="n">evt</span><span class="o">.</span><span class="n">ts</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="action-filtering-v0-5-0">
+<h2>Action Filtering (v0.5.0+)<a class="headerlink" href="#action-filtering-v0-5-0" title="Link to this heading"><span>¶</span></a></h2>
+<p>You can filter events by action type using the <code class="docutils literal notranslate"><span class="pre">action</span></code> parameter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subscribe to CREATE events only</span>
+<span class="k">async</span> <span class="k">for</span> <span class="n">evt</span> <span class="ow">in</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">live</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;CREATE&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">evt</span><span class="o">.</span><span class="n">is_create</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New user created: </span><span class="si">{</span><span class="n">evt</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Subscribe to multiple action types</span>
+<span class="k">async</span> <span class="k">for</span> <span class="n">evt</span> <span class="ow">in</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">live</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CREATE&quot;</span><span class="p">,</span> <span class="s2">&quot;UPDATE&quot;</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">evt</span><span class="o">.</span><span class="n">is_create</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User created: </span><span class="si">{</span><span class="n">evt</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">evt</span><span class="o">.</span><span class="n">is_update</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User updated: </span><span class="si">{</span><span class="n">evt</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Monitor deletions</span>
+<span class="k">async</span> <span class="k">for</span> <span class="n">evt</span> <span class="ow">in</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">live</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;DELETE&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">evt</span><span class="o">.</span><span class="n">is_delete</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User deleted: </span><span class="si">{</span><span class="n">evt</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="client-side-filtering-with-where">
+<h2>Client-Side Filtering with WHERE<a class="headerlink" href="#client-side-filtering-with-where" title="Link to this heading"><span>¶</span></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">live(where=...)</span></code> parameter accepts either a Q object or a simple dict. This predicate is
+applied client-side to incoming events for convenience:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter for active users only</span>
+<span class="k">async</span> <span class="k">for</span> <span class="n">evt</span> <span class="ow">in</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">live</span><span class="p">(</span><span class="n">where</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;active&quot;</span><span class="p">}):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Active user event: </span><span class="si">{</span><span class="n">evt</span><span class="o">.</span><span class="n">action</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Combine action and where filtering</span>
+<span class="k">async</span> <span class="k">for</span> <span class="n">evt</span> <span class="ow">in</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">live</span><span class="p">(</span>
+    <span class="n">where</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;active&quot;</span><span class="p">},</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;CREATE&quot;</span>
+<span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New active user: </span><span class="si">{</span><span class="n">evt</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you need authoritative server-side filtering, issue a LIVE query with a WHERE clause using
+a raw query on the client. QuerySet.live() keeps things simple and portable across driver versions.</p>
+</section>
+<section id="retry-and-backoff">
+<h2>Retry and backoff<a class="headerlink" href="#retry-and-backoff" title="Link to this heading"><span>¶</span></a></h2>
+<p>QuerySet.live() provides simple retry behavior on transient disconnects:</p>
+<ul class="simple">
+<li><p>retry_limit (default 3)</p></li>
+<li><p>initial_delay (seconds; default 0.5)</p></li>
+<li><p>backoff multiplier (default 2.0)</p></li>
+</ul>
+<p>When exceeded, the generator exits.</p>
+</section>
+<section id="integrating-with-web-apps-sse-or-websocket">
+<h2>Integrating with web apps (SSE or WebSocket)<a class="headerlink" href="#integrating-with-web-apps-sse-or-websocket" title="Link to this heading"><span>¶</span></a></h2>
+<p>A common pattern is to run the LIVE subscription in a background task and forward events to HTTP clients
+via Server‑Sent Events (SSE) or WebSockets. See example_scripts/connection_and_observability_example.py
+for connection setup, and refer to the Flask SSE snippet in the README for a full bridge example.</p>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading"><span>¶</span></a></h2>
+<ul class="simple">
+<li><p>LIVE currently requires a direct async websocket connection (no pool).</p></li>
+<li><p>The pool client does not manage subscription lifecycles or event demultiplexing.</p></li>
+</ul>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="materialized_views.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Materialized Views
+    </a>
+    <a class="float-right" href="performance.html" title="Next">
+        Performance Optimization <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">LIVE Queries (Subscriptions)</a><ul>
+<li><a class="reference internal" href="#liveevent-class-v0-5-0">LiveEvent Class (v0.5.0+)</a></li>
+<li><a class="reference internal" href="#important-direct-async-websocket-required">Important: direct async websocket required</a></li>
+<li><a class="reference internal" href="#quick-start">Quick start</a></li>
+<li><a class="reference internal" href="#action-filtering-v0-5-0">Action Filtering (v0.5.0+)</a></li>
+<li><a class="reference internal" href="#client-side-filtering-with-where">Client-Side Filtering with WHERE</a></li>
+<li><a class="reference internal" href="#retry-and-backoff">Retry and backoff</a></li>
+<li><a class="reference internal" href="#integrating-with-web-apps-sse-or-websocket">Integrating with web apps (SSE or WebSocket)</a></li>
+<li><a class="reference internal" href="#limitations">Limitations</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="_static/dist/theme.js"></script>
+        <script type="text/javascript" src="_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="_static/searchtools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

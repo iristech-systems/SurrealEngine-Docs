@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../../">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>surrealengine.fields.scalar &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="../../../genindex.html" />
+            <link rel="search" title="Search" href="../../../search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="up" title="Module code" href="../../index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+        <li class="breadcrumb-item active" aria-current="page">surrealengine.fields.scalar</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengine_modules/surrealengine/fields/scalar" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <h1>Source code for surrealengine.fields.scalar</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Pattern</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Field</span>
+
+<div class="viewcode-block" id="StringField">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.StringField">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">StringField</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;String field type.</span>
+
+<span class="sd">    This field type stores string values and provides validation for</span>
+<span class="sd">    minimum length, maximum length, and regex pattern matching.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        min_length: Minimum length of the string</span>
+<span class="sd">        max_length: Maximum length of the string</span>
+<span class="sd">        regex: Regular expression pattern to match</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        Basic string field:</span>
+
+<span class="sd">        &gt;&gt;&gt; name = StringField(required=True)</span>
+
+<span class="sd">        String with length constraints:</span>
+
+<span class="sd">        &gt;&gt;&gt; title = StringField(max_length=100, required=True)</span>
+<span class="sd">        &gt;&gt;&gt; username = StringField(min_length=3, max_length=20)</span>
+
+<span class="sd">        String with regex validation:</span>
+
+<span class="sd">        &gt;&gt;&gt; email = StringField(regex=r&#39;^[^@]+@[^@]+\.[^@]+$&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; slug = StringField(regex=r&#39;^[a-z0-9-]+$&#39;)</span>
+
+<span class="sd">        Indexed string field:</span>
+
+<span class="sd">        &gt;&gt;&gt; name = StringField(indexed=True, unique=True)</span>
+<span class="sd">        &gt;&gt;&gt; category = StringField(indexed=True)</span>
+
+<span class="sd">        String field with choices:</span>
+
+<span class="sd">        &gt;&gt;&gt; status = StringField(choices=[&#39;active&#39;, &#39;inactive&#39;, &#39;pending&#39;])</span>
+
+<span class="sd">        String field for schema definition:</span>
+
+<span class="sd">        &gt;&gt;&gt; name = StringField(required=True, define_schema=True)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="StringField.__init__">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.StringField.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">regex</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">choices</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new StringField.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            min_length: Minimum length of the string</span>
+<span class="sd">            max_length: Maximum length of the string</span>
+<span class="sd">            regex: Regular expression pattern to match</span>
+<span class="sd">            choices: List of valid choices for this field</span>
+<span class="sd">            required: Whether the field is required (default: False)</span>
+<span class="sd">            default: Default value for the field</span>
+<span class="sd">            db_field: Name of the field in the database (defaults to the field name)</span>
+<span class="sd">            define_schema: Whether to define this field in the schema (even for SCHEMALESS tables)</span>
+<span class="sd">            indexed: Whether the field should be indexed (default: False)</span>
+<span class="sd">            unique: Whether the index should enforce uniqueness (default: False)</span>
+<span class="sd">            search: Whether the index is a search index (default: False)</span>
+<span class="sd">            analyzer: Analyzer to use for search indexes</span>
+<span class="sd">            index_with: List of other field names to include in the index</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_length</span> <span class="o">=</span> <span class="n">min_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_length</span> <span class="o">=</span> <span class="n">max_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">regex</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Pattern</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">regex</span><span class="p">)</span> <span class="k">if</span> <span class="n">regex</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">regex_pattern</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">regex</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">choices</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="n">choices</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">py_type</span> <span class="o">=</span> <span class="nb">str</span></div>
+
+
+<div class="viewcode-block" id="StringField.validate">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.StringField.validate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the string value.</span>
+
+<span class="sd">        This method checks if the value is a valid string and meets the</span>
+<span class="sd">        constraints for minimum length, maximum length, and regex pattern.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The value to validate</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The validated string value</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: If the value is not a string</span>
+<span class="sd">            ValueError: If the value does not meet the constraints</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected string for field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_length</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;String value for &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is too short&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_length</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;String value for &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is too long&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">regex</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">regex</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;String value for &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; does not match pattern&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">choices</span> <span class="ow">and</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">choices</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;String value for &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is not a valid choice&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">value</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="NumberField">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.NumberField">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">NumberField</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for numeric fields.</span>
+
+<span class="sd">    This field type is the base class for all numeric field types.</span>
+<span class="sd">    It provides validation for minimum and maximum values.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        min_value: Minimum allowed value</span>
+<span class="sd">        max_value: Maximum allowed value</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        Basic number field:</span>
+
+<span class="sd">        &gt;&gt;&gt; score = NumberField()</span>
+
+<span class="sd">        Number with range constraints:</span>
+
+<span class="sd">        &gt;&gt;&gt; priority = NumberField(min_value=1, max_value=5, default=3)</span>
+<span class="sd">        &gt;&gt;&gt; percentage = NumberField(min_value=0, max_value=100)</span>
+<span class="sd">        &gt;&gt;&gt; age = NumberField(min_value=0)</span>
+
+<span class="sd">        Required number field:</span>
+
+<span class="sd">        &gt;&gt;&gt; price = NumberField(min_value=0, required=True)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="NumberField.__init__">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.NumberField.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">max_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new NumberField.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            min_value: Minimum allowed value</span>
+<span class="sd">            max_value: Maximum allowed value</span>
+<span class="sd">            required: Whether the field is required (default: False)</span>
+<span class="sd">            default: Default value for the field</span>
+<span class="sd">            db_field: Name of the field in the database (defaults to the field name)</span>
+<span class="sd">            define_schema: Whether to define this field in the schema (even for SCHEMALESS tables)</span>
+<span class="sd">            indexed: Whether the field should be indexed (default: False)</span>
+<span class="sd">            unique: Whether the index should enforce uniqueness (default: False)</span>
+<span class="sd">            search: Whether the index is a search index (default: False)</span>
+<span class="sd">            analyzer: Analyzer to use for search indexes</span>
+<span class="sd">            index_with: List of other field names to include in the index</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_value</span> <span class="o">=</span> <span class="n">min_value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_value</span> <span class="o">=</span> <span class="n">max_value</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">py_type</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="NumberField.validate">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.NumberField.validate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the numeric value.</span>
+
+<span class="sd">        This method checks if the value is a valid number and meets the</span>
+<span class="sd">        constraints for minimum and maximum values.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The value to validate</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The validated numeric value</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: If the value is not a number</span>
+<span class="sd">            ValueError: If the value does not meet the constraints</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected number for field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_value</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value for &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is too small&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_value</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value for &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; is too large&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">value</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="IntField">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.IntField">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">IntField</span><span class="p">(</span><span class="n">NumberField</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Integer field type.</span>
+
+<span class="sd">    This field type stores integer values and provides validation</span>
+<span class="sd">    to ensure the value is an integer.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        Basic integer field:</span>
+
+<span class="sd">        &gt;&gt;&gt; age = IntField(min_value=0)</span>
+<span class="sd">        &gt;&gt;&gt; count = IntField(default=0)</span>
+
+<span class="sd">        Integer with constraints:</span>
+
+<span class="sd">        &gt;&gt;&gt; priority = IntField(min_value=1, max_value=5, default=3)</span>
+<span class="sd">        &gt;&gt;&gt; year = IntField(min_value=1900, max_value=2100)</span>
+
+<span class="sd">        Required integer:</span>
+
+<span class="sd">        &gt;&gt;&gt; user_id = IntField(required=True)</span>
+<span class="sd">        &gt;&gt;&gt; views = IntField(default=0, min_value=0)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="IntField.__init__">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.IntField.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new IntField.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            min_value: Minimum allowed value</span>
+<span class="sd">            max_value: Maximum allowed value</span>
+<span class="sd">            required: Whether the field is required (default: False)</span>
+<span class="sd">            default: Default value for the field</span>
+<span class="sd">            db_field: Name of the field in the database (defaults to the field name)</span>
+<span class="sd">            define_schema: Whether to define this field in the schema (even for SCHEMALESS tables)</span>
+<span class="sd">            indexed: Whether the field should be indexed (default: False)</span>
+<span class="sd">            unique: Whether the index should enforce uniqueness (default: False)</span>
+<span class="sd">            search: Whether the index is a search index (default: False)</span>
+<span class="sd">            analyzer: Analyzer to use for search indexes</span>
+<span class="sd">            index_with: List of other field names to include in the index</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">py_type</span> <span class="o">=</span> <span class="nb">int</span></div>
+
+
+<div class="viewcode-block" id="IntField.validate">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.IntField.validate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the integer value.</span>
+
+<span class="sd">        This method checks if the value is a valid integer.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The value to validate</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The validated integer value</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: If the value is not an integer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected integer for field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="IntField.to_db">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.IntField.to_db">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert Python value to database representation.</span>
+
+<span class="sd">        This method converts a Python value to an integer for storage in the database.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The Python value to convert</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The integer value for the database</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="FloatField">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.FloatField">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">FloatField</span><span class="p">(</span><span class="n">NumberField</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Float field type.</span>
+
+<span class="sd">    This field type stores floating-point values and provides validation</span>
+<span class="sd">    to ensure the value can be converted to a float.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        Basic float field:</span>
+
+<span class="sd">        &gt;&gt;&gt; price = FloatField(min_value=0)</span>
+<span class="sd">        &gt;&gt;&gt; rating = FloatField(min_value=0.0, max_value=5.0)</span>
+
+<span class="sd">        Float with precision:</span>
+
+<span class="sd">        &gt;&gt;&gt; estimated_hours = FloatField(min_value=0.1)</span>
+<span class="sd">        &gt;&gt;&gt; percentage = FloatField(min_value=0.0, max_value=100.0)</span>
+
+<span class="sd">        Financial data:</span>
+
+<span class="sd">        &gt;&gt;&gt; balance = FloatField(default=0.0)</span>
+<span class="sd">        &gt;&gt;&gt; tax_rate = FloatField(min_value=0.0, max_value=1.0)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FloatField.__init__">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.FloatField.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new FloatField.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            min_value: Minimum allowed value</span>
+<span class="sd">            max_value: Maximum allowed value</span>
+<span class="sd">            required: Whether the field is required (default: False)</span>
+<span class="sd">            default: Default value for the field</span>
+<span class="sd">            db_field: Name of the field in the database (defaults to the field name)</span>
+<span class="sd">            define_schema: Whether to define this field in the schema (even for SCHEMALESS tables)</span>
+<span class="sd">            indexed: Whether the field should be indexed (default: False)</span>
+<span class="sd">            unique: Whether the index should enforce uniqueness (default: False)</span>
+<span class="sd">            search: Whether the index is a search index (default: False)</span>
+<span class="sd">            analyzer: Analyzer to use for search indexes</span>
+<span class="sd">            index_with: List of other field names to include in the index</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">py_type</span> <span class="o">=</span> <span class="nb">float</span></div>
+
+
+<div class="viewcode-block" id="FloatField.validate">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.FloatField.validate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the float value.</span>
+
+<span class="sd">        This method checks if the value can be converted to a float.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The value to validate</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The validated float value</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: If the value cannot be converted to a float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected float for field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="BooleanField">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.BooleanField">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">BooleanField</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Boolean field type.</span>
+
+<span class="sd">    This field type stores boolean values and provides validation</span>
+<span class="sd">    to ensure the value is a boolean.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        Basic boolean field:</span>
+
+<span class="sd">        &gt;&gt;&gt; active = BooleanField(default=True)</span>
+<span class="sd">        &gt;&gt;&gt; completed = BooleanField(default=False)</span>
+
+<span class="sd">        Required boolean:</span>
+
+<span class="sd">        &gt;&gt;&gt; is_primary_author = BooleanField(default=True)</span>
+<span class="sd">        &gt;&gt;&gt; published = BooleanField(default=False)</span>
+
+<span class="sd">        Boolean with indexing:</span>
+
+<span class="sd">        &gt;&gt;&gt; active = BooleanField(default=True, indexed=True)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="BooleanField.__init__">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.BooleanField.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new BooleanField.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            required: Whether the field is required (default: False)</span>
+<span class="sd">            default: Default value for the field</span>
+<span class="sd">            db_field: Name of the field in the database (defaults to the field name)</span>
+<span class="sd">            define_schema: Whether to define this field in the schema (even for SCHEMALESS tables)</span>
+<span class="sd">            indexed: Whether the field should be indexed (default: False)</span>
+<span class="sd">            unique: Whether the index should enforce uniqueness (default: False)</span>
+<span class="sd">            search: Whether the index is a search index (default: False)</span>
+<span class="sd">            analyzer: Analyzer to use for search indexes</span>
+<span class="sd">            index_with: List of other field names to include in the index</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">py_type</span> <span class="o">=</span> <span class="nb">bool</span></div>
+
+
+<div class="viewcode-block" id="BooleanField.validate">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.scalar.BooleanField.validate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the boolean value.</span>
+
+<span class="sd">        This method checks if the value is a valid boolean.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The value to validate</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The validated boolean value</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: If the value is not a boolean</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected boolean for field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+</div>
+
+</pre></div>
+</main>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../../_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="../../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

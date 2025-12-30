@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../../">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>surrealengine.fields.additional &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="../../../genindex.html" />
+            <link rel="search" title="Search" href="../../../search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="up" title="Module code" href="../../index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+        <li class="breadcrumb-item active" aria-current="page">surrealengine.fields.additional</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengine_modules/surrealengine/fields/additional" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <h1>Source code for surrealengine.fields.additional</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Union</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Range</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb.data.types.range</span><span class="w"> </span><span class="kn">import</span> <span class="n">BoundIncluded</span><span class="p">,</span> <span class="n">BoundExcluded</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">Range</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">BoundIncluded</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">BoundExcluded</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Field</span>
+
+<div class="viewcode-block" id="OptionField">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.additional.OptionField">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">OptionField</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Option field type.</span>
+
+<span class="sd">    This field type makes a field optional and guarantees it to be either</span>
+<span class="sd">    None or a value of the specified type.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        field_type: The field type for the value when not None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="OptionField.__init__">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.additional.OptionField.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_type</span><span class="p">:</span> <span class="n">Field</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new OptionField.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field_type: The field type for the value when not None</span>
+<span class="sd">            **kwargs: Additional arguments to pass to the parent class</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_type</span> <span class="o">=</span> <span class="n">field_type</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">py_type</span> <span class="o">=</span> <span class="n">Any</span></div>
+
+
+<div class="viewcode-block" id="OptionField.validate">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.additional.OptionField.validate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the option value.</span>
+
+<span class="sd">        This method checks if the value is None or a valid value for the field_type.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The value to validate</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The validated value</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If the value is not None and fails validation for field_type</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Skip the parent&#39;s validation since we handle required differently</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_type</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OptionField.to_db">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.additional.OptionField.to_db">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert Python value to database representation.</span>
+
+<span class="sd">        This method converts a Python value to a database representation using</span>
+<span class="sd">        the field_type&#39;s to_db method if the value is not None.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The Python value to convert</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The database representation of the value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_type</span><span class="o">.</span><span class="n">to_db</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OptionField.from_db">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.additional.OptionField.from_db">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert database value to Python representation.</span>
+
+<span class="sd">        This method converts a database value to a Python representation using</span>
+<span class="sd">        the field_type&#39;s from_db method if the value is not None.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The database value to convert</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The Python representation of the value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_type</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="FutureField">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.additional.FutureField">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">FutureField</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Field for future (computed) values.</span>
+
+<span class="sd">    This field type represents a computed value in SurrealDB that is calculated</span>
+<span class="sd">    at query time rather than stored in the database. It uses SurrealDB&#39;s</span>
+<span class="sd">    &lt;future&gt; syntax to define a computation expression.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        computation_expression: The SurrealDB expression to compute the value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FutureField.__init__">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.additional.FutureField.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">computation_expression</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new FutureField.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            computation_expression: The SurrealDB expression to compute the value</span>
+<span class="sd">            **kwargs: Additional arguments to pass to the parent class</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">computation_expression</span> <span class="o">=</span> <span class="n">computation_expression</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">py_type</span> <span class="o">=</span> <span class="n">Any</span></div>
+
+
+<div class="viewcode-block" id="FutureField.to_db">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.additional.FutureField.to_db">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert to SurrealDB future syntax.</span>
+
+<span class="sd">        This method returns the SurrealDB &lt;future&gt; syntax with the computation</span>
+<span class="sd">        expression, regardless of the input value.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The input value (ignored)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The SurrealDB future syntax string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># For future fields, we return a special SurrealDB syntax</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;future&gt; </span><span class="se">{{</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">computation_expression</span><span class="si">}</span><span class="s2"> </span><span class="se">}}</span><span class="s2">&quot;</span></div>
+</div>
+
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TableField</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Table field type.</span>
+
+<span class="sd">    This field type stores table names and provides validation and</span>
+<span class="sd">    conversion between Python strings and SurrealDB table format.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        ```python</span>
+<span class="sd">        class Schema(Document):</span>
+<span class="sd">            table_name = TableField()</span>
+<span class="sd">            fields = DictField()</span>
+<span class="sd">        ```</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new TableField.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Additional arguments to pass to the parent class</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">py_type</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Table</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the table name.</span>
+
+<span class="sd">        This method checks if the value is a valid table name.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The value to validate</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The validated table name</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: If the value is not a string</span>
+<span class="sd">            ValueError: If the table name is invalid</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Table</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">value</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected string or Table for table name in field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="c1"># Basic validation for table names</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span> <span class="ow">or</span> <span class="s1">&#39; &#39;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid table name &#39;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&#39; for field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert Python string to database representation.</span>
+
+<span class="sd">        This method converts a Python string to a table name for storage in the database.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The Python string to convert</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The table name for the database</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Table</span><span class="p">):</span>
+                 <span class="k">return</span> <span class="n">value</span>
+             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                 <span class="k">return</span> <span class="n">Table</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+
+<div class="viewcode-block" id="RangeField">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.additional.RangeField">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">RangeField</span><span class="p">(</span><span class="n">Field</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Field for storing ranges of values.</span>
+
+<span class="sd">    This field type stores ranges of values with minimum and maximum bounds.</span>
+<span class="sd">    It supports various types for the bounds, such as numbers, strings, and dates.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        class PriceRange(Document):</span>
+<span class="sd">            price_range = RangeField(min_type=FloatField(), max_type=FloatField())</span>
+<span class="sd">            age_range = RangeField(min_type=IntField(), max_type=IntField())</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="RangeField.__init__">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.additional.RangeField.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_type</span><span class="p">:</span> <span class="n">Field</span><span class="p">,</span> <span class="n">max_type</span><span class="p">:</span> <span class="n">Field</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new RangeField.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            min_type: The field type for the minimum value</span>
+<span class="sd">            max_type: The field type for the maximum value (defaults to same as min_type)</span>
+<span class="sd">            **kwargs: Additional arguments to pass to the parent class</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_type</span> <span class="o">=</span> <span class="n">min_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_type</span> <span class="o">=</span> <span class="n">max_type</span> <span class="k">if</span> <span class="n">max_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">min_type</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Range</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">py_type</span> <span class="o">=</span> <span class="p">(</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Range</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="RangeField.validate">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.additional.RangeField.validate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validate the range value.</span>
+
+<span class="sd">        This method checks if the value is a valid range with minimum and maximum</span>
+<span class="sd">        values that can be validated by the respective field types.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The value to validate</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The validated range value</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValidationError: If the value is not a valid range</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Range</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Range</span><span class="p">):</span>
+            <span class="c1"># We can&#39;t easily validate inner types of Range without unwrapping,</span>
+            <span class="c1"># but user likely knows what they are doing if using SDK objects.</span>
+            <span class="k">return</span> <span class="n">value</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+            <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected dict or surrealdb.Range for field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Ensure the range has min and max keys</span>
+        <span class="k">if</span> <span class="s1">&#39;min&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">value</span> <span class="ow">and</span> <span class="s1">&#39;max&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+            <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Range field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; must have at least one of &#39;min&#39; or &#39;max&#39; keys&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Validate min value if present</span>
+        <span class="k">if</span> <span class="s1">&#39;min&#39;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">value</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_type</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">])</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+                <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid minimum value for field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Validate max value if present</span>
+        <span class="k">if</span> <span class="s1">&#39;max&#39;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">value</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_type</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">])</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+                <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid maximum value for field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Ensure min &lt;= max if both are present</span>
+        <span class="k">if</span> <span class="s1">&#39;min&#39;</span> <span class="ow">in</span> <span class="n">value</span> <span class="ow">and</span> <span class="s1">&#39;max&#39;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+            <span class="n">min_val</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span>
+            <span class="n">max_val</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span>
+
+            <span class="c1"># Skip comparison if either value is None</span>
+            <span class="k">if</span> <span class="n">min_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">max_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># Try to compare the values</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">min_val</span> <span class="o">&gt;</span> <span class="n">max_val</span><span class="p">:</span>
+                        <span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+                        <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Minimum value (</span><span class="si">{</span><span class="n">min_val</span><span class="si">}</span><span class="s2">) cannot be greater than maximum value (</span><span class="si">{</span><span class="n">max_val</span><span class="si">}</span><span class="s2">) for field &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                    <span class="c1"># If values can&#39;t be compared, just skip the check</span>
+                    <span class="k">pass</span>
+
+        <span class="k">return</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="RangeField.to_db">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.additional.RangeField.to_db">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert Python range to database representation.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The Python range to convert</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The database representation of the range</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># Convert min value if present</span>
+        <span class="k">if</span> <span class="s1">&#39;min&#39;</span> <span class="ow">in</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">value</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_type</span><span class="o">.</span><span class="n">to_db</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Convert max value if present</span>
+        <span class="k">if</span> <span class="s1">&#39;max&#39;</span> <span class="ow">in</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">value</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_type</span><span class="o">.</span><span class="n">to_db</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Convert to SDK Range if fully populated</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Range</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb.data.types.range</span><span class="w"> </span><span class="kn">import</span> <span class="n">BoundIncluded</span>
+        <span class="k">if</span> <span class="s1">&#39;min&#39;</span> <span class="ow">in</span> <span class="n">result</span> <span class="ow">and</span> <span class="s1">&#39;max&#39;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+             <span class="k">return</span> <span class="n">Range</span><span class="p">(</span><span class="n">BoundIncluded</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]),</span> <span class="n">BoundIncluded</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]))</span>
+        <span class="c1"># Partial ranges might just be dicts? Or we construct partial Ranges? </span>
+        <span class="c1"># The SDK definition seems to require both begin and end.</span>
+        <span class="c1"># If partial, we might need to fallback to manual string syntax?</span>
+        <span class="c1"># Actually, let&#39;s stick to returning dict if partial, and the SDK might handle it or we serialize manually.</span>
+        <span class="c1"># But wait, Range object in SDK requires begin/end. </span>
+        <span class="c1"># For now, let&#39;s rely on standard serialization for dicts which creates an object,</span>
+        <span class="c1"># but if we want strictly Range type we should use it.</span>
+        <span class="c1"># Given this is &quot;RangeField&quot;, let&#39;s leave it as dict for flexibility unless user provides Range.</span>
+        
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="RangeField.from_db">
+<a class="viewcode-back" href="../../../api/fields.html#surrealengine.fields.additional.RangeField.from_db">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_db</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert database range to Python representation.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: The database range to convert</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The Python representation of the range</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Range</span><span class="p">):</span>
+            <span class="c1"># Convert back to dict for consistency with python usage</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">Range</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb.data.types.range</span><span class="w"> </span><span class="kn">import</span> <span class="n">BoundIncluded</span><span class="p">,</span> <span class="n">BoundExcluded</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">begin</span><span class="p">:</span>
+                <span class="n">val</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">begin</span><span class="o">.</span><span class="n">value</span>
+                <span class="c1"># Try to use from_db of subfield</span>
+                <span class="n">res</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_type</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">end</span><span class="p">:</span>
+                <span class="n">val</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">end</span><span class="o">.</span><span class="n">value</span>
+                <span class="n">res</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_type</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">res</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># Convert min value if present</span>
+        <span class="k">if</span> <span class="s1">&#39;min&#39;</span> <span class="ow">in</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">value</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_type</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Convert max value if present</span>
+        <span class="k">if</span> <span class="s1">&#39;max&#39;</span> <span class="ow">in</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">value</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_type</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+</div>
+
+</pre></div>
+</main>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../../_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="../../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

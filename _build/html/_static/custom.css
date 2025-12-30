@@ -1,0 +1,70 @@
+/* Custom CSS for SurrealEngine documentation */
+
+/* Improve code block styling */
+.highlight {
+    border-radius: 4px;
+    margin: 1em 0;
+}
+
+/* Style for API reference tables */
+.field-list dt {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style for parameter lists */
+.field-name {
+    white-space: nowrap;
+    font-family: monospace;
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* Improve readability of docstring sections */
+.admonition {
+    margin: 1.5em 0;
+    padding: 1em;
+    border-radius: 4px;
+}
+
+/* Style for example code blocks */
+.admonition.note {
+    background-color: #f0f7ff;
+    border-left: 4px solid #0066cc;
+}
+
+/* Custom styling for method signatures */
+.sig-name {
+    font-weight: bold;
+}
+
+/* Improve navigation styling */
+.wy-nav-content {
+    max-width: none;
+}
+
+/* Better spacing for function/class definitions */
+dl.py.class, dl.py.function, dl.py.method {
+    margin-bottom: 2em;
+}
+
+/* Style for deprecated elements */
+.deprecated {
+    color: #d32f2f;
+    font-style: italic;
+}
+
+/* Highlight important notes */
+.admonition.important {
+    border-left: 4px solid #ff9800;
+    background-color: #fff8e1;
+}
+
+/* Style for version added/changed notes */
+.versionadded, .versionchanged {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #666;
+    margin: 0.5em 0;
+}

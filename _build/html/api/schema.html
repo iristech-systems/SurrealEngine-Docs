@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Schema API Reference &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="../genindex.html" />
+            <link rel="search" title="Search" href="../search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="next" title="Signals API Reference" href="signals.html" />
+            <link rel="prev" title="Exceptions" href="exceptions.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Schema API Reference</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengineapi/schema.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../_sources/api/schema.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="schema-api-reference">
+<h1>Schema API Reference<a class="headerlink" href="#schema-api-reference" title="Link to this heading"><span>¶</span></a></h1>
+<p>This module provides utilities for discovering document classes, generating
+schema statements, and creating database tables from Python modules.</p>
+<section id="schema-functions">
+<h2>Schema Functions<a class="headerlink" href="#schema-functions" title="Link to this heading"><span>¶</span></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="surrealengine.schema.get_document_classes">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.schema.</span></span><span class="sig-name descname"><span class="pre">get_document_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/schema.html#get_document_classes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.schema.get_document_classes" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Get all Document classes defined in a module.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>module_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The name of the module to search</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of Document classes defined in the module</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><em>List</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.14)"><em>Type</em></a>[<a class="reference internal" href="document.html#surrealengine.document.Document" title="surrealengine.document.Document"><em>Document</em></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="surrealengine.schema.create_tables_from_module">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.schema.</span></span><span class="sig-name descname"><span class="pre">create_tables_from_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemafull</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/schema.html#create_tables_from_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.schema.create_tables_from_module" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Create tables for all Document classes in a module asynchronously.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>module_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The name of the module containing Document classes</p></li>
+<li><p><strong>connection</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><em>Any</em></a><em> | </em><em>None</em>) – Optional connection to use</p></li>
+<li><p><strong>schemafull</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Whether to create SCHEMAFULL tables (default: True)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="surrealengine.schema.create_tables_from_module_sync">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.schema.</span></span><span class="sig-name descname"><span class="pre">create_tables_from_module_sync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemafull</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/schema.html#create_tables_from_module_sync"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.schema.create_tables_from_module_sync" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Create tables for all Document classes in a module synchronously.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>module_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The name of the module containing Document classes</p></li>
+<li><p><strong>connection</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><em>Any</em></a><em> | </em><em>None</em>) – Optional connection to use</p></li>
+<li><p><strong>schemafull</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Whether to create SCHEMAFULL tables (default: True)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="surrealengine.schema.generate_schema_statements">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.schema.</span></span><span class="sig-name descname"><span class="pre">generate_schema_statements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">document_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemafull</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/schema.html#generate_schema_statements"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.schema.generate_schema_statements" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Generate SurrealDB schema statements for a Document class.</p>
+<p>This function generates DEFINE TABLE and DEFINE FIELD statements for a Document class
+without executing them. This is useful for generating schema migration scripts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>document_class</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.14)"><em>Type</em></a><em>[</em><a class="reference internal" href="document.html#surrealengine.document.Document" title="surrealengine.document.Document"><em>Document</em></a><em>]</em>) – The Document class to generate statements for</p></li>
+<li><p><strong>schemafull</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Whether to generate SCHEMAFULL tables (default: True)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of SurrealDB schema statements</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><em>List</em></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="surrealengine.schema.generate_schema_statements_from_module">
+<span class="sig-prename descclassname"><span class="pre">surrealengine.schema.</span></span><span class="sig-name descname"><span class="pre">generate_schema_statements_from_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schemafull</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/schema.html#generate_schema_statements_from_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.schema.generate_schema_statements_from_module" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Generate SurrealDB schema statements for all Document classes in a module.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>module_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The name of the module containing Document classes</p></li>
+<li><p><strong>schemafull</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Whether to generate SCHEMAFULL tables (default: True)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary mapping class names to lists of SurrealDB schema statements</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><em>Dict</em></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><em>List</em></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="usage-examples">
+<h2>Usage Examples<a class="headerlink" href="#usage-examples" title="Link to this heading"><span>¶</span></a></h2>
+<section id="discovering-document-classes">
+<h3>Discovering Document Classes<a class="headerlink" href="#discovering-document-classes" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.schema</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_document_classes</span>
+
+<span class="c1"># Get all Document classes from a module</span>
+<span class="n">document_classes</span> <span class="o">=</span> <span class="n">get_document_classes</span><span class="p">(</span><span class="s1">&#39;myapp.models&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">document_classes</span><span class="p">)</span><span class="si">}</span><span class="s2"> document classes&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-tables">
+<h3>Creating Tables<a class="headerlink" href="#creating-tables" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.schema</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_tables_from_module</span>
+
+<span class="c1"># Create tables for all documents in a module</span>
+<span class="k">await</span> <span class="n">create_tables_from_module</span><span class="p">(</span><span class="s1">&#39;myapp.models&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create SCHEMALESS tables</span>
+<span class="k">await</span> <span class="n">create_tables_from_module</span><span class="p">(</span><span class="s1">&#39;myapp.models&#39;</span><span class="p">,</span> <span class="n">schemafull</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Use specific connection</span>
+<span class="k">await</span> <span class="n">create_tables_from_module</span><span class="p">(</span><span class="s1">&#39;myapp.models&#39;</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="n">my_connection</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="generating-schema-statements">
+<h3>Generating Schema Statements<a class="headerlink" href="#generating-schema-statements" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.schema</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_schema_statements</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indexed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Generate SQL statements</span>
+<span class="n">statements</span> <span class="o">=</span> <span class="n">generate_schema_statements</span><span class="p">(</span><span class="n">User</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">stmt</span> <span class="ow">in</span> <span class="n">statements</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">stmt</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="c1"># DEFINE TABLE users SCHEMAFULL</span>
+<span class="c1"># DEFINE FIELD name ON users TYPE string ASSERT $value != NONE</span>
+<span class="c1"># DEFINE FIELD email ON users TYPE string</span>
+<span class="c1"># DEFINE INDEX users_email_idx ON users FIELDS email UNIQUE</span>
+</pre></div>
+</div>
+</section>
+<section id="schema-migration-workflow">
+<h3>Schema Migration Workflow<a class="headerlink" href="#schema-migration-workflow" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.schema</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_document_classes</span><span class="p">,</span>
+    <span class="n">generate_schema_statements_from_module</span>
+<span class="p">)</span>
+
+<span class="c1"># Generate migration script</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_migration</span><span class="p">(</span><span class="n">module_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">statements</span> <span class="o">=</span> <span class="n">generate_schema_statements_from_module</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;migration.sql&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;-- Auto-generated migration</span><span class="se">\\</span><span class="s1">n</span><span class="se">\\</span><span class="s1">n&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">stmt</span> <span class="ow">in</span> <span class="n">statements</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">stmt</span><span class="si">}</span><span class="s1">;</span><span class="se">\\</span><span class="s1">n&#39;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Migration saved to migration.sql with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">statements</span><span class="p">)</span><span class="si">}</span><span class="s2"> statements&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">generate_migration</span><span class="p">(</span><span class="s1">&#39;myapp.models&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="conditional-schema-creation">
+<h3>Conditional Schema Creation<a class="headerlink" href="#conditional-schema-creation" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.schema</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_document_classes</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">create_tables_if_needed</span><span class="p">():</span>
+    <span class="n">document_classes</span> <span class="o">=</span> <span class="n">get_document_classes</span><span class="p">(</span><span class="s1">&#39;myapp.models&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">doc_class</span> <span class="ow">in</span> <span class="n">document_classes</span><span class="p">:</span>
+        <span class="c1"># Check if table exists (implementation depends on your needs)</span>
+        <span class="n">table_name</span> <span class="o">=</span> <span class="n">doc_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+
+        <span class="c1"># Create table and indexes</span>
+        <span class="k">await</span> <span class="n">doc_class</span><span class="o">.</span><span class="n">create_table</span><span class="p">()</span>
+        <span class="k">await</span> <span class="n">doc_class</span><span class="o">.</span><span class="n">create_indexes</span><span class="p">()</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created table and indexes for </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="advanced-schema-features">
+<h3>Advanced Schema Features<a class="headerlink" href="#advanced-schema-features" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">TimeSeries</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">TimeSeriesField</span><span class="p">()</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">FloatField</span><span class="p">()</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;metrics&quot;</span>
+        <span class="n">time_series</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">time_field</span> <span class="o">=</span> <span class="s2">&quot;timestamp&quot;</span>
+        <span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;time_idx&quot;</span><span class="p">,</span> <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]},</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;value_idx&quot;</span><span class="p">,</span> <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">],</span> <span class="s2">&quot;unique&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+        <span class="p">]</span>
+
+<span class="c1"># This will generate:</span>
+<span class="c1"># DEFINE TABLE metrics SCHEMAFULL TYPE TIMESTAMP TIMEFIELD timestamp</span>
+<span class="c1"># DEFINE FIELD timestamp ON metrics TYPE datetime</span>
+<span class="c1"># DEFINE FIELD value ON metrics TYPE float</span>
+<span class="c1"># DEFINE INDEX time_idx ON metrics FIELDS timestamp</span>
+<span class="c1"># DEFINE INDEX value_idx ON metrics FIELDS value</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="exceptions.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Exceptions
+    </a>
+    <a class="float-right" href="signals.html" title="Next">
+        Signals API Reference <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Schema API Reference</a><ul>
+<li><a class="reference internal" href="#schema-functions">Schema Functions</a><ul>
+<li><a class="reference internal" href="#surrealengine.schema.get_document_classes"><code class="docutils literal notranslate"><span class="pre">get_document_classes()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.schema.create_tables_from_module"><code class="docutils literal notranslate"><span class="pre">create_tables_from_module()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.schema.create_tables_from_module_sync"><code class="docutils literal notranslate"><span class="pre">create_tables_from_module_sync()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.schema.generate_schema_statements"><code class="docutils literal notranslate"><span class="pre">generate_schema_statements()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.schema.generate_schema_statements_from_module"><code class="docutils literal notranslate"><span class="pre">generate_schema_statements_from_module()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage-examples">Usage Examples</a><ul>
+<li><a class="reference internal" href="#discovering-document-classes">Discovering Document Classes</a></li>
+<li><a class="reference internal" href="#creating-tables">Creating Tables</a></li>
+<li><a class="reference internal" href="#generating-schema-statements">Generating Schema Statements</a></li>
+<li><a class="reference internal" href="#schema-migration-workflow">Schema Migration Workflow</a></li>
+<li><a class="reference internal" href="#conditional-schema-creation">Conditional Schema Creation</a></li>
+<li><a class="reference internal" href="#advanced-schema-features">Advanced Schema Features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

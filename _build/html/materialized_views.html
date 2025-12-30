@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="./">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Materialized Views &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="genindex.html" />
+            <link rel="search" title="Search" href="search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="next" title="LIVE Queries (Subscriptions)" href="live.html" />
+            <link rel="prev" title="Signals" href="signals.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Materialized Views</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealenginematerialized_views.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="_sources/materialized_views.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="materialized-views">
+<h1>Materialized Views<a class="headerlink" href="#materialized-views" title="Link to this heading"><span>¶</span></a></h1>
+<p>SurrealEngine provides support for SurrealDB materialized views, allowing you to create
+pre-computed aggregations and transformations of your data. In SurrealDB 2.x+, materialized
+views are live and automatically update when underlying data changes.</p>
+<section id="creating-materialized-views">
+<h2>Creating Materialized Views<a class="headerlink" href="#creating-materialized-views" title="Link to this heading"><span>¶</span></a></h2>
+<section id="basic-creation">
+<h3>Basic Creation<a class="headerlink" href="#basic-creation" title="Link to this heading"><span>¶</span></a></h3>
+<p>Create a materialized view from a document model:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Document</span><span class="p">,</span> <span class="n">StringField</span><span class="p">,</span> <span class="n">IntField</span><span class="p">,</span> <span class="n">FloatField</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">MaterializedView</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Product</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">FloatField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">quantity</span> <span class="o">=</span> <span class="n">IntField</span><span class="p">()</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span>
+
+<span class="c1"># Create a materialized view</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ProductStats</span><span class="p">(</span><span class="n">MaterializedView</span><span class="p">):</span>
+    <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;product_stats&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_source_query</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create the view in the database</span>
+<span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="create-options-v0-5-0">
+<h3>Create Options (v0.5.0+)<a class="headerlink" href="#create-options-v0-5-0" title="Link to this heading"><span>¶</span></a></h3>
+<p>Control how the materialized view table is created:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create with overwrite - replaces existing table</span>
+<span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Create only if it doesn&#39;t exist</span>
+<span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">if_not_exists</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Basic create (will fail if table exists)</span>
+<span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>These options map to SurrealDB’s <code class="docutils literal notranslate"><span class="pre">DEFINE</span> <span class="pre">TABLE</span></code> clauses:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">overwrite=True</span></code> → <code class="docutils literal notranslate"><span class="pre">DEFINE</span> <span class="pre">TABLE</span> <span class="pre">OVERWRITE</span> <span class="pre">...</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if_not_exists=True</span></code> → <code class="docutils literal notranslate"><span class="pre">DEFINE</span> <span class="pre">TABLE</span> <span class="pre">IF</span> <span class="pre">NOT</span> <span class="pre">EXISTS</span> <span class="pre">...</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="advanced-view-configuration">
+<h2>Advanced View Configuration<a class="headerlink" href="#advanced-view-configuration" title="Link to this heading"><span>¶</span></a></h2>
+<section id="group-by-with-aggregations-v0-5-0">
+<h3>Group By with Aggregations (v0.5.0+)<a class="headerlink" href="#group-by-with-aggregations-v0-5-0" title="Link to this heading"><span>¶</span></a></h3>
+<p>Create views with aggregated data using improved GROUP BY parsing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">CategoryStats</span><span class="p">(</span><span class="n">MaterializedView</span><span class="p">):</span>
+    <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;category_stats&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_source_query</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">Product</span><span class="o">.</span><span class="n">objects</span>
+            <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">,</span> <span class="s2">&quot;COUNT(*) as total&quot;</span><span class="p">,</span> <span class="s2">&quot;AVG(price) as avg_price&quot;</span><span class="p">))</span>
+
+<span class="k">await</span> <span class="n">CategoryStats</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="group-all-v0-5-0">
+<h3>Group All (v0.5.0+)<a class="headerlink" href="#group-all-v0-5-0" title="Link to this heading"><span>¶</span></a></h3>
+<p>Aggregate across all records without grouping:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">OverallStats</span><span class="p">(</span><span class="n">MaterializedView</span><span class="p">):</span>
+    <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;overall_stats&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_source_query</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">Product</span><span class="o">.</span><span class="n">objects</span>
+            <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;COUNT(*) as total_products&quot;</span><span class="p">,</span> <span class="s2">&quot;SUM(quantity) as total_inventory&quot;</span><span class="p">))</span>
+
+<span class="k">await</span> <span class="n">OverallStats</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="querying-materialized-views">
+<h2>Querying Materialized Views<a class="headerlink" href="#querying-materialized-views" title="Link to this heading"><span>¶</span></a></h2>
+<p>Query materialized views like regular documents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all stats</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># Filter stats</span>
+<span class="n">electronics</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;electronics&quot;</span><span class="p">)</span>
+
+<span class="c1"># Order by aggregated values</span>
+<span class="n">top_categories</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;-total_sales&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Use with other query methods</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="k">await</span> <span class="p">(</span><span class="n">ProductStats</span><span class="o">.</span><span class="n">objects</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">total_sales__gt</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">omit</span><span class="p">(</span><span class="s2">&quot;internal_field&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="s2">&quot;5s&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">all</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="synchronous-operations">
+<h2>Synchronous Operations<a class="headerlink" href="#synchronous-operations" title="Link to this heading"><span>¶</span></a></h2>
+<p>All async operations have synchronous equivalents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create view synchronously</span>
+<span class="n">ProductStats</span><span class="o">.</span><span class="n">create_sync</span><span class="p">()</span>
+<span class="n">ProductStats</span><span class="o">.</span><span class="n">create_sync</span><span class="p">(</span><span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ProductStats</span><span class="o">.</span><span class="n">create_sync</span><span class="p">(</span><span class="n">if_not_exists</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Query synchronously</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all_sync</span><span class="p">()</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;electronics&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all_sync</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="deprecation-notice">
+<h2>Deprecation Notice<a class="headerlink" href="#deprecation-notice" title="Link to this heading"><span>¶</span></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>refresh() and refresh_sync() are deprecated (v0.5.0+)</strong></p>
+<p>In SurrealDB 2.x+, materialized views derived from tables are <strong>live</strong> and automatically
+update when underlying data changes. Manual refresh is not needed and these methods are
+now no-ops:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># DEPRECATED - No longer needed</span>
+<span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+<span class="n">ProductStats</span><span class="o">.</span><span class="n">refresh_sync</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>These methods will be removed in a future version. Simply query the view to get
+current data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correct way - views are always up to date</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="live-updates">
+<h2>Live Updates<a class="headerlink" href="#live-updates" title="Link to this heading"><span>¶</span></a></h2>
+<p>SurrealDB materialized views are live, meaning they automatically update when:</p>
+<ul class="simple">
+<li><p>Source table data is inserted</p></li>
+<li><p>Source table data is updated</p></li>
+<li><p>Source table data is deleted</p></li>
+</ul>
+<p>No manual refresh or rebuild is required. Just query the view to get current aggregated data.</p>
+</section>
+<section id="complex-aggregations">
+<h2>Complex Aggregations<a class="headerlink" href="#complex-aggregations" title="Link to this heading"><span>¶</span></a></h2>
+<p>Use aggregation pipelines for complex transformations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">AggregationPipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.aggregation</span><span class="w"> </span><span class="kn">import</span> <span class="n">Count</span><span class="p">,</span> <span class="n">Sum</span><span class="p">,</span> <span class="n">Avg</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span> <span class="n">Min</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SalesSummary</span><span class="p">(</span><span class="n">MaterializedView</span><span class="p">):</span>
+    <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;sales_summary&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_source_query</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="n">pipeline</span> <span class="o">=</span> <span class="n">AggregationPipeline</span><span class="p">(</span><span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">pipeline</span>
+            <span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="n">by_fields</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">,</span>
+                   <span class="n">total_items</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">),</span>
+                   <span class="n">total_revenue</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;price * quantity&quot;</span><span class="p">),</span>
+                   <span class="n">avg_price</span><span class="o">=</span><span class="n">Avg</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">),</span>
+                   <span class="n">max_price</span><span class="o">=</span><span class="n">Max</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">),</span>
+                   <span class="n">min_price</span><span class="o">=</span><span class="n">Min</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">))</span>
+            <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">total_revenue</span><span class="o">=</span><span class="s2">&quot;DESC&quot;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+
+<span class="k">await</span> <span class="n">SalesSummary</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">if_not_exists</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"><span>¶</span></a></h2>
+<ol class="arabic">
+<li><p><strong>Use if_not_exists for idempotency</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">if_not_exists</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Choose meaningful view names</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">UserActivitySummary</span><span class="p">(</span><span class="n">MaterializedView</span><span class="p">):</span>
+    <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;user_activity_summary&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Don’t use refresh()</strong> - views are live and always current</p></li>
+<li><p><strong>Index view columns</strong> used in filters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ProductStats</span><span class="p">(</span><span class="n">MaterializedView</span><span class="p">):</span>
+    <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;product_stats&quot;</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">indexes</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;category&quot;</span><span class="p">],</span> <span class="s2">&quot;unique&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;total_sales&quot;</span><span class="p">],</span> <span class="s2">&quot;unique&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+        <span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Use GROUP ALL for global aggregations</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># For global stats across all records</span>
+<span class="k">return</span> <span class="n">Product</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="performance-considerations">
+<h2>Performance Considerations<a class="headerlink" href="#performance-considerations" title="Link to this heading"><span>¶</span></a></h2>
+<ul class="simple">
+<li><p>Materialized views improve query performance by pre-computing aggregations</p></li>
+<li><p>Views are stored as regular tables in SurrealDB</p></li>
+<li><p>Live updates may have a small performance impact on write operations</p></li>
+<li><p>For very large datasets, consider partitioning data or using time-based views</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">omit()</span></code> and field selection to minimize data transfer</p></li>
+</ul>
+</section>
+<section id="migration-from-older-versions">
+<h2>Migration from Older Versions<a class="headerlink" href="#migration-from-older-versions" title="Link to this heading"><span>¶</span></a></h2>
+<p>If you’re upgrading from versions &lt; 0.5.0:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># OLD (&lt; v0.5.0)</span>
+<span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+<span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>  <span class="c1"># Manually refresh</span>
+
+<span class="c1"># NEW (v0.5.0+)</span>
+<span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">if_not_exists</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># No refresh needed - views are live!</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ProductStats</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>  <span class="c1"># Always current</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="signals.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Signals
+    </a>
+    <a class="float-right" href="live.html" title="Next">
+        LIVE Queries (Subscriptions) <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Materialized Views</a><ul>
+<li><a class="reference internal" href="#creating-materialized-views">Creating Materialized Views</a><ul>
+<li><a class="reference internal" href="#basic-creation">Basic Creation</a></li>
+<li><a class="reference internal" href="#create-options-v0-5-0">Create Options (v0.5.0+)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-view-configuration">Advanced View Configuration</a><ul>
+<li><a class="reference internal" href="#group-by-with-aggregations-v0-5-0">Group By with Aggregations (v0.5.0+)</a></li>
+<li><a class="reference internal" href="#group-all-v0-5-0">Group All (v0.5.0+)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#querying-materialized-views">Querying Materialized Views</a></li>
+<li><a class="reference internal" href="#synchronous-operations">Synchronous Operations</a></li>
+<li><a class="reference internal" href="#deprecation-notice">Deprecation Notice</a></li>
+<li><a class="reference internal" href="#live-updates">Live Updates</a></li>
+<li><a class="reference internal" href="#complex-aggregations">Complex Aggregations</a></li>
+<li><a class="reference internal" href="#best-practices">Best Practices</a></li>
+<li><a class="reference internal" href="#performance-considerations">Performance Considerations</a></li>
+<li><a class="reference internal" href="#migration-from-older-versions">Migration from Older Versions</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="_static/dist/theme.js"></script>
+        <script type="text/javascript" src="_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="_static/searchtools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

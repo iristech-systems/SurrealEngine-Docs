@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>surrealengine.base_query &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="up" title="Module code" href="../index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+        <li class="breadcrumb-item active" aria-current="page">surrealengine.base_query</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengine_modules/surrealengine/base_query" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <h1>Source code for surrealengine.base_query</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">cast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultipleObjectsReturned</span><span class="p">,</span> <span class="n">DoesNotExist</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecordID</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.pagination</span><span class="w"> </span><span class="kn">import</span> <span class="n">PaginationResult</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.record_id_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecordIdUtils</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.surrealql</span><span class="w"> </span><span class="kn">import</span> <span class="n">escape_literal</span>
+
+<span class="c1"># Import these at runtime to avoid circular imports</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_connection_classes</span><span class="p">():</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">SurrealEngineAsyncConnection</span><span class="p">,</span> <span class="n">SurrealEngineSyncConnection</span>
+    <span class="k">return</span> <span class="n">SurrealEngineAsyncConnection</span><span class="p">,</span> <span class="n">SurrealEngineSyncConnection</span>
+
+<div class="viewcode-block" id="BaseQuerySet">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">BaseQuerySet</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base query builder for SurrealDB.</span>
+
+<span class="sd">    This class provides the foundation for building queries in SurrealDB.</span>
+<span class="sd">    It includes methods for filtering, limiting, ordering, and retrieving results.</span>
+<span class="sd">    Subclasses must implement specific methods like _build_query, all, and count.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        connection: The database connection to use for queries</span>
+<span class="sd">        query_parts: List of query conditions (field, operator, value)</span>
+<span class="sd">        limit_value: Maximum number of results to return</span>
+<span class="sd">        start_value: Number of results to skip (for pagination)</span>
+<span class="sd">        order_by_value: Field and direction to order results by</span>
+<span class="sd">        group_by_fields: Fields to group results by</span>
+<span class="sd">        split_fields: Fields to split results by</span>
+<span class="sd">        fetch_fields: Fields to fetch related records for</span>
+<span class="sd">        with_index: Index to use for the query</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="BaseQuerySet.__init__">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new BaseQuerySet.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            connection: The database connection to use for queries</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="n">connection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">query_parts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">order_by_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">group_by_fields</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">split_fields</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fetch_fields</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">with_index</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">with_index</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">select_fields</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">omit_fields</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeout_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tempfiles_value</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">explain_value</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">explain_full_value</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">group_by_all</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="c1"># Graph traversal state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_traversal_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_traversal_unique</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_traversal_max_depth</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># Performance optimization attributes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bulk_id_selection</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_id_range_selection</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prefer_direct_access</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.is_async_connection">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.is_async_connection">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_async_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if the connection is asynchronous.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            True if the connection is asynchronous, False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">SurrealEngineAsyncConnection</span><span class="p">,</span> <span class="n">SurrealEngineSyncConnection</span> <span class="o">=</span> <span class="n">_get_connection_classes</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="p">,</span> <span class="n">SurrealEngineAsyncConnection</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.filter">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.filter">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add filter conditions to the query with automatic ID optimization.</span>
+
+<span class="sd">        This method supports both Q objects and Django-style field lookups with double-underscore operators:</span>
+<span class="sd">        - field__gt: Greater than</span>
+<span class="sd">        - field__lt: Less than</span>
+<span class="sd">        - field__gte: Greater than or equal</span>
+<span class="sd">        - field__lte: Less than or equal</span>
+<span class="sd">        - field__ne: Not equal</span>
+<span class="sd">        - field__in: Inside (for arrays) - optimized for ID fields</span>
+<span class="sd">        - field__nin: Not inside (for arrays)</span>
+<span class="sd">        - field__contains: Contains (for strings or arrays)</span>
+<span class="sd">        - field__startswith: Starts with (for strings)</span>
+<span class="sd">        - field__endswith: Ends with (for strings)</span>
+<span class="sd">        - field__regex: Matches regex pattern (for strings)</span>
+
+<span class="sd">        PERFORMANCE OPTIMIZATIONS:</span>
+<span class="sd">        - id__in automatically uses direct record access syntax</span>
+<span class="sd">        - ID range queries (id__gte + id__lte) use range syntax</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            query: Q object or QueryExpression for complex queries</span>
+<span class="sd">            **kwargs: Field names and values to filter by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A new queryset instance for method chaining</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If an unknown operator is provided</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Clone first to avoid mutating the original queryset</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="p">(</span><span class="n">query</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
+
+        <span class="c1"># Handle Q objects and QueryExpressions</span>
+        <span class="k">if</span> <span class="n">query</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Import here to avoid circular imports</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="kn">from</span><span class="w"> </span><span class="nn">.query_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Q</span><span class="p">,</span> <span class="n">QueryExpression</span>
+
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">Q</span><span class="p">):</span>
+                    <span class="c1"># Use to_where_clause() to properly handle both simple and compound Q objects</span>
+                    <span class="n">where_clause</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">to_where_clause</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">where_clause</span><span class="p">:</span>
+                        <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;__raw__&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">where_clause</span><span class="p">))</span>
+                    <span class="c1"># Don&#39;t return early - continue to process kwargs if provided</span>
+
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">QueryExpression</span><span class="p">):</span>
+                    <span class="c1"># Apply QueryExpression to this queryset</span>
+                    <span class="k">return</span> <span class="n">query</span><span class="o">.</span><span class="n">apply_to_queryset</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported query type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">query</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Query expressions not available&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Process kwargs (either standalone or combined with a Q object)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="c1"># Continue with existing kwargs processing</span>
+        <span class="c1"># PERFORMANCE OPTIMIZATION: Check for bulk ID operations</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s1">&#39;id__in&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">_bulk_id_selection</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;id__in&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="c1"># PERFORMANCE OPTIMIZATION: Check for ID range operations</span>
+        <span class="n">id_range_keys</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;id__&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">k</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s1">&#39;gte&#39;</span><span class="p">,</span> <span class="s1">&#39;lte&#39;</span><span class="p">,</span> <span class="s1">&#39;gt&#39;</span><span class="p">,</span> <span class="s1">&#39;lt&#39;</span><span class="p">))}</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">id_range_keys</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;id__gte&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="s1">&#39;id__lte&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">_id_range_selection</span> <span class="o">=</span> <span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;id__gte&#39;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;id__lte&#39;</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># inclusive</span>
+                <span class="k">return</span> <span class="n">result</span>
+            <span class="k">elif</span> <span class="s1">&#39;id__gt&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="s1">&#39;id__lt&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">_id_range_selection</span> <span class="o">=</span> <span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;id__gt&#39;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;id__lt&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># exclusive</span>
+                <span class="k">return</span> <span class="n">result</span>
+
+        <span class="c1"># Fall back to regular filtering for non-optimizable queries</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span>
+                <span class="c1"># Use RecordIdUtils for comprehensive ID handling</span>
+                <span class="n">table_name</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;document_class&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="p">:</span>
+                    <span class="n">table_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+
+                <span class="n">normalized_id</span> <span class="o">=</span> <span class="n">RecordIdUtils</span><span class="o">.</span><span class="n">normalize_record_id</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">table_name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">normalized_id</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">normalized_id</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Fall back to original value if normalization fails</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
+                <span class="k">continue</span>
+
+            <span class="c1"># Special handling for URL fields - mark them with a special tag</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s1">&#39;url&#39;</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;http://&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">v</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;https://&#39;</span><span class="p">))):</span>
+                <span class="c1"># Add a special tag to indicate this is a URL that needs quoting</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;__url_value__&#39;</span><span class="p">:</span> <span class="n">v</span><span class="p">}))</span>
+                <span class="k">continue</span>
+
+            <span class="n">parts</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">)</span>
+            <span class="n">field</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="c1"># Handle operators</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">op</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;gt&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;lt&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;gte&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;&gt;=&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;lte&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;&lt;=&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;ne&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;!=&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span>
+                    <span class="c1"># Note: id__in is handled by optimization above</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;INSIDE&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;nin&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;NOT INSIDE&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;contains&#39;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                        <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="sa">f</span><span class="s2">&quot;string::contains(</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">, &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&#39;)&quot;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;CONTAINS&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;startswith&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="sa">f</span><span class="s2">&quot;string::starts_with(</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">, &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&#39;)&quot;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;endswith&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="sa">f</span><span class="s2">&quot;string::ends_with(</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">, &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&#39;)&quot;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;regex&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="sa">f</span><span class="s2">&quot;string::matches(</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">, r&#39;</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&#39;)&quot;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+                <span class="c1"># New operators for contains/inside variants</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;contains_any&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;CONTAINSANY&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;contains_all&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;CONTAINSALL&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;contains_none&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;CONTAINSNONE&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;inside&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;INSIDE&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;not_inside&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;NOT INSIDE&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;all_inside&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;ALLINSIDE&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;any_inside&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;ANYINSIDE&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;none_inside&#39;</span><span class="p">:</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;NONEINSIDE&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Handle nested field access for DictFields</span>
+                    <span class="n">document_class</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;document_class&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">document_class</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">document_class</span><span class="p">,</span> <span class="s1">&#39;_fields&#39;</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">document_class</span><span class="o">.</span><span class="n">_fields</span><span class="p">:</span>
+                            <span class="kn">from</span><span class="w"> </span><span class="nn">.fields</span><span class="w"> </span><span class="kn">import</span> <span class="n">DictField</span>
+                            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">document_class</span><span class="o">.</span><span class="n">_fields</span><span class="p">[</span><span class="n">field</span><span class="p">],</span> <span class="n">DictField</span><span class="p">):</span>
+                                <span class="n">nested_field</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2">&quot;</span>
+                                <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">nested_field</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+                                <span class="k">continue</span>
+
+                    <span class="c1"># If we get here, it&#39;s an unknown operator</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown operator: </span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Simple equality</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.only">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.only">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">only</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Select only the specified fields.</span>
+
+<span class="sd">        This method sets the fields to be selected in the query.</span>
+<span class="sd">        It automatically includes the &#39;id&#39; field.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *fields: Field names to select</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">clone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
+        <span class="n">select_fields</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">select_fields</span><span class="p">:</span>
+            <span class="n">select_fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">select_fields</span> <span class="o">=</span> <span class="n">select_fields</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">select_fields</span> <span class="o">=</span> <span class="n">select_fields</span>
+        <span class="k">return</span> <span class="n">clone</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.omit">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.omit">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">omit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Exclude specific fields from the results.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            *fields: Field names to exclude</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">clone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">omit_fields</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">clone</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.limit">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.limit">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">limit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the maximum number of results to return.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Maximum number of results</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit_value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.start">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.start">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the number of results to skip (for pagination).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            value: Number of results to skip</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.order_by">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.order_by">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">order_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">direction</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;ASC&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the field and direction to order results by.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field: Field name to order by</span>
+<span class="sd">            direction: Direction to order by (&#39;ASC&#39; or &#39;DESC&#39;)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">order_by_value</span> <span class="o">=</span> <span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">direction</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.group_by">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.group_by">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">group_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">all</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Group the results by the specified fields or group all.</span>
+
+<span class="sd">        This method sets the fields to group the results by using the GROUP BY clause.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *fields: Field names to group by</span>
+<span class="sd">            all: If True, use GROUP ALL (SurrealDB v2.0.0+)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">group_by_fields</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">group_by_all</span> <span class="o">=</span> <span class="nb">all</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.split">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.split">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Split the results by the specified fields.</span>
+
+<span class="sd">        This method sets the fields to split the results by using the SPLIT clause.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *fields: Field names to split by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">split_fields</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.fetch">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.fetch">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Fetch related records for the specified fields.</span>
+
+<span class="sd">        This method sets the fields to fetch related records for using the FETCH clause.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *fields: Field names to fetch related records for</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fetch_fields</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.get_many">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.get_many">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_many</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get multiple records by IDs using optimized direct record access.</span>
+<span class="sd">        </span>
+<span class="sd">        This method uses SurrealDB&#39;s direct record selection syntax for better</span>
+<span class="sd">        performance compared to WHERE clause filtering.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            ids: List of record IDs (can be strings or other ID types)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance configured for direct record access</span>
+<span class="sd">            </span>
+<span class="sd">        Example:</span>
+<span class="sd">            # Efficient: SELECT * FROM users:1, users:2, users:3</span>
+<span class="sd">            users = await User.objects.get_many([1, 2, 3]).all()</span>
+<span class="sd">            users = await User.objects.get_many([&#39;users:1&#39;, &#39;users:2&#39;]).all()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">clone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">_bulk_id_selection</span> <span class="o">=</span> <span class="n">ids</span>
+        <span class="k">return</span> <span class="n">clone</span></div>
+
+    
+<div class="viewcode-block" id="BaseQuerySet.get_range">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.get_range">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_id</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">end_id</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> 
+                  <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a range of records by ID using optimized range syntax.</span>
+<span class="sd">        </span>
+<span class="sd">        This method uses SurrealDB&#39;s range selection syntax for better</span>
+<span class="sd">        performance compared to WHERE clause filtering.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            start_id: Starting ID of the range</span>
+<span class="sd">            end_id: Ending ID of the range  </span>
+<span class="sd">            inclusive: Whether the range is inclusive (default: True)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance configured for range access</span>
+<span class="sd">            </span>
+<span class="sd">        Example:</span>
+<span class="sd">            # Efficient: SELECT * FROM users:100..=200</span>
+<span class="sd">            users = await User.objects.get_range(100, 200).all()</span>
+<span class="sd">            users = await User.objects.get_range(&#39;users:100&#39;, &#39;users:200&#39;, inclusive=False).all()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">clone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">_id_range_selection</span> <span class="o">=</span> <span class="p">(</span><span class="n">start_id</span><span class="p">,</span> <span class="n">end_id</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">clone</span></div>
+
+
+
+<div class="viewcode-block" id="BaseQuerySet.with_index">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.with_index">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">with_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Use the specified index for the query.</span>
+
+<span class="sd">        This method sets the index to use for the query using the WITH clause.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            index: Name of the index to use</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">with_index</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    
+<div class="viewcode-block" id="BaseQuerySet.no_index">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.no_index">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">no_index</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Do not use any index for the query.</span>
+<span class="sd">        </span>
+<span class="sd">        This method adds the WITH NOINDEX clause to the query.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">with_index</span> <span class="o">=</span> <span class="s2">&quot;NOINDEX&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.timeout">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.timeout">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set a timeout for the query execution.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            duration: Duration string (e.g. &quot;5s&quot;, &quot;1m&quot;)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeout_value</span> <span class="o">=</span> <span class="n">duration</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.tempfiles">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.tempfiles">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tempfiles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Enable or disable using temporary files for large queries.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            value: Whether to use tempfiles (default: True)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tempfiles_value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.with_explain">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.with_explain">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">with_explain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Explain the query execution plan (builder pattern).</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            full: Whether to include full explanation including execution trace (default: False)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">explain_value</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">explain_full_value</span> <span class="o">=</span> <span class="n">full</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    
+<div class="viewcode-block" id="BaseQuerySet.use_direct_access">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.use_direct_access">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">use_direct_access</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Mark this queryset to prefer direct record access when possible.</span>
+<span class="sd">        </span>
+<span class="sd">        This method sets a preference for using direct record access patterns</span>
+<span class="sd">        over WHERE clause filtering for better performance.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">clone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">_prefer_direct_access</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="n">clone</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_build_query</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build the base query string.</span>
+
+<span class="sd">        This method must be implemented by subclasses to generate the appropriate</span>
+<span class="sd">        query string for the specific database operation.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The query string</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NotImplementedError: If not implemented by a subclass</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement _build_query&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_build_conditions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build query conditions from query_parts.</span>
+
+<span class="sd">        This method converts the query_parts list into a list of condition strings</span>
+<span class="sd">        that can be used in a WHERE clause.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of condition strings</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">conditions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_parts</span><span class="p">:</span>
+            <span class="c1"># Handle raw query conditions</span>
+            <span class="k">if</span> <span class="n">field</span> <span class="o">==</span> <span class="s1">&#39;__raw__&#39;</span><span class="p">:</span>
+                <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="c1"># Handle special cases</span>
+            <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;=&#39;</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;::&#39;</span> <span class="ow">in</span> <span class="n">field</span><span class="p">:</span>
+                <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Determine if field is a RecordID field</span>
+                <span class="k">def</span><span class="w"> </span><span class="nf">_field_is_record_id</span><span class="p">(</span><span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+                    <span class="n">document_class</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;document_class&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">document_class</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">document_class</span><span class="p">,</span> <span class="s1">&#39;_fields&#39;</span><span class="p">):</span>
+                        <span class="k">return</span> <span class="kc">False</span>
+                    <span class="n">field_obj</span> <span class="o">=</span> <span class="n">document_class</span><span class="o">.</span><span class="n">_fields</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field_name</span><span class="p">)</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="kn">from</span><span class="w"> </span><span class="nn">.fields.id</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecordIDField</span>  <span class="c1"># type: ignore</span>
+                        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field_obj</span><span class="p">,</span> <span class="n">RecordIDField</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="kc">False</span>
+
+                <span class="c1"># Special handling for RecordIDs - only for id or RecordIDField or RecordID object</span>
+                <span class="k">if</span> <span class="n">field</span> <span class="o">==</span> <span class="s1">&#39;id&#39;</span> <span class="ow">or</span> <span class="n">_field_is_record_id</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">RecordID</span><span class="p">):</span>
+                    <span class="c1"># Ensure RecordID is properly formatted</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">RecordIdUtils</span><span class="o">.</span><span class="n">is_valid_record_id</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                        <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">RecordID</span><span class="p">):</span>
+                        <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># Try to normalize the RecordID</span>
+                        <span class="n">table_name</span> <span class="o">=</span> <span class="kc">None</span>
+                        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;document_class&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="p">:</span>
+                            <span class="n">table_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+                        <span class="n">normalized</span> <span class="o">=</span> <span class="n">RecordIdUtils</span><span class="o">.</span><span class="n">normalize_record_id</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">table_name</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">normalized</span> <span class="ow">and</span> <span class="n">RecordIdUtils</span><span class="o">.</span><span class="n">is_valid_record_id</span><span class="p">(</span><span class="n">normalized</span><span class="p">):</span>
+                            <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">normalized</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="c1"># Special handling for INSIDE and NOT INSIDE operators</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;INSIDE&#39;</span><span class="p">,</span> <span class="s1">&#39;NOT INSIDE&#39;</span><span class="p">):</span>
+                    <span class="c1"># Only treat list items as record IDs if the field is a RecordID field</span>
+                    <span class="n">treat_items_as_ids</span> <span class="o">=</span> <span class="n">_field_is_record_id</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+                    <span class="k">def</span><span class="w"> </span><span class="nf">_is_record_id_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+                        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">RecordIdUtils</span><span class="o">.</span><span class="n">is_valid_record_id</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+                    <span class="k">def</span><span class="w"> </span><span class="nf">_format_literal</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+                        <span class="c1"># Accept dicts with &#39;id&#39;</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;id&#39;</span> <span class="ow">in</span> <span class="n">item</span> <span class="ow">and</span> <span class="n">_is_record_id_str</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span> <span class="ow">and</span> <span class="n">treat_items_as_ids</span><span class="p">:</span>
+                            <span class="k">return</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+                        <span class="c1"># RecordID object</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">RecordID</span><span class="p">)</span> <span class="ow">and</span> <span class="n">treat_items_as_ids</span><span class="p">:</span>
+                            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                        <span class="c1"># String record id</span>
+                        <span class="k">if</span> <span class="n">_is_record_id_str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="ow">and</span> <span class="n">treat_items_as_ids</span><span class="p">:</span>
+                            <span class="k">return</span> <span class="n">item</span>
+                        <span class="c1"># Fallback to escape_literal for proper quoting/escaping</span>
+                        <span class="k">return</span> <span class="n">escape_literal</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">set</span><span class="p">)):</span>
+                        <span class="n">items</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_format_literal</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">)</span>
+                        <span class="n">value_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">items</span><span class="si">}</span><span class="s2">]&quot;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># Single non-iterable value - still format appropriately</span>
+                        <span class="n">value_str</span> <span class="o">=</span> <span class="n">_format_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                    <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">value_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">RecordID</span><span class="p">):</span>
+                    <span class="c1"># If value is a RecordID object but field is not RecordID-typed, quote it to be safe</span>
+                    <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;STARTSWITH&#39;</span><span class="p">:</span>
+                    <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;string::starts_with(</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;ENDSWITH&#39;</span><span class="p">:</span>
+                    <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;string::ends_with(</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;CONTAINS&#39;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                        <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;string::contains(</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> CONTAINS </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">op</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;CONTAINSANY&#39;</span><span class="p">,</span> <span class="s1">&#39;CONTAINSALL&#39;</span><span class="p">,</span> <span class="s1">&#39;CONTAINSNONE&#39;</span><span class="p">,</span> <span class="s1">&#39;ALLINSIDE&#39;</span><span class="p">,</span> <span class="s1">&#39;ANYINSIDE&#39;</span><span class="p">,</span> <span class="s1">&#39;NONEINSIDE&#39;</span><span class="p">):</span>
+                    <span class="c1"># Handle new set operators</span>
+                    <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="c1"># Special handling for URL values</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;__url_value__&#39;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+                    <span class="c1"># Extract the URL value and ensure it&#39;s properly quoted</span>
+                    <span class="n">url_value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="s1">&#39;__url_value__&#39;</span><span class="p">]</span>
+                    <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">url_value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Convert value to database format if we have field information</span>
+                    <span class="n">db_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_value_for_query</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                    <span class="c1"># Always use escape_literal to ensure proper escaping of all values</span>
+                    <span class="c1"># This is especially important for URLs, strings with special characters, Expr vars, and RecordIDs</span>
+                    <span class="n">conditions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">op</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">db_value</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">conditions</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_convert_value_for_query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert a value to its database representation for query conditions.</span>
+<span class="sd">        </span>
+<span class="sd">        This method checks if the document class has a field definition for the given</span>
+<span class="sd">        field name and uses its to_db() method to convert the value properly.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            field_name: The name of the field</span>
+<span class="sd">            value: The value to convert</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            The converted value ready for JSON serialization</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check if we have a document class with field definitions</span>
+        <span class="n">document_class</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;document_class&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">document_class</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">document_class</span><span class="p">,</span> <span class="s1">&#39;_fields&#39;</span><span class="p">):</span>
+            <span class="c1"># Get the field definition</span>
+            <span class="n">field_obj</span> <span class="o">=</span> <span class="n">document_class</span><span class="o">.</span><span class="n">_fields</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field_name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">field_obj</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">field_obj</span><span class="p">,</span> <span class="s1">&#39;to_db&#39;</span><span class="p">):</span>
+                <span class="c1"># Use the field&#39;s to_db method to convert the value</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">field_obj</span><span class="o">.</span><span class="n">to_db</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="c1"># If conversion fails, return the original value</span>
+                    <span class="k">pass</span>
+        
+        <span class="c1"># If no field definition or conversion failed, return original value</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_format_record_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Format an ID value into a proper SurrealDB record ID.</span>
+<span class="sd">        </span>
+<span class="sd">        This method handles various RecordID formats including URL-encoded versions.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            id_value: The ID value to format</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Properly formatted record ID string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get table name if available</span>
+        <span class="n">table_name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;document_class&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="p">:</span>
+            <span class="n">table_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+        
+        <span class="c1"># Use RecordIdUtils for comprehensive handling</span>
+        <span class="n">normalized</span> <span class="o">=</span> <span class="n">RecordIdUtils</span><span class="o">.</span><span class="n">normalize_record_id</span><span class="p">(</span><span class="n">id_value</span><span class="p">,</span> <span class="n">table_name</span><span class="p">)</span>
+        
+        <span class="c1"># If normalization succeeded, return it</span>
+        <span class="k">if</span> <span class="n">normalized</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">normalized</span>
+            
+        <span class="c1"># Fall back to original behavior if normalization fails</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">id_value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;:&#39;</span> <span class="ow">in</span> <span class="n">id_value</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">id_value</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">id_value</span><span class="p">,</span> <span class="n">RecordID</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">id_value</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">table_name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">id_value</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">id_value</span><span class="p">)</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">_build_direct_record_query</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build optimized direct record access query if applicable.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Optimized query string or None if not applicable</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Handle bulk ID selection optimization</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bulk_id_selection</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bulk_id_selection</span><span class="p">:</span>  <span class="c1"># Empty list</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            
+            <span class="n">record_ids</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_format_record_id</span><span class="p">(</span><span class="n">id_val</span><span class="p">)</span> <span class="k">for</span> <span class="n">id_val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bulk_id_selection</span><span class="p">]</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">record_ids</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            
+            <span class="c1"># Add other clauses (but skip WHERE since we&#39;re using direct access)</span>
+            <span class="n">clauses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_clauses</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">clause_name</span><span class="p">,</span> <span class="n">clause_sql</span> <span class="ow">in</span> <span class="n">clauses</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">clause_name</span> <span class="o">!=</span> <span class="s1">&#39;WHERE&#39;</span><span class="p">:</span>  <span class="c1"># Skip WHERE for direct access</span>
+                    <span class="n">query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">clause_sql</span><span class="si">}</span><span class="s2">&quot;</span>
+            
+            <span class="k">return</span> <span class="n">query</span>
+            
+        <span class="c1"># Handle ID range selection optimization  </span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id_range_selection</span><span class="p">:</span>
+            <span class="n">start_id</span><span class="p">,</span> <span class="n">end_id</span><span class="p">,</span> <span class="n">inclusive</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id_range_selection</span>
+            
+            <span class="n">start_record_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_record_id</span><span class="p">(</span><span class="n">start_id</span><span class="p">)</span>
+            <span class="n">end_record_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_record_id</span><span class="p">(</span><span class="n">end_id</span><span class="p">)</span>
+            
+            <span class="c1"># Extract just the numeric part for range syntax</span>
+            <span class="n">collection_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;document_class&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">collection_name</span><span class="p">:</span>
+                <span class="n">collection_name</span> <span class="o">=</span> <span class="n">collection_name</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+                
+                <span class="c1"># Extract numeric IDs from record IDs</span>
+                <span class="n">start_num</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">start_id</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;:&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">start_id</span><span class="p">)</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">start_id</span><span class="p">)</span>
+                <span class="n">end_num</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">end_id</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;:&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">end_id</span><span class="p">)</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">end_id</span><span class="p">)</span>
+                
+                <span class="n">range_op</span> <span class="o">=</span> <span class="s2">&quot;..=&quot;</span> <span class="k">if</span> <span class="n">inclusive</span> <span class="k">else</span> <span class="s2">&quot;..&quot;</span>
+                <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">collection_name</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">start_num</span><span class="si">}{</span><span class="n">range_op</span><span class="si">}{</span><span class="n">end_num</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Fall back to WHERE clause if we can&#39;t determine collection</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            
+            <span class="c1"># Add other clauses (but skip WHERE since we&#39;re using direct access)</span>
+            <span class="n">clauses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_clauses</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">clause_name</span><span class="p">,</span> <span class="n">clause_sql</span> <span class="ow">in</span> <span class="n">clauses</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">clause_name</span> <span class="o">!=</span> <span class="s1">&#39;WHERE&#39;</span><span class="p">:</span>  <span class="c1"># Skip WHERE for direct access</span>
+                    <span class="n">query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">clause_sql</span><span class="si">}</span><span class="s2">&quot;</span>
+            
+            <span class="k">return</span> <span class="n">query</span>
+            
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_build_clauses</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build query clauses from the query parameters.</span>
+
+<span class="sd">        This method builds the various clauses for the query string, including</span>
+<span class="sd">        WHERE, GROUP BY, SPLIT, WITH, ORDER BY, LIMIT, START, and FETCH.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Dictionary of clause names and their string representations</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">clauses</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># Build WHERE clause</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_parts</span><span class="p">:</span>
+            <span class="n">conditions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_conditions</span><span class="p">()</span>
+            <span class="n">clauses</span><span class="p">[</span><span class="s1">&#39;WHERE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;WHERE </span><span class="si">{</span><span class="s1">&#39; AND &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conditions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_by_fields</span><span class="p">:</span>
+            <span class="n">clauses</span><span class="p">[</span><span class="s1">&#39;GROUP BY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;GROUP BY </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">group_by_fields</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_by_all</span><span class="p">:</span>
+             <span class="n">clauses</span><span class="p">[</span><span class="s1">&#39;GROUP BY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;GROUP ALL&quot;</span>
+
+        <span class="c1"># Build SPLIT clause</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_fields</span><span class="p">:</span>
+            <span class="n">clauses</span><span class="p">[</span><span class="s1">&#39;SPLIT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SPLIT </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">split_fields</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Build WITH clause</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_index</span><span class="p">:</span>
+            <span class="n">clauses</span><span class="p">[</span><span class="s1">&#39;WITH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;WITH INDEX </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">with_index</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Build ORDER BY clause</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">order_by_value</span><span class="p">:</span>
+            <span class="n">field</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">order_by_value</span>
+            <span class="n">clauses</span><span class="p">[</span><span class="s1">&#39;ORDER BY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;ORDER BY </span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">direction</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Build LIMIT clause</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">clauses</span><span class="p">[</span><span class="s1">&#39;LIMIT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;LIMIT </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">limit_value</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Build START clause</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">clauses</span><span class="p">[</span><span class="s1">&#39;START&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;START </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">start_value</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># IMPORTANT: In SurrealQL, FETCH must be the last clause</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch_fields</span><span class="p">:</span>
+            <span class="n">clauses</span><span class="p">[</span><span class="s1">&#39;FETCH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FETCH </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fetch_fields</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Build TIMEOUT clause</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout_value</span><span class="p">:</span>
+            <span class="n">clauses</span><span class="p">[</span><span class="s1">&#39;TIMEOUT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;TIMEOUT </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout_value</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Build TEMPFILES clause</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tempfiles_value</span><span class="p">:</span>
+            <span class="n">clauses</span><span class="p">[</span><span class="s1">&#39;TEMPFILES&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TEMPFILES&quot;</span>
+            
+        <span class="c1"># Build EXPLAIN clause</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">explain_value</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">explain_full_value</span><span class="p">:</span>
+                <span class="n">clauses</span><span class="p">[</span><span class="s1">&#39;EXPLAIN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;EXPLAIN FULL&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">clauses</span><span class="p">[</span><span class="s1">&#39;EXPLAIN&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;EXPLAIN&quot;</span>
+
+        <span class="k">return</span> <span class="n">clauses</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_collection_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the collection name for this queryset.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Collection name or None if not available</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">document_class</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;document_class&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">document_class</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">document_class</span><span class="p">,</span> <span class="s1">&#39;_get_collection_name&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BaseQuerySet.all">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.all">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute the query and return all results asynchronously.</span>
+
+<span class="sd">        This method must be implemented by subclasses to execute the query</span>
+<span class="sd">        and return the results.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of results</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NotImplementedError: If not implemented by a subclass</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement all&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.all_sync">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.all_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">all_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute the query and return all results synchronously.</span>
+
+<span class="sd">        This method must be implemented by subclasses to execute the query</span>
+<span class="sd">        and return the results.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of results</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NotImplementedError: If not implemented by a subclass</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement all_sync&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.first">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.first">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">first</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute the query and return the first result asynchronously.</span>
+
+<span class="sd">        This method limits the query to one result and returns the first item</span>
+<span class="sd">        or None if no results are found.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The first result or None if no results</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit_value</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">results</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.first_sync">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.first_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">first_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute the query and return the first result synchronously.</span>
+
+<span class="sd">        This method limits the query to one result and returns the first item</span>
+<span class="sd">        or None if no results are found.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The first result or None if no results</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit_value</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_sync</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">results</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.get">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.get">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a single document matching the query asynchronously.</span>
+
+<span class="sd">        This method applies filters and ensures that exactly one document is returned.</span>
+<span class="sd">        For ID-based lookups, it uses direct record syntax instead of WHERE clause.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Field names and values to filter by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The matching document</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            DoesNotExist: If no matching document is found</span>
+<span class="sd">            MultipleObjectsReturned: If multiple matching documents are found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Special handling for ID-based lookup</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s1">&#39;id&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">id_value</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+            <span class="c1"># If it&#39;s already a full record ID (table:id format)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">id_value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;:&#39;</span> <span class="ow">in</span> <span class="n">id_value</span><span class="p">:</span>
+                <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">id_value</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Get table name from document class if available</span>
+                <span class="n">table_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;document_class&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">table_name</span><span class="p">:</span>
+                    <span class="n">table_name</span> <span class="o">=</span> <span class="n">table_name</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">table_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">table_name</span><span class="p">:</span>
+                    <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">id_value</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Fall back to regular filtering if we can&#39;t determine the table</span>
+                    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_with_filters</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="n">DoesNotExist</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Object with ID &#39;</span><span class="si">{</span><span class="n">id_value</span><span class="si">}</span><span class="s2">&#39; does not exist.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># For non-ID lookups, use regular filtering</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_with_filters</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.get_sync">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.get_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a single document matching the query synchronously.</span>
+
+<span class="sd">        This method applies filters and ensures that exactly one document is returned.</span>
+<span class="sd">        For ID-based lookups, it uses direct record syntax instead of WHERE clause.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Field names and values to filter by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The matching document</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            DoesNotExist: If no matching document is found</span>
+<span class="sd">            MultipleObjectsReturned: If multiple matching documents are found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Special handling for ID-based lookup</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s1">&#39;id&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">id_value</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+            <span class="c1"># If it&#39;s already a full record ID (table:id format)</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">id_value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;:&#39;</span> <span class="ow">in</span> <span class="n">id_value</span><span class="p">:</span>
+                <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">id_value</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Get table name from document class if available</span>
+                <span class="n">table_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;document_class&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">table_name</span><span class="p">:</span>
+                    <span class="n">table_name</span> <span class="o">=</span> <span class="n">table_name</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">table_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">table_name</span><span class="p">:</span>
+                    <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">id_value</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Fall back to regular filtering if we can&#39;t determine the table</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_with_filters_sync</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="n">DoesNotExist</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Object with ID &#39;</span><span class="si">{</span><span class="n">id_value</span><span class="si">}</span><span class="s2">&#39; does not exist.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># For non-ID lookups, use regular filtering</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_with_filters_sync</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_get_with_filters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Internal method to get a single document using filters asynchronously.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Field names and values to filter by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The matching document</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            DoesNotExist: If no matching document is found</span>
+<span class="sd">            MultipleObjectsReturned: If multiple matching documents are found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit_value</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Get 2 to check for multiple</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">results</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DoesNotExist</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Object matching query does not exist.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MultipleObjectsReturned</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Multiple objects returned instead of one&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_with_filters_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Internal method to get a single document using filters synchronously.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Field names and values to filter by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The matching document</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            DoesNotExist: If no matching document is found</span>
+<span class="sd">            MultipleObjectsReturned: If multiple matching documents are found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit_value</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Get 2 to check for multiple</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_sync</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">results</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DoesNotExist</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Object matching query does not exist.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MultipleObjectsReturned</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Multiple objects returned instead of one&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<div class="viewcode-block" id="BaseQuerySet.count">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.count">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Count documents matching the query asynchronously.</span>
+
+<span class="sd">        This method must be implemented by subclasses to count the number</span>
+<span class="sd">        of documents matching the query.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Number of matching documents</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NotImplementedError: If not implemented by a subclass</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement count&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.count_sync">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.count_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Count documents matching the query synchronously.</span>
+
+<span class="sd">        This method must be implemented by subclasses to count the number</span>
+<span class="sd">        of documents matching the query.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Number of matching documents</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NotImplementedError: If not implemented by a subclass</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Subclasses must implement count_sync&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.__await__">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.__await__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__await__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Make the queryset awaitable.</span>
+
+<span class="sd">        This method allows the queryset to be used with the await keyword,</span>
+<span class="sd">        which will execute the query and return all results.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Awaitable that resolves to the query results</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="fm">__await__</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.page">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.page">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">page</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set pagination parameters using page number and size.</span>
+
+<span class="sd">        This method calculates the appropriate LIMIT and START values</span>
+<span class="sd">        based on the page number and size, providing a more convenient</span>
+<span class="sd">        way to paginate results.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            number: Page number (1-based, first page is 1)</span>
+<span class="sd">            size: Number of items per page</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The query set instance for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Page number must be 1 or greater&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Page size must be 1 or greater&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit_value</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_value</span> <span class="o">=</span> <span class="p">(</span><span class="n">number</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">size</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.paginate">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.paginate">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">paginate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">per_page</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PaginationResult</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a page of results with pagination metadata asynchronously.</span>
+
+<span class="sd">        This method gets a page of results along with metadata about the</span>
+<span class="sd">        pagination, such as the total number of items, the number of pages,</span>
+<span class="sd">        and whether there are next or previous pages.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            page: The page number (1-based)</span>
+<span class="sd">            per_page: The number of items per page</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A PaginationResult containing the items and pagination metadata</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the total count</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+        <span class="c1"># Get the items for the current page</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">per_page</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+        <span class="c1"># Return a PaginationResult</span>
+        <span class="k">return</span> <span class="n">PaginationResult</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">page</span><span class="p">,</span> <span class="n">per_page</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.paginate_sync">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.paginate_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">paginate_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">per_page</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PaginationResult</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a page of results with pagination metadata synchronously.</span>
+
+<span class="sd">        This method gets a page of results along with metadata about the</span>
+<span class="sd">        pagination, such as the total number of items, the number of pages,</span>
+<span class="sd">        and whether there are next or previous pages.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            page: The page number (1-based)</span>
+<span class="sd">            per_page: The number of items per page</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A PaginationResult containing the items and pagination metadata</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get the total count</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">count_sync</span><span class="p">()</span>
+
+        <span class="c1"># Get the items for the current page</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">per_page</span><span class="p">)</span><span class="o">.</span><span class="n">all_sync</span><span class="p">()</span>
+
+        <span class="c1"># Return a PaginationResult</span>
+        <span class="k">return</span> <span class="n">PaginationResult</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">page</span><span class="p">,</span> <span class="n">per_page</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.get_raw_query">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.get_raw_query">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_raw_query</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the raw query string without executing it.</span>
+
+<span class="sd">        This method builds and returns the query string without executing it.</span>
+<span class="sd">        It can be used to get the raw query for manual execution or debugging.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The raw query string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_query</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="BaseQuerySet.aggregate">
+<a class="viewcode-back" href="../../api/query.html#surrealengine.base_query.BaseQuerySet.aggregate">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">aggregate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create an aggregation pipeline from this query.</span>
+
+<span class="sd">        This method returns an AggregationPipeline instance that can be used</span>
+<span class="sd">        to build and execute complex aggregation queries with multiple stages.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            An AggregationPipeline instance for building and executing</span>
+<span class="sd">            aggregation queries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.aggregation</span><span class="w"> </span><span class="kn">import</span> <span class="n">AggregationPipeline</span>
+        <span class="k">return</span> <span class="n">AggregationPipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_clone</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;BaseQuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a new instance of the queryset with the same parameters.</span>
+
+<span class="sd">        This method creates a new instance of the same class as the current</span>
+<span class="sd">        instance and copies all the relevant attributes.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A new queryset instance with the same parameters</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Create a new instance of the same class</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;document_class&#39;</span><span class="p">):</span>
+            <span class="c1"># For QuerySet subclass</span>
+            <span class="n">clone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;table_name&#39;</span><span class="p">):</span>
+            <span class="c1"># For SchemalessQuerySet subclass</span>
+            <span class="n">clone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># For BaseQuerySet or other subclasses</span>
+            <span class="n">clone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="p">)</span>
+
+        <span class="c1"># Copy all the query parameters</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">query_parts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_parts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">limit_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit_value</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">start_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_value</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">order_by_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">order_by_value</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">group_by_fields</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_by_fields</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">split_fields</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_fields</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">fetch_fields</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch_fields</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">with_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_index</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">select_fields</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_fields</span>
+        <span class="c1"># Copy performance optimization attributes</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">_bulk_id_selection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bulk_id_selection</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">_id_range_selection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id_range_selection</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">_prefer_direct_access</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prefer_direct_access</span>
+        <span class="c1"># Copy traversal state</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">_traversal_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_traversal_path</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">_traversal_unique</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_traversal_unique</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">_traversal_max_depth</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_traversal_max_depth</span>
+
+        <span class="k">return</span> <span class="n">clone</span></div>
+
+</pre></div>
+</main>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

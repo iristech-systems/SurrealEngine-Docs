@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="./">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>SurrealEngine Documentation &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="genindex.html" />
+            <link rel="search" title="Search" href="search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="next" title="Getting Started" href="getting_started.html" />
+            <link rel="prev" title="SurrealEngine Documentation" href="index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">SurrealEngine Documentation</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengineREADME.md" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="_sources/README.md.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section class="tex2jax_ignore mathjax_ignore" id="surrealengine-documentation">
+<h1>SurrealEngine Documentation<a class="headerlink" href="#surrealengine-documentation" title="Link to this heading"><span>¶</span></a></h1>
+<p>This directory contains the Sphinx documentation for SurrealEngine.</p>
+<section id="whats-been-done">
+<h2>What’s Been Done<a class="headerlink" href="#whats-been-done" title="Link to this heading"><span>¶</span></a></h2>
+<p>✅ <strong>Complete Documentation Setup</strong>:</p>
+<ul class="simple">
+<li><p>Added comprehensive Google-style docstrings to core modules:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> - Main package with detailed module descriptions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connection.py</span></code> - Already had excellent docstrings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">document.py</span></code> - Already had comprehensive docstrings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fields/base.py</span></code> - Enhanced base field class documentation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">schema.py</span></code> - Already had good docstrings</p></li>
+</ul>
+</li>
+</ul>
+<p>✅ <strong>Sphinx Configuration</strong>:</p>
+<ul class="simple">
+<li><p>Created <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> with ansys-sphinx-theme as requested</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">html_permalinks_icon</span> <span class="pre">=</span> <span class="pre">&quot;&lt;span&gt;¶&lt;/span&gt;&quot;</span></code> as specified</p></li>
+<li><p>Configured Napoleon for Google-style docstrings</p></li>
+<li><p>Set up intersphinx mapping for Python documentation</p></li>
+<li><p>Enabled sphinx-copybutton for code examples</p></li>
+</ul>
+<p>✅ <strong>Complete Documentation Structure</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index.rst</span></code> - Main documentation landing page</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">api/</span></code> directory with comprehensive API reference:</p>
+<ul>
+<li><p>Individual module documentation files</p></li>
+<li><p>Detailed usage examples and code samples</p></li>
+<li><p>Proper cross-references and navigation</p></li>
+</ul>
+</li>
+</ul>
+<p>✅ <strong>API Reference Documentation</strong>:</p>
+<ul class="simple">
+<li><p>Connection management and pooling</p></li>
+<li><p>Document models and metaclasses</p></li>
+<li><p>All field types with examples</p></li>
+<li><p>Query building and execution</p></li>
+<li><p>Exception handling</p></li>
+<li><p>Schema management utilities</p></li>
+<li><p>Signals and lifecycle events</p></li>
+<li><p>Materialized views and aggregations</p></li>
+</ul>
+<p>✅ <strong>Build System</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile</span></code> for easy documentation building</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> for documentation dependencies</p></li>
+<li><p>Custom CSS for improved styling</p></li>
+<li><p>All documentation builds successfully (812 warnings are mostly formatting issues in existing docstrings)</p></li>
+</ul>
+</section>
+<section id="building-the-documentation">
+<h2>Building the Documentation<a class="headerlink" href="#building-the-documentation" title="Link to this heading"><span>¶</span></a></h2>
+<ol class="arabic">
+<li><p>Install dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>docs/requirements.txt
+</pre></div>
+</div>
+</li>
+<li><p>Build HTML documentation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs
+make<span class="w"> </span>html
+</pre></div>
+</div>
+</li>
+<li><p>View documentation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>open<span class="w"> </span>_build/html/index.html
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="live-development">
+<h2>Live Development<a class="headerlink" href="#live-development" title="Link to this heading"><span>¶</span></a></h2>
+<p>For live rebuilding during development:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs
+make<span class="w"> </span>livehtml
+</pre></div>
+</div>
+<p>This will start a server with auto-reload at http://localhost:8000.</p>
+</section>
+<section id="files-structure">
+<h2>Files Structure<a class="headerlink" href="#files-structure" title="Link to this heading"><span>¶</span></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docs/
+├── conf.py                    # Sphinx configuration
+├── index.rst                 # Main documentation page  
+├── Makefile                  # Build commands
+├── requirements.txt          # Documentation dependencies
+├── _static/
+│   └── custom.css            # Custom styling
+└── api/                      # API reference
+    ├── connection.rst        # Connection management
+    ├── document.rst          # Document models
+    ├── fields.rst            # Field types
+    ├── query.rst             # Query building
+    ├── exceptions.rst        # Exception classes
+    ├── schema.rst            # Schema management
+    ├── signals.rst           # Lifecycle signals
+    ├── materialized_view.rst # Materialized views
+    ├── aggregation.rst       # Data aggregation
+    └── surrealengine*.rst    # Individual modules
+</pre></div>
+</div>
+</section>
+<section id="theme-and-styling">
+<h2>Theme and Styling<a class="headerlink" href="#theme-and-styling" title="Link to this heading"><span>¶</span></a></h2>
+<ul class="simple">
+<li><p>Uses <code class="docutils literal notranslate"><span class="pre">ansys-sphinx-theme</span></code> as requested</p></li>
+<li><p>Custom permalink icon: <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;¶&lt;/span&gt;</span></code></p></li>
+<li><p>Google-style docstring formatting with Napoleon</p></li>
+<li><p>Code highlighting and copy buttons</p></li>
+<li><p>Responsive design with proper navigation</p></li>
+</ul>
+<p>The documentation is now ready for production use and can be deployed to any static hosting service or integrated into a documentation portal.</p>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="index.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>SurrealEngine Documentation
+    </a>
+    <a class="float-right" href="getting_started.html" title="Next">
+        Getting Started <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">SurrealEngine Documentation</a><ul>
+<li><a class="reference internal" href="#whats-been-done">What’s Been Done</a></li>
+<li><a class="reference internal" href="#building-the-documentation">Building the Documentation</a></li>
+<li><a class="reference internal" href="#live-development">Live Development</a></li>
+<li><a class="reference internal" href="#files-structure">Files Structure</a></li>
+<li><a class="reference internal" href="#theme-and-styling">Theme and Styling</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="_static/dist/theme.js"></script>
+        <script type="text/javascript" src="_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="_static/searchtools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

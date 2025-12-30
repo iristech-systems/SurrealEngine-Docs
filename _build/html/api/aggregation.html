@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Aggregation Pipeline &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="../genindex.html" />
+            <link rel="search" title="Search" href="../search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="next" title="Utilities API Reference" href="utilities.html" />
+            <link rel="prev" title="Materialized Views API Reference" href="materialized_view.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Aggregation Pipeline</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengineapi/aggregation.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../_sources/api/aggregation.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="aggregation-pipeline">
+<h1>Aggregation Pipeline<a class="headerlink" href="#aggregation-pipeline" title="Link to this heading"><span>¶</span></a></h1>
+<p>This module provides data aggregation utilities for building complex
+aggregation pipelines and queries.</p>
+<section id="core-classes">
+<h2>Core Classes<a class="headerlink" href="#core-classes" title="Link to this heading"><span>¶</span></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.aggregation.AggregationPipeline">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.aggregation.</span></span><span class="sig-name descname"><span class="pre">AggregationPipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_set</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/aggregation.html#AggregationPipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.aggregation.AggregationPipeline" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Pipeline for building and executing aggregation queries.</p>
+<p>This class provides a fluent interface for building complex aggregation
+pipelines with multiple stages, similar to MongoDB’s aggregation framework.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.aggregation.AggregationPipeline.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query_set</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/aggregation.html#AggregationPipeline.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.aggregation.AggregationPipeline.__init__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Initialize a new AggregationPipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>query_set</strong> (<a class="reference internal" href="query.html#surrealengine.query.base.QuerySet" title="surrealengine.query.base.QuerySet"><em>QuerySet</em></a>) – The QuerySet to build the pipeline from</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.aggregation.AggregationPipeline.group">
+<span class="sig-name descname"><span class="pre">group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">by_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">aggregations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/aggregation.html#AggregationPipeline.group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.aggregation.AggregationPipeline.group" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Group by fields and apply aggregations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>by_fields</strong> – Field or list of fields to group by</p></li>
+<li><p><strong>**aggregations</strong> – Named aggregation functions to apply</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The pipeline instance for method chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.aggregation.AggregationPipeline.project">
+<span class="sig-name descname"><span class="pre">project</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fields</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/aggregation.html#AggregationPipeline.project"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.aggregation.AggregationPipeline.project" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Select or compute fields to include in output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**fields</strong> – Field mappings for projection</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The pipeline instance for method chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.aggregation.AggregationPipeline.sort">
+<span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fields</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/aggregation.html#AggregationPipeline.sort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.aggregation.AggregationPipeline.sort" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Sort results by fields.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**fields</strong> – Field names and sort directions (‘ASC’ or ‘DESC’)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The pipeline instance for method chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.aggregation.AggregationPipeline.limit">
+<span class="sig-name descname"><span class="pre">limit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/aggregation.html#AggregationPipeline.limit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.aggregation.AggregationPipeline.limit" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Limit number of results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> – Maximum number of results to return</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The pipeline instance for method chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.aggregation.AggregationPipeline.skip">
+<span class="sig-name descname"><span class="pre">skip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/aggregation.html#AggregationPipeline.skip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.aggregation.AggregationPipeline.skip" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Skip number of results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> – Number of results to skip</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The pipeline instance for method chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.aggregation.AggregationPipeline.with_index">
+<span class="sig-name descname"><span class="pre">with_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/aggregation.html#AggregationPipeline.with_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.aggregation.AggregationPipeline.with_index" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Use the specified index for the query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index</strong> – Name of the index to use</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The pipeline instance for method chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.aggregation.AggregationPipeline.match">
+<span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">conditions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/aggregation.html#AggregationPipeline.match"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.aggregation.AggregationPipeline.match" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Filter documents before aggregation (similar to WHERE clause).</p>
+<p>This method adds filtering conditions that are applied before
+any aggregation operations. Multiple conditions are combined with AND.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**conditions</strong> – Field-value pairs for filtering (e.g., status=’active’)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The pipeline instance for method chaining</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>pipeline.match(status=’completed’, price__gt=100)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.aggregation.AggregationPipeline.having">
+<span class="sig-name descname"><span class="pre">having</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">conditions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/aggregation.html#AggregationPipeline.having"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.aggregation.AggregationPipeline.having" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Filter aggregated results (similar to HAVING clause).</p>
+<p>This method adds filtering conditions that are applied after
+aggregation operations. Use this to filter based on aggregated values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**conditions</strong> – Field-value pairs for filtering aggregated results</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The pipeline instance for method chaining</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>pipeline.group(by_fields=’category’, total=Sum(‘price’)).having(total__gt=1000)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.aggregation.AggregationPipeline.build_query">
+<span class="sig-name descname"><span class="pre">build_query</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/aggregation.html#AggregationPipeline.build_query"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.aggregation.AggregationPipeline.build_query" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Build the SurrealQL query from the pipeline stages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The SurrealQL query string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.aggregation.AggregationPipeline.execute">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/aggregation.html#AggregationPipeline.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.aggregation.AggregationPipeline.execute" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Execute the pipeline and return results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>connection</strong> – Optional connection to use</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of result rows (dicts) from the final SELECT statement</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.aggregation.AggregationPipeline.execute_sync">
+<span class="sig-name descname"><span class="pre">execute_sync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/aggregation.html#AggregationPipeline.execute_sync"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.aggregation.AggregationPipeline.execute_sync" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Execute the pipeline synchronously.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>connection</strong> – Optional connection to use</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of result rows (dicts) from the final SELECT statement</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="usage-examples">
+<h2>Usage Examples<a class="headerlink" href="#usage-examples" title="Link to this heading"><span>¶</span></a></h2>
+<section id="basic-aggregation-pipeline">
+<h3>Basic Aggregation Pipeline<a class="headerlink" href="#basic-aggregation-pipeline" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.aggregation</span><span class="w"> </span><span class="kn">import</span> <span class="n">AggregationPipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.materialized_view</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sum</span><span class="p">,</span> <span class="n">Count</span><span class="p">,</span> <span class="n">Mean</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Order</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">customer_id</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">amount</span> <span class="o">=</span> <span class="n">DecimalField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Create aggregation pipeline</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">AggregationPipeline</span><span class="p">(</span><span class="n">Order</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;completed&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+        <span class="n">total_spent</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+        <span class="n">order_count</span><span class="o">=</span><span class="n">Count</span><span class="p">(),</span>
+        <span class="n">avg_order_value</span><span class="o">=</span><span class="n">Mean</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">)</span>
+    <span class="p">)</span> \\
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;-total_spent&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Execute pipeline</span>
+<span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="complex-aggregations">
+<h3>Complex Aggregations<a class="headerlink" href="#complex-aggregations" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="c1"># Multi-stage aggregation</span>
+<span class="n">monthly_stats</span> <span class="o">=</span> <span class="n">AggregationPipeline</span><span class="p">(</span><span class="n">Order</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">match</span><span class="p">(</span>
+        <span class="n">created_at__gte</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">365</span><span class="p">),</span>
+        <span class="n">status__in</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;completed&quot;</span><span class="p">,</span> <span class="s2">&quot;shipped&quot;</span><span class="p">]</span>
+    <span class="p">)</span> \\
+    <span class="o">.</span><span class="n">add_fields</span><span class="p">(</span>
+        <span class="n">year_month</span><span class="o">=</span><span class="s2">&quot;CONCAT(YEAR(created_at), &#39;-&#39;, MONTH(created_at))&quot;</span>
+    <span class="p">)</span> \\
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;year_month&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+        <span class="n">monthly_revenue</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+        <span class="n">monthly_orders</span><span class="o">=</span><span class="n">Count</span><span class="p">(),</span>
+        <span class="n">unique_customers</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">,</span> <span class="n">distinct</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">avg_order_value</span><span class="o">=</span><span class="n">Mean</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">)</span>
+    <span class="p">)</span> \\
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;year_month&quot;</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">monthly_stats</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="window-functions">
+<h2>Window Functions<a class="headerlink" href="#window-functions" title="Link to this heading"><span>¶</span></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Running totals and rankings</span>
+<span class="n">customer_rankings</span> <span class="o">=</span> <span class="n">AggregationPipeline</span><span class="p">(</span><span class="n">Order</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+        <span class="n">total_spent</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+        <span class="n">order_count</span><span class="o">=</span><span class="n">Count</span><span class="p">()</span>
+    <span class="p">)</span> \\
+    <span class="o">.</span><span class="n">add_fields</span><span class="p">(</span>
+        <span class="n">rank</span><span class="o">=</span><span class="s2">&quot;RANK() OVER (ORDER BY total_spent DESC)&quot;</span><span class="p">,</span>
+        <span class="n">running_total</span><span class="o">=</span><span class="s2">&quot;SUM(total_spent) OVER (ORDER BY total_spent DESC)&quot;</span>
+    <span class="p">)</span> \\
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;rank&quot;</span><span class="p">)</span>
+
+<span class="n">top_customers</span> <span class="o">=</span> <span class="k">await</span> <span class="n">customer_rankings</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="conditional-aggregations">
+<h2>Conditional Aggregations<a class="headerlink" href="#conditional-aggregations" title="Link to this heading"><span>¶</span></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Conditional aggregations using CASE expressions</span>
+<span class="n">order_analysis</span> <span class="o">=</span> <span class="n">AggregationPipeline</span><span class="p">(</span><span class="n">Order</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+        <span class="n">total_orders</span><span class="o">=</span><span class="n">Count</span><span class="p">(),</span>
+        <span class="n">high_value_orders</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span>
+            <span class="n">condition</span><span class="o">=</span><span class="s2">&quot;amount &gt; 100&quot;</span>
+        <span class="p">),</span>
+        <span class="n">revenue_this_month</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span>
+            <span class="s2">&quot;amount&quot;</span><span class="p">,</span>
+            <span class="n">condition</span><span class="o">=</span><span class="s2">&quot;created_at &gt;= DATE_SUB(NOW(), INTERVAL 1 MONTH)&quot;</span>
+        <span class="p">),</span>
+        <span class="n">avg_order_size</span><span class="o">=</span><span class="n">Mean</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">)</span>
+    <span class="p">)</span> \\
+    <span class="o">.</span><span class="n">add_fields</span><span class="p">(</span>
+        <span class="n">high_value_ratio</span><span class="o">=</span><span class="s2">&quot;high_value_orders / total_orders&quot;</span><span class="p">,</span>
+        <span class="n">customer_tier</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            CASE</span>
+<span class="s2">                WHEN total_orders &gt; 50 THEN &#39;VIP&#39;</span>
+<span class="s2">                WHEN total_orders &gt; 20 THEN &#39;Premium&#39;</span>
+<span class="s2">                WHEN total_orders &gt; 5 THEN &#39;Regular&#39;</span>
+<span class="s2">                ELSE &#39;New&#39;</span>
+<span class="s2">            END</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">customer_tiers</span> <span class="o">=</span> <span class="k">await</span> <span class="n">order_analysis</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="geographic-aggregations">
+<h2>Geographic Aggregations<a class="headerlink" href="#geographic-aggregations" title="Link to this heading"><span>¶</span></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Store</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">location</span> <span class="o">=</span> <span class="n">GeometryField</span><span class="p">()</span>  <span class="c1"># Point geometry</span>
+    <span class="n">region</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">()</span>
+
+<span class="c1"># Geographic aggregations</span>
+<span class="n">regional_performance</span> <span class="o">=</span> <span class="n">AggregationPipeline</span><span class="p">(</span><span class="n">Order</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">lookup</span><span class="p">(</span>
+        <span class="n">from_collection</span><span class="o">=</span><span class="s2">&quot;stores&quot;</span><span class="p">,</span>
+        <span class="n">local_field</span><span class="o">=</span><span class="s2">&quot;store_id&quot;</span><span class="p">,</span>
+        <span class="n">foreign_field</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span>
+        <span class="n">as_field</span><span class="o">=</span><span class="s2">&quot;store_info&quot;</span>
+    <span class="p">)</span> \\
+    <span class="o">.</span><span class="n">unwind</span><span class="p">(</span><span class="s2">&quot;store_info&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;store_info.region&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+        <span class="n">total_revenue</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+        <span class="n">total_orders</span><span class="o">=</span><span class="n">Count</span><span class="p">(),</span>
+        <span class="n">unique_stores</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s2">&quot;store_id&quot;</span><span class="p">,</span> <span class="n">distinct</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">avg_revenue_per_store</span><span class="o">=</span><span class="n">Mean</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="n">regional_stats</span> <span class="o">=</span> <span class="k">await</span> <span class="n">regional_performance</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="time-series-aggregations">
+<h2>Time Series Aggregations<a class="headerlink" href="#time-series-aggregations" title="Link to this heading"><span>¶</span></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Daily time series with moving averages</span>
+<span class="n">daily_metrics</span> <span class="o">=</span> <span class="n">AggregationPipeline</span><span class="p">(</span><span class="n">Order</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">match</span><span class="p">(</span>
+        <span class="n">created_at__gte</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+    <span class="p">)</span> \\
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;DATE(created_at)&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+        <span class="n">daily_revenue</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+        <span class="n">daily_orders</span><span class="o">=</span><span class="n">Count</span><span class="p">(),</span>
+        <span class="n">daily_customers</span><span class="o">=</span><span class="n">Count</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">,</span> <span class="n">distinct</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="p">)</span> \\
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;DATE(created_at)&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">add_fields</span><span class="p">(</span>
+        <span class="n">revenue_7day_avg</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            AVG(daily_revenue) OVER (</span>
+<span class="s2">                ORDER BY DATE(created_at)</span>
+<span class="s2">                ROWS BETWEEN 6 PRECEDING AND CURRENT ROW</span>
+<span class="s2">            )</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="p">,</span>
+        <span class="n">revenue_trend</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            CASE</span>
+<span class="s2">                WHEN daily_revenue &gt; LAG(daily_revenue, 7) OVER (ORDER BY DATE(created_at))</span>
+<span class="s2">                THEN &#39;UP&#39;</span>
+<span class="s2">                ELSE &#39;DOWN&#39;</span>
+<span class="s2">            END</span>
+<span class="s2">        &quot;&quot;&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">time_series</span> <span class="o">=</span> <span class="k">await</span> <span class="n">daily_metrics</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="pipeline-composition">
+<h2>Pipeline Composition<a class="headerlink" href="#pipeline-composition" title="Link to this heading"><span>¶</span></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reusable pipeline components</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">base_order_pipeline</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">AggregationPipeline</span><span class="p">(</span><span class="n">Order</span><span class="p">)</span> \\
+        <span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;completed&quot;</span><span class="p">)</span> \\
+        <span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">created_at__gte</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">365</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">customer_aggregation</span><span class="p">(</span><span class="n">pipeline</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pipeline</span> \\
+        <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">)</span> \\
+        <span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+            <span class="n">total_spent</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+            <span class="n">order_count</span><span class="o">=</span><span class="n">Count</span><span class="p">(),</span>
+            <span class="n">first_order</span><span class="o">=</span><span class="n">Min</span><span class="p">(</span><span class="s2">&quot;created_at&quot;</span><span class="p">),</span>
+            <span class="n">last_order</span><span class="o">=</span><span class="n">Max</span><span class="p">(</span><span class="s2">&quot;created_at&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+
+<span class="c1"># Compose pipelines</span>
+<span class="n">customer_lifetime_value</span> <span class="o">=</span> <span class="n">customer_aggregation</span><span class="p">(</span><span class="n">base_order_pipeline</span><span class="p">())</span> \\
+    <span class="o">.</span><span class="n">add_fields</span><span class="p">(</span>
+        <span class="n">days_active</span><span class="o">=</span><span class="s2">&quot;DATEDIFF(last_order, first_order)&quot;</span><span class="p">,</span>
+        <span class="n">avg_days_between_orders</span><span class="o">=</span><span class="s2">&quot;days_active / (order_count - 1)&quot;</span>
+    <span class="p">)</span> \\
+    <span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">total_spent__gte</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">valuable_customers</span> <span class="o">=</span> <span class="k">await</span> <span class="n">customer_lifetime_value</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="export-and-materialization">
+<h2>Export and Materialization<a class="headerlink" href="#export-and-materialization" title="Link to this heading"><span>¶</span></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Export pipeline results</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">AggregationPipeline</span><span class="p">(</span><span class="n">Order</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">total_spent</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">))</span>
+
+<span class="c1"># Export to different formats</span>
+<span class="k">await</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">export_to_csv</span><span class="p">(</span><span class="s2">&quot;customer_totals.csv&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">export_to_json</span><span class="p">(</span><span class="s2">&quot;customer_totals.json&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create materialized view from pipeline</span>
+<span class="n">materialized_view</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">materialize</span><span class="p">(</span>
+    <span class="n">view_name</span><span class="o">=</span><span class="s2">&quot;customer_totals_mv&quot;</span><span class="p">,</span>
+    <span class="n">refresh_interval</span><span class="o">=</span><span class="s2">&quot;1h&quot;</span>
+<span class="p">)</span>
+<span class="k">await</span> <span class="n">materialized_view</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre></div>
+</div>
+<section id="performance-optimization">
+<h3>Performance Optimization<a class="headerlink" href="#performance-optimization" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimized pipeline with proper indexing hints</span>
+<span class="n">optimized_pipeline</span> <span class="o">=</span> <span class="n">AggregationPipeline</span><span class="p">(</span><span class="n">Order</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">use_index</span><span class="p">(</span><span class="s2">&quot;status_created_at_idx&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">match</span><span class="p">(</span>
+        <span class="n">status</span><span class="o">=</span><span class="s2">&quot;completed&quot;</span><span class="p">,</span>
+        <span class="n">created_at__gte</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="p">)</span> \\
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+        <span class="n">monthly_spent</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+        <span class="n">monthly_orders</span><span class="o">=</span><span class="n">Count</span><span class="p">()</span>
+    <span class="p">)</span> \\
+    <span class="o">.</span><span class="n">explain</span><span class="p">()</span>  <span class="c1"># Get execution plan</span>
+
+<span class="c1"># Execute with performance metrics</span>
+<span class="n">results</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="k">await</span> <span class="n">optimized_pipeline</span><span class="o">.</span><span class="n">execute_with_metrics</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Execution time: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">ms&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Documents examined: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;documents_examined&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Documents returned: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;documents_returned&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="materialized_view.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Materialized Views API Reference
+    </a>
+    <a class="float-right" href="utilities.html" title="Next">
+        Utilities API Reference <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Aggregation Pipeline</a><ul>
+<li><a class="reference internal" href="#core-classes">Core Classes</a><ul>
+<li><a class="reference internal" href="#surrealengine.aggregation.AggregationPipeline"><code class="docutils literal notranslate"><span class="pre">AggregationPipeline</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.aggregation.AggregationPipeline.__init__"><code class="docutils literal notranslate"><span class="pre">AggregationPipeline.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.aggregation.AggregationPipeline.group"><code class="docutils literal notranslate"><span class="pre">AggregationPipeline.group()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.aggregation.AggregationPipeline.project"><code class="docutils literal notranslate"><span class="pre">AggregationPipeline.project()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.aggregation.AggregationPipeline.sort"><code class="docutils literal notranslate"><span class="pre">AggregationPipeline.sort()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.aggregation.AggregationPipeline.limit"><code class="docutils literal notranslate"><span class="pre">AggregationPipeline.limit()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.aggregation.AggregationPipeline.skip"><code class="docutils literal notranslate"><span class="pre">AggregationPipeline.skip()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.aggregation.AggregationPipeline.with_index"><code class="docutils literal notranslate"><span class="pre">AggregationPipeline.with_index()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.aggregation.AggregationPipeline.match"><code class="docutils literal notranslate"><span class="pre">AggregationPipeline.match()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.aggregation.AggregationPipeline.having"><code class="docutils literal notranslate"><span class="pre">AggregationPipeline.having()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.aggregation.AggregationPipeline.build_query"><code class="docutils literal notranslate"><span class="pre">AggregationPipeline.build_query()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.aggregation.AggregationPipeline.execute"><code class="docutils literal notranslate"><span class="pre">AggregationPipeline.execute()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.aggregation.AggregationPipeline.execute_sync"><code class="docutils literal notranslate"><span class="pre">AggregationPipeline.execute_sync()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage-examples">Usage Examples</a><ul>
+<li><a class="reference internal" href="#basic-aggregation-pipeline">Basic Aggregation Pipeline</a></li>
+<li><a class="reference internal" href="#complex-aggregations">Complex Aggregations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#window-functions">Window Functions</a></li>
+<li><a class="reference internal" href="#conditional-aggregations">Conditional Aggregations</a></li>
+<li><a class="reference internal" href="#geographic-aggregations">Geographic Aggregations</a></li>
+<li><a class="reference internal" href="#time-series-aggregations">Time Series Aggregations</a></li>
+<li><a class="reference internal" href="#pipeline-composition">Pipeline Composition</a></li>
+<li><a class="reference internal" href="#export-and-materialization">Export and Materialization</a><ul>
+<li><a class="reference internal" href="#performance-optimization">Performance Optimization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

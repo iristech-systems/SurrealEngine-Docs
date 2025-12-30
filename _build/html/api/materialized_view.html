@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Materialized Views API Reference &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="../genindex.html" />
+            <link rel="search" title="Search" href="../search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="next" title="Aggregation Pipeline" href="aggregation.html" />
+            <link rel="prev" title="Signals API Reference" href="signals.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals API Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Materialized Views API Reference</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengineapi/materialized_view.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="../_sources/api/materialized_view.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="materialized-views-api-reference">
+<h1>Materialized Views API Reference<a class="headerlink" href="#materialized-views-api-reference" title="Link to this heading"><span>¶</span></a></h1>
+<p>This module provides support for creating and managing materialized views
+in SurrealDB for improved query performance on aggregated data.</p>
+<section id="core-classes">
+<h2>Core Classes<a class="headerlink" href="#core-classes" title="Link to this heading"><span>¶</span></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">MaterializedView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#MaterializedView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Materialized view for SurrealDB.</p>
+<p>This class represents a materialized view in SurrealDB, which is a
+precomputed view of data that can be used to improve query performance
+for frequently accessed aggregated data.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.name" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>The name of the materialized view</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.query">
+<span class="sig-name descname"><span class="pre">query</span></span><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.query" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>The query that defines the materialized view</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.refresh_interval">
+<span class="sig-name descname"><span class="pre">refresh_interval</span></span><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.refresh_interval" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>The interval at which the view is refreshed</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.document_class">
+<span class="sig-name descname"><span class="pre">document_class</span></span><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.document_class" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>The document class that the view is based on</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.aggregations">
+<span class="sig-name descname"><span class="pre">aggregations</span></span><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.aggregations" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Dictionary of field names and aggregation functions</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.select_fields">
+<span class="sig-name descname"><span class="pre">select_fields</span></span><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.select_fields" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>List of fields to select (if None, selects all fields)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggregations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#MaterializedView.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.__init__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Initialize a new MaterializedView.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The name of the materialized view</p></li>
+<li><p><strong>query</strong> (<em>QuerySet</em>) – The query that defines the materialized view</p></li>
+<li><p><strong>refresh_interval</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The interval at which the view is refreshed (e.g., “1h”, “30m”)</p></li>
+<li><p><strong>document_class</strong> (<em>Type</em><em>[</em><em>'Document'</em><em>]</em>) – The document class that the view is based on</p></li>
+<li><p><strong>aggregations</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><a class="reference internal" href="#surrealengine.materialized_view.Aggregation" title="surrealengine.materialized_view.Aggregation"><em>Aggregation</em></a><em>]</em>) – Dictionary of field names and aggregation functions</p></li>
+<li><p><strong>select_fields</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em>) – List of fields to select (if None, selects all fields)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.create">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">if_not_exists</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#MaterializedView.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.create" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Create the materialized view in the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – The database connection to use (optional)</p></li>
+<li><p><strong>overwrite</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Whether to overwrite the table if it exists (default: False)</p></li>
+<li><p><strong>if_not_exists</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Whether to create the table only if it does not exist (default: False)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.create_sync">
+<span class="sig-name descname"><span class="pre">create_sync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">if_not_exists</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#MaterializedView.create_sync"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.create_sync" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Create the materialized view in the database synchronously.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection</strong> – The database connection to use (optional)</p></li>
+<li><p><strong>overwrite</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Whether to overwrite the table if it exists (default: False)</p></li>
+<li><p><strong>if_not_exists</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – Whether to create the table only if it does not exist (default: False)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.drop">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">drop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#MaterializedView.drop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.drop" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Drop the materialized view from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>connection</strong> – The database connection to use (optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.drop_sync">
+<span class="sig-name descname"><span class="pre">drop_sync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#MaterializedView.drop_sync"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.drop_sync" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Drop the materialized view from the database synchronously.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>connection</strong> – The database connection to use (optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.refresh">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#MaterializedView.refresh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.refresh" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Manually refresh the materialized view.</p>
+<p>DEPRECATED: SurrealDB views derived from TABLES are live and do not need manual refresh.
+This method will be removed in a future version.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>connection</strong> – The database connection to use (optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.refresh_sync">
+<span class="sig-name descname"><span class="pre">refresh_sync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#MaterializedView.refresh_sync"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.refresh_sync" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Manually refresh the materialized view.</p>
+<p>DEPRECATED: SurrealDB views derived from TABLES are live and do not need manual refresh.
+This method will be removed in a future version.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>connection</strong> – The database connection to use (optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.objects">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">QuerySet</span></em><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.objects" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Get a QuerySet for querying the materialized view.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A QuerySet for querying the materialized view</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.execute_raw_query">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute_raw_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#MaterializedView.execute_raw_query"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.execute_raw_query" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Execute a raw query against the materialized view.</p>
+<p>This is a workaround for the “no decoder for tag” error that can occur
+when querying materialized views using the objects property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>connection</strong> – The database connection to use (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The query results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.MaterializedView.execute_raw_query_sync">
+<span class="sig-name descname"><span class="pre">execute_raw_query_sync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#MaterializedView.execute_raw_query_sync"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.MaterializedView.execute_raw_query_sync" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Execute a raw query against the materialized view synchronously.</p>
+<p>This is a workaround for the “no decoder for tag” error that can occur
+when querying materialized views using the objects property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>connection</strong> – The database connection to use (optional)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The query results</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="aggregation-functions">
+<h2>Aggregation Functions<a class="headerlink" href="#aggregation-functions" title="Link to this heading"><span>¶</span></a></h2>
+<section id="base-aggregation">
+<h3>Base Aggregation<a class="headerlink" href="#base-aggregation" title="Link to this heading"><span>¶</span></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Aggregation">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">Aggregation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Aggregation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Aggregation" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Base class for aggregation functions.</p>
+<p>This class represents an aggregation function that can be used in a materialized view.
+Subclasses should implement the __str__ method to return the SurrealQL representation
+of the aggregation function.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Aggregation.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Aggregation.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Aggregation.__init__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Initialize a new Aggregation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The field to aggregate (optional)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Aggregation.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Aggregation.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Aggregation.__str__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Return the SurrealQL representation of the aggregation function.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="statistical-aggregations">
+<h3>Statistical Aggregations<a class="headerlink" href="#statistical-aggregations" title="Link to this heading"><span>¶</span></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Count">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">Count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Count"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Count" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#surrealengine.materialized_view.Aggregation" title="surrealengine.materialized_view.Aggregation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregation</span></code></a></p>
+<p>Count aggregation function.</p>
+<p>This class represents the count() aggregation function in SurrealQL.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Count.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Count.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Count.__str__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Return the SurrealQL representation of the count function.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Mean">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">Mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Mean" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#surrealengine.materialized_view.Aggregation" title="surrealengine.materialized_view.Aggregation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregation</span></code></a></p>
+<p>Mean aggregation function.</p>
+<p>This class represents the math::mean() aggregation function in SurrealQL.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Mean.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Mean.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Mean.__str__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Return the SurrealQL representation of the mean function.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Sum">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">Sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Sum" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#surrealengine.materialized_view.Aggregation" title="surrealengine.materialized_view.Aggregation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregation</span></code></a></p>
+<p>Sum aggregation function.</p>
+<p>This class represents the math::sum() aggregation function in SurrealQL.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Sum.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Sum.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Sum.__str__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Return the SurrealQL representation of the sum function.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Min">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">Min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Min"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Min" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#surrealengine.materialized_view.Aggregation" title="surrealengine.materialized_view.Aggregation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregation</span></code></a></p>
+<p>Min aggregation function.</p>
+<p>This class represents the math::min() aggregation function in SurrealQL.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Min.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Min.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Min.__str__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Return the SurrealQL representation of the min function.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Max">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">Max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Max" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#surrealengine.materialized_view.Aggregation" title="surrealengine.materialized_view.Aggregation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregation</span></code></a></p>
+<p>Max aggregation function.</p>
+<p>This class represents the math::max() aggregation function in SurrealQL.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Max.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Max.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Max.__str__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Return the SurrealQL representation of the max function.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Median">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">Median</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Median"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Median" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#surrealengine.materialized_view.Aggregation" title="surrealengine.materialized_view.Aggregation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregation</span></code></a></p>
+<p>Median aggregation function.</p>
+<p>This class represents the math::median() aggregation function in SurrealQL.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Median.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Median.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Median.__str__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Return the SurrealQL representation of the median function.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.StdDev">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">StdDev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#StdDev"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.StdDev" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#surrealengine.materialized_view.Aggregation" title="surrealengine.materialized_view.Aggregation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregation</span></code></a></p>
+<p>Standard deviation aggregation function.</p>
+<p>This class represents the math::stddev() aggregation function in SurrealQL.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.StdDev.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#StdDev.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.StdDev.__str__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Return the SurrealQL representation of the standard deviation function.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Variance">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">Variance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Variance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Variance" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#surrealengine.materialized_view.Aggregation" title="surrealengine.materialized_view.Aggregation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregation</span></code></a></p>
+<p>Variance aggregation function.</p>
+<p>This class represents the math::variance() aggregation function in SurrealQL.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Variance.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Variance.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Variance.__str__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Return the SurrealQL representation of the variance function.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Percentile">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">Percentile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Percentile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Percentile" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#surrealengine.materialized_view.Aggregation" title="surrealengine.materialized_view.Aggregation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregation</span></code></a></p>
+<p>Percentile aggregation function.</p>
+<p>This class represents the math::percentile() aggregation function in SurrealQL.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Percentile.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Percentile.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Percentile.__init__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Initialize a new Percentile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The field to aggregate (optional)</p></li>
+<li><p><strong>percentile</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a>) – The percentile to calculate (default: 50)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Percentile.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Percentile.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Percentile.__str__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Return the SurrealQL representation of the percentile function.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="collection-aggregations">
+<h3>Collection Aggregations<a class="headerlink" href="#collection-aggregations" title="Link to this heading"><span>¶</span></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.ArrayCollect">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">ArrayCollect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#ArrayCollect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.ArrayCollect" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ArrayGroup</span></code></p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Distinct">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">Distinct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Distinct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Distinct" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#surrealengine.materialized_view.Aggregation" title="surrealengine.materialized_view.Aggregation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregation</span></code></a></p>
+<p>Distinct aggregation function.</p>
+<p>This class represents a distinct-of-values across grouped rows.
+Safe for scalar fields by wrapping each row’s value in an array first.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.Distinct.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#Distinct.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.Distinct.__str__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Return the SurrealQL representation of the distinct function.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.GroupConcat">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">surrealengine.materialized_view.</span></span><span class="sig-name descname"><span class="pre">GroupConcat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">',</span> <span class="pre">'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#GroupConcat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.GroupConcat" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#surrealengine.materialized_view.Aggregation" title="surrealengine.materialized_view.Aggregation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregation</span></code></a></p>
+<p>Group concatenation aggregation function.</p>
+<p>This class represents a custom aggregation function that concatenates values
+with a separator.</p>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.GroupConcat.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">',</span> <span class="pre">'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#GroupConcat.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.GroupConcat.__init__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Initialize a new GroupConcat.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The field to aggregate (optional)</p></li>
+<li><p><strong>separator</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – The separator to use (default: “, “)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="surrealengine.materialized_view.GroupConcat.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/surrealengine/materialized_view.html#GroupConcat.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#surrealengine.materialized_view.GroupConcat.__str__" title="Link to this definition"><span>¶</span></a></dt>
+<dd><p>Return the SurrealQL representation of the group concat function.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+<section id="usage-examples">
+<h2>Usage Examples<a class="headerlink" href="#usage-examples" title="Link to this heading"><span>¶</span></a></h2>
+<section id="basic-materialized-view">
+<h3>Basic Materialized View<a class="headerlink" href="#basic-materialized-view" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Document</span><span class="p">,</span> <span class="n">StringField</span><span class="p">,</span> <span class="n">IntField</span><span class="p">,</span> <span class="n">DateTimeField</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.materialized_view</span><span class="w"> </span><span class="kn">import</span> <span class="n">MaterializedView</span><span class="p">,</span> <span class="n">Count</span><span class="p">,</span> <span class="n">Mean</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Order</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">customer_id</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">amount</span> <span class="o">=</span> <span class="n">DecimalField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Create a materialized view for order statistics</span>
+<span class="n">order_stats</span> <span class="o">=</span> <span class="n">MaterializedView</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;order_statistics&quot;</span><span class="p">,</span>
+    <span class="n">query</span><span class="o">=</span><span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">),</span>
+    <span class="n">aggregations</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;total_orders&quot;</span><span class="p">:</span> <span class="n">Count</span><span class="p">(),</span>
+        <span class="s2">&quot;avg_order_amount&quot;</span><span class="p">:</span> <span class="n">Mean</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;total_spent&quot;</span><span class="p">:</span> <span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="n">refresh_interval</span><span class="o">=</span><span class="s2">&quot;1h&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Create the view in the database</span>
+<span class="k">await</span> <span class="n">order_stats</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="document-based-materialized-views">
+<h3>Document-Based Materialized Views<a class="headerlink" href="#document-based-materialized-views" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create materialized view using Document class method</span>
+<span class="n">customer_summary</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">create_materialized_view</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;customer_summary&quot;</span><span class="p">,</span>
+    <span class="n">query</span><span class="o">=</span><span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;completed&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">),</span>
+    <span class="n">aggregations</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;completed_orders&quot;</span><span class="p">:</span> <span class="n">Count</span><span class="p">(),</span>
+        <span class="s2">&quot;total_revenue&quot;</span><span class="p">:</span> <span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;avg_order_value&quot;</span><span class="p">:</span> <span class="n">Mean</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;last_order_date&quot;</span><span class="p">:</span> <span class="n">Max</span><span class="p">(</span><span class="s2">&quot;created_at&quot;</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="n">refresh_interval</span><span class="o">=</span><span class="s2">&quot;30m&quot;</span>
+<span class="p">)</span>
+
+<span class="k">await</span> <span class="n">customer_summary</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="advanced-aggregations">
+<h3>Advanced Aggregations<a class="headerlink" href="#advanced-aggregations" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.materialized_view</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Percentile</span><span class="p">,</span> <span class="n">StdDev</span><span class="p">,</span> <span class="n">ArrayCollect</span><span class="p">,</span> <span class="n">GroupConcat</span>
+<span class="p">)</span>
+
+<span class="c1"># Advanced statistics view</span>
+<span class="n">advanced_stats</span> <span class="o">=</span> <span class="n">MaterializedView</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;advanced_order_stats&quot;</span><span class="p">,</span>
+    <span class="n">query</span><span class="o">=</span><span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">),</span>
+    <span class="n">aggregations</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;order_count&quot;</span><span class="p">:</span> <span class="n">Count</span><span class="p">(),</span>
+        <span class="s2">&quot;amount_p95&quot;</span><span class="p">:</span> <span class="n">Percentile</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">,</span> <span class="mi">95</span><span class="p">),</span>
+        <span class="s2">&quot;amount_std&quot;</span><span class="p">:</span> <span class="n">StdDev</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;customer_list&quot;</span><span class="p">:</span> <span class="n">ArrayCollect</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;customer_names&quot;</span><span class="p">:</span> <span class="n">GroupConcat</span><span class="p">(</span><span class="s2">&quot;customer_name&quot;</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="time-based-materialized-views">
+<h3>Time-Based Materialized Views<a class="headerlink" href="#time-based-materialized-views" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Daily sales summary</span>
+<span class="n">daily_sales</span> <span class="o">=</span> <span class="n">MaterializedView</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;daily_sales&quot;</span><span class="p">,</span>
+    <span class="n">query</span><span class="o">=</span><span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;DATE(created_at)&quot;</span><span class="p">),</span>
+    <span class="n">aggregations</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;daily_revenue&quot;</span><span class="p">:</span> <span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;daily_orders&quot;</span><span class="p">:</span> <span class="n">Count</span><span class="p">(),</span>
+        <span class="s2">&quot;unique_customers&quot;</span><span class="p">:</span> <span class="n">Distinct</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="n">refresh_interval</span><span class="o">=</span><span class="s2">&quot;1h&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="querying-materialized-views">
+<h3>Querying Materialized Views<a class="headerlink" href="#querying-materialized-views" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query the materialized view</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="k">await</span> <span class="n">order_stats</span><span class="o">.</span><span class="n">query</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">stats</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Customer </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;total_orders&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> orders&quot;</span><span class="p">)</span>
+
+<span class="c1"># Query with filters</span>
+<span class="n">high_value_customers</span> <span class="o">=</span> <span class="k">await</span> <span class="n">order_stats</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+    <span class="n">filter_condition</span><span class="o">=</span><span class="s2">&quot;total_spent &gt; 1000&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Get view metadata</span>
+<span class="n">info</span> <span class="o">=</span> <span class="k">await</span> <span class="n">order_stats</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;View last refreshed: </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;last_refresh&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="managing-materialized-views">
+<h3>Managing Materialized Views<a class="headerlink" href="#managing-materialized-views" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Refresh view manually</span>
+<span class="k">await</span> <span class="n">order_stats</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+
+<span class="c1"># Update view definition</span>
+<span class="k">await</span> <span class="n">order_stats</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+    <span class="n">aggregations</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;total_orders&quot;</span><span class="p">:</span> <span class="n">Count</span><span class="p">(),</span>
+        <span class="s2">&quot;avg_order_amount&quot;</span><span class="p">:</span> <span class="n">Mean</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;max_order_amount&quot;</span><span class="p">:</span> <span class="n">Max</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">)</span>  <span class="c1"># Added new aggregation</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1"># Drop view</span>
+<span class="k">await</span> <span class="n">order_stats</span><span class="o">.</span><span class="n">drop</span><span class="p">()</span>
+
+<span class="c1"># Check if view exists</span>
+<span class="n">exists</span> <span class="o">=</span> <span class="k">await</span> <span class="n">order_stats</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="integration-with-query-pipeline">
+<h3>Integration with Query Pipeline<a class="headerlink" href="#integration-with-query-pipeline" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.aggregation</span><span class="w"> </span><span class="kn">import</span> <span class="n">AggregationPipeline</span>
+
+<span class="c1"># Create aggregation pipeline that can be used for materialized views</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">AggregationPipeline</span><span class="p">(</span><span class="n">Order</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s2">&quot;completed&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;customer_id&quot;</span><span class="p">)</span> \\
+    <span class="o">.</span><span class="n">aggregate</span><span class="p">(</span>
+        <span class="n">total_spent</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">),</span>
+        <span class="n">order_count</span><span class="o">=</span><span class="n">Count</span><span class="p">(),</span>
+        <span class="n">avg_amount</span><span class="o">=</span><span class="n">Mean</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="c1"># Create materialized view from pipeline</span>
+<span class="n">customer_stats</span> <span class="o">=</span> <span class="n">MaterializedView</span><span class="o">.</span><span class="n">from_pipeline</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;customer_stats_mv&quot;</span><span class="p">,</span>
+    <span class="n">pipeline</span><span class="o">=</span><span class="n">pipeline</span><span class="p">,</span>
+    <span class="n">refresh_interval</span><span class="o">=</span><span class="s2">&quot;2h&quot;</span>
+<span class="p">)</span>
+
+<span class="k">await</span> <span class="n">customer_stats</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="performance-monitoring">
+<h3>Performance Monitoring<a class="headerlink" href="#performance-monitoring" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Monitor view performance</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">monitor_view_performance</span><span class="p">():</span>
+    <span class="n">views</span> <span class="o">=</span> <span class="p">[</span><span class="n">order_stats</span><span class="p">,</span> <span class="n">customer_summary</span><span class="p">,</span> <span class="n">daily_sales</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">view</span> <span class="ow">in</span> <span class="n">views</span><span class="p">:</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="k">await</span> <span class="n">view</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;View: </span><span class="si">{</span><span class="n">view</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Size: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Unknown&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Last refresh: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;last_refresh&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Unknown&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Refresh duration: </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;refresh_duration&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Unknown&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+
+<span class="k">await</span> <span class="n">monitor_view_performance</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="signals.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Signals API Reference
+    </a>
+    <a class="float-right" href="aggregation.html" title="Next">
+        Aggregation Pipeline <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Materialized Views API Reference</a><ul>
+<li><a class="reference internal" href="#core-classes">Core Classes</a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView"><code class="docutils literal notranslate"><span class="pre">MaterializedView</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.name"><code class="docutils literal notranslate"><span class="pre">MaterializedView.name</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.query"><code class="docutils literal notranslate"><span class="pre">MaterializedView.query</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.refresh_interval"><code class="docutils literal notranslate"><span class="pre">MaterializedView.refresh_interval</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.document_class"><code class="docutils literal notranslate"><span class="pre">MaterializedView.document_class</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.aggregations"><code class="docutils literal notranslate"><span class="pre">MaterializedView.aggregations</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.select_fields"><code class="docutils literal notranslate"><span class="pre">MaterializedView.select_fields</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.__init__"><code class="docutils literal notranslate"><span class="pre">MaterializedView.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.create"><code class="docutils literal notranslate"><span class="pre">MaterializedView.create()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.create_sync"><code class="docutils literal notranslate"><span class="pre">MaterializedView.create_sync()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.drop"><code class="docutils literal notranslate"><span class="pre">MaterializedView.drop()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.drop_sync"><code class="docutils literal notranslate"><span class="pre">MaterializedView.drop_sync()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.refresh"><code class="docutils literal notranslate"><span class="pre">MaterializedView.refresh()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.refresh_sync"><code class="docutils literal notranslate"><span class="pre">MaterializedView.refresh_sync()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.objects"><code class="docutils literal notranslate"><span class="pre">MaterializedView.objects</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.execute_raw_query"><code class="docutils literal notranslate"><span class="pre">MaterializedView.execute_raw_query()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.MaterializedView.execute_raw_query_sync"><code class="docutils literal notranslate"><span class="pre">MaterializedView.execute_raw_query_sync()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#aggregation-functions">Aggregation Functions</a><ul>
+<li><a class="reference internal" href="#base-aggregation">Base Aggregation</a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Aggregation"><code class="docutils literal notranslate"><span class="pre">Aggregation</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Aggregation.__init__"><code class="docutils literal notranslate"><span class="pre">Aggregation.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Aggregation.__str__"><code class="docutils literal notranslate"><span class="pre">Aggregation.__str__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#statistical-aggregations">Statistical Aggregations</a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Count"><code class="docutils literal notranslate"><span class="pre">Count</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Count.__str__"><code class="docutils literal notranslate"><span class="pre">Count.__str__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Mean"><code class="docutils literal notranslate"><span class="pre">Mean</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Mean.__str__"><code class="docutils literal notranslate"><span class="pre">Mean.__str__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Sum"><code class="docutils literal notranslate"><span class="pre">Sum</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Sum.__str__"><code class="docutils literal notranslate"><span class="pre">Sum.__str__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Min"><code class="docutils literal notranslate"><span class="pre">Min</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Min.__str__"><code class="docutils literal notranslate"><span class="pre">Min.__str__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Max"><code class="docutils literal notranslate"><span class="pre">Max</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Max.__str__"><code class="docutils literal notranslate"><span class="pre">Max.__str__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Median"><code class="docutils literal notranslate"><span class="pre">Median</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Median.__str__"><code class="docutils literal notranslate"><span class="pre">Median.__str__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.StdDev"><code class="docutils literal notranslate"><span class="pre">StdDev</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.StdDev.__str__"><code class="docutils literal notranslate"><span class="pre">StdDev.__str__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Variance"><code class="docutils literal notranslate"><span class="pre">Variance</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Variance.__str__"><code class="docutils literal notranslate"><span class="pre">Variance.__str__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Percentile"><code class="docutils literal notranslate"><span class="pre">Percentile</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Percentile.__init__"><code class="docutils literal notranslate"><span class="pre">Percentile.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Percentile.__str__"><code class="docutils literal notranslate"><span class="pre">Percentile.__str__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#collection-aggregations">Collection Aggregations</a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.ArrayCollect"><code class="docutils literal notranslate"><span class="pre">ArrayCollect</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Distinct"><code class="docutils literal notranslate"><span class="pre">Distinct</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.Distinct.__str__"><code class="docutils literal notranslate"><span class="pre">Distinct.__str__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.GroupConcat"><code class="docutils literal notranslate"><span class="pre">GroupConcat</span></code></a><ul>
+<li><a class="reference internal" href="#surrealengine.materialized_view.GroupConcat.__init__"><code class="docutils literal notranslate"><span class="pre">GroupConcat.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#surrealengine.materialized_view.GroupConcat.__str__"><code class="docutils literal notranslate"><span class="pre">GroupConcat.__str__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage-examples">Usage Examples</a><ul>
+<li><a class="reference internal" href="#basic-materialized-view">Basic Materialized View</a></li>
+<li><a class="reference internal" href="#document-based-materialized-views">Document-Based Materialized Views</a></li>
+<li><a class="reference internal" href="#advanced-aggregations">Advanced Aggregations</a></li>
+<li><a class="reference internal" href="#time-based-materialized-views">Time-Based Materialized Views</a></li>
+<li><a class="reference internal" href="#querying-materialized-views">Querying Materialized Views</a></li>
+<li><a class="reference internal" href="#managing-materialized-views">Managing Materialized Views</a></li>
+<li><a class="reference internal" href="#integration-with-query-pipeline">Integration with Query Pipeline</a></li>
+<li><a class="reference internal" href="#performance-monitoring">Performance Monitoring</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

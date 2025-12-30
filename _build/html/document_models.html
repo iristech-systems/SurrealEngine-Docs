@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="./">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Document Models &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="genindex.html" />
+            <link rel="search" title="Search" href="search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="next" title="Field Types" href="field_types.html" />
+            <link rel="prev" title="Connections, Pooling, and Observability" href="connections_observability.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Document Models</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealenginedocument_models.rst" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="_sources/document_models.rst.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="document-models">
+<h1>Document Models<a class="headerlink" href="#document-models" title="Link to this heading"><span>¶</span></a></h1>
+<p>SurrealEngine provides a powerful Document class that serves as the base for all your
+data models. Document models map to SurrealDB tables and provide field validation,
+type conversion, and database operations.</p>
+<section id="defining-documents">
+<h2>Defining Documents<a class="headerlink" href="#defining-documents" title="Link to this heading"><span>¶</span></a></h2>
+<section id="basic-document-definition">
+<h3>Basic Document Definition<a class="headerlink" href="#basic-document-definition" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Document</span><span class="p">,</span> <span class="n">StringField</span><span class="p">,</span> <span class="n">IntField</span><span class="p">,</span> <span class="n">DateTimeField</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">IntField</span><span class="p">(</span><span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span>
+        <span class="n">schemafull</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</section>
+<section id="meta-options">
+<h3>Meta Options<a class="headerlink" href="#meta-options" title="Link to this heading"><span>¶</span></a></h3>
+<p>Configure document behavior with the Meta class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span>        <span class="c1"># Table name</span>
+        <span class="n">schemafull</span> <span class="o">=</span> <span class="kc">True</span>            <span class="c1"># Enforce schema</span>
+        <span class="n">drop</span> <span class="o">=</span> <span class="kc">False</span>                 <span class="c1"># Drop table on migration</span>
+        <span class="n">permissions</span> <span class="o">=</span> <span class="s2">&quot;FULL&quot;</span>         <span class="c1"># Table permissions</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="creating-and-saving-documents">
+<h2>Creating and Saving Documents<a class="headerlink" href="#creating-and-saving-documents" title="Link to this heading"><span>¶</span></a></h2>
+<section id="async-operations">
+<h3>Async Operations<a class="headerlink" href="#async-operations" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create and save</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;alice@example.com&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created user: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create with custom ID</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;user:alice&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;alice@example.com&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="c1"># Save updates</span>
+<span class="n">user</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">31</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="sync-operations-v0-4-1">
+<h3>Sync Operations (v0.4.1+)<a class="headerlink" href="#sync-operations-v0-4-1" title="Link to this heading"><span>¶</span></a></h3>
+<p>All async operations now have synchronous equivalents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create and save synchronously</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;bob@example.com&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">user</span><span class="o">.</span><span class="n">save_sync</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created user: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Save updates synchronously</span>
+<span class="n">user</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">26</span>
+<span class="n">user</span><span class="o">.</span><span class="n">save_sync</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="updating-documents">
+<h2>Updating Documents<a class="headerlink" href="#updating-documents" title="Link to this heading"><span>¶</span></a></h2>
+<section id="partial-updates-v0-4-1">
+<h3>Partial Updates (v0.4.1+)<a class="headerlink" href="#partial-updates-v0-4-1" title="Link to this heading"><span>¶</span></a></h3>
+<p>Update specific fields without loading the entire document:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Async partial update</span>
+<span class="n">user</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;user:alice&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;newemail@example.com&quot;</span><span class="p">)</span>
+
+<span class="c1"># Sync partial update</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_sync</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;user:bob&quot;</span><span class="p">)</span>
+<span class="n">user</span><span class="o">.</span><span class="n">update_sync</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">update()</span></code> and <code class="docutils literal notranslate"><span class="pre">update_sync()</span></code> methods:</p>
+<ul class="simple">
+<li><p>Only modify specified fields</p></li>
+<li><p>Don’t overwrite other fields</p></li>
+<li><p>Automatically refresh the instance with latest data</p></li>
+<li><p>More efficient than loading full document and saving</p></li>
+</ul>
+</section>
+<section id="full-document-save">
+<h3>Full Document Save<a class="headerlink" href="#full-document-save" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load document</span>
+<span class="n">user</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;user:alice&quot;</span><span class="p">)</span>
+
+<span class="c1"># Modify multiple fields</span>
+<span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice Smith&quot;</span>
+<span class="n">user</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">33</span>
+<span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;alice.smith@example.com&quot;</span>
+
+<span class="c1"># Save all changes</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="refreshing-documents">
+<h2>Refreshing Documents<a class="headerlink" href="#refreshing-documents" title="Link to this heading"><span>¶</span></a></h2>
+<p>Reload document data from the database:</p>
+<section id="async-refresh">
+<h3>Async Refresh<a class="headerlink" href="#async-refresh" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;user:alice&quot;</span><span class="p">)</span>
+<span class="c1"># ... some time passes, data might have changed ...</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current age: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sync-refresh-v0-4-1">
+<h3>Sync Refresh (v0.4.1+)<a class="headerlink" href="#sync-refresh-v0-4-1" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_sync</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;user:alice&quot;</span><span class="p">)</span>
+<span class="c1"># ... some time passes ...</span>
+<span class="n">user</span><span class="o">.</span><span class="n">refresh_sync</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current age: </span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="deleting-documents">
+<h2>Deleting Documents<a class="headerlink" href="#deleting-documents" title="Link to this heading"><span>¶</span></a></h2>
+<section id="async-deletion">
+<h3>Async Deletion<a class="headerlink" href="#async-deletion" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;user:alice&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="sync-deletion-v0-4-1">
+<h3>Sync Deletion (v0.4.1+)<a class="headerlink" href="#sync-deletion-v0-4-1" title="Link to this heading"><span>¶</span></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_sync</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;user:bob&quot;</span><span class="p">)</span>
+<span class="n">user</span><span class="o">.</span><span class="n">delete_sync</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="document-validation">
+<h2>Document Validation<a class="headerlink" href="#document-validation" title="Link to this heading"><span>¶</span></a></h2>
+<p>Documents are automatically validated before saving:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># This will fail - name is required</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;test@example.com&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Validation error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># This will fail - age exceeds max_value</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Test&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Validation error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="default-values">
+<h2>Default Values<a class="headerlink" href="#default-values" title="Link to this heading"><span>¶</span></a></h2>
+<p>Set default values for fields:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Post</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">()</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;draft&quot;</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+    <span class="n">views</span> <span class="o">=</span> <span class="n">IntField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;posts&quot;</span>
+
+<span class="c1"># Default values are applied automatically</span>
+<span class="n">post</span> <span class="o">=</span> <span class="n">Post</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;My Post&quot;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">post</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>  <span class="c1"># &quot;draft&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">views</span><span class="p">)</span>   <span class="c1"># 0</span>
+</pre></div>
+</div>
+</section>
+<section id="auto-generated-fields">
+<h2>Auto-Generated Fields<a class="headerlink" href="#auto-generated-fields" title="Link to this heading"><span>¶</span></a></h2>
+<p>Some fields can auto-populate:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Article</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Set on creation</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>      <span class="c1"># Update on each save</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;articles&quot;</span>
+
+<span class="n">article</span> <span class="o">=</span> <span class="n">Article</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;New Article&quot;</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">article</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">article</span><span class="o">.</span><span class="n">created_at</span><span class="p">)</span>  <span class="c1"># Automatically set</span>
+
+<span class="n">article</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Updated Article&quot;</span>
+<span class="k">await</span> <span class="n">article</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">article</span><span class="o">.</span><span class="n">updated_at</span><span class="p">)</span>  <span class="c1"># Automatically updated</span>
+</pre></div>
+</div>
+</section>
+<section id="relation-documents">
+<h2>Relation Documents<a class="headerlink" href="#relation-documents" title="Link to this heading"><span>¶</span></a></h2>
+<p>For graph edge relationships:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">surrealengine</span><span class="w"> </span><span class="kn">import</span> <span class="n">RelationDocument</span><span class="p">,</span> <span class="n">ReferenceField</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Follows</span><span class="p">(</span><span class="n">RelationDocument</span><span class="p">):</span>
+    <span class="n">since</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;follows&quot;</span>
+        <span class="n">in_doc</span> <span class="o">=</span> <span class="s2">&quot;User&quot;</span>
+        <span class="n">out_doc</span> <span class="o">=</span> <span class="s2">&quot;User&quot;</span>
+
+<span class="c1"># Create relationship</span>
+<span class="n">follows</span> <span class="o">=</span> <span class="n">Follows</span><span class="p">(</span>
+    <span class="n">in_doc</span><span class="o">=</span><span class="s2">&quot;user:alice&quot;</span><span class="p">,</span>
+    <span class="n">out_doc</span><span class="o">=</span><span class="s2">&quot;user:bob&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">await</span> <span class="n">follows</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="c1"># Update relationship (v0.4.1+)</span>
+<span class="k">await</span> <span class="n">follows</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">since</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">follows</span><span class="o">.</span><span class="n">update_sync</span><span class="p">(</span><span class="n">since</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="document-lifecycle">
+<h2>Document Lifecycle<a class="headerlink" href="#document-lifecycle" title="Link to this heading"><span>¶</span></a></h2>
+<p>Document operations follow this lifecycle:</p>
+<ol class="arabic simple">
+<li><p><strong>Instantiation</strong>: Create document instance</p></li>
+<li><p><strong>Validation</strong>: Fields are validated</p></li>
+<li><p><strong>Pre-save</strong>: Signals fired (if enabled)</p></li>
+<li><p><strong>Save/Update</strong>: Data persisted to database</p></li>
+<li><p><strong>Post-save</strong>: Signals fired (if enabled)</p></li>
+<li><p><strong>Refresh</strong>: Reload from database if needed</p></li>
+<li><p><strong>Delete</strong>: Remove from database</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Create</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;charlie@example.com&quot;</span><span class="p">)</span>
+
+<span class="c1"># 2. Validation happens here</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>  <span class="c1"># 3-5: Pre-save, save, post-save</span>
+
+<span class="c1"># 6. Refresh if needed</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+
+<span class="c1"># 7. Delete</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="api-parity">
+<h2>API Parity<a class="headerlink" href="#api-parity" title="Link to this heading"><span>¶</span></a></h2>
+<p>Complete sync/async parity (v0.4.1+):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Async</p></th>
+<th class="head"><p>Sync</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Save document</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">doc.save()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">doc.save_sync()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Update fields</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">doc.update(**kwargs)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">doc.update_sync(**kwargs)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Refresh from DB</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">doc.refresh()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">doc.refresh_sync()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Delete document</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">doc.delete()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">doc.delete_sync()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Get by ID</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">Model.objects.get(id=...)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model.objects.get_sync(id=...)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Filter query</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">Model.objects.filter(...).all()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model.objects.filter(...).all_sync()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"><span>¶</span></a></h2>
+<ol class="arabic">
+<li><p><strong>Use update() for partial updates</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Good - only updates specified fields</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># Less efficient - loads and saves entire document</span>
+<span class="n">user</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+<span class="n">user</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Choose sync or async consistently</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Good - all async</span>
+<span class="n">user</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+
+<span class="c1"># Good - all sync</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_sync</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+<span class="n">user</span><span class="o">.</span><span class="n">update_sync</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">user</span><span class="o">.</span><span class="n">refresh_sync</span><span class="p">()</span>
+
+<span class="c1"># Avoid mixing - may cause issues</span>
+<span class="n">user</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+<span class="n">user</span><span class="o">.</span><span class="n">update_sync</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>  <span class="c1"># Mixed sync/async</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Validate before saving</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Test&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fix these errors: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Use auto fields for timestamps</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Document</span><span class="p">:</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Set defaults in field definition</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">status</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;draft&quot;</span><span class="p">)</span>  <span class="c1"># Better</span>
+<span class="c1"># Instead of setting in __init__</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="migration-guide">
+<h2>Migration Guide<a class="headerlink" href="#migration-guide" title="Link to this heading"><span>¶</span></a></h2>
+<p>If upgrading from versions before v0.4.1, you can now use sync methods:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># OLD - only async available</span>
+<span class="n">user</span> <span class="o">=</span> <span class="k">await</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+<span class="n">user</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="c1"># NEW - sync methods available (v0.4.1+)</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_sync</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+<span class="n">user</span><span class="o">.</span><span class="n">update_sync</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># NEW - more efficient partial updates (v0.4.1+)</span>
+<span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>  <span class="c1"># Only updates age field</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="connections_observability.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Connections, Pooling, and Observability
+    </a>
+    <a class="float-right" href="field_types.html" title="Next">
+        Field Types <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Document Models</a><ul>
+<li><a class="reference internal" href="#defining-documents">Defining Documents</a><ul>
+<li><a class="reference internal" href="#basic-document-definition">Basic Document Definition</a></li>
+<li><a class="reference internal" href="#meta-options">Meta Options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#creating-and-saving-documents">Creating and Saving Documents</a><ul>
+<li><a class="reference internal" href="#async-operations">Async Operations</a></li>
+<li><a class="reference internal" href="#sync-operations-v0-4-1">Sync Operations (v0.4.1+)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#updating-documents">Updating Documents</a><ul>
+<li><a class="reference internal" href="#partial-updates-v0-4-1">Partial Updates (v0.4.1+)</a></li>
+<li><a class="reference internal" href="#full-document-save">Full Document Save</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#refreshing-documents">Refreshing Documents</a><ul>
+<li><a class="reference internal" href="#async-refresh">Async Refresh</a></li>
+<li><a class="reference internal" href="#sync-refresh-v0-4-1">Sync Refresh (v0.4.1+)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deleting-documents">Deleting Documents</a><ul>
+<li><a class="reference internal" href="#async-deletion">Async Deletion</a></li>
+<li><a class="reference internal" href="#sync-deletion-v0-4-1">Sync Deletion (v0.4.1+)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#document-validation">Document Validation</a></li>
+<li><a class="reference internal" href="#default-values">Default Values</a></li>
+<li><a class="reference internal" href="#auto-generated-fields">Auto-Generated Fields</a></li>
+<li><a class="reference internal" href="#relation-documents">Relation Documents</a></li>
+<li><a class="reference internal" href="#document-lifecycle">Document Lifecycle</a></li>
+<li><a class="reference internal" href="#api-parity">API Parity</a></li>
+<li><a class="reference internal" href="#best-practices">Best Practices</a></li>
+<li><a class="reference internal" href="#migration-guide">Migration Guide</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="_static/dist/theme.js"></script>
+        <script type="text/javascript" src="_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="_static/searchtools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

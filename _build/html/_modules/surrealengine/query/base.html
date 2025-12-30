@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../../">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>surrealengine.query.base &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="../../../genindex.html" />
+            <link rel="search" title="Search" href="../../../search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="up" title="Module code" href="../../index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+        <li class="breadcrumb-item active" aria-current="page">surrealengine.query.base</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengine_modules/surrealengine/query/base" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <h1>Source code for surrealengine.query.base</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">..base_query</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseQuerySet</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">cast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultipleObjectsReturned</span><span class="p">,</span> <span class="n">DoesNotExist</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..fields</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReferenceField</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">surrealdb</span><span class="w"> </span><span class="kn">import</span> <span class="n">RecordID</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..surrealql</span><span class="w"> </span><span class="kn">import</span> <span class="n">escape_literal</span>
+
+<span class="c1"># Set up logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="QuerySet">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">QuerySet</span><span class="p">(</span><span class="n">BaseQuerySet</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Query builder for SurrealDB.</span>
+
+<span class="sd">    This class provides a query builder for document classes with a predefined schema.</span>
+<span class="sd">    It extends BaseQuerySet to provide methods for querying and manipulating</span>
+<span class="sd">    documents of a specific document class.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        document_class: The document class to query</span>
+<span class="sd">        connection: The database connection to use for queries</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="QuerySet.__init__">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">document_class</span><span class="p">:</span> <span class="n">Type</span><span class="p">,</span> <span class="n">connection</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a new QuerySet.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            document_class: The document class to query</span>
+<span class="sd">            connection: The database connection to use for queries</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">connection</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span> <span class="o">=</span> <span class="n">document_class</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.traverse">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.traverse">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">traverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">max_depth</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">unique</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;QuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Configure a graph traversal for this query.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            path: Arrow path segment(s), e.g. &quot;-&gt;likes-&gt;user&quot; or &quot;&lt;-follows&quot;.</span>
+<span class="sd">            max_depth: Optional bound for depth. For simple single-edge paths we</span>
+<span class="sd">                will repeat the path up to max_depth. For complex paths this is</span>
+<span class="sd">                ignored and the path is used as-is. This is a pragmatic workaround</span>
+<span class="sd">                until SurrealQL exposes native depth quantifiers in arrow paths.</span>
+<span class="sd">            unique: When True, deduplicate results via GROUP BY id to avoid duplicate rows.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A cloned QuerySet configured with traversal.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">clone</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
+        <span class="c1"># Store as-is; _build_query applies simple bounded expansion</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">_traversal_path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">_traversal_unique</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">unique</span><span class="p">)</span>
+        <span class="n">clone</span><span class="o">.</span><span class="n">_traversal_max_depth</span> <span class="o">=</span> <span class="n">max_depth</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">max_depth</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">max_depth</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">clone</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.shortest_path">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.shortest_path">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shortest_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">RecordID</span><span class="p">],</span> <span class="n">dst</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">RecordID</span><span class="p">],</span> <span class="n">edge</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;QuerySet&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Helper for shortest path queries (if supported by SurrealDB).</span>
+
+<span class="sd">        Note: As of now, SurrealDB does not expose a stable built-in shortest path</span>
+<span class="sd">        function in SurrealQL. This method prepares a placeholder raw condition to</span>
+<span class="sd">        document the limitation. If SurrealDB adds support, this can be updated</span>
+<span class="sd">        to emit the proper function call.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Currently not supported - we document limitation by raising</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Shortest path is not supported via SurrealQL in this version. Track SurrealDB updates for native support.&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="QuerySet.live">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.live">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">live</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                  <span class="n">where</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Q&quot;</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="n">action</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="o">*</span><span class="p">,</span>
+                  <span class="n">retry_limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+                  <span class="n">initial_delay</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+                  <span class="n">backoff</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Subscribe to changes on this table via LIVE queries as an async generator.</span>
+
+<span class="sd">        This method provides real-time updates for table changes using SurrealDB&#39;s LIVE</span>
+<span class="sd">        query functionality. It returns LiveEvent objects for each change (CREATE, UPDATE,</span>
+<span class="sd">        DELETE) that occurs on the table.</span>
+
+<span class="sd">        The underlying implementation uses the surrealdb Async client (websocket). If the</span>
+<span class="sd">        current connection uses a connection pool client which does not support LIVE, a</span>
+<span class="sd">        NotImplementedError is raised.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            where: Optional filter (Q or dict) applied client-side to incoming events.</span>
+<span class="sd">                   Only events matching this filter will be yielded.</span>
+<span class="sd">            action: Optional action filter (&#39;CREATE&#39;, &#39;UPDATE&#39;, &#39;DELETE&#39;) or list of actions.</span>
+<span class="sd">                   Use this to subscribe to specific event types only.</span>
+<span class="sd">            retry_limit: Number of times to retry subscription on transient errors (default: 3).</span>
+<span class="sd">            initial_delay: Initial backoff delay in seconds (default: 0.5).</span>
+<span class="sd">            backoff: Multiplier for exponential backoff (default: 2.0).</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            LiveEvent: Typed event objects with the following attributes:</span>
+<span class="sd">                - action: Event type (CREATE, UPDATE, DELETE)</span>
+<span class="sd">                - data: Dictionary containing the document fields</span>
+<span class="sd">                - ts: Optional timestamp of the event</span>
+<span class="sd">                - id: Optional RecordID of the affected document</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NotImplementedError: If the active connection does not support LIVE queries</span>
+<span class="sd">                                (e.g., when using connection pooling).</span>
+
+<span class="sd">        Example::</span>
+
+<span class="sd">            # Subscribe to all user creation events</span>
+<span class="sd">            async for evt in User.objects.live(action=&quot;CREATE&quot;):</span>
+<span class="sd">                print(f&quot;New user: {evt.id}&quot;)</span>
+<span class="sd">                print(f&quot;Data: {evt.data}&quot;)</span>
+
+<span class="sd">            # Filter for specific conditions</span>
+<span class="sd">            async for evt in User.objects.live(where={&quot;status&quot;: &quot;active&quot;}, action=[&quot;CREATE&quot;, &quot;UPDATE&quot;]):</span>
+<span class="sd">                if evt.is_create:</span>
+<span class="sd">                    print(f&quot;Active user created: {evt.id}&quot;)</span>
+<span class="sd">                elif evt.is_update:</span>
+<span class="sd">                    print(f&quot;Active user updated: {evt.id}&quot;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Import LiveEvent locally to avoid circular imports during module load</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">..events</span><span class="w"> </span><span class="kn">import</span> <span class="n">LiveEvent</span>
+        
+        <span class="c1"># Normalize action filter</span>
+        <span class="n">allowed_actions</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">action</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">allowed_actions</span> <span class="o">=</span> <span class="p">{</span><span class="n">action</span><span class="o">.</span><span class="n">upper</span><span class="p">()}</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">set</span><span class="p">)):</span>
+                <span class="n">allowed_actions</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">action</span><span class="p">}</span>
+
+        <span class="c1"># Ensure async client and availability of live API</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="p">,</span> <span class="s1">&#39;client&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">client</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s1">&#39;live&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s1">&#39;subscribe_live&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s1">&#39;kill&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;LIVE queries require an async websocket client; connection pooling is not supported for LIVE in this version.&quot;</span><span class="p">)</span>
+
+        <span class="n">table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+
+        <span class="c1"># Prepare optional predicate for client-side filtering</span>
+        <span class="n">predicate</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">where</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="kn">from</span><span class="w"> </span><span class="nn">..query_expressions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Q</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">where</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                    <span class="n">q</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="o">**</span><span class="n">where</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">where</span><span class="p">,</span> <span class="n">Q</span><span class="p">):</span>
+                    <span class="n">q</span> <span class="o">=</span> <span class="n">where</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;where must be a Q or dict&quot;</span><span class="p">)</span>
+
+                <span class="c1"># Build a simple predicate using Q.to_conditions semantics</span>
+                <span class="n">conditions</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">to_conditions</span><span class="p">()</span>
+                <span class="k">def</span><span class="w"> </span><span class="nf">_eval</span><span class="p">(</span><span class="n">record</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">conditions</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">field</span> <span class="o">==</span> <span class="s1">&#39;__raw__&#39;</span><span class="p">:</span>
+                            <span class="c1"># raw cannot be evaluated here; accept all</span>
+                            <span class="k">continue</span>
+                        <span class="n">lhs</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;=&#39;</span> <span class="ow">and</span> <span class="n">lhs</span> <span class="o">!=</span> <span class="n">value</span><span class="p">:</span>
+                            <span class="k">return</span> <span class="kc">False</span>
+                        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;!=&#39;</span> <span class="ow">and</span> <span class="n">lhs</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+                            <span class="k">return</span> <span class="kc">False</span>
+                        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;&gt;&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">lhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lhs</span> <span class="o">&gt;</span> <span class="n">value</span><span class="p">):</span>
+                            <span class="k">return</span> <span class="kc">False</span>
+                        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;&lt;&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">lhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lhs</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">):</span>
+                            <span class="k">return</span> <span class="kc">False</span>
+                        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;&gt;=&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">lhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lhs</span> <span class="o">&gt;=</span> <span class="n">value</span><span class="p">):</span>
+                            <span class="k">return</span> <span class="kc">False</span>
+                        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;&lt;=&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">lhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lhs</span> <span class="o">&lt;=</span> <span class="n">value</span><span class="p">):</span>
+                            <span class="k">return</span> <span class="kc">False</span>
+                        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;INSIDE&#39;</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">set</span><span class="p">))</span> <span class="ow">and</span> <span class="n">lhs</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+                            <span class="k">return</span> <span class="kc">False</span>
+                        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;NOT INSIDE&#39;</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">set</span><span class="p">))</span> <span class="ow">and</span> <span class="n">lhs</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+                            <span class="k">return</span> <span class="kc">False</span>
+                        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;CONTAINS&#39;</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                                <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lhs</span><span class="p">:</span>
+                                    <span class="k">return</span> <span class="kc">False</span>
+                            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">set</span><span class="p">)):</span>
+                                <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lhs</span><span class="p">:</span>
+                                    <span class="k">return</span> <span class="kc">False</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="k">return</span> <span class="kc">False</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="n">predicate</span> <span class="o">=</span> <span class="n">_eval</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="c1"># If anything goes wrong, fallback to no filtering</span>
+                <span class="n">predicate</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+        <span class="n">attempt</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">delay</span> <span class="o">=</span> <span class="n">initial_delay</span>
+
+        <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_start_live</span><span class="p">():</span>
+            <span class="c1"># returns (uuid, agen or full queue consumer)</span>
+            <span class="n">qid</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">live</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+            <span class="c1"># Try to access underlying connection live_queues to get full event payloads</span>
+            <span class="n">candidate_attrs</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="s1">&#39;_connection&#39;</span><span class="p">,</span> <span class="s1">&#39;conn&#39;</span><span class="p">,</span> <span class="s1">&#39;_conn&#39;</span><span class="p">,</span> <span class="s1">&#39;ws&#39;</span>
+            <span class="p">)</span>
+            <span class="n">under</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">candidate_attrs</span><span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;live_queues&#39;</span><span class="p">):</span>
+                    <span class="n">under</span> <span class="o">=</span> <span class="n">obj</span>
+                    <span class="k">break</span>
+            <span class="c1"># Some SDK variants may expose live_queues on the client itself</span>
+            <span class="k">if</span> <span class="n">under</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s1">&#39;live_queues&#39;</span><span class="p">):</span>
+                <span class="n">under</span> <span class="o">=</span> <span class="n">client</span>  <span class="c1"># type: ignore</span>
+            <span class="k">if</span> <span class="n">under</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">under</span><span class="p">,</span> <span class="s1">&#39;live_queues&#39;</span><span class="p">):</span>
+                <span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_asyncio</span>
+                <span class="n">full_queue</span><span class="p">:</span> <span class="n">_asyncio</span><span class="o">.</span><span class="n">Queue</span> <span class="o">=</span> <span class="n">_asyncio</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
+                <span class="n">under</span><span class="o">.</span><span class="n">live_queues</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">qid</span><span class="p">)]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">full_queue</span><span class="p">)</span>
+                <span class="c1"># Log limited client attributes for diagnosis at debug level</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">attrs</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">client</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;live&#39;</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;conn&#39;</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">())]</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Client attributes (filtered): </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">return</span> <span class="n">qid</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;queue&#39;</span><span class="p">,</span> <span class="n">full_queue</span><span class="p">,</span> <span class="n">under</span><span class="p">)</span>
+            <span class="c1"># Fallback to SDK generator which yields only the inner &#39;result&#39;</span>
+            <span class="n">agen</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">subscribe_live</span><span class="p">(</span><span class="n">qid</span><span class="p">)</span>
+            <span class="c1"># Log limited client attributes for diagnosis at debug level</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">attrs</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">client</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;live&#39;</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s1">&#39;conn&#39;</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">())]</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Client attributes (filtered): </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">return</span> <span class="n">qid</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;agen&#39;</span><span class="p">,</span> <span class="n">agen</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="n">qid</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">agen</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">extra</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">agen</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">qid</span><span class="p">,</span> <span class="n">packed</span> <span class="o">=</span> <span class="k">await</span> <span class="n">_start_live</span><span class="p">()</span>
+                        <span class="n">kind</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">under</span> <span class="o">=</span> <span class="n">packed</span>
+                        <span class="n">agen</span> <span class="o">=</span> <span class="p">(</span><span class="n">kind</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
+                        <span class="n">extra</span> <span class="o">=</span> <span class="n">under</span>
+                        <span class="n">attempt</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="n">delay</span> <span class="o">=</span> <span class="n">initial_delay</span>
+                    <span class="n">kind</span><span class="p">,</span> <span class="n">source</span> <span class="o">=</span> <span class="n">agen</span>
+                    <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;queue&#39;</span><span class="p">:</span>
+                        <span class="c1"># Consume full payloads with action/time/result</span>
+                        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                            <span class="n">msg</span> <span class="o">=</span> <span class="k">await</span> <span class="n">source</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+                            <span class="c1"># Log full live envelope at debug level to help locate fields</span>
+                            <span class="k">try</span><span class="p">:</span>
+                                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Live envelope: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+                            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                                <span class="k">pass</span>
+                            
+                            <span class="n">action_str</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;action&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;event&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;UNKNOWN&#39;</span>
+                            <span class="n">action_upper</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">action_str</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+                            
+                            <span class="c1"># Filter by action if requested</span>
+                            <span class="k">if</span> <span class="n">allowed_actions</span> <span class="ow">and</span> <span class="n">action_upper</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allowed_actions</span><span class="p">:</span>
+                                <span class="k">continue</span>
+                                
+                            <span class="n">data</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;record&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">msg</span>
+                            <span class="n">ts</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ts&#39;</span><span class="p">)</span>
+                            
+                            <span class="k">if</span> <span class="n">predicate</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">predicate</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+                                <span class="c1"># Parse timestamp if possible</span>
+                                <span class="n">ts_val</span> <span class="o">=</span> <span class="n">ts</span>
+                                
+                                <span class="c1"># Convert ID to RecordID if possible</span>
+                                <span class="n">id_val</span> <span class="o">=</span> <span class="kc">None</span>
+                                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;id&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                                    <span class="k">try</span><span class="p">:</span>
+                                        <span class="n">id_val</span> <span class="o">=</span> <span class="n">RecordID</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]))</span>
+                                    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                                        <span class="k">pass</span>
+                                
+                                <span class="k">yield</span> <span class="n">LiveEvent</span><span class="p">(</span>
+                                    <span class="n">action</span><span class="o">=</span><span class="n">action_upper</span><span class="p">,</span>
+                                    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                                    <span class="n">ts</span><span class="o">=</span><span class="n">ts_val</span><span class="p">,</span>
+                                    <span class="nb">id</span><span class="o">=</span><span class="n">id_val</span>
+                                <span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># agen path: yields only inner result; no metadata available</span>
+                        <span class="k">async</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
+                            <span class="c1"># Log inner message yielded by SDK subscribe_live at debug level</span>
+                            <span class="k">try</span><span class="p">:</span>
+                                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Live inner message: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+                            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                                <span class="k">pass</span>
+                            <span class="n">data</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;record&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">msg</span>
+                            <span class="c1"># Heuristic: if payload has only &#39;id&#39;, treat as DELETE; else as UPSERT (CREATE/UPDATE)</span>
+                            <span class="n">inferred_action</span> <span class="o">=</span> <span class="s1">&#39;UNKNOWN&#39;</span>
+                            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                                <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+                                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span>
+                                    <span class="n">inferred_action</span> <span class="o">=</span> <span class="s1">&#39;DELETE&#39;</span>
+                                <span class="k">else</span><span class="p">:</span>
+                                    <span class="n">inferred_action</span> <span class="o">=</span> <span class="s1">&#39;UPSERT&#39;</span>
+                            
+                            <span class="c1"># Filter by action if requested</span>
+                            <span class="k">if</span> <span class="n">allowed_actions</span><span class="p">:</span>
+                                <span class="c1"># Start with inferred action match</span>
+                                <span class="n">match</span> <span class="o">=</span> <span class="kc">False</span>
+                                <span class="k">if</span> <span class="n">inferred_action</span> <span class="ow">in</span> <span class="n">allowed_actions</span><span class="p">:</span>
+                                    <span class="n">match</span> <span class="o">=</span> <span class="kc">True</span>
+                                <span class="c1"># If allowed contains CREATE or UPDATE and we have UPSERT, allow it</span>
+                                <span class="k">elif</span> <span class="n">inferred_action</span> <span class="o">==</span> <span class="s1">&#39;UPSERT&#39;</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;CREATE&#39;</span> <span class="ow">in</span> <span class="n">allowed_actions</span> <span class="ow">or</span> <span class="s1">&#39;UPDATE&#39;</span> <span class="ow">in</span> <span class="n">allowed_actions</span><span class="p">):</span>
+                                    <span class="n">match</span> <span class="o">=</span> <span class="kc">True</span>
+                                
+                                <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+                                    <span class="k">continue</span>
+                                    
+                            <span class="k">if</span> <span class="n">predicate</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">predicate</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+                                <span class="c1"># Convert ID to RecordID if possible</span>
+                                <span class="n">id_val</span> <span class="o">=</span> <span class="kc">None</span>
+                                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;id&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                                    <span class="k">try</span><span class="p">:</span>
+                                        <span class="n">id_val</span> <span class="o">=</span> <span class="n">RecordID</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]))</span>
+                                    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                                        <span class="k">pass</span>
+                                        
+                                <span class="k">yield</span> <span class="n">LiveEvent</span><span class="p">(</span>
+                                    <span class="n">action</span><span class="o">=</span><span class="n">inferred_action</span><span class="p">,</span>
+                                    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                                    <span class="n">ts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                    <span class="nb">id</span><span class="o">=</span><span class="n">id_val</span>
+                                <span class="p">)</span>
+                    <span class="c1"># If loop exits, restart</span>
+                    <span class="c1"># If loop exits, restart</span>
+                    <span class="n">agen</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">except</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">CancelledError</span><span class="p">:</span>
+                    <span class="c1"># Graceful cancellation; cleanup below</span>
+                    <span class="k">raise</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="n">attempt</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">attempt</span> <span class="o">&gt;</span> <span class="n">retry_limit</span><span class="p">:</span>
+                        <span class="k">raise</span>
+                    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+                    <span class="n">delay</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">delay</span> <span class="o">*</span> <span class="n">backoff</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">)</span>
+                    <span class="c1"># cleanup old subscription</span>
+                    <span class="k">if</span> <span class="n">qid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">kill</span><span class="p">(</span><span class="n">qid</span><span class="p">)</span>
+                        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                            <span class="k">pass</span>
+                    <span class="c1"># If we registered our own queue, try to remove it</span>
+                    <span class="k">if</span> <span class="n">extra</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">extra</span><span class="p">,</span> <span class="s1">&#39;live_queues&#39;</span><span class="p">):</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">lst</span> <span class="o">=</span> <span class="n">extra</span><span class="o">.</span><span class="n">live_queues</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">qid</span><span class="p">))</span> <span class="ow">or</span> <span class="p">[]</span>
+                            <span class="c1"># remove any queue instances we might have appended</span>
+                            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">lst</span><span class="p">)):</span>
+                                <span class="c1"># best-effort removal; identity check is fine</span>
+                                <span class="k">pass</span>
+                        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                            <span class="k">pass</span>
+                    <span class="n">agen</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="n">qid</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="c1"># Ensure live query is killed and detach queue if used</span>
+            <span class="k">if</span> <span class="n">qid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">kill</span><span class="p">(</span><span class="n">qid</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="QuerySet.join">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.join">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">join</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_fields</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">dereference</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">dereference_depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform a JOIN-like operation on a reference field using FETCH.</span>
+
+<span class="sd">        This method performs a JOIN-like operation on a reference field by using</span>
+<span class="sd">        SurrealDB&#39;s FETCH clause to efficiently resolve references in a single query.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field_name: The name of the reference field to join on</span>
+<span class="sd">            target_fields: Optional list of fields to select from the target document</span>
+<span class="sd">            dereference: Whether to dereference references in the joined documents (default: True)</span>
+<span class="sd">            dereference_depth: Maximum depth of reference resolution (default: 1)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of documents with joined data</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If the field is not a ReferenceField</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Ensure field_name is a ReferenceField</span>
+        <span class="n">field</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_fields</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">field</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">ReferenceField</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> is not a ReferenceField&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">dereference</span><span class="p">:</span>
+            <span class="c1"># If no dereferencing needed, just return regular results</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+        <span class="c1"># Use FETCH to join in a single query</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
+        <span class="n">queryset</span><span class="o">.</span><span class="n">fetch_fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">field_name</span><span class="p">)</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">documents</span> <span class="o">=</span> <span class="k">await</span> <span class="n">queryset</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+            
+            <span class="c1"># If dereference_depth &gt; 1, recursively resolve deeper references</span>
+            <span class="k">if</span> <span class="n">dereference_depth</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">:</span>
+                    <span class="n">referenced_doc</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">field_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">referenced_doc</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">referenced_doc</span><span class="p">,</span> <span class="s1">&#39;resolve_references&#39;</span><span class="p">):</span>
+                        <span class="k">await</span> <span class="n">referenced_doc</span><span class="o">.</span><span class="n">resolve_references</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="n">dereference_depth</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            
+            <span class="k">return</span> <span class="n">documents</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="c1"># Fall back to manual resolution if FETCH fails</span>
+            <span class="n">documents</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+            <span class="n">target_document_class</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">document_type</span>
+
+            <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">field_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                    <span class="n">ref_value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">field_name</span><span class="p">)</span>
+                    <span class="n">ref_id</span> <span class="o">=</span> <span class="kc">None</span>
+
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ref_value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;:&#39;</span> <span class="ow">in</span> <span class="n">ref_value</span><span class="p">:</span>
+                        <span class="n">ref_id</span> <span class="o">=</span> <span class="n">ref_value</span>
+                    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">ref_value</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">):</span>
+                        <span class="n">ref_id</span> <span class="o">=</span> <span class="n">ref_value</span><span class="o">.</span><span class="n">id</span>
+
+                    <span class="k">if</span> <span class="n">ref_id</span><span class="p">:</span>
+                        <span class="n">referenced_doc</span> <span class="o">=</span> <span class="k">await</span> <span class="n">target_document_class</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">ref_id</span><span class="p">,</span> <span class="n">dereference</span><span class="o">=</span><span class="n">dereference</span><span class="p">,</span> <span class="n">dereference_depth</span><span class="o">=</span><span class="n">dereference_depth</span><span class="p">)</span>
+                        <span class="nb">setattr</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">referenced_doc</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">documents</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.join_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.join_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">join_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_fields</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">dereference</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">dereference_depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform a JOIN-like operation on a reference field synchronously using FETCH.</span>
+
+<span class="sd">        This method performs a JOIN-like operation on a reference field by using</span>
+<span class="sd">        SurrealDB&#39;s FETCH clause to efficiently resolve references in a single query.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            field_name: The name of the reference field to join on</span>
+<span class="sd">            target_fields: Optional list of fields to select from the target document</span>
+<span class="sd">            dereference: Whether to dereference references in the joined documents (default: True)</span>
+<span class="sd">            dereference_depth: Maximum depth of reference resolution (default: 1)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of documents with joined data</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If the field is not a ReferenceField</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Ensure field_name is a ReferenceField</span>
+        <span class="n">field</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_fields</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">field</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">ReferenceField</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> is not a ReferenceField&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">dereference</span><span class="p">:</span>
+            <span class="c1"># If no dereferencing needed, just return regular results</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_sync</span><span class="p">()</span>
+
+        <span class="c1"># Use FETCH to join in a single query</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
+        <span class="n">queryset</span><span class="o">.</span><span class="n">fetch_fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">field_name</span><span class="p">)</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">documents</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">all_sync</span><span class="p">()</span>
+            
+            <span class="c1"># If dereference_depth &gt; 1, recursively resolve deeper references</span>
+            <span class="k">if</span> <span class="n">dereference_depth</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">:</span>
+                    <span class="n">referenced_doc</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">field_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">referenced_doc</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">referenced_doc</span><span class="p">,</span> <span class="s1">&#39;resolve_references_sync&#39;</span><span class="p">):</span>
+                        <span class="n">referenced_doc</span><span class="o">.</span><span class="n">resolve_references_sync</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="n">dereference_depth</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            
+            <span class="k">return</span> <span class="n">documents</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="c1"># Fall back to manual resolution if FETCH fails</span>
+            <span class="n">documents</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_sync</span><span class="p">()</span>
+            <span class="n">target_document_class</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">document_type</span>
+
+            <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">documents</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">field_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                    <span class="n">ref_value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">field_name</span><span class="p">)</span>
+                    <span class="n">ref_id</span> <span class="o">=</span> <span class="kc">None</span>
+
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ref_value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;:&#39;</span> <span class="ow">in</span> <span class="n">ref_value</span><span class="p">:</span>
+                        <span class="n">ref_id</span> <span class="o">=</span> <span class="n">ref_value</span>
+                    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">ref_value</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">):</span>
+                        <span class="n">ref_id</span> <span class="o">=</span> <span class="n">ref_value</span><span class="o">.</span><span class="n">id</span>
+
+                    <span class="k">if</span> <span class="n">ref_id</span><span class="p">:</span>
+                        <span class="n">referenced_doc</span> <span class="o">=</span> <span class="n">target_document_class</span><span class="o">.</span><span class="n">get_sync</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">ref_id</span><span class="p">,</span> <span class="n">dereference</span><span class="o">=</span><span class="n">dereference</span><span class="p">,</span> <span class="n">dereference_depth</span><span class="o">=</span><span class="n">dereference_depth</span><span class="p">)</span>
+                        <span class="nb">setattr</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">referenced_doc</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">documents</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_build_query</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build the query string with performance optimizations.</span>
+
+<span class="sd">        This method builds the query string for the document class query.</span>
+<span class="sd">        It automatically uses optimized direct record access when possible.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The optimized query string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Try to build optimized direct record access query first</span>
+        <span class="n">optimized_query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_direct_record_query</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">optimized_query</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">optimized_query</span>
+        
+        <span class="c1"># Fall back to regular query building</span>
+        <span class="c1"># SurrealQL does not support SQL-style SELECT DISTINCT for full rows.</span>
+        <span class="c1"># When traversal uniqueness is requested, we will deduplicate by grouping on id.</span>
+        <span class="n">from_part</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+
+        <span class="c1"># If traversal is configured, render it in the SELECT projection, not in FROM</span>
+        <span class="n">traversal</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_traversal_path&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">traversal</span><span class="p">:</span>
+            <span class="n">max_depth</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_traversal_max_depth&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">max_depth</span> <span class="ow">and</span> <span class="n">max_depth</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">simple</span> <span class="o">=</span> <span class="n">traversal</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">simple</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">simple</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;&lt;-&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">&quot; &quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">simple</span><span class="p">):</span>
+                    <span class="n">traversal_to_use</span> <span class="o">=</span> <span class="n">simple</span> <span class="o">*</span> <span class="n">max_depth</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">traversal_to_use</span> <span class="o">=</span> <span class="n">simple</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">traversal_to_use</span> <span class="o">=</span> <span class="n">traversal</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">select_keyword</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT </span><span class="si">{</span><span class="n">traversal_to_use</span><span class="si">}</span><span class="s2"> AS traversed&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_fields</span><span class="p">:</span>
+            <span class="n">select_keyword</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">select_fields</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">select_keyword</span> <span class="o">=</span> <span class="s2">&quot;SELECT *&quot;</span>
+
+        <span class="c1"># Build OMIT clause</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">omit_fields</span><span class="p">:</span>
+            <span class="n">select_keyword</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; OMIT </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">omit_fields</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+
+        <span class="n">select_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">select_keyword</span><span class="si">}</span><span class="s2"> FROM </span><span class="si">{</span><span class="n">from_part</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_parts</span><span class="p">:</span>
+            <span class="n">conditions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_conditions</span><span class="p">()</span>
+            <span class="n">select_query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; WHERE </span><span class="si">{</span><span class="s1">&#39; AND &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conditions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        
+
+
+        <span class="c1"># Add other clauses from _build_clauses</span>
+        <span class="n">clauses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_clauses</span><span class="p">()</span>
+
+
+        <span class="c1"># Note: GROUP BY id for traversal deduplication can change result shapes in SurrealDB.</span>
+        <span class="c1"># To keep traversal results straightforward, we do not auto-inject GROUP BY here.</span>
+
+        <span class="k">for</span> <span class="n">clause_name</span><span class="p">,</span> <span class="n">clause_sql</span> <span class="ow">in</span> <span class="n">clauses</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">clause_name</span> <span class="o">!=</span> <span class="s1">&#39;WHERE&#39;</span><span class="p">:</span>  <span class="c1"># WHERE clause is already handled</span>
+                <span class="n">select_query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">clause_sql</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">return</span> <span class="n">select_query</span>
+
+<div class="viewcode-block" id="QuerySet.all">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.all">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dereference</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute the query and return all results asynchronously.</span>
+
+<span class="sd">        This method builds and executes the query, then converts the results</span>
+<span class="sd">        to instances of the document class.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dereference: Whether to dereference references (default: False)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of document instances</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_query</span><span class="p">()</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">results</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="c1"># Extract rows: handle both single SELECT (list[dict]) and multi-statement (list[resultset])</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">results</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">rows</span> <span class="o">=</span> <span class="n">results</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">part</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                        <span class="n">rows</span> <span class="o">=</span> <span class="n">part</span>
+                        <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rows</span> <span class="o">=</span> <span class="n">results</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">rows</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">rows</span><span class="p">]</span>
+
+        <span class="c1"># If this is a traversal query, return raw rows (shape may not match document schema)</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_traversal_path&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">rows</span>
+
+        <span class="n">is_partial</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_fields</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="n">processed_results</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">dereference</span><span class="o">=</span><span class="n">dereference</span><span class="p">,</span> <span class="n">partial</span><span class="o">=</span><span class="n">is_partial</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">processed_results</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.all_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.all_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">all_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dereference</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Execute the query and return all results synchronously.</span>
+
+<span class="sd">        This method builds and executes the query, then converts the results</span>
+<span class="sd">        to instances of the document class.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dereference: Whether to dereference references (default: False)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of document instances</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_query</span><span class="p">()</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">results</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="c1"># Extract rows: handle both single SELECT (list[dict]) and multi-statement (list[resultset])</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">results</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">rows</span> <span class="o">=</span> <span class="n">results</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">part</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                        <span class="n">rows</span> <span class="o">=</span> <span class="n">part</span>
+                        <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rows</span> <span class="o">=</span> <span class="n">results</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">rows</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">rows</span><span class="p">]</span>
+
+        <span class="c1"># If this is a traversal query, return raw rows (shape may not match document schema)</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_traversal_path&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">rows</span>
+
+        <span class="n">is_partial</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_fields</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="n">processed_results</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">dereference</span><span class="o">=</span><span class="n">dereference</span><span class="p">,</span> <span class="n">partial</span><span class="o">=</span><span class="n">is_partial</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">processed_results</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.count">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.count">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Count documents matching the query asynchronously.</span>
+
+<span class="sd">        This method builds and executes a count query to count the number</span>
+<span class="sd">        of documents matching the query.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Number of matching documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">count_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT count() FROM </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_parts</span><span class="p">:</span>
+            <span class="n">conditions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_conditions</span><span class="p">()</span>
+            <span class="n">count_query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; WHERE </span><span class="si">{</span><span class="s1">&#39; AND &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conditions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">count_query</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.count_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.count_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Count documents matching the query synchronously.</span>
+
+<span class="sd">        This method builds and executes a count query to count the number</span>
+<span class="sd">        of documents matching the query.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Number of matching documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">count_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT count() FROM </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_parts</span><span class="p">:</span>
+            <span class="n">conditions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_conditions</span><span class="p">()</span>
+            <span class="n">count_query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; WHERE </span><span class="si">{</span><span class="s1">&#39; AND &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conditions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">count_query</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.get">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.get">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dereference</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a single document matching the query asynchronously.</span>
+
+<span class="sd">        This method applies filters and ensures that exactly one document is returned.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dereference: Whether to dereference references (default: False)</span>
+<span class="sd">            **kwargs: Field names and values to filter by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The matching document</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            DoesNotExist: If no matching document is found</span>
+<span class="sd">            MultipleObjectsReturned: If multiple matching documents are found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">queryset</span><span class="o">.</span><span class="n">limit_value</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Get 2 to check for multiple</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">queryset</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">dereference</span><span class="o">=</span><span class="n">dereference</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">results</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DoesNotExist</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> matching query does not exist.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MultipleObjectsReturned</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Multiple </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> objects returned instead of one&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.get_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.get_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dereference</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get a single document matching the query synchronously.</span>
+
+<span class="sd">        This method applies filters and ensures that exactly one document is returned.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dereference: Whether to dereference references (default: False)</span>
+<span class="sd">            **kwargs: Field names and values to filter by</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The matching document</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            DoesNotExist: If no matching document is found</span>
+<span class="sd">            MultipleObjectsReturned: If multiple matching documents are found</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">queryset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">queryset</span><span class="o">.</span><span class="n">limit_value</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Get 2 to check for multiple</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">queryset</span><span class="o">.</span><span class="n">all_sync</span><span class="p">(</span><span class="n">dereference</span><span class="o">=</span><span class="n">dereference</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">results</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DoesNotExist</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> matching query does not exist.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MultipleObjectsReturned</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Multiple </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> objects returned instead of one&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.create">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.create">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a new document asynchronously.</span>
+
+<span class="sd">        This method creates a new document with the given field values.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Field names and values for the new document</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The created document</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">document</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">document</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.create_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.create_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a new document synchronously.</span>
+
+<span class="sd">        This method creates a new document with the given field values.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Field names and values for the new document</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The created document</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">document</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">document</span><span class="o">.</span><span class="n">save_sync</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.update">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.update">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">returning</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update documents matching the query asynchronously with performance optimizations.</span>
+
+<span class="sd">        This method updates documents matching the query with the given field values.</span>
+<span class="sd">        Uses direct record access for bulk ID operations for better performance.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Field names and values to update</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of updated documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># PERFORMANCE OPTIMIZATION: Use direct record access for bulk operations</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bulk_id_selection</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id_range_selection</span><span class="p">:</span>
+            <span class="c1"># For bulk operations, use subquery with direct record access for better performance</span>
+            <span class="n">optimized_query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_direct_record_query</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">optimized_query</span><span class="p">:</span>
+                <span class="c1"># Convert SELECT to subquery for UPDATE</span>
+                <span class="n">subquery</span> <span class="o">=</span> <span class="n">optimized_query</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;SELECT *&quot;</span><span class="p">,</span> <span class="s2">&quot;SELECT id&quot;</span><span class="p">)</span>
+                <span class="n">update_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;UPDATE (</span><span class="si">{</span><span class="n">subquery</span><span class="si">}</span><span class="s2">) SET </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">if</span> <span class="n">returning</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;before&quot;</span><span class="p">,</span> <span class="s2">&quot;after&quot;</span><span class="p">,</span> <span class="s2">&quot;diff&quot;</span><span class="p">):</span>
+                    <span class="n">update_query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; RETURN </span><span class="si">{</span><span class="n">returning</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                
+                <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">update_query</span><span class="p">)</span>
+                
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="p">[]</span>
+                
+                <span class="c1"># Handle different result structures</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+                    <span class="c1"># Subquery UPDATE case: result is a flat list of documents</span>
+                    <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">result</span><span class="p">]</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+                    <span class="c1"># Normal case: result[0] is a list of document dictionaries</span>
+                    <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="p">[]</span>
+        
+        <span class="c1"># Fall back to regular update query</span>
+        <span class="n">update_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;UPDATE </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_parts</span><span class="p">:</span>
+            <span class="n">conditions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_conditions</span><span class="p">()</span>
+            <span class="n">update_query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; WHERE </span><span class="si">{</span><span class="s1">&#39; AND &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conditions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="n">update_query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; SET </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="n">returning</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;before&quot;</span><span class="p">,</span> <span class="s2">&quot;after&quot;</span><span class="p">,</span> <span class="s2">&quot;diff&quot;</span><span class="p">):</span>
+            <span class="n">update_query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; RETURN </span><span class="si">{</span><span class="n">returning</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">update_query</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.update_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.update_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">returning</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update documents matching the query synchronously with performance optimizations.</span>
+
+<span class="sd">        This method updates documents matching the query with the given field values.</span>
+<span class="sd">        Uses direct record access for bulk ID operations for better performance.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            **kwargs: Field names and values to update</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of updated documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># PERFORMANCE OPTIMIZATION: Use direct record access for bulk operations</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bulk_id_selection</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id_range_selection</span><span class="p">:</span>
+            <span class="c1"># For bulk operations, use subquery with direct record access for better performance</span>
+            <span class="n">optimized_query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_direct_record_query</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">optimized_query</span><span class="p">:</span>
+                <span class="c1"># Convert SELECT to subquery for UPDATE</span>
+                <span class="n">subquery</span> <span class="o">=</span> <span class="n">optimized_query</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;SELECT *&quot;</span><span class="p">,</span> <span class="s2">&quot;SELECT id&quot;</span><span class="p">)</span>
+                <span class="n">update_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;UPDATE (</span><span class="si">{</span><span class="n">subquery</span><span class="si">}</span><span class="s2">) SET </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">if</span> <span class="n">returning</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;before&quot;</span><span class="p">,</span> <span class="s2">&quot;after&quot;</span><span class="p">,</span> <span class="s2">&quot;diff&quot;</span><span class="p">):</span>
+                    <span class="n">update_query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; RETURN </span><span class="si">{</span><span class="n">returning</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+                
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">update_query</span><span class="p">)</span>
+                
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="p">[]</span>
+                
+                <span class="c1"># Handle different result structures</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+                    <span class="c1"># Subquery UPDATE case: result is a flat list of documents</span>
+                    <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">result</span><span class="p">]</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+                    <span class="c1"># Normal case: result[0] is a list of document dictionaries</span>
+                    <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="p">[]</span>
+        
+        <span class="c1"># Fall back to regular update query</span>
+        <span class="n">update_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;UPDATE </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_parts</span><span class="p">:</span>
+            <span class="n">conditions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_conditions</span><span class="p">()</span>
+            <span class="n">update_query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; WHERE </span><span class="si">{</span><span class="s1">&#39; AND &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conditions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="n">update_query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; SET </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">update_query</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.delete">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.delete">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Delete documents matching the query asynchronously with performance optimizations.</span>
+
+<span class="sd">        This method deletes documents matching the query.</span>
+<span class="sd">        Uses direct record access for bulk ID operations for better performance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Number of deleted documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># PERFORMANCE OPTIMIZATION: Use direct record access for bulk operations</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bulk_id_selection</span><span class="p">:</span>
+            <span class="c1"># Use direct record deletion syntax for bulk ID operations</span>
+            <span class="n">record_ids</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_format_record_id</span><span class="p">(</span><span class="n">id_val</span><span class="p">)</span> <span class="k">for</span> <span class="n">id_val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bulk_id_selection</span><span class="p">]</span>
+            <span class="n">delete_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;DELETE </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">record_ids</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            
+            <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">delete_query</span><span class="p">)</span>
+            <span class="c1"># Direct record deletion returns empty list on success</span>
+            <span class="c1"># Return the count of IDs we attempted to delete</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">record_ids</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id_range_selection</span><span class="p">:</span>
+            <span class="c1"># For range operations, use optimized query with subquery</span>
+            <span class="n">optimized_query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_direct_record_query</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">optimized_query</span><span class="p">:</span>
+                <span class="c1"># Convert SELECT to subquery for DELETE</span>
+                <span class="n">subquery</span> <span class="o">=</span> <span class="n">optimized_query</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;SELECT *&quot;</span><span class="p">,</span> <span class="s2">&quot;SELECT id&quot;</span><span class="p">)</span>
+                <span class="n">delete_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;DELETE (</span><span class="si">{</span><span class="n">subquery</span><span class="si">}</span><span class="s2">)&quot;</span>
+                
+                <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">delete_query</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="mi">0</span>
+                <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        
+        <span class="c1"># Fall back to regular delete query</span>
+        <span class="n">delete_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;DELETE FROM </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_parts</span><span class="p">:</span>
+            <span class="n">conditions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_conditions</span><span class="p">()</span>
+            <span class="n">delete_query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; WHERE </span><span class="si">{</span><span class="s1">&#39; AND &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conditions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">delete_query</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.delete_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.delete_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">delete_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Delete documents matching the query synchronously with performance optimizations.</span>
+
+<span class="sd">        This method deletes documents matching the query.</span>
+<span class="sd">        Uses direct record access for bulk ID operations for better performance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Number of deleted documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># PERFORMANCE OPTIMIZATION: Use direct record access for bulk operations</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bulk_id_selection</span><span class="p">:</span>
+            <span class="c1"># Use direct record deletion syntax for bulk ID operations</span>
+            <span class="n">record_ids</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_format_record_id</span><span class="p">(</span><span class="n">id_val</span><span class="p">)</span> <span class="k">for</span> <span class="n">id_val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bulk_id_selection</span><span class="p">]</span>
+            <span class="n">delete_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;DELETE </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">record_ids</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">delete_query</span><span class="p">)</span>
+            <span class="c1"># Direct record deletion returns empty list on success</span>
+            <span class="c1"># Return the count of IDs we attempted to delete</span>
+            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">record_ids</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id_range_selection</span><span class="p">:</span>
+            <span class="c1"># For range operations, use optimized query with subquery</span>
+            <span class="n">optimized_query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_direct_record_query</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">optimized_query</span><span class="p">:</span>
+                <span class="c1"># Convert SELECT to subquery for DELETE</span>
+                <span class="n">subquery</span> <span class="o">=</span> <span class="n">optimized_query</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;SELECT *&quot;</span><span class="p">,</span> <span class="s2">&quot;SELECT id&quot;</span><span class="p">)</span>
+                <span class="n">delete_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;DELETE (</span><span class="si">{</span><span class="n">subquery</span><span class="si">}</span><span class="s2">)&quot;</span>
+                
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">delete_query</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="mi">0</span>
+                <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        
+        <span class="c1"># Fall back to regular delete query</span>
+        <span class="n">delete_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;DELETE FROM </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_parts</span><span class="p">:</span>
+            <span class="n">conditions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_conditions</span><span class="p">()</span>
+            <span class="n">delete_query</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; WHERE </span><span class="si">{</span><span class="s1">&#39; AND &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">conditions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">delete_query</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.bulk_create">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.bulk_create">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">bulk_create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">documents</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+                      <span class="n">validate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">return_documents</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create multiple documents in a single operation asynchronously.</span>
+
+<span class="sd">        This method creates multiple documents in a single operation, processing</span>
+<span class="sd">        them in batches for better performance. It can optionally validate the</span>
+<span class="sd">        documents and return the created documents.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            documents: List of Document instances to create</span>
+<span class="sd">            batch_size: Number of documents per batch (default: 1000)</span>
+<span class="sd">            validate: Whether to validate documents (default: True)</span>
+<span class="sd">            return_documents: Whether to return created documents (default: True)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of created documents with their IDs set if return_documents=True,</span>
+<span class="sd">            otherwise returns the count of created documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">documents</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">return_documents</span> <span class="k">else</span> <span class="mi">0</span>
+
+        <span class="n">collection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+        <span class="n">total_created</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">created_docs</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">return_documents</span> <span class="k">else</span> <span class="kc">None</span>
+
+        <span class="c1"># Process in batches</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">documents</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">):</span>
+            <span class="n">batch</span> <span class="o">=</span> <span class="n">documents</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+
+            <span class="c1"># Validate batch if required</span>
+            <span class="k">if</span> <span class="n">validate</span><span class="p">:</span>
+                <span class="c1"># Sequential validation since validate() is synchronous</span>
+                <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">:</span>
+                    <span class="n">doc</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+
+            <span class="c1"># Separate documents with and without explicit IDs</span>
+            <span class="n">docs_without_ids</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">docs_with_ids</span> <span class="o">=</span> <span class="p">[]</span>
+            
+            <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">doc</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+                    <span class="n">docs_with_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">docs_without_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+            
+            <span class="c1"># Handle documents without IDs using bulk INSERT</span>
+            <span class="k">if</span> <span class="n">docs_without_ids</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="o">.</span><span class="n">to_db</span><span class="p">()</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs_without_ids</span><span class="p">]</span>
+                <span class="kn">from</span><span class="w"> </span><span class="nn">..document</span><span class="w"> </span><span class="kn">import</span> <span class="n">serialize_http_safe</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">serialize_http_safe</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+                <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;INSERT INTO </span><span class="si">{</span><span class="n">collection</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">;&quot;</span>
+                
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">return_documents</span> <span class="ow">and</span> <span class="n">result</span> <span class="ow">and</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                        <span class="n">batch_docs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">doc_data</span><span class="p">)</span>
+                                      <span class="k">for</span> <span class="n">doc_data</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+                        <span class="n">created_docs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">batch_docs</span><span class="p">)</span>
+                        <span class="n">total_created</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">batch_docs</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">result</span> <span class="ow">and</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                        <span class="n">total_created</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in bulk create batch (no IDs): </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="c1"># Handle documents with explicit IDs using individual upserts</span>
+            <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs_with_ids</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">to_db</span><span class="p">()</span>
+                    <span class="c1"># Remove ID from data and extract ID part</span>
+                    <span class="k">if</span> <span class="s1">&#39;id&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                        <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+                        <span class="n">id_part</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+                        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">upsert</span><span class="p">(</span>
+                            <span class="n">RecordID</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">id_part</span><span class="p">)</span> <span class="k">if</span> <span class="n">id_part</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">else</span> <span class="n">id_part</span><span class="p">),</span>
+                            <span class="n">data</span>
+                        <span class="p">)</span>
+                        
+                        <span class="k">if</span> <span class="n">return_documents</span> <span class="ow">and</span> <span class="n">result</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">result</span><span class="p">:</span>
+                                <span class="n">doc_data</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">doc_data</span> <span class="o">=</span> <span class="n">result</span>
+                            
+                            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">doc_data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                                <span class="k">if</span> <span class="n">created_docs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                                    <span class="n">created_docs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">doc_data</span><span class="p">))</span>
+                        
+                        <span class="n">total_created</span> <span class="o">+=</span> <span class="mi">1</span>
+                        
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error creating document with ID </span><span class="si">{</span><span class="n">doc</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">continue</span>
+
+        <span class="k">return</span> <span class="n">created_docs</span> <span class="k">if</span> <span class="n">return_documents</span> <span class="k">else</span> <span class="n">total_created</span></div>
+
+
+<div class="viewcode-block" id="QuerySet.bulk_create_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.bulk_create_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bulk_create_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">documents</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+                      <span class="n">validate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">return_documents</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create multiple documents in a single operation synchronously.</span>
+
+<span class="sd">        This method creates multiple documents in a single operation, processing</span>
+<span class="sd">        them in batches for better performance. It can optionally validate the</span>
+<span class="sd">        documents and return the created documents.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            documents: List of Document instances to create</span>
+<span class="sd">            batch_size: Number of documents per batch (default: 1000)</span>
+<span class="sd">            validate: Whether to validate documents (default: True)</span>
+<span class="sd">            return_documents: Whether to return created documents (default: True)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of created documents with their IDs set if return_documents=True,</span>
+<span class="sd">            otherwise returns the count of created documents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">documents</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">return_documents</span> <span class="k">else</span> <span class="mi">0</span>
+
+        <span class="n">collection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+        <span class="n">total_created</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">created_docs</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">return_documents</span> <span class="k">else</span> <span class="kc">None</span>
+
+        <span class="c1"># Process in batches</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">documents</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">):</span>
+            <span class="n">batch</span> <span class="o">=</span> <span class="n">documents</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+
+            <span class="c1"># Validate batch if required</span>
+            <span class="k">if</span> <span class="n">validate</span><span class="p">:</span>
+                <span class="c1"># Sequential validation for sync version</span>
+                <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">:</span>
+                    <span class="n">doc</span><span class="o">.</span><span class="n">validate</span><span class="p">()</span>
+
+            <span class="c1"># Convert batch to DB representation</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="o">.</span><span class="n">to_db</span><span class="p">()</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">]</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">..document</span><span class="w"> </span><span class="kn">import</span> <span class="n">serialize_http_safe</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">serialize_http_safe</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+
+            <span class="c1"># Construct optimized bulk insert query</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;INSERT INTO </span><span class="si">{</span><span class="n">collection</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">;&quot;</span>
+
+            <span class="c1"># Execute batch insert</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">return_documents</span> <span class="ow">and</span> <span class="n">result</span> <span class="ow">and</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="c1"># Process results if needed</span>
+                    <span class="n">batch_docs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">from_db</span><span class="p">(</span><span class="n">doc_data</span><span class="p">)</span>
+                                  <span class="k">for</span> <span class="n">doc_data</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+                    <span class="n">created_docs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">batch_docs</span><span class="p">)</span>
+                    <span class="n">total_created</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">batch_docs</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">result</span> <span class="ow">and</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="n">total_created</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="c1"># Log error and continue with next batch</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in bulk create batch: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+
+        <span class="k">return</span> <span class="n">created_docs</span> <span class="k">if</span> <span class="n">return_documents</span> <span class="k">else</span> <span class="n">total_created</span></div>
+
+
+    
+<div class="viewcode-block" id="QuerySet.explain">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.explain">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">explain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get query execution plan for performance analysis.</span>
+<span class="sd">        </span>
+<span class="sd">        This method appends EXPLAIN to the query to show how SurrealDB</span>
+<span class="sd">        will execute it, helping identify performance bottlenecks.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            full: Whether to include full explanation including execution trace (default: False)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of execution plan steps with details</span>
+<span class="sd">            </span>
+<span class="sd">        Example:</span>
+<span class="sd">            plan = await User.objects.filter(age__lt=18).explain()</span>
+<span class="sd">            print(f&quot;Query will use: {plan[0][&#39;operation&#39;]}&quot;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># If with_explain() was called, explain_value might be set.</span>
+        <span class="c1"># But we override duplicates anyway.</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_query</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s2">&quot;EXPLAIN&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">query</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">+=</span> <span class="s2">&quot; EXPLAIN FULL&quot;</span> <span class="k">if</span> <span class="n">full</span> <span class="k">else</span> <span class="s2">&quot; EXPLAIN&quot;</span>
+        <span class="k">elif</span> <span class="n">full</span> <span class="ow">and</span> <span class="s2">&quot;EXPLAIN FULL&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">query</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;EXPLAIN&quot;</span><span class="p">,</span> <span class="s2">&quot;EXPLAIN FULL&quot;</span><span class="p">)</span>
+             
+        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">result</span> <span class="ow">and</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">else</span> <span class="p">[]</span></div>
+
+    
+    
+
+    
+<div class="viewcode-block" id="QuerySet.explain_sync">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.explain_sync">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">explain_sync</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get query execution plan for performance analysis synchronously.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            full: Whether to include full explanation including execution trace (default: False)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of execution plan steps with details</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_query</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s2">&quot;EXPLAIN&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">query</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">+=</span> <span class="s2">&quot; EXPLAIN FULL&quot;</span> <span class="k">if</span> <span class="n">full</span> <span class="k">else</span> <span class="s2">&quot; EXPLAIN&quot;</span>
+        <span class="k">elif</span> <span class="n">full</span> <span class="ow">and</span> <span class="s2">&quot;EXPLAIN FULL&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">query</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;EXPLAIN&quot;</span><span class="p">,</span> <span class="s2">&quot;EXPLAIN FULL&quot;</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">result</span> <span class="ow">and</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">else</span> <span class="p">[]</span></div>
+
+    
+<div class="viewcode-block" id="QuerySet.suggest_indexes">
+<a class="viewcode-back" href="../../../api/query.html#surrealengine.query.base.QuerySet.suggest_indexes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">suggest_indexes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Suggest indexes based on current query patterns.</span>
+<span class="sd">        </span>
+<span class="sd">        Analyzes the current query conditions and suggests optimal</span>
+<span class="sd">        indexes that could improve performance.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            List of suggested DEFINE INDEX statements</span>
+<span class="sd">            </span>
+<span class="sd">        Example::</span>
+
+<span class="sd">            suggestions = User.objects.filter(age__lt=18, city=&quot;NYC&quot;).suggest_indexes()</span>
+<span class="sd">            for suggestion in suggestions:</span>
+<span class="sd">                print(f&quot;Consider: {suggestion}&quot;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">suggestions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">collection_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+        
+        <span class="c1"># Analyze filter conditions</span>
+        <span class="n">analyzed_fields</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_parts</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">field</span> <span class="o">!=</span> <span class="s1">&#39;id&#39;</span> <span class="ow">and</span> <span class="n">field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">analyzed_fields</span><span class="p">:</span>  <span class="c1"># ID doesn&#39;t need indexing</span>
+                <span class="n">analyzed_fields</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">op</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;!=&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;=&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;=&#39;</span><span class="p">,</span> <span class="s1">&#39;INSIDE&#39;</span><span class="p">,</span> <span class="s1">&#39;NOT INSIDE&#39;</span><span class="p">):</span>
+                    <span class="n">suggestions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;DEFINE INDEX idx_</span><span class="si">{</span><span class="n">collection_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2"> ON </span><span class="si">{</span><span class="n">collection_name</span><span class="si">}</span><span class="s2"> FIELDS </span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+        
+        <span class="c1"># Suggest compound indexes for multiple conditions</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">analyzed_fields</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">field_list</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">analyzed_fields</span><span class="p">))</span>
+            <span class="n">suggestions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;DEFINE INDEX idx_</span><span class="si">{</span><span class="n">collection_name</span><span class="si">}</span><span class="s2">_compound ON </span><span class="si">{</span><span class="n">collection_name</span><span class="si">}</span><span class="s2"> FIELDS </span><span class="si">{</span><span class="n">field_list</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        
+        <span class="c1"># Suggest order by indexes</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">order_by_value</span><span class="p">:</span>
+            <span class="n">order_field</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">order_by_value</span>
+            <span class="k">if</span> <span class="n">order_field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">analyzed_fields</span><span class="p">:</span>
+                <span class="n">suggestions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;DEFINE INDEX idx_</span><span class="si">{</span><span class="n">collection_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">order_field</span><span class="si">}</span><span class="s2"> ON </span><span class="si">{</span><span class="n">collection_name</span><span class="si">}</span><span class="s2"> FIELDS </span><span class="si">{</span><span class="n">order_field</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+        
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">suggestions</span><span class="p">))</span>  <span class="c1"># Remove duplicates</span></div>
+</div>
+
+</pre></div>
+</main>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../../_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="../../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>

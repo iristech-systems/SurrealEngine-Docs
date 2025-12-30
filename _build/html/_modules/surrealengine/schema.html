@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-content_root="../../">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>surrealengine.schema &mdash; SurrealEngine Documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/dist/theme.css?v=310cf088" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b3bfdae7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b3bfdae7" />
+            <link rel="index" title="Index" href="../../genindex.html" />
+            <link rel="search" title="Search" href="../../search.html" />
+            <link rel="top" title="SurrealEngine Documentation" href="#" />
+            <link rel="up" title="Module code" href="../index.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="../../_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="../../search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorial: Building a Blog Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../connection_management.html">Connection Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../connections_observability.html">Connections, Pooling, and Observability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../document_models.html">Document Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../field_types.html">Field Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../querying.html">Querying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../relationships.html">Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schema_management.html">Schema Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../signals.html">Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materialized_views.html">Materialized Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../live.html">LIVE Queries (Subscriptions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance.html">Performance Optimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/connection.html">Connection API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/document.html">Document API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/fields.html">Field Types API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/query.html">Query Building and Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/schema.html">Schema API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/signals.html">Signals API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/materialized_view.html">Materialized Views API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/aggregation.html">Aggregation Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/utilities.html">Utilities API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/basic_usage.html">basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/async_operations.html">async operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/relationships.html">relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/advanced_queries.html">advanced queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/schema_migrations.html">schema migrations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="../../index.html">Docs</a></li>
+            <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+        <li class="breadcrumb-item active" aria-current="page">surrealengine.schema</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/iristech-systems/surrealengine_modules/surrealengine/schema" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <h1>Source code for surrealengine.schema</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Schema management utilities for SurrealEngine.</span>
+
+<span class="sd">This module provides utilities for discovering document classes, generating</span>
+<span class="sd">schema statements, and creating database tables from Python modules. It supports</span>
+<span class="sd">both synchronous and asynchronous operations for schema management.</span>
+
+<span class="sd">Functions:</span>
+<span class="sd">    get_document_classes: Discover document classes in a module</span>
+<span class="sd">    create_tables_from_module: Create database tables from document classes</span>
+<span class="sd">    generate_schema_statements: Generate SQL schema statements</span>
+<span class="sd">    generate_schema_statements_from_module: Generate schema from a module</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Set</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.document</span><span class="w"> </span><span class="kn">import</span> <span class="n">Document</span>
+
+
+<div class="viewcode-block" id="get_document_classes">
+<a class="viewcode-back" href="../../api/schema.html#surrealengine.schema.get_document_classes">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_document_classes</span><span class="p">(</span><span class="n">module_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">Document</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get all Document classes defined in a module.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        module_name: The name of the module to search</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A list of Document classes defined in the module</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+    <span class="n">document_classes</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmembers</span><span class="p">(</span><span class="n">module</span><span class="p">):</span>
+        <span class="c1"># Check if it&#39;s a class and a subclass of Document (but not Document itself)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="ow">and</span> 
+            <span class="nb">issubclass</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Document</span><span class="p">)</span> <span class="ow">and</span> 
+            <span class="n">obj</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">==</span> <span class="n">module_name</span> <span class="ow">and</span>
+            <span class="n">obj</span> <span class="o">!=</span> <span class="n">Document</span><span class="p">):</span>
+            <span class="n">document_classes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">document_classes</span></div>
+
+
+
+<div class="viewcode-block" id="create_tables_from_module">
+<a class="viewcode-back" href="../../api/schema.html#surrealengine.schema.create_tables_from_module">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">create_tables_from_module</span><span class="p">(</span><span class="n">module_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">connection</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+                                   <span class="n">schemafull</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create tables for all Document classes in a module asynchronously.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        module_name: The name of the module containing Document classes</span>
+<span class="sd">        connection: Optional connection to use</span>
+<span class="sd">        schemafull: Whether to create SCHEMAFULL tables (default: True)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">document_classes</span> <span class="o">=</span> <span class="n">get_document_classes</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">doc_class</span> <span class="ow">in</span> <span class="n">document_classes</span><span class="p">:</span>
+        <span class="k">await</span> <span class="n">doc_class</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="n">connection</span><span class="o">=</span><span class="n">connection</span><span class="p">,</span> <span class="n">schemafull</span><span class="o">=</span><span class="n">schemafull</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="create_tables_from_module_sync">
+<a class="viewcode-back" href="../../api/schema.html#surrealengine.schema.create_tables_from_module_sync">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_tables_from_module_sync</span><span class="p">(</span><span class="n">module_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">connection</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                  <span class="n">schemafull</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create tables for all Document classes in a module synchronously.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        module_name: The name of the module containing Document classes</span>
+<span class="sd">        connection: Optional connection to use</span>
+<span class="sd">        schemafull: Whether to create SCHEMAFULL tables (default: True)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">document_classes</span> <span class="o">=</span> <span class="n">get_document_classes</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">doc_class</span> <span class="ow">in</span> <span class="n">document_classes</span><span class="p">:</span>
+        <span class="n">doc_class</span><span class="o">.</span><span class="n">create_table_sync</span><span class="p">(</span><span class="n">connection</span><span class="o">=</span><span class="n">connection</span><span class="p">,</span> <span class="n">schemafull</span><span class="o">=</span><span class="n">schemafull</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="generate_schema_statements">
+<a class="viewcode-back" href="../../api/schema.html#surrealengine.schema.generate_schema_statements">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_schema_statements</span><span class="p">(</span><span class="n">document_class</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Document</span><span class="p">],</span> <span class="n">schemafull</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate SurrealDB schema statements for a Document class.</span>
+
+<span class="sd">    This function generates DEFINE TABLE and DEFINE FIELD statements for a Document class</span>
+<span class="sd">    without executing them. This is useful for generating schema migration scripts.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        document_class: The Document class to generate statements for</span>
+<span class="sd">        schemafull: Whether to generate SCHEMAFULL tables (default: True)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A list of SurrealDB schema statements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">statements</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">collection_name</span> <span class="o">=</span> <span class="n">document_class</span><span class="o">.</span><span class="n">_get_collection_name</span><span class="p">()</span>
+
+    <span class="c1"># Generate DEFINE TABLE statement</span>
+    <span class="n">schema_type</span> <span class="o">=</span> <span class="s2">&quot;SCHEMAFULL&quot;</span> <span class="k">if</span> <span class="n">schemafull</span> <span class="k">else</span> <span class="s2">&quot;SCHEMALESS&quot;</span>
+    <span class="n">table_stmt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;DEFINE TABLE </span><span class="si">{</span><span class="n">collection_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">schema_type</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="c1"># Add comment if available</span>
+    <span class="k">if</span> <span class="n">document_class</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">:</span>
+        <span class="c1"># Clean up docstring and escape single quotes</span>
+        <span class="n">doc</span> <span class="o">=</span> <span class="n">document_class</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;&#39;&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">doc</span><span class="p">:</span>
+            <span class="n">table_stmt</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; COMMENT &#39;</span><span class="si">{</span><span class="n">doc</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+
+    <span class="n">statements</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table_stmt</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Generate DEFINE FIELD statements if schemafull or if field is marked with define_schema=True</span>
+    <span class="k">for</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">document_class</span><span class="o">.</span><span class="n">_fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="c1"># Skip id field as it&#39;s handled by SurrealDB</span>
+        <span class="k">if</span> <span class="n">field_name</span> <span class="o">==</span> <span class="n">document_class</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id_field&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Only define fields if schemafull or if field is explicitly marked for schema definition</span>
+        <span class="k">if</span> <span class="n">schemafull</span> <span class="ow">or</span> <span class="n">field</span><span class="o">.</span><span class="n">define_schema</span><span class="p">:</span>
+            <span class="n">field_type</span> <span class="o">=</span> <span class="n">document_class</span><span class="o">.</span><span class="n">_get_field_type_for_surreal</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+            <span class="n">field_stmt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;DEFINE FIELD </span><span class="si">{</span><span class="n">field</span><span class="o">.</span><span class="n">db_field</span><span class="si">}</span><span class="s2"> ON </span><span class="si">{</span><span class="n">collection_name</span><span class="si">}</span><span class="s2"> TYPE </span><span class="si">{</span><span class="n">field_type</span><span class="si">}</span><span class="s2">&quot;</span>
+
+            <span class="c1"># Build constraints</span>
+            <span class="n">exprs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">required</span><span class="p">:</span>
+                <span class="n">exprs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;$value != NONE&quot;</span><span class="p">)</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="kn">from</span><span class="w"> </span><span class="nn">.fields.scalar</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringField</span><span class="p">,</span> <span class="n">NumberField</span>
+                <span class="kn">from</span><span class="w"> </span><span class="nn">.fields.specialized</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChoiceField</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="n">StringField</span> <span class="o">=</span> <span class="n">NumberField</span> <span class="o">=</span> <span class="n">ChoiceField</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: ignore</span>
+
+            <span class="k">if</span> <span class="n">StringField</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">StringField</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;min_length&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">exprs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;string::len($value) &gt;= </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">min_length</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;max_length&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">exprs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;string::len($value) &lt;= </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">max_length</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;regex_pattern&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                    <span class="kn">from</span><span class="w"> </span><span class="nn">.surrealql</span><span class="w"> </span><span class="kn">import</span> <span class="n">escape_literal</span>
+                    <span class="n">pat</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">regex_pattern</span>
+                    <span class="n">exprs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;string::matches($value, </span><span class="si">{</span><span class="n">escape_literal</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;choices&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                    <span class="n">vals</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">field</span><span class="o">.</span><span class="n">choices</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                            <span class="n">s</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\&quot;&#39;</span><span class="p">)</span>
+                            <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+                    <span class="n">exprs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;$value INSIDE [</span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">NumberField</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">NumberField</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;min_value&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">exprs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;$value &gt;= </span><span class="si">{</span><span class="n">field</span><span class="o">.</span><span class="n">min_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;max_value&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">exprs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;$value &lt;= </span><span class="si">{</span><span class="n">field</span><span class="o">.</span><span class="n">max_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">ChoiceField</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">ChoiceField</span><span class="p">):</span>
+                <span class="n">vals</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">field</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                        <span class="n">s</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\&quot;&#39;</span><span class="p">)</span>
+                        <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+                <span class="n">exprs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;$value INSIDE [</span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">exprs</span><span class="p">:</span>
+                <span class="n">field_stmt</span> <span class="o">+=</span> <span class="s2">&quot; ASSERT &quot;</span> <span class="o">+</span> <span class="s2">&quot; AND &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">exprs</span><span class="p">)</span>
+
+            <span class="c1"># Default</span>
+            <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">default</span><span class="p">):</span>
+                <span class="k">def</span><span class="w"> </span><span class="nf">_literal</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                        <span class="n">s</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\&quot;&#39;</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">&quot;&#39;</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+                        <span class="k">return</span> <span class="s1">&#39;true&#39;</span> <span class="k">if</span> <span class="n">val</span> <span class="k">else</span> <span class="s1">&#39;false&#39;</span>
+                    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+                <span class="n">field_stmt</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; VALUE </span><span class="si">{</span><span class="n">_literal</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">default</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+            <span class="c1"># Field comment</span>
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="s1">&#39;comment&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">comment</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\&quot;&#39;</span><span class="p">)</span>
+                <span class="n">field_stmt</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; COMMENT </span><span class="se">\&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+
+            <span class="n">statements</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">field_stmt</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">statements</span></div>
+
+
+
+<div class="viewcode-block" id="generate_schema_statements_from_module">
+<a class="viewcode-back" href="../../api/schema.html#surrealengine.schema.generate_schema_statements_from_module">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_schema_statements_from_module</span><span class="p">(</span><span class="n">module_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">schemafull</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate SurrealDB schema statements for all Document classes in a module.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        module_name: The name of the module containing Document classes</span>
+<span class="sd">        schemafull: Whether to generate SCHEMAFULL tables (default: True)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dictionary mapping class names to lists of SurrealDB schema statements</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">document_classes</span> <span class="o">=</span> <span class="n">get_document_classes</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+    <span class="n">schema_statements</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">doc_class</span> <span class="ow">in</span> <span class="n">document_classes</span><span class="p">:</span>
+        <span class="n">class_name</span> <span class="o">=</span> <span class="n">doc_class</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="n">statements</span> <span class="o">=</span> <span class="n">generate_schema_statements</span><span class="p">(</span><span class="n">doc_class</span><span class="p">,</span> <span class="n">schemafull</span><span class="o">=</span><span class="n">schemafull</span><span class="p">)</span>
+        <span class="n">schema_statements</span><span class="p">[</span><span class="n">class_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">statements</span>
+
+    <span class="k">return</span> <span class="n">schema_statements</span></div>
+
+</pre></div>
+</main>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                    &copy; Copyright 2025, SurrealEngine Contributors
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="../../_static/documentation_options.js?v=b9afe91b"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=30646c52"></script>
+        <script type="text/javascript" src="../../_static/dist/theme.js"></script>
+        <script type="text/javascript" src="../../_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="../../_static/searchtools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("../../searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>
